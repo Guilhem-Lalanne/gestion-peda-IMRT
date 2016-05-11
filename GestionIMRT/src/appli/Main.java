@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+package appli;
+
 /**
  *
  * @author p1313137
