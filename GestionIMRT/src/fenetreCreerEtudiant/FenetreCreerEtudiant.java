@@ -1,20 +1,22 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package vue;
 
 /**
  *
  * @author paul
  */
-public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
+public class FenetreCreerEtudiant extends javax.swing.JFrame {
 
     /**
      * Creates new form FenetreModifSuprEtudiant
      */
-    public FenetreModifSuprEtudiant() {
+    public FenetreCreerEtudiant() {
         initComponents();
     }
 
@@ -27,53 +29,38 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jBEnregistrer = new javax.swing.JButton();
-        jLNumFixe = new javax.swing.JLabel();
-        jBAnnuler = new javax.swing.JButton();
-        jTNumFixe = new javax.swing.JTextField();
         jLTitre = new javax.swing.JLabel();
-        jLNumMobile = new javax.swing.JLabel();
         jLNom = new javax.swing.JLabel();
-        jTumMobil = new javax.swing.JTextField();
         jTNom = new javax.swing.JTextField();
-        jLAdresseMail = new javax.swing.JLabel();
         jLPrenom = new javax.swing.JLabel();
-        jTAdresseMail = new javax.swing.JTextField();
         jTPrenom = new javax.swing.JTextField();
-        jLlasse = new javax.swing.JLabel();
         jLDateNaissance = new javax.swing.JLabel();
-        jCClasse = new javax.swing.JComboBox<>();
         jTDateNaissance = new javax.swing.JTextField();
-        jLGroupe = new javax.swing.JLabel();
         jLAdresse = new javax.swing.JLabel();
-        jCbGroupe = new javax.swing.JComboBox<>();
         jTAdresse = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jLNumFixe = new javax.swing.JLabel();
+        jTNumFixe = new javax.swing.JTextField();
+        jLNumMobile = new javax.swing.JLabel();
+        jTumMobil = new javax.swing.JTextField();
+        jLAdresseMail = new javax.swing.JLabel();
+        jTAdresseMail = new javax.swing.JTextField();
+        jLlasse = new javax.swing.JLabel();
+        jCClasse = new javax.swing.JComboBox<>();
+        jLGroupe = new javax.swing.JLabel();
+        jCbGroupe = new javax.swing.JComboBox<>();
+        jBEnregistrer = new javax.swing.JButton();
+        jBAnnuler = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jBEnregistrer.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jBEnregistrer.setText("enregistrer");
-
-        jLNumFixe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLNumFixe.setText("Numeros de telephone fixe");
-
-        jBAnnuler.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jBAnnuler.setText("Annuller");
+        setTitle("creation/supretion d'un étudiant");
 
         jLTitre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLTitre.setText("           suprimer ou modifier un étudiant");
-
-        jLNumMobile.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLNumMobile.setText("Numeros de telephone mobile");
+        jLTitre.setText("                       Creation d'un étudiant");
 
         jLNom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLNom.setText("nom");
 
         jTNom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLAdresseMail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLAdresseMail.setText("Adresse mail");
 
         jLPrenom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLPrenom.setText("Prénom");
@@ -85,23 +72,13 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
             }
         });
 
-        jLlasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLlasse.setText("Classse");
-
         jLDateNaissance.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLDateNaissance.setText("date de naissance");
 
-        jCClasse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jTDateNaissance.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        jLGroupe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLGroupe.setText("Groupe");
 
         jLAdresse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLAdresse.setText("adresse");
-
-        jCbGroupe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jTAdresse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,8 +86,30 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Suprimer");
+        jLNumFixe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLNumFixe.setText("Numeros de telephone fixe");
+
+        jLNumMobile.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLNumMobile.setText("Numeros de telephone mobile");
+
+        jLAdresseMail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLAdresseMail.setText("Adresse mail");
+
+        jLlasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLlasse.setText("Classse");
+
+        jCClasse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLGroupe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLGroupe.setText("Groupe");
+
+        jCbGroupe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jBEnregistrer.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBEnregistrer.setText("enregistrer");
+
+        jBAnnuler.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBAnnuler.setText("Annuller");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,55 +134,51 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                                 .addComponent(jLDateNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
                                 .addComponent(jTDateNaissance))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jTAdresse)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLNumFixe, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jTNumFixe))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(jTAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLlasse, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(30, 30, 30))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jBEnregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(215, 215, 215)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jCClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(jLGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(169, 169, 169))
+                                .addComponent(jLNumFixe, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(jTNumFixe))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jBEnregistrer, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                    .addComponent(jTAdresseMail))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                                .addComponent(jLlasse, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLNumMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTumMobil)
+                                    .addComponent(jCbGroupe, 0, 143, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jCClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jBAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTumMobil)
-                                        .addComponent(jCbGroupe, 0, 143, Short.MAX_VALUE)))))))
+                                    .addComponent(jLGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jBAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(140, 140, 140)))))
                 .addGap(50, 50, 50))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(181, 181, 181)
+                .addComponent(jLTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(24, 24, 24)
                 .addComponent(jLTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTNom)
+                        .addComponent(jTNom, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                         .addComponent(jLPrenom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLDateNaissance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTDateNaissance)
@@ -210,8 +205,7 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                 .addGap(88, 88, 88)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBEnregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
@@ -226,10 +220,47 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTAdresseActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FenetreCreerEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FenetreCreerEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FenetreCreerEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FenetreCreerEtudiant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FenetreCreerEtudiant().setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAnnuler;
     private javax.swing.JButton jBEnregistrer;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jCClasse;
     private javax.swing.JComboBox<String> jCbGroupe;
     private javax.swing.JLabel jLAdresse;

@@ -6,6 +6,8 @@
 
 package appli;
 
+import vue.FenetreLogin;
+
 /**
  *
  * @author p1313137
@@ -16,13 +18,13 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         
-        //juste un test
+        //je lance le fenetre principale
         
-        //un autre test
+        FenetreLogin fl = new FenetreLogin();
         
-        //test Paul
+        fl.setVisible(true);
+
         
     }
     
