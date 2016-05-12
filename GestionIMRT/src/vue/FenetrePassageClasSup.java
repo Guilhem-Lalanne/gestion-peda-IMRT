@@ -32,6 +32,9 @@ public class FenetrePassageClasSup extends javax.swing.JFrame {
         jCChoixPasClasSup = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTListeEtudPasClasSup = new javax.swing.JTable();
+        jBValiderPasClasSup = new javax.swing.JButton();
+        jBAnulPasClasSup = new javax.swing.JButton();
+        jBRetourPasClasSup = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,7 +54,7 @@ public class FenetrePassageClasSup extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Nom", "Prenom", "Passage", "Redoblement"
+                "Nom", "Prenom", "Passage", "redoublement"
             }
         ) {
             Class[] types = new Class [] {
@@ -64,6 +67,15 @@ public class FenetrePassageClasSup extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTListeEtudPasClasSup);
 
+        jBValiderPasClasSup.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBValiderPasClasSup.setText("Valider");
+
+        jBAnulPasClasSup.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBAnulPasClasSup.setText("annuler");
+
+        jBRetourPasClasSup.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBRetourPasClasSup.setText("retour ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -71,16 +83,22 @@ public class FenetrePassageClasSup extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jCChoixPasClasSup, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(166, 166, 166)
                         .addComponent(jLTitrePassgeSup, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(85, 85, 85)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(63, 63, 63)
+                                .addComponent(jCChoixPasClasSup, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBValiderPasClasSup, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(65, 65, 65)
+                                .addComponent(jBAnulPasClasSup, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBRetourPasClasSup, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -94,7 +112,12 @@ public class FenetrePassageClasSup extends javax.swing.JFrame {
                     .addComponent(jCChoixPasClasSup, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addGap(126, 126, 126)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jBValiderPasClasSup, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                    .addComponent(jBRetourPasClasSup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBAnulPasClasSup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,6 +159,9 @@ public class FenetrePassageClasSup extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBAnulPasClasSup;
+    private javax.swing.JButton jBRetourPasClasSup;
+    private javax.swing.JButton jBValiderPasClasSup;
     private javax.swing.JComboBox<String> jCChoixPasClasSup;
     private javax.swing.JLabel jLTitrePassgeSup;
     private javax.swing.JLabel jLabel2;
