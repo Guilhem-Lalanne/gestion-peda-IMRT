@@ -2,3 +2,5 @@
 /GestionIMRT/nbproject
 /GestionIMRT/lib
 /GestionIMRT/lib/ojdbc7.jar
+/GestionIMRT/build/
+/GestionIMRT/src/dao/connexion.properties
