@@ -57,6 +57,13 @@ public class FenetreLogin extends javax.swing.JFrame {
         lbLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbLogin.setText(" Login");
 
+        login.setText("test");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
+
         lbMotDePasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbMotDePasse.setText(" Mot de passe");
 
@@ -81,6 +88,9 @@ public class FenetreLogin extends javax.swing.JFrame {
 
         lbEntete.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lbEntete.setText("      Gestion pédagogique de l'IMRT");
+
+        motDePasse.setText("test");
+        motDePasse.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,7 +152,7 @@ public class FenetreLogin extends javax.swing.JFrame {
             int login_res = SourceOracle.Login(this.cnx, login.getText(), motDePasse.getPassword());
             
             if (login_res == 0) {
-                JOptionPane.showMessageDialog(this, "Login ok");
+                //JOptionPane.showMessageDialog(this, "Login ok");
                 
                 //affichage fenetre principale
                 
@@ -162,6 +172,10 @@ public class FenetreLogin extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_validLoginActionPerformed
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton annulLogin;
