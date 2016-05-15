@@ -7,17 +7,27 @@
 package vue;
 
 import appli.tools;
+import dao.SourceOracle;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author paul
  */
 public class FenetreLogin extends javax.swing.JFrame {
+    
+    public static Connection cnx;
 
     /**
      * Creates new form NewJFrame
      */
-    public FenetreLogin() {
+    public FenetreLogin(Connection c) {
+        
+        this.cnx = c;
+        
         initComponents();
     }
 
@@ -33,11 +43,11 @@ public class FenetreLogin extends javax.swing.JFrame {
         lbLogin = new javax.swing.JLabel();
         login = new javax.swing.JTextField();
         lbMotDePasse = new javax.swing.JLabel();
-        motDePasse = new javax.swing.JTextField();
         validLogin = new javax.swing.JButton();
         oubliMotDePasse = new javax.swing.JButton();
         annulLogin = new javax.swing.JButton();
         lbEntete = new javax.swing.JLabel();
+        motDePasse = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestion pédagogique de l'IMRT");
@@ -90,7 +100,7 @@ public class FenetreLogin extends javax.swing.JFrame {
                                 .addGap(32, 32, 32)
                                 .addComponent(annulLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(login)
-                            .addComponent(motDePasse, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(motDePasse))))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -98,24 +108,20 @@ public class FenetreLogin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(lbEntete, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbMotDePasse, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(motDePasse, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(oubliMotDePasse, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(validLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(annulLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(73, 73, 73)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbMotDePasse, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(motDePasse))
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(oubliMotDePasse, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(validLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(annulLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -128,6 +134,13 @@ public class FenetreLogin extends javax.swing.JFrame {
 
     private void validLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validLoginActionPerformed
         tools.debug("tries to connect with login: "+login.getText()+" pass: "+motDePasse.getText());
+        
+        try {
+            SourceOracle.Login(this.cnx, login.getText(), motDePasse.getPassword());
+        } catch (SQLException ex) {
+            Logger.getLogger(FenetreLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_validLoginActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -136,7 +149,7 @@ public class FenetreLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lbLogin;
     private javax.swing.JLabel lbMotDePasse;
     private javax.swing.JTextField login;
-    private javax.swing.JTextField motDePasse;
+    private javax.swing.JPasswordField motDePasse;
     private javax.swing.JButton oubliMotDePasse;
     private javax.swing.JButton validLogin;
     // End of variables declaration//GEN-END:variables

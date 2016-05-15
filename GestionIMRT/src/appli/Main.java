@@ -6,6 +6,11 @@
 
 package appli;
 
+import dao.SourceOracle;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import vue.FenetreLogin;
 
 /**
@@ -13,17 +18,23 @@ import vue.FenetreLogin;
  * @author p1313137
  */
 public class Main {
+    
+    public static Connection cnx;
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, FileNotFoundException, SQLException {
         
         //je lance le fenetre principale
         
-        FenetreLogin fl = new FenetreLogin();
+        cnx = SourceOracle.getConnextion();
+        
+        FenetreLogin fl = new FenetreLogin(Main.cnx);
         
         fl.setVisible(true);
+        
+        
 
         
     }
