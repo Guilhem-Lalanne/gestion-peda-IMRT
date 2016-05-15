@@ -14,11 +14,12 @@ public class User {
     public String login;
     public String groupe;   //Mettre objet Groupe.java
     public String motDePasse;
-    public String fullname;
+    public String userNom;
 
-    public User(String userLogin, String userFullname) {
+    public User(String userLogin, String userFullname, String userGroupe) {
         this.login = userLogin;
-        this.fullname = userFullname;
+        this.userNom = userFullname;
+        this.groupe = userGroupe;
     }
     
     public String getLogin() {
@@ -34,7 +35,7 @@ public class User {
     }
 
     public String getFullname() {
-        return fullname;
+        return userNom;
     }
 
     public void setLogin(String login) {
@@ -50,7 +51,7 @@ public class User {
     }
 
     public void setFullname(String fullname) {
-        this.fullname = fullname;
+        this.userNom = fullname;
     }
     
     

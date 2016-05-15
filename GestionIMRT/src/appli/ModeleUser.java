@@ -21,7 +21,7 @@ import javax.swing.table.AbstractTableModel;
 public class ModeleUser extends AbstractTableModel {
 
     private List<User> leConteneur;
-    private String[] nomColonnes = {"login", "fullname"};
+    private String[] nomColonnes = {"login", "fullname","groupe"};
     private daoUser leDao;
 
     public ModeleUser(daoUser leDao) {
@@ -59,6 +59,8 @@ public class ModeleUser extends AbstractTableModel {
                 return u.getLogin();
             case 1:
                 return u.getFullname();
+            case 2:
+                return u.getGroupe();
         }
         return null;
     }
