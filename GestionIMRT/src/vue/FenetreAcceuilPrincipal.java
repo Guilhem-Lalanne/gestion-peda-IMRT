@@ -5,16 +5,23 @@
  */
 package vue;
 
+import java.sql.Connection;
+
 /**
  *
  * @author paul
  */
-public class FenetreAceuilPrincipal extends javax.swing.JFrame {
+public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
+    
+    Connection cnx;
 
     /**
      * Creates new form FenetreAceuilPrincipal
      */
-    public FenetreAceuilPrincipal() {
+    public FenetreAcceuilPrincipal(Connection cnx) {
+        
+        this.cnx = cnx;
+        
         initComponents();
     }
 
@@ -54,6 +61,11 @@ public class FenetreAceuilPrincipal extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Quitter");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,6 +103,10 @@ public class FenetreAceuilPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEmploisDuTemp;

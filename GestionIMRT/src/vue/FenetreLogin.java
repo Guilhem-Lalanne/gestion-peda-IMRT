@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.plaf.OptionPaneUI;
 
 /**
  *
@@ -133,13 +135,31 @@ public class FenetreLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_annulLoginActionPerformed
 
     private void validLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validLoginActionPerformed
-        tools.debug("tries to connect with login: "+login.getText()+" pass: "+motDePasse.getText());
+        
+        tools.debug("tries to connect with login: "+login.getText()+" pass: "+motDePasse.getPassword());
         
         try {
-            SourceOracle.Login(this.cnx, login.getText(), motDePasse.getPassword());
+            int login_res = SourceOracle.Login(this.cnx, login.getText(), motDePasse.getPassword());
+            
+            if (login_res == 0) {
+                JOptionPane.showMessageDialog(this, "Login ok");
+                
+                //affichage fenetre principale
+                
+                FenetreAcceuilPrincipal fp = new FenetreAcceuilPrincipal(this.cnx);
+                
+                this.dispose();
+                fp.setVisible(true);
+                
+            } else {
+                JOptionPane.showMessageDialog(this, "Login ko");
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(FenetreLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
         
     }//GEN-LAST:event_validLoginActionPerformed
 

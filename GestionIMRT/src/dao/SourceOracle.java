@@ -49,24 +49,27 @@ public class SourceOracle {
         return ods.getConnection();
     }
     
-    public static boolean Login(Connection cnx, String userLogin, char[] password) throws SQLException {
+    /**
+     * TODO: mettre ça dans 'daoUser.java'
+     * 
+     * @param cnx
+     * @param userLogin
+     * @param password
+     * @return
+     * @throws SQLException 
+     */
+    public static int Login(Connection cnx, String userLogin, char[] password) throws SQLException {
         
         CallableStatement cstmt = cnx.prepareCall ("{ ? = call GI_USER_SECURITY.valid_user (?, ?)}");
-        
-        tools.debug(userLogin + " " + password);
         
         cstmt.registerOutParameter (1, Types.INTEGER);
         cstmt.setString (2, userLogin);  
         cstmt.setString (3, String.valueOf(password)); 
-        
         cstmt.execute ();
         
         int result = cstmt.getInt(1);
-        
         tools.debug(result);
-
-        return false;
-        
+        return result;
     }
     
 }
