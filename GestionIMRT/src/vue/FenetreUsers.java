@@ -5,8 +5,11 @@
  */
 package vue;
 
+import appli.ModeleUser;
+import dao.daoUser;
 import java.sql.Connection;
 import javax.swing.JFrame;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -16,6 +19,8 @@ public class FenetreUsers extends javax.swing.JFrame {
     
     Connection cnx;
     JFrame parent;
+    private ModeleUser userModel;
+    private daoUser dao;
 
     /**
      * Creates new form FenetreUsers
@@ -24,6 +29,9 @@ public class FenetreUsers extends javax.swing.JFrame {
         
         this.cnx = cnx;
         this.parent = parent;
+        
+        dao = new daoUser(cnx);
+        userModel = new ModeleUser(dao);
         
         initComponents();
     }
@@ -46,17 +54,7 @@ public class FenetreUsers extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTable1.setModel(userModel);
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Ajouter");
