@@ -9,12 +9,12 @@ package vue;
  *
  * @author paul
  */
-public class GestionNote extends javax.swing.JFrame {
+public class FenetreGestionNote extends javax.swing.JFrame {
 
     /**
      * Creates new form GestionNote
      */
-    public GestionNote() {
+    public FenetreGestionNote() {
         initComponents();
     }
 
