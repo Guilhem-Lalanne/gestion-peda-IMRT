@@ -37,7 +37,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         lbEntete = new javax.swing.JLabel();
         btEmploisDuTemp = new javax.swing.JButton();
         btGestionEtudiant = new javax.swing.JButton();
-        jbGestionEnseignant = new javax.swing.JButton();
+        jBGestionEnseignant = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -54,8 +54,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btGestionEtudiant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btGestionEtudiant.setText("gestion des étudiants");
 
-        jbGestionEnseignant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jbGestionEnseignant.setText("Gestion des enseignants");
+        jBGestionEnseignant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBGestionEnseignant.setText("Gestion des enseignants");
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setText("Gestion des users");
@@ -86,7 +86,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbGestionEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBGestionEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btGestionEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(btEmploisDuTemp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -132,6 +132,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEmploisDuTemp;
     private javax.swing.JButton btGestionEtudiant;
+    private javax.swing.JButton jBGestionEnseignant;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
