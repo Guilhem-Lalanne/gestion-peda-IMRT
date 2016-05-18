@@ -6,8 +6,8 @@
 package metier;
 
 /**
- *
- * @author paul
+ *classe Enseignant herite de la classe personne
+ * 
  */
 public class Enseignant extends Personne{
     private String idEnseignat;
@@ -18,7 +18,24 @@ public class Enseignant extends Personne{
     private Boolean docAdmPhotoCarteSecu;
     private Boolean docAdmJustTrav;
     private Boolean docAdmRecepArreteNomin;
-
+ /**
+  * constructeur de la classe Enseignant
+  * 
+  * @param idDiscipline
+  * @param profession
+  * @param idEmployeur
+  * @param docAdmPhotoCarteNat
+  * @param docAdmPhotoCarteSecu
+  * @param docAdmJustTrav
+  * @param docAdmRecepArreteNomin
+  * @param nom
+  * @param prenom
+  * @param dateNaissance
+  * @param adresse
+  * @param numeroTelFixe
+  * @param numeroTelMobile
+  * @param mail 
+  */
     public Enseignant(String idDiscipline, String profession, String idEmployeur, Boolean docAdmPhotoCarteNat, Boolean docAdmPhotoCarteSecu, Boolean docAdmJustTrav, Boolean docAdmRecepArreteNomin, String nom, String prenom, String dateNaissance, String adresse, String numeroTelFixe, String numeroTelMobile, String mail) {
         super(nom, prenom, dateNaissance, adresse, numeroTelFixe, numeroTelMobile, mail);
         this.idDiscipline = idDiscipline;
