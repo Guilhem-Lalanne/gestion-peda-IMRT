@@ -51,5 +51,11 @@ public class Classe {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    @Override
+    public String toString() {
+        return "Classe{" + "idClasse=" + idClasse + ", IdPromotion=" 
+                + IdPromotion + ", code=" + code + ", nom=" + nom + '}';
+    }
     
 }

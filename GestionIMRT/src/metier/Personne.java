@@ -83,6 +83,14 @@ public class Personne {
     public void setMail(String mail) {
         this.mail = mail;
     }
+
+    @Override
+    public String toString() {
+        return "Personne{" + "nom=" + nom + ", prenom=" + prenom + ", "
+                + "dateNaissance=" + dateNaissance + ", adresse=" + adresse +
+                ", numeroTelFixe=" + numeroTelFixe + ", numeroTelMobile=" +
+                numeroTelMobile + ", mail=" + mail + '}';
+    }
     
     
     

@@ -54,5 +54,12 @@ public class Etudiant extends Personne {
     public void setIdClasse(String idClasse) {
         this.idClasse = idClasse;
     }
+
+    @Override
+    public String toString() {
+        return "Etudiant{" + "idEtudient=" + idEtudient + super.toString()+
+                ", idGroupe=" +
+                idGroupe + ", idClasse=" + idClasse + '}';
+    }
     
 }

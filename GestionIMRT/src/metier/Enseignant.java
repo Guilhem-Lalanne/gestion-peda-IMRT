@@ -110,5 +110,16 @@ public class Enseignant extends Personne{
     public void setDocAdmRecepArreteNomin(Boolean docAdmRecepArreteNomin) {
         this.docAdmRecepArreteNomin = docAdmRecepArreteNomin;
     }
+
+    @Override
+    public String toString() {
+        return "Enseignant{" + "idEnseignat=" + idEnseignat +
+                super.toString()+", idDiscipline=" + idDiscipline + 
+                ", profession=" + profession + ", idEmployeur=" + idEmployeur
+                + ", docAdmPhotoCarteNat=" + docAdmPhotoCarteNat +
+                ", docAdmPhotoCarteSecu=" + docAdmPhotoCarteSecu + 
+                ", docAdmJustTrav=" + docAdmJustTrav + ", docAdmRecepArrete"
+                + "Nomin=" + docAdmRecepArreteNomin + '}';
+    }
     
 }
