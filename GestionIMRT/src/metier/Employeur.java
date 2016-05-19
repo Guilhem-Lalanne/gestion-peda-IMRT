@@ -10,7 +10,7 @@ package metier;
  * @author paul
  */
 public class Employeur {
-    private String  idEmployeur;
+    private int idEmployeur;
      private String nomEmployeur;
       private String adresseEmployeur;
 
@@ -19,11 +19,11 @@ public class Employeur {
         this.adresseEmployeur = adresseEmployeur;
     }
 
-    public String getIdEmployeur() {
+    public int getIdEmployeur() {
         return idEmployeur;
     }
 
-    public void setIdEmployeur(String idEmployeur) {
+    public void setIdEmployeur(int idEmployeur) {
         this.idEmployeur = idEmployeur;
     }
 

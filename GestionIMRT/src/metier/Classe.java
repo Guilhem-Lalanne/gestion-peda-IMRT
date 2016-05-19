@@ -10,7 +10,7 @@ package metier;
  * @author paul
  */
 public class Classe {
-    private String idClasse;
+    private int idClasse;
     private String IdPromotion;
     private String code;
     private String nom;
@@ -20,11 +20,11 @@ public class Classe {
         this.nom = nom;
     }
 
-    public String getIdClasse() {
+    public int getIdClasse() {
         return idClasse;
     }
 
-    public void setIdClasse(String idClasse) {
+    public void setIdClasse(int idClasse) {
         this.idClasse = idClasse;
     }
 

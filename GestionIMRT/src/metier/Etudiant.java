@@ -10,50 +10,40 @@ package metier;
  * @author paul
  */
 public class Etudiant extends Personne {
-    private String idEtudient;
-    private String idGroupe;
-    private String idClasse;
-/**
- * construceur de la classe Etudiant
- * @param idGroupe
- * @param idClasse
- * @param nom
- * @param prenom
- * @param dateNaissance
- * @param adresse
- * @param numeroTelFixe
- * @param numeroTelMobile
- * @param mail 
- */
-    public Etudiant(String idGroupe, String idClasse, String nom, String prenom, String dateNaissance, String adresse, String numeroTelFixe, String numeroTelMobile, String mail) {
+    private int idEtudient;
+    private int idGroupe;
+    private int idClasse;
+
+    public Etudiant(int idGroupe, int idClasse, String nom, String prenom, String dateNaissance, String adresse, String numeroTelFixe, String numeroTelMobile, String mail) {
         super(nom, prenom, dateNaissance, adresse, numeroTelFixe, numeroTelMobile, mail);
         this.idGroupe = idGroupe;
         this.idClasse = idClasse;
     }
 
-    public String getIdEtudient() {
+    public int getIdEtudient() {
         return idEtudient;
     }
 
-    public void setIdEtudient(String idEtudient) {
+    public void setIdEtudient(int idEtudient) {
         this.idEtudient = idEtudient;
     }
 
-    public String getIdGroupe() {
+    public int getIdGroupe() {
         return idGroupe;
     }
 
-    public void setIdGroupe(String idGroupe) {
+    public void setIdGroupe(int idGroupe) {
         this.idGroupe = idGroupe;
     }
 
-    public String getIdClasse() {
+    public int getIdClasse() {
         return idClasse;
     }
 
-    public void setIdClasse(String idClasse) {
+    public void setIdClasse(int idClasse) {
         this.idClasse = idClasse;
     }
+
 
     @Override
     public String toString() {

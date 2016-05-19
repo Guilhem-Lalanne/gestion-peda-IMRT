@@ -10,10 +10,10 @@ package metier;
  * 
  */
 public class Enseignant extends Personne{
-    private String idEnseignat;
-    private String idDiscipline;
+    private int idEnseignat;
+    private int idDiscipline;
     private String profession;
-    private String idEmployeur;
+    private int idEmployeur;
     private Boolean docAdmPhotoCarteNat;
     private Boolean docAdmPhotoCarteSecu;
     private Boolean docAdmJustTrav;
@@ -36,7 +36,7 @@ public class Enseignant extends Personne{
   * @param numeroTelMobile
   * @param mail 
   */
-    public Enseignant(String idDiscipline, String profession, String idEmployeur, Boolean docAdmPhotoCarteNat, Boolean docAdmPhotoCarteSecu, Boolean docAdmJustTrav, Boolean docAdmRecepArreteNomin, String nom, String prenom, String dateNaissance, String adresse, String numeroTelFixe, String numeroTelMobile, String mail) {
+    public Enseignant(int idDiscipline, String profession, int idEmployeur, Boolean docAdmPhotoCarteNat, Boolean docAdmPhotoCarteSecu, Boolean docAdmJustTrav, Boolean docAdmRecepArreteNomin, String nom, String prenom, String dateNaissance, String adresse, String numeroTelFixe, String numeroTelMobile, String mail) {
         super(nom, prenom, dateNaissance, adresse, numeroTelFixe, numeroTelMobile, mail);
         this.idDiscipline = idDiscipline;
         this.profession = profession;
@@ -47,19 +47,19 @@ public class Enseignant extends Personne{
         this.docAdmRecepArreteNomin = docAdmRecepArreteNomin;
     }
 
-    public String getIdEnseignat() {
+    public int getIdEnseignat() {
         return idEnseignat;
     }
 
-    public void setIdEnseignat(String idEnseignat) {
+    public void setIdEnseignat(int idEnseignat) {
         this.idEnseignat = idEnseignat;
     }
 
-    public String getIdDiscipline() {
+    public int getIdDiscipline() {
         return idDiscipline;
     }
 
-    public void setIdDiscipline(String idDiscipline) {
+    public void setIdDiscipline(int idDiscipline) {
         this.idDiscipline = idDiscipline;
     }
 
@@ -71,11 +71,11 @@ public class Enseignant extends Personne{
         this.profession = profession;
     }
 
-    public String getIdEmployeur() {
+    public int getIdEmployeur() {
         return idEmployeur;
     }
 
-    public void setIdEmployeur(String idEmployeur) {
+    public void setIdEmployeur(int idEmployeur) {
         this.idEmployeur = idEmployeur;
     }
 
