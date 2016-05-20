@@ -64,44 +64,32 @@ public class FenetreValidationCours extends javax.swing.JFrame {
         lHeureDebut.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lHeureDebut.setText("Heure de debut");
 
+
+        cbHeureFin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10:00" }));
+
+
+        cbClasse.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "IMRT1" }));
+
         cbHeureDebut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08:00" }));
 
         lHeureFin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lHeureFin.setText("Heure de fin");
-
-        cbHeureFin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10:00" }));
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbGroupeActionPerformed(evt);
+            }
+        });
 
         lClasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lClasse.setText("Classe");
 
-        cbClasse.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "IMRT1" }));
+        lEnseignant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lEnseignant.setText("Enseignant");
 
         lGroupe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lGroupe.setText("Groupe");
 
         cbGroupe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Groupe A" }));
         cbGroupe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbGroupeActionPerformed(evt);
-            }
-        });
-
-        lSalle.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lSalle.setText("salle");
-
-        cbSalle.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4106" }));
-
-        lUE.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lUE.setText("U.E");
-
-        cbUE.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4.2" }));
-
-        lEnseignant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lEnseignant.setText("Enseignant");
-
-        cbEnseignant.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mr dupont" }));
-
-        pValidationCours.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Validation d'un cours", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         rbEffectue.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         rbEffectue.setText("  Cours ayant eu lieu");
@@ -247,27 +235,17 @@ public class FenetreValidationCours extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btAnnule;
-    private javax.swing.JButton btValidation;
-    private javax.swing.JComboBox<String> cbClasse;
-    private javax.swing.JComboBox<String> cbDate;
-    private javax.swing.JComboBox<String> cbEnseignant;
-    private javax.swing.JComboBox<String> cbGroupe;
-    private javax.swing.JComboBox<String> cbHeureDebut;
-    private javax.swing.JComboBox<String> cbHeureFin;
-    private javax.swing.JComboBox<String> cbSalle;
-    private javax.swing.JComboBox<String> cbUE;
-    private javax.swing.JLabel lClasse;
-    private javax.swing.JLabel lDate;
-    private javax.swing.JLabel lEnseignant;
-    private javax.swing.JLabel lGroupe;
-    private javax.swing.JLabel lHeureDebut;
-    private javax.swing.JLabel lHeureFin;
-    private javax.swing.JLabel lSalle;
-    private javax.swing.JLabel lTitre;
-    private javax.swing.JLabel lUE;
-    private javax.swing.JPanel pValidationCours;
-    private javax.swing.JRadioButton rbAnnule;
-    private javax.swing.JRadioButton rbEffectue;
+        lSalle.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lSalle.setText("salle");
+
+        cbSalle.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4106" }));
+
+        lUE.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lUE.setText("U.E");
+
+        cbUE.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4.2" }));
     // End of variables declaration//GEN-END:variables
 }
+        cbEnseignant.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mr dupont" }));
+
+        pValidationCours.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Validation d'un cours", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
