@@ -27,56 +27,56 @@
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jButton1" min="-2" pref="193" max="-2" attributes="0"/>
+                      <Component id="btValidation" min="-2" pref="193" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="153" max="-2" attributes="0"/>
+                      <Component id="btAnnule" min="-2" pref="153" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLUE" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lbDate" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLClasse" alignment="0" pref="73" max="32767" attributes="0"/>
+                          <Component id="lUE" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lDate" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lClasse" alignment="0" pref="73" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jCbDate" alignment="0" pref="100" max="32767" attributes="0"/>
-                          <Component id="jCbClasse" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCbUE" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cbDate" alignment="0" pref="100" max="32767" attributes="0"/>
+                          <Component id="cbClasse" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cbUE" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lbTitre" max="32767" attributes="0"/>
+                              <Component id="lTitre" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLHeureDebut" alignment="0" pref="122" max="32767" attributes="0"/>
-                                      <Component id="jLGroupe" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lHeureDebut" alignment="0" pref="122" max="32767" attributes="0"/>
+                                      <Component id="lGroupe" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jLEnseignant" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                  <Component id="lEnseignant" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jCbHeurDebut" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jCbGroupe" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jCbEnseignant" alignment="0" pref="104" max="32767" attributes="0"/>
+                                  <Component id="cbHeureDebut" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbGroupe" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbEnseignant" alignment="0" pref="104" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLheurFin" alignment="0" pref="91" max="32767" attributes="0"/>
-                          <Component id="jLSalle" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lHeureFin" alignment="0" pref="91" max="32767" attributes="0"/>
+                          <Component id="lSalle" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="pValidationCours" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jCbHeurFin" alignment="0" pref="81" max="32767" attributes="0"/>
-                  <Component id="jCbSalle" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cbHeureFin" alignment="0" pref="81" max="32767" attributes="0"/>
+                  <Component id="cbSalle" alignment="0" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -85,55 +85,55 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="lbTitre" min="-2" pref="44" max="-2" attributes="0"/>
+              <Component id="lTitre" min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbDate" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="jCbDate" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="jLHeureDebut" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="jCbHeurDebut" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jLheurFin" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="jCbHeurFin" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="lDate" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="cbDate" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="lHeureDebut" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="cbHeureDebut" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="lHeureFin" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="cbHeureFin" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLClasse" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="jCbClasse" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="jCbGroupe" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="lClasse" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="cbClasse" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="cbGroupe" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                              <Component id="jLGroupe" min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="lGroupe" min="-2" pref="24" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                              <Component id="jCbSalle" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="cbSalle" min="-2" pref="38" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
-                      <Component id="jLSalle" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="lSalle" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jCbUE" alignment="0" pref="37" max="32767" attributes="0"/>
-                  <Component id="jLUE" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLEnseignant" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jCbEnseignant" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cbUE" alignment="0" pref="37" max="32767" attributes="0"/>
+                  <Component id="lUE" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lEnseignant" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cbEnseignant" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="pValidationCours" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButton1" max="32767" attributes="0"/>
-                  <Component id="jButton2" pref="56" max="32767" attributes="0"/>
+                  <Component id="btValidation" max="32767" attributes="0"/>
+                  <Component id="btAnnule" pref="56" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -141,114 +141,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JComboBox" name="jCbUE">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="4.2"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jCbHeurDebut">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="08:00"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLEnseignant">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Enseignant"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLheurFin">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Heure de fin"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jCbEnseignant">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="Mr dupont"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jCbHeurFin">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="10:00"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLClasse">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Classe"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jCbClasse">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="IMRT1"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLGroupe">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Groupe"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jCbGroupe">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="Groupe A"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCbGroupeActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbTitre">
+    <Component class="javax.swing.JLabel" name="lTitre">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -256,35 +149,15 @@
         <Property name="text" type="java.lang.String" value="Validation d&apos;un cours"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLSalle">
+    <Component class="javax.swing.JLabel" name="lDate">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="salle"/>
+        <Property name="text" type="java.lang.String" value="Date"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbDate">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="date"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jCbSalle">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="4106"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jCbDate">
+    <Component class="javax.swing.JComboBox" name="cbDate">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="0"/>
@@ -299,15 +172,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLUE">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="U.E"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLHeureDebut">
+    <Component class="javax.swing.JLabel" name="lHeureDebut">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -315,7 +180,142 @@
         <Property name="text" type="java.lang.String" value="Heure de debut"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Component class="javax.swing.JComboBox" name="cbHeureDebut">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="08:00"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lHeureFin">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Heure de fin"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbHeureFin">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="10:00"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lClasse">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Classe"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbClasse">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="IMRT1"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lGroupe">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Groupe"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbGroupe">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="Groupe A"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbGroupeActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lSalle">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="salle"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbSalle">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="4106"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lUE">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="U.E"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbUE">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="4.2"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lEnseignant">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Enseignant"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbEnseignant">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="Mr dupont"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Container class="javax.swing.JPanel" name="pValidationCours">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -331,9 +331,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="jRadioButton1" min="-2" pref="193" max="-2" attributes="0"/>
+                  <Component id="rbEffectue" min="-2" pref="193" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jRadioButton2" min="-2" pref="224" max="-2" attributes="0"/>
+                  <Component id="rbAnnule" min="-2" pref="224" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -343,8 +343,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbEffectue" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbAnnule" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="56" max="32767" attributes="0"/>
               </Group>
@@ -352,7 +352,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+        <Component class="javax.swing.JRadioButton" name="rbEffectue">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -360,33 +360,33 @@
             <Property name="text" type="java.lang.String" value="  Cours ayant eu lieu"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbEffectueActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+        <Component class="javax.swing.JRadioButton" name="rbAnnule">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="  cours annull&#xe9;"/>
+            <Property name="text" type="java.lang.String" value="  Cours annul&#xe9;"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btValidation">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="valider"/>
+        <Property name="text" type="java.lang.String" value="Valider"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btAnnule">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="annuler"/>
+        <Property name="text" type="java.lang.String" value="Annuler"/>
       </Properties>
     </Component>
   </SubComponents>
