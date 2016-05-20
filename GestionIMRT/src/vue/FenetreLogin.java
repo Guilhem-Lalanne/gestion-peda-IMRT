@@ -156,7 +156,7 @@ public class FenetreLogin extends javax.swing.JFrame {
                 
                 //affichage fenetre principale
                 
-                FenetreAcceuilPrincipalAcienne fp = new FenetreAcceuilPrincipalAcienne(this.cnx);
+                FenetreAcceuilPrincipal fp = new FenetreAcceuilPrincipal(this.cnx);
                 
                 this.dispose();
                 fp.setVisible(true);

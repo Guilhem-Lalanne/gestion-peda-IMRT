@@ -9,12 +9,12 @@ package vue;
  *
  * @author paul
  */
-public class FentreChoixEtudiant extends javax.swing.JFrame {
+public class FenetreChoixEtudiant extends javax.swing.JFrame {
 
     /**
      * Creates new form FentreChoixEtudiant
      */
-    public FentreChoixEtudiant() {
+    public FenetreChoixEtudiant() {
         initComponents();
     }
 
