@@ -45,10 +45,10 @@ public class FenetreValidationCours extends javax.swing.JFrame {
         lEnseignant = new javax.swing.JLabel();
         cbEnseignant = new javax.swing.JComboBox<String>();
         pValidationCours = new javax.swing.JPanel();
-        rbEffectue = new javax.swing.JRadioButton();
+        rbValide = new javax.swing.JRadioButton();
         rbAnnule = new javax.swing.JRadioButton();
-        btValidation = new javax.swing.JButton();
-        btAnnule = new javax.swing.JButton();
+        btValider = new javax.swing.JButton();
+        btAnnuler = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,38 +64,50 @@ public class FenetreValidationCours extends javax.swing.JFrame {
         lHeureDebut.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lHeureDebut.setText("Heure de debut");
 
-
-        cbHeureFin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10:00" }));
-
-
-        cbClasse.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "IMRT1" }));
-
         cbHeureDebut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08:00" }));
 
         lHeureFin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lHeureFin.setText("Heure de fin");
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbGroupeActionPerformed(evt);
-            }
-        });
+
+        cbHeureFin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10:00" }));
 
         lClasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lClasse.setText("Classe");
 
-        lEnseignant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lEnseignant.setText("Enseignant");
+        cbClasse.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "IMRT1" }));
 
         lGroupe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lGroupe.setText("Groupe");
 
         cbGroupe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Groupe A" }));
         cbGroupe.addActionListener(new java.awt.event.ActionListener() {
-
-        rbEffectue.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        rbEffectue.setText("  Cours ayant eu lieu");
-        rbEffectue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbEffectueActionPerformed(evt);
+                cbGroupeActionPerformed(evt);
+            }
+        });
+
+        lSalle.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lSalle.setText("Salle");
+
+        cbSalle.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4106" }));
+
+        lUE.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lUE.setText("U.E");
+
+        cbUE.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4.2" }));
+
+        lEnseignant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lEnseignant.setText("Enseignant");
+
+        cbEnseignant.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mr dupont" }));
+
+        pValidationCours.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Validation d'un cours", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+
+        rbValide.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        rbValide.setText("  Cours ayant eu lieu");
+        rbValide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbValideActionPerformed(evt);
             }
         });
 
@@ -108,7 +120,7 @@ public class FenetreValidationCours extends javax.swing.JFrame {
             pValidationCoursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pValidationCoursLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addComponent(rbEffectue, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rbValide, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(rbAnnule, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
@@ -118,16 +130,16 @@ public class FenetreValidationCours extends javax.swing.JFrame {
             .addGroup(pValidationCoursLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(pValidationCoursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbEffectue)
+                    .addComponent(rbValide)
                     .addComponent(rbAnnule))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
-        btValidation.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btValidation.setText("Valider");
+        btValider.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btValider.setText("Valider");
 
-        btAnnule.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btAnnule.setText("Annuler");
+        btAnnuler.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btAnnuler.setText("Annuler");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,9 +149,9 @@ public class FenetreValidationCours extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btValider, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btAnnule, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lUE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -217,8 +229,8 @@ public class FenetreValidationCours extends javax.swing.JFrame {
                 .addComponent(pValidationCours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btValidation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btAnnule, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
+                    .addComponent(btValider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btAnnuler, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -229,23 +241,33 @@ public class FenetreValidationCours extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbGroupeActionPerformed
 
-    private void rbEffectueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEffectueActionPerformed
+    private void rbValideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbValideActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rbEffectueActionPerformed
+    }//GEN-LAST:event_rbValideActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-        lSalle.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lSalle.setText("salle");
-
-        cbSalle.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4106" }));
-
-        lUE.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lUE.setText("U.E");
-
-        cbUE.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4.2" }));
+    private javax.swing.JButton btAnnuler;
+    private javax.swing.JButton btValider;
+    private javax.swing.JComboBox<String> cbClasse;
+    private javax.swing.JComboBox<String> cbDate;
+    private javax.swing.JComboBox<String> cbEnseignant;
+    private javax.swing.JComboBox<String> cbGroupe;
+    private javax.swing.JComboBox<String> cbHeureDebut;
+    private javax.swing.JComboBox<String> cbHeureFin;
+    private javax.swing.JComboBox<String> cbSalle;
+    private javax.swing.JComboBox<String> cbUE;
+    private javax.swing.JLabel lClasse;
+    private javax.swing.JLabel lDate;
+    private javax.swing.JLabel lEnseignant;
+    private javax.swing.JLabel lGroupe;
+    private javax.swing.JLabel lHeureDebut;
+    private javax.swing.JLabel lHeureFin;
+    private javax.swing.JLabel lSalle;
+    private javax.swing.JLabel lTitre;
+    private javax.swing.JLabel lUE;
+    private javax.swing.JPanel pValidationCours;
+    private javax.swing.JRadioButton rbAnnule;
+    private javax.swing.JRadioButton rbValide;
     // End of variables declaration//GEN-END:variables
 }
-        cbEnseignant.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mr dupont" }));
-
-        pValidationCours.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Validation d'un cours", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
