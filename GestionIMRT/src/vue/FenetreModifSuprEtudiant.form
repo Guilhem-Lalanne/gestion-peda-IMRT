@@ -28,70 +28,70 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLAdresse" alignment="0" pref="80" max="32767" attributes="0"/>
-                          <Component id="jLNom" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lAdresse" alignment="0" pref="80" max="32767" attributes="0"/>
+                          <Component id="lNomEtu" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTNom" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="txNomEtu" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jLPrenom" min="-2" pref="85" max="-2" attributes="0"/>
+                              <Component id="lPrenomEtu" min="-2" pref="85" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTPrenom" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="txPrenomEtu" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLDateNaissance" min="-2" pref="130" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTDateNaissance" max="32767" attributes="0"/>
+                              <Component id="lDateNaissanceEtu" min="-2" pref="154" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txDateNaissanceEtu" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLTitre" min="-2" pref="501" max="-2" attributes="0"/>
+                              <Component id="lTitre" min="-2" pref="501" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jTAdresse" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txAdresse" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLNumFixe" min="-2" pref="196" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lNumFixe" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="jTNumFixe" max="32767" attributes="0"/>
+                                      <Component id="txNumFixe" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLAdresseMail" min="-2" pref="99" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                      <Component id="jTAdresseMail" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lAdresseMail" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="txAdresseMail" min="-2" pref="110" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jLlasse" min="-2" pref="74" max="-2" attributes="0"/>
+                                      <Component id="lClasse" min="-2" pref="74" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jBEnregistrer" min="-2" pref="110" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="143" max="-2" attributes="0"/>
+                              <Component id="btEnregistrerEtu" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
+                              <Component id="btSupprimerEtu" min="-2" pref="143" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jCClasse" min="-2" pref="103" max="-2" attributes="0"/>
+                              <Component id="cbClasse" min="-2" pref="103" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="jLGroupe" min="-2" pref="76" max="-2" attributes="0"/>
+                              <Component id="lGroupe" min="-2" pref="76" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLNumMobile" min="-2" pref="215" max="-2" attributes="0"/>
+                              <Component id="lNumMobile" min="-2" pref="215" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jBAnnuler" min="-2" pref="105" max="-2" attributes="0"/>
+                                  <Component id="btAnnulerEtu" min="-2" pref="105" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTumMobil" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jCbGroupe" alignment="0" pref="143" max="32767" attributes="0"/>
+                                      <Component id="txNumMobile" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cbGroupe" alignment="0" pref="143" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -106,44 +106,44 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="jLTitre" min="-2" pref="48" max="-2" attributes="0"/>
+              <Component id="lTitre" min="-2" pref="48" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                      <Component id="jTNom" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLPrenom" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLDateNaissance" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTDateNaissance" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLNom" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txNomEtu" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lPrenomEtu" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lDateNaissanceEtu" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txDateNaissanceEtu" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lNomEtu" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jTPrenom" alignment="1" min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="txPrenomEtu" alignment="1" min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLAdresse" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jTAdresse" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lAdresse" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="txAdresse" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLNumMobile" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jLNumFixe" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jTNumFixe" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jTumMobil" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="lNumMobile" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lNumFixe" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txNumFixe" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="txNumMobile" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLAdresseMail" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="jTAdresseMail" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="jLlasse" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jCClasse" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="jLGroupe" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="jCbGroupe" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="lAdresseMail" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="txAdresseMail" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="lClasse" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="cbClasse" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="lGroupe" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="cbGroupe" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jBEnregistrer" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="jBAnnuler" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btEnregistrerEtu" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btAnnulerEtu" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btSupprimerEtu" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
@@ -151,74 +151,30 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jBEnregistrer">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="enregistrer"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLNumFixe">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Numeros de telephone fixe"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jBAnnuler">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Annuller"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTNumFixe">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLTitre">
+    <Component class="javax.swing.JLabel" name="lTitre">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="           suprimer ou modifier un &#xe9;tudiant"/>
+        <Property name="text" type="java.lang.String" value="Supprimer ou modifier un &#xe9;tudiant"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLNumMobile">
+    <Component class="javax.swing.JLabel" name="lNomEtu">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Numeros de telephone mobile"/>
+        <Property name="text" type="java.lang.String" value="Nom"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLNom">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="nom"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTumMobil">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTNom">
+    <Component class="javax.swing.JTextField" name="txNomEtu">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLAdresseMail">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Adresse mail"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLPrenom">
+    <Component class="javax.swing.JLabel" name="lPrenomEtu">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -226,35 +182,83 @@
         <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTAdresseMail">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTPrenom">
+    <Component class="javax.swing.JTextField" name="txPrenomEtu">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTPrenomActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txPrenomEtuActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLlasse">
+    <Component class="javax.swing.JLabel" name="lDateNaissanceEtu">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Classse"/>
+        <Property name="text" type="java.lang.String" value="Date de naissance"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLDateNaissance">
+    <Component class="javax.swing.JTextField" name="txDateNaissanceEtu">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lAdresse">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="date de naissance"/>
+        <Property name="text" type="java.lang.String" value="Adresse"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jCClasse">
+    <Component class="javax.swing.JTextField" name="txAdresse">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txAdresseActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lNumFixe">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Numero de telephone fixe"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txNumFixe">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lNumMobile">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Numero de telephone mobile"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txNumMobile">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lAdresseMail">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Adresse mail"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txAdresseMail">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lClasse">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Classe"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbClasse">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -269,14 +273,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTDateNaissance">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLGroupe">
+    <Component class="javax.swing.JLabel" name="lGroupe">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -284,15 +281,7 @@
         <Property name="text" type="java.lang.String" value="Groupe"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLAdresse">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="adresse"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jCbGroupe">
+    <Component class="javax.swing.JComboBox" name="cbGroupe">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -307,17 +296,28 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTAdresse">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTAdresseActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btEnregistrerEtu">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Suprimer"/>
+        <Property name="text" type="java.lang.String" value="Enregistrer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btSupprimerEtu">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Supprimer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btAnnulerEtu">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Annuler"/>
       </Properties>
     </Component>
   </SubComponents>
