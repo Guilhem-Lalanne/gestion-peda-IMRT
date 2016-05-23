@@ -25,6 +25,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
      * Creates new form Fenetre
      */
     public FenetreAcceuilPrincipal(Connection cnx) {
+         this.cnx = cnx;
         initComponents();
         pGestionEtudiant.setEnabledAt(1, false);
         pGestionEtudiant.setEnabledAt(2, false);
