@@ -27,43 +27,43 @@
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jButton1" min="-2" pref="112" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="108" max="-2" attributes="0"/>
+                      <Component id="btEnregistrerAbsences" min="-2" pref="127" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                      <Component id="btAnnulerAbsences" min="-2" pref="108" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="110" max="-2" attributes="0"/>
+                      <Component id="btQuitterAbsences" min="-2" pref="110" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jLabel3" min="-2" pref="91" max="-2" attributes="0"/>
+                              <Component id="lEtudiant" min="-2" pref="91" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel4" min="-2" pref="55" max="-2" attributes="0"/>
+                              <Component id="lPresent" min="-2" pref="55" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="lAbsent" min="-2" pref="61" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" pref="78" max="-2" attributes="0"/>
+                              <Component id="lJustif" min="-2" pref="78" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                                  <Component id="spListeEtudiant" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel1" min="-2" pref="116" max="-2" attributes="0"/>
+                                      <Component id="lEnseignant" min="-2" pref="116" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" min="-2" pref="162" max="-2" attributes="0"/>
+                                      <Component id="cbEnseignant" min="-2" pref="162" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" min="-2" pref="103" max="-2" attributes="0"/>
+                                      <Component id="lDate" min="-2" pref="103" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="pChoix" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Component id="jComboBox2" min="-2" pref="174" max="-2" attributes="0"/>
+                                      <Component id="cbDate" min="-2" pref="174" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -74,7 +74,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
-              <Component id="jLabel7" min="-2" pref="218" max="-2" attributes="0"/>
+              <Component id="lTitre" min="-2" pref="218" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -83,34 +83,34 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="jLabel7" min="-2" pref="50" max="-2" attributes="0"/>
+              <Component id="lTitre" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jComboBox2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lEnseignant" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="cbEnseignant" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lDate" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="cbDate" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel5" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jLabel6" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="lAbsent" alignment="1" max="32767" attributes="0"/>
+                  <Component id="lJustif" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel3" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" max="32767" attributes="0"/>
+                      <Component id="lEtudiant" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="lPresent" alignment="3" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jScrollPane1" pref="268" max="32767" attributes="0"/>
-                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="spListeEtudiant" pref="268" max="32767" attributes="0"/>
+                  <Component id="pChoix" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButton3" max="32767" attributes="0"/>
+                  <Component id="btQuitterAbsences" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="btEnregistrerAbsences" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="btAnnulerAbsences" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -119,12 +119,20 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lTitre">
       <Properties>
-        <Property name="text" type="java.lang.String" value="nom de l&apos;enseignant"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Saisie des absences"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JLabel" name="lEnseignant">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nom de l&apos;enseignant"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbEnseignant">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -139,12 +147,12 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="lDate">
       <Properties>
-        <Property name="text" type="java.lang.String" value="date du cours"/>
+        <Property name="text" type="java.lang.String" value="Date du cours"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox2">
+    <Component class="javax.swing.JComboBox" name="cbDate">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -159,7 +167,39 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Component class="javax.swing.JLabel" name="lEtudiant">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Etudiant"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lPresent">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Present"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lAbsent">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Absent"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lJustif">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Justifie"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="spListeEtudiant">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -184,7 +224,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="pChoix">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -305,68 +345,28 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JButton" name="btEnregistrerAbsences">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="etudiant"/>
+        <Property name="text" type="java.lang.String" value="Enregistrer"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JButton" name="btAnnulerAbsences">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="present"/>
+        <Property name="text" type="java.lang.String" value="Annuler"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JButton" name="btQuitterAbsences">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="abscent"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="justifier"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="enregistrer"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="annuler"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="quitter"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Saisie des absences"/>
+        <Property name="text" type="java.lang.String" value="Quitter"/>
       </Properties>
     </Component>
   </SubComponents>
