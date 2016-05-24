@@ -57,10 +57,14 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         ckBulletinSalaire = new javax.swing.JCheckBox();
         ckArreteNomination = new javax.swing.JCheckBox();
         pUE = new javax.swing.JPanel();
-        cbUE1 = new javax.swing.JComboBox<>();
-        cbUE2 = new javax.swing.JComboBox<>();
-        cbUE3 = new javax.swing.JComboBox<>();
-        cbUE4 = new javax.swing.JComboBox<>();
+        lListeComplete = new javax.swing.JLabel();
+        spListeComplete = new javax.swing.JScrollPane();
+        liListeComplete = new javax.swing.JList();
+        btAjouterUE = new javax.swing.JButton();
+        btSupprimerUE = new javax.swing.JButton();
+        lListeEnseignee = new javax.swing.JLabel();
+        spListeEnseignee = new javax.swing.JScrollPane();
+        liListeEnseignee = new javax.swing.JList();
         btEnregistrerEns = new javax.swing.JButton();
         btAnnulerEns = new javax.swing.JButton();
 
@@ -116,7 +120,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         lAdresseEmp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lAdresseEmp.setText("Adresse employeur");
 
-        pStatutEN.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Statut EN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pStatutEN.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Statut EN", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         rbEN.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rbEN.setText("Education Nationale");
@@ -148,7 +152,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pDocuments.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Documents administratifs ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pDocuments.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Documents administratifs ", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         ckCNI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         ckCNI.setText("  Photocopie de la carte nationale d’identité");
@@ -189,42 +193,72 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        pUE.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "UE enseignée", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pUE.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "UE enseignée", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         pUE.setToolTipText("");
 
-        cbUE1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        lListeComplete.setText("Liste des UE");
 
-        cbUE2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        liListeComplete.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        spListeComplete.setViewportView(liListeComplete);
 
-        cbUE3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        btAjouterUE.setText(">>");
 
-        cbUE4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        btSupprimerUE.setText("<<");
+
+        lListeEnseignee.setText("UE Enseignées");
+
+        liListeEnseignee.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        spListeEnseignee.setViewportView(liListeEnseignee);
 
         javax.swing.GroupLayout pUELayout = new javax.swing.GroupLayout(pUE);
         pUE.setLayout(pUELayout);
         pUELayout.setHorizontalGroup(
             pUELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pUELayout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addGroup(pUELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cbUE1, 0, 259, Short.MAX_VALUE)
-                    .addComponent(cbUE2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbUE3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbUE4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(pUELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pUELayout.createSequentialGroup()
+                        .addComponent(lListeComplete)
+                        .addGap(85, 85, 85))
+                    .addGroup(pUELayout.createSequentialGroup()
+                        .addComponent(spListeComplete, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pUELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btAjouterUE, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btSupprimerUE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(pUELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(spListeEnseignee, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lListeEnseignee))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         pUELayout.setVerticalGroup(
             pUELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pUELayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cbUE1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(cbUE2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(cbUE3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(cbUE4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(pUELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lListeComplete)
+                    .addComponent(lListeEnseignee))
+                .addGroup(pUELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pUELayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pUELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(spListeEnseignee, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                            .addComponent(spListeComplete)))
+                    .addGroup(pUELayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(btAjouterUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btSupprimerUE)))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         btEnregistrerEns.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -366,8 +400,6 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        pStatutEN.getAccessibleContext().setAccessibleName("Statut EN");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -380,12 +412,10 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
     }//GEN-LAST:event_txPrenomEnsActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAjouterUE;
     private javax.swing.JButton btAnnulerEns;
     private javax.swing.JButton btEnregistrerEns;
-    private javax.swing.JComboBox<String> cbUE1;
-    private javax.swing.JComboBox<String> cbUE2;
-    private javax.swing.JComboBox<String> cbUE3;
-    private javax.swing.JComboBox<String> cbUE4;
+    private javax.swing.JButton btSupprimerUE;
     private javax.swing.JCheckBox ckArreteNomination;
     private javax.swing.JCheckBox ckBulletinSalaire;
     private javax.swing.JCheckBox ckCNI;
@@ -394,6 +424,8 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
     private javax.swing.JLabel lAdresseEns;
     private javax.swing.JLabel lAdresseMail;
     private javax.swing.JLabel lDateNaissanceEns;
+    private javax.swing.JLabel lListeComplete;
+    private javax.swing.JLabel lListeEnseignee;
     private javax.swing.JLabel lNomEmp;
     private javax.swing.JLabel lNomEns;
     private javax.swing.JLabel lNumFixe;
@@ -401,11 +433,15 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
     private javax.swing.JLabel lPrenomEns;
     private javax.swing.JLabel lProfession;
     private javax.swing.JLabel lTitre;
+    private javax.swing.JList liListeComplete;
+    private javax.swing.JList liListeEnseignee;
     private javax.swing.JPanel pDocuments;
     private javax.swing.JPanel pStatutEN;
     private javax.swing.JPanel pUE;
     private javax.swing.JRadioButton rbEN;
     private javax.swing.JRadioButton rbExterieur;
+    private javax.swing.JScrollPane spListeComplete;
+    private javax.swing.JScrollPane spListeEnseignee;
     private javax.swing.JTextField txAdresseEmp;
     private javax.swing.JTextField txAdresseEns;
     private javax.swing.JTextField txAdresseMail;
