@@ -5,6 +5,10 @@
  */
 package vue;
 
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import metier.Etudiant;
+
 /**
  *
  * @author paul
@@ -44,21 +48,11 @@ public class FenetreChoixEtudiant extends javax.swing.JFrame {
         lChoixClasse.setText("Choix de la classe");
 
         cbChoixClasse.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbChoixClasse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbChoixClasseActionPerformed(evt);
-            }
-        });
 
         lChoixEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lChoixEtu.setText("Choix de l'étudiant");
 
         cbChoixEtu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbChoixEtu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbChoixEtuActionPerformed(evt);
-            }
-        });
 
         btChoixEtuOk.setText("OK");
         btChoixEtuOk.addActionListener(new java.awt.event.ActionListener() {
@@ -120,18 +114,25 @@ public class FenetreChoixEtudiant extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        // Bouton inexistant ... A supprimer si possible !!
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void cbChoixEtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbChoixEtuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbChoixEtuActionPerformed
-
-    private void cbChoixClasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbChoixClasseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbChoixClasseActionPerformed
 
     private void btChoixEtuOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btChoixEtuOkActionPerformed
         // TODO add your handling code here:
+        // Ouverture de la fenêtre de Modification / Suppression :
+        // /!\ Code issu du cours de BDD ! A MODIFIER
+        Etudiant etu = new Etudiant();
+        FenetreSaisie fen = new FenetreSaisie(this, etu);
+        if (fen.doModal() == true) {
+            try {
+                leModele.insererLigne(etu);
+            } catch (SQLException ex) {
+                // Debug provisoire :
+                System.out.println("Erreur saisie");
+                JOptionPane.showMessageDialog(this, ex.getMessage(),
+                        "Erreur !", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_btChoixEtuOkActionPerformed
 
     private void btChoixEtuAnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btChoixEtuAnnulerActionPerformed
