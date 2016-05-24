@@ -82,20 +82,20 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         spListeInterogateur = new javax.swing.JScrollPane();
         liListeInterogateur = new javax.swing.JList<>();
         lNomInterogateur = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        cbChoixInterogateur = new javax.swing.JComboBox<>();
+        btAjouterInterrogateur = new javax.swing.JButton();
+        btImprimConvocIntrogateur = new javax.swing.JButton();
+        tTitreGestionExam = new javax.swing.JLabel();
+        lPromotion = new javax.swing.JLabel();
+        cbChoixPromotion = new javax.swing.JComboBox<>();
+        spListeEtudConvoque = new javax.swing.JScrollPane();
+        tListeEtudConvoquer = new javax.swing.JTable();
         pGestionUsers = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        spUser = new javax.swing.JScrollPane();
+        LiUser = new javax.swing.JTable();
+        btAjouterUser = new javax.swing.JButton();
+        btModifierUser = new javax.swing.JButton();
+        btSuprimerUser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Exemple d'utilisation des onglets");
@@ -385,11 +385,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         lNomInterogateur.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lNomInterogateur.setText("Nom de l'interogateur");
 
-        jComboBox6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbChoixInterogateur.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cbChoixInterogateur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setText("Ajoute");
+        btAjouterInterrogateur.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btAjouterInterrogateur.setText("Ajoute");
 
         javax.swing.GroupLayout pInterogateurEpreuveLayout = new javax.swing.GroupLayout(pInterogateurEpreuve);
         pInterogateurEpreuve.setLayout(pInterogateurEpreuveLayout);
@@ -397,7 +397,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             pInterogateurEpreuveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pInterogateurEpreuveLayout.createSequentialGroup()
                 .addGap(159, 159, 159)
-                .addComponent(jButton3)
+                .addComponent(btAjouterInterrogateur)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pInterogateurEpreuveLayout.createSequentialGroup()
                 .addGroup(pInterogateurEpreuveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -408,7 +408,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lNomInterogateur)
                         .addGap(64, 64, 64)
-                        .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbChoixInterogateur, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(76, 76, 76))
         );
         pInterogateurEpreuveLayout.setVerticalGroup(
@@ -417,25 +417,25 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(pInterogateurEpreuveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lNomInterogateur)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbChoixInterogateur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
-                .addComponent(jButton3)
+                .addComponent(btAjouterInterrogateur)
                 .addGap(30, 30, 30)
                 .addComponent(spListeInterogateur, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jButton10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton10.setText("Imprimer convocation interrogateur");
+        btImprimConvocIntrogateur.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btImprimConvocIntrogateur.setText("Imprimer convocation interrogateur");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("gestion des examens");
+        tTitreGestionExam.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        tTitreGestionExam.setText("gestion des examens");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("promotion");
+        lPromotion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lPromotion.setText("promotion");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbChoixPromotion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tListeEtudConvoquer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -454,7 +454,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTable2);
+        spListeEtudConvoque.setViewportView(tListeEtudConvoquer);
 
         javax.swing.GroupLayout pGestionExamenLayout = new javax.swing.GroupLayout(pGestionExamen);
         pGestionExamen.setLayout(pGestionExamenLayout);
@@ -462,23 +462,23 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pGestionExamenLayout.createSequentialGroup()
                 .addGap(171, 171, 171)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spListeEtudConvoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(592, Short.MAX_VALUE))
             .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pGestionExamenLayout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pGestionExamenLayout.createSequentialGroup()
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(27, 27, 27)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbChoixPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(122, 122, 122)
                             .addComponent(lUE, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(58, 58, 58)
                             .addComponent(cbChoixUe, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(pGestionExamenLayout.createSequentialGroup()
                             .addGap(295, 295, 295)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tTitreGestionExam, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(pGestionExamenLayout.createSequentialGroup()
                             .addGap(9, 9, 9)
                             .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -492,7 +492,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                     .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btImprimConvocEtud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btImprimListEmargement, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btImprimConvocIntrogateur, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btImprimPvSurveillant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btimprilConvocSurveil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btImprimPvIntero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -502,19 +502,19 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pGestionExamenLayout.createSequentialGroup()
                 .addGap(163, 163, 163)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spListeEtudConvoque, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(549, Short.MAX_VALUE))
             .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pGestionExamenLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tTitreGestionExam, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pGestionExamenLayout.createSequentialGroup()
                             .addGap(23, 23, 23)
                             .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbChoixPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(cbChoixUe, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lUE, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -534,7 +534,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(btImprimPvSurveillant, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(26, 26, 26)
-                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btImprimConvocIntrogateur, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btImprimPvIntero, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -542,17 +542,17 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         pGestionEtudiant.addTab("Gestion des examens", pGestionExamen);
 
-        jTable1.setModel(userModel);
-        jScrollPane4.setViewportView(jTable1);
+        LiUser.setModel(userModel);
+        spUser.setViewportView(LiUser);
 
-        jButton5.setText("Ajouter");
+        btAjouterUser.setText("Ajouter");
 
-        jButton11.setText("Supprmier");
+        btModifierUser.setText("Supprmier");
 
-        jButton12.setText("Modifier");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        btSuprimerUser.setText("Modifier");
+        btSuprimerUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                btSuprimerUserActionPerformed(evt);
             }
         });
 
@@ -563,25 +563,25 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             .addGroup(pGestionUsersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pGestionUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spUser, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pGestionUsersLayout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btAjouterUser, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btSuprimerUser, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btModifierUser, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(607, Short.MAX_VALUE))
         );
         pGestionUsersLayout.setVerticalGroup(
             pGestionUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pGestionUsersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spUser, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pGestionUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton12)
-                    .addComponent(jButton11))
+                    .addComponent(btAjouterUser)
+                    .addComponent(btSuprimerUser)
+                    .addComponent(btModifierUser))
                 .addContainerGap(510, Short.MAX_VALUE))
         );
 
@@ -620,24 +620,32 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btAjouterActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void btSuprimerUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSuprimerUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_btSuprimerUserActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable LiUser;
     private javax.swing.JButton btAjouter;
     private javax.swing.JButton btAjouterEtud;
+    private javax.swing.JButton btAjouterInterrogateur;
+    private javax.swing.JButton btAjouterUser;
     private javax.swing.JButton btCreaSuprEtudiabnt1;
     private javax.swing.JButton btCreationEtatHeure;
     private javax.swing.JButton btImprimConvocEtud;
+    private javax.swing.JButton btImprimConvocIntrogateur;
     private javax.swing.JButton btImprimListEmargement;
     private javax.swing.JButton btImprimPvIntero;
     private javax.swing.JButton btImprimPvSurveillant;
+    private javax.swing.JButton btModifierUser;
     private javax.swing.JButton btPassageEtuClasSup;
     private javax.swing.JButton btRestFichEtu;
+    private javax.swing.JButton btSuprimerUser;
     private javax.swing.JButton btimprilConvocSurveil;
     private javax.swing.JComboBox<String> cbChoixEtud;
     private javax.swing.JComboBox<String> cbChoixEtudRepasUe;
+    private javax.swing.JComboBox<String> cbChoixInterogateur;
+    private javax.swing.JComboBox<String> cbChoixPromotion;
     private javax.swing.JComboBox<String> cbChoixUe;
     private javax.swing.JComboBox<String> cbSurveillanEpreuve;
     private javax.swing.JButton jBCreaSuprEtudiabnt;
@@ -648,23 +656,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jBImporter1;
     private javax.swing.JButton jBModifEtudiant;
     private javax.swing.JButton jBModifEtudiant1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lNomEtud;
     private javax.swing.JLabel lNomInterogateur;
     private javax.swing.JLabel lNomSurveillant;
     private javax.swing.JLabel lPromo;
+    private javax.swing.JLabel lPromotion;
     private javax.swing.JLabel lTitreGestEtu;
     private javax.swing.JLabel lTitreGestionEnseignants;
     private javax.swing.JLabel lUE;
@@ -679,7 +675,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel pGestionUsers;
     private javax.swing.JPanel pInterogateurEpreuve;
     private javax.swing.JPanel pSurveillantEpreuve;
+    private javax.swing.JScrollPane spListeEtudConvoque;
     private javax.swing.JScrollPane spListeInterogateur;
     private javax.swing.JScrollPane spSurveillantEpreuve;
+    private javax.swing.JScrollPane spUser;
+    private javax.swing.JTable tListeEtudConvoquer;
+    private javax.swing.JLabel tTitreGestionExam;
     // End of variables declaration//GEN-END:variables
 }
