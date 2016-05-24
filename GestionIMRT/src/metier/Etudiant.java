@@ -17,18 +17,18 @@ public class Etudiant {
     private String prenomEtudiant;
     private String dateNaissanceEtudiant;
     private String adresseEtudiant;
-    private String numeroTelFixe;
-    private String numeroTelMobil;
+    private String numeroTelFixeEtudiant;
+    private String numeroTelMobilEtudiant;
     private int mailEtudiant;
     private int idClasse;
 
-    public Etudiant(String nomEtudiant, String prenomEtudiant, String dateNaissanceEtudiant, String adresseEtudiant, String numeroTelFixe, String numeroTelMobil, int mailEtudiant) {
+    public Etudiant(String nomEtudiant, String prenomEtudiant, String dateNaissanceEtudiant, String adresseEtudiant, String numeroTelFixeEtudiant, String numeroTelMobilEtudiant, int mailEtudiant) {
         this.nomEtudiant = nomEtudiant;
         this.prenomEtudiant = prenomEtudiant;
         this.dateNaissanceEtudiant = dateNaissanceEtudiant;
         this.adresseEtudiant = adresseEtudiant;
-        this.numeroTelFixe = numeroTelFixe;
-        this.numeroTelMobil = numeroTelMobil;
+        this.numeroTelFixeEtudiant = numeroTelFixeEtudiant;
+        this.numeroTelMobilEtudiant = numeroTelMobilEtudiant;
         this.mailEtudiant = mailEtudiant;
     }
 
@@ -80,20 +80,20 @@ public class Etudiant {
         this.adresseEtudiant = adresseEtudiant;
     }
 
-    public String getNumeroTelFixe() {
-        return numeroTelFixe;
+    public String getNumeroTelFixeEtudiant() {
+        return numeroTelFixeEtudiant;
     }
 
-    public void setNumeroTelFixe(String numeroTelFixe) {
-        this.numeroTelFixe = numeroTelFixe;
+    public void setNumeroTelFixeEtudiant(String numeroTelFixeEtudiant) {
+        this.numeroTelFixeEtudiant = numeroTelFixeEtudiant;
     }
 
-    public String getNumeroTelMobil() {
-        return numeroTelMobil;
+    public String getNumeroTelMobilEtudiant() {
+        return numeroTelMobilEtudiant;
     }
 
-    public void setNumeroTelMobil(String numeroTelMobil) {
-        this.numeroTelMobil = numeroTelMobil;
+    public void setNumeroTelMobilEtudiant(String numeroTelMobilEtudiant) {
+        this.numeroTelMobilEtudiant = numeroTelMobilEtudiant;
     }
 
     public int getMailEtudiant() {
@@ -111,5 +111,6 @@ public class Etudiant {
     public void setIdClasse(int idClasse) {
         this.idClasse = idClasse;
     }
-    
+
+   
 }
