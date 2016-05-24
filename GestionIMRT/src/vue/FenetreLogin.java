@@ -42,55 +42,56 @@ public class FenetreLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbLogin = new javax.swing.JLabel();
-        login = new javax.swing.JTextField();
-        lbMotDePasse = new javax.swing.JLabel();
-        validLogin = new javax.swing.JButton();
-        oubliMotDePasse = new javax.swing.JButton();
-        annulLogin = new javax.swing.JButton();
-        lbEntete = new javax.swing.JLabel();
-        motDePasse = new javax.swing.JPasswordField();
+        lTitre = new javax.swing.JLabel();
+        lLogin = new javax.swing.JLabel();
+        txLogin = new javax.swing.JTextField();
+        lMotDePasse = new javax.swing.JLabel();
+        pwMotDePasse = new javax.swing.JPasswordField();
+        btValiderLogin = new javax.swing.JButton();
+        btOubliMotDePasse = new javax.swing.JButton();
+        btAnnulerLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestion pédagogique de l'IMRT");
 
-        lbLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbLogin.setText(" Login");
+        lTitre.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lTitre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lTitre.setText("Gestion pédagogique de l'IMRT");
 
-        login.setText("test");
-        login.addActionListener(new java.awt.event.ActionListener() {
+        lLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lLogin.setText(" Login");
+
+        txLogin.setText("test");
+        txLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginActionPerformed(evt);
+                txLoginActionPerformed(evt);
             }
         });
 
-        lbMotDePasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbMotDePasse.setText(" Mot de passe");
+        lMotDePasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lMotDePasse.setText(" Mot de passe");
 
-        validLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        validLogin.setText("ok");
-        validLogin.addActionListener(new java.awt.event.ActionListener() {
+        pwMotDePasse.setText("test");
+        pwMotDePasse.setToolTipText("");
+
+        btValiderLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btValiderLogin.setText("ok");
+        btValiderLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                validLoginActionPerformed(evt);
+                btValiderLoginActionPerformed(evt);
             }
         });
 
-        oubliMotDePasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        oubliMotDePasse.setText("Mot de passe oublier");
+        btOubliMotDePasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btOubliMotDePasse.setText("Mot de passe oublié");
 
-        annulLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        annulLogin.setText("Annuler");
-        annulLogin.addActionListener(new java.awt.event.ActionListener() {
+        btAnnulerLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btAnnulerLogin.setText("Annuler");
+        btAnnulerLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                annulLoginActionPerformed(evt);
+                btAnnulerLoginActionPerformed(evt);
             }
         });
-
-        lbEntete.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lbEntete.setText("      Gestion pédagogique de l'IMRT");
-
-        motDePasse.setText("test");
-        motDePasse.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,57 +100,57 @@ public class FenetreLogin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbEntete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lTitre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbMotDePasse, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(validLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                            .addComponent(lbLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lMotDePasse, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btValiderLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                            .addComponent(lLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(oubliMotDePasse)
+                                .addComponent(btOubliMotDePasse)
                                 .addGap(32, 32, 32)
-                                .addComponent(annulLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(login)
-                            .addComponent(motDePasse))))
-                .addContainerGap(97, Short.MAX_VALUE))
+                                .addComponent(btAnnulerLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txLogin)
+                            .addComponent(pwMotDePasse))))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(lbEntete, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbMotDePasse, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(motDePasse))
+                    .addComponent(lMotDePasse, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(pwMotDePasse))
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(oubliMotDePasse, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(validLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(annulLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btOubliMotDePasse, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btValiderLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAnnulerLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void annulLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annulLoginActionPerformed
+    private void btAnnulerLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAnnulerLoginActionPerformed
         this.dispose();
         System.exit(0);
-    }//GEN-LAST:event_annulLoginActionPerformed
+    }//GEN-LAST:event_btAnnulerLoginActionPerformed
 
-    private void validLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validLoginActionPerformed
+    private void btValiderLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btValiderLoginActionPerformed
         
-        tools.debug("tries to connect with login: "+login.getText()+" pass: "+motDePasse.getPassword());
+        tools.debug("tries to connect with login: "+txLogin.getText()+" pass: "+pwMotDePasse.getPassword());
         
         try {
-            int login_res = SourceOracle.Login(this.cnx, login.getText(), motDePasse.getPassword());
+            int login_res = SourceOracle.Login(this.cnx, txLogin.getText(), pwMotDePasse.getPassword());
             
             if (login_res == 0) {
                 //JOptionPane.showMessageDialog(this, "Login ok");
@@ -171,20 +172,20 @@ public class FenetreLogin extends javax.swing.JFrame {
         
         
         
-    }//GEN-LAST:event_validLoginActionPerformed
+    }//GEN-LAST:event_btValiderLoginActionPerformed
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+    private void txLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_loginActionPerformed
+    }//GEN-LAST:event_txLoginActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton annulLogin;
-    private javax.swing.JLabel lbEntete;
-    private javax.swing.JLabel lbLogin;
-    private javax.swing.JLabel lbMotDePasse;
-    private javax.swing.JTextField login;
-    private javax.swing.JPasswordField motDePasse;
-    private javax.swing.JButton oubliMotDePasse;
-    private javax.swing.JButton validLogin;
+    private javax.swing.JButton btAnnulerLogin;
+    private javax.swing.JButton btOubliMotDePasse;
+    private javax.swing.JButton btValiderLogin;
+    private javax.swing.JLabel lLogin;
+    private javax.swing.JLabel lMotDePasse;
+    private javax.swing.JLabel lTitre;
+    private javax.swing.JPasswordField pwMotDePasse;
+    private javax.swing.JTextField txLogin;
     // End of variables declaration//GEN-END:variables
 }
