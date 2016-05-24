@@ -29,87 +29,87 @@ public class FenetreCreerEtudiant extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLTitre = new javax.swing.JLabel();
-        jLNom = new javax.swing.JLabel();
-        jTNom = new javax.swing.JTextField();
-        jLPrenom = new javax.swing.JLabel();
-        jTPrenom = new javax.swing.JTextField();
-        jLDateNaissance = new javax.swing.JLabel();
-        jTDateNaissance = new javax.swing.JTextField();
-        jLAdresse = new javax.swing.JLabel();
-        jTAdresse = new javax.swing.JTextField();
-        jLNumFixe = new javax.swing.JLabel();
-        jTNumFixe = new javax.swing.JTextField();
-        jLNumMobile = new javax.swing.JLabel();
-        jTumMobil = new javax.swing.JTextField();
-        jLAdresseMail = new javax.swing.JLabel();
-        jTAdresseMail = new javax.swing.JTextField();
-        jLlasse = new javax.swing.JLabel();
-        jCClasse = new javax.swing.JComboBox<>();
-        jLGroupe = new javax.swing.JLabel();
-        jCbGroupe = new javax.swing.JComboBox<>();
-        jBEnregistrer = new javax.swing.JButton();
-        jBAnnuler = new javax.swing.JButton();
+        lTitre = new javax.swing.JLabel();
+        lNomEtu = new javax.swing.JLabel();
+        txNomEtu = new javax.swing.JTextField();
+        lPrenomEtu = new javax.swing.JLabel();
+        txPrenomEtu = new javax.swing.JTextField();
+        lDateNaissanceEtu = new javax.swing.JLabel();
+        txDateNaissanceEtu = new javax.swing.JTextField();
+        lAdresseEtu = new javax.swing.JLabel();
+        txAdresseEtu = new javax.swing.JTextField();
+        lNumFixe = new javax.swing.JLabel();
+        txNumFixe = new javax.swing.JTextField();
+        lNumMobile = new javax.swing.JLabel();
+        txNumMobile = new javax.swing.JTextField();
+        lAdresseMail = new javax.swing.JLabel();
+        txAdresseMail = new javax.swing.JTextField();
+        lClasse = new javax.swing.JLabel();
+        cbClasse = new javax.swing.JComboBox<String>();
+        lGroupe = new javax.swing.JLabel();
+        cbGroupe = new javax.swing.JComboBox<String>();
+        btEnregistrer = new javax.swing.JButton();
+        btAnnuler = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("creation/supretion d'un étudiant");
 
-        jLTitre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLTitre.setText("                       Creation d'un étudiant");
+        lTitre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lTitre.setText("                       Création d'un étudiant");
 
-        jLNom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLNom.setText("nom");
+        lNomEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lNomEtu.setText("Nom");
 
-        jTNom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txNomEtu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLPrenom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLPrenom.setText("Prénom");
+        lPrenomEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lPrenomEtu.setText("Prénom");
 
-        jTPrenom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTPrenom.addActionListener(new java.awt.event.ActionListener() {
+        txPrenomEtu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txPrenomEtu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTPrenomActionPerformed(evt);
+                txPrenomEtuActionPerformed(evt);
             }
         });
 
-        jLDateNaissance.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLDateNaissance.setText("date de naissance");
+        lDateNaissanceEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lDateNaissanceEtu.setText("Date de naissance");
 
-        jTDateNaissance.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txDateNaissanceEtu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jLAdresse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLAdresse.setText("adresse");
+        lAdresseEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lAdresseEtu.setText("Adresse");
 
-        jTAdresse.addActionListener(new java.awt.event.ActionListener() {
+        txAdresseEtu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTAdresseActionPerformed(evt);
+                txAdresseEtuActionPerformed(evt);
             }
         });
 
-        jLNumFixe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLNumFixe.setText("Numeros de telephone fixe");
+        lNumFixe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lNumFixe.setText("Numero de téléphone fixe");
 
-        jLNumMobile.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLNumMobile.setText("Numeros de telephone mobile");
+        lNumMobile.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lNumMobile.setText("Numero de téléphone mobile");
 
-        jLAdresseMail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLAdresseMail.setText("Adresse mail");
+        lAdresseMail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lAdresseMail.setText("Adresse mail");
 
-        jLlasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLlasse.setText("Classse");
+        lClasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lClasse.setText("Classse");
 
-        jCClasse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbClasse.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLGroupe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLGroupe.setText("Groupe");
+        lGroupe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lGroupe.setText("Groupe");
 
-        jCbGroupe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbGroupe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jBEnregistrer.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jBEnregistrer.setText("enregistrer");
+        btEnregistrer.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btEnregistrer.setText("Enregistrer");
 
-        jBAnnuler.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jBAnnuler.setText("Annuller");
+        btAnnuler.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btAnnuler.setText("Annuler");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,127 +120,127 @@ public class FenetreCreerEtudiant extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLAdresse, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                            .addComponent(jLNom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lAdresseEtu, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(lNomEtu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(79, 79, 79)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTNom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txNomEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(35, 35, 35)
-                                .addComponent(jLPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lPrenomEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(jTPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txPrenomEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(jLDateNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lDateNaissanceEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(jTDateNaissance))
-                            .addComponent(jTAdresse)))
+                                .addComponent(txDateNaissanceEtu))
+                            .addComponent(txAdresseEtu)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLNumFixe, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lNumFixe, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(jTNumFixe))
+                                .addComponent(txNumFixe))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jBEnregistrer, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                                    .addComponent(jTAdresseMail))
+                                    .addComponent(btEnregistrer, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                    .addComponent(txAdresseMail))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                                .addComponent(jLlasse, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLNumMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lNumMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTumMobil)
-                                    .addComponent(jCbGroupe, 0, 143, Short.MAX_VALUE)))
+                                    .addComponent(txNumMobile)
+                                    .addComponent(cbGroupe, 0, 143, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jCClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jBAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(140, 140, 140)))))
                 .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()
                 .addGap(181, 181, 181)
-                .addComponent(jLTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTNom, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                        .addComponent(jLPrenom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLDateNaissance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTDateNaissance)
-                        .addComponent(jLNom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jTPrenom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txNomEtu, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                        .addComponent(lPrenomEtu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lDateNaissanceEtu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txDateNaissanceEtu)
+                        .addComponent(lNomEtu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txPrenomEtu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lAdresseEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txAdresseEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLNumMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLNumFixe, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTNumFixe, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTumMobil, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lNumMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lNumFixe, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txNumFixe, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txNumMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLlasse, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCbGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(88, 88, 88)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBEnregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btEnregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTPrenomActionPerformed
+    private void txPrenomEtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPrenomEtuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTPrenomActionPerformed
+    }//GEN-LAST:event_txPrenomEtuActionPerformed
 
-    private void jTAdresseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTAdresseActionPerformed
+    private void txAdresseEtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txAdresseEtuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTAdresseActionPerformed
+    }//GEN-LAST:event_txAdresseEtuActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBAnnuler;
-    private javax.swing.JButton jBEnregistrer;
-    private javax.swing.JComboBox<String> jCClasse;
-    private javax.swing.JComboBox<String> jCbGroupe;
-    private javax.swing.JLabel jLAdresse;
-    private javax.swing.JLabel jLAdresseMail;
-    private javax.swing.JLabel jLDateNaissance;
-    private javax.swing.JLabel jLGroupe;
-    private javax.swing.JLabel jLNom;
-    private javax.swing.JLabel jLNumFixe;
-    private javax.swing.JLabel jLNumMobile;
-    private javax.swing.JLabel jLPrenom;
-    private javax.swing.JLabel jLTitre;
-    private javax.swing.JLabel jLlasse;
-    private javax.swing.JTextField jTAdresse;
-    private javax.swing.JTextField jTAdresseMail;
-    private javax.swing.JTextField jTDateNaissance;
-    private javax.swing.JTextField jTNom;
-    private javax.swing.JTextField jTNumFixe;
-    private javax.swing.JTextField jTPrenom;
-    private javax.swing.JTextField jTumMobil;
+    private javax.swing.JButton btAnnuler;
+    private javax.swing.JButton btEnregistrer;
+    private javax.swing.JComboBox<String> cbClasse;
+    private javax.swing.JComboBox<String> cbGroupe;
+    private javax.swing.JLabel lAdresseEtu;
+    private javax.swing.JLabel lAdresseMail;
+    private javax.swing.JLabel lClasse;
+    private javax.swing.JLabel lDateNaissanceEtu;
+    private javax.swing.JLabel lGroupe;
+    private javax.swing.JLabel lNomEtu;
+    private javax.swing.JLabel lNumFixe;
+    private javax.swing.JLabel lNumMobile;
+    private javax.swing.JLabel lPrenomEtu;
+    private javax.swing.JLabel lTitre;
+    private javax.swing.JTextField txAdresseEtu;
+    private javax.swing.JTextField txAdresseMail;
+    private javax.swing.JTextField txDateNaissanceEtu;
+    private javax.swing.JTextField txNomEtu;
+    private javax.swing.JTextField txNumFixe;
+    private javax.swing.JTextField txNumMobile;
+    private javax.swing.JTextField txPrenomEtu;
     // End of variables declaration//GEN-END:variables
 }
