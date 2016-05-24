@@ -43,9 +43,9 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
         lAdresseMail = new javax.swing.JLabel();
         txAdresseMail = new javax.swing.JTextField();
         lClasse = new javax.swing.JLabel();
-        cbClasse = new javax.swing.JComboBox<>();
+        cbClasse = new javax.swing.JComboBox<String>();
         lGroupe = new javax.swing.JLabel();
-        cbGroupe = new javax.swing.JComboBox<>();
+        cbGroupe = new javax.swing.JComboBox<String>();
         btEnregistrerEtu = new javax.swing.JButton();
         btSupprimerEtu = new javax.swing.JButton();
         btAnnulerEtu = new javax.swing.JButton();
@@ -64,11 +64,6 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
         lPrenomEtu.setText("Prénom");
 
         txPrenomEtu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txPrenomEtu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txPrenomEtuActionPerformed(evt);
-            }
-        });
 
         lDateNaissanceEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lDateNaissanceEtu.setText("Date de naissance");
@@ -77,12 +72,6 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
 
         lAdresse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lAdresse.setText("Adresse");
-
-        txAdresse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txAdresseActionPerformed(evt);
-            }
-        });
 
         lNumFixe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lNumFixe.setText("Numero de telephone fixe");
@@ -96,12 +85,12 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
         lClasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lClasse.setText("Classe");
 
-        cbClasse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbClasse.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lGroupe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lGroupe.setText("Groupe");
 
-        cbGroupe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbGroupe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btEnregistrerEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btEnregistrerEtu.setText("Enregistrer");
@@ -217,14 +206,6 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txPrenomEtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPrenomEtuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txPrenomEtuActionPerformed
-
-    private void txAdresseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txAdresseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txAdresseActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAnnulerEtu;

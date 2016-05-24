@@ -188,9 +188,6 @@
           <Font name="Tahoma" size="12" style="0"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txPrenomEtuActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lDateNaissanceEtu">
       <Properties>
@@ -216,9 +213,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txAdresse">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txAdresseActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lNumFixe">
       <Properties>

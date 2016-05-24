@@ -66,11 +66,6 @@ public class FenetreCreerEtudiant extends javax.swing.JFrame {
         lPrenomEtu.setText("Prénom");
 
         txPrenomEtu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txPrenomEtu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txPrenomEtuActionPerformed(evt);
-            }
-        });
 
         lDateNaissanceEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lDateNaissanceEtu.setText("Date de naissance");
@@ -79,12 +74,6 @@ public class FenetreCreerEtudiant extends javax.swing.JFrame {
 
         lAdresseEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lAdresseEtu.setText("Adresse");
-
-        txAdresseEtu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txAdresseEtuActionPerformed(evt);
-            }
-        });
 
         lNumFixe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lNumFixe.setText("Numero de téléphone fixe");
@@ -107,6 +96,11 @@ public class FenetreCreerEtudiant extends javax.swing.JFrame {
 
         btEnregistrer.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btEnregistrer.setText("Enregistrer");
+        btEnregistrer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEnregistrerActionPerformed(evt);
+            }
+        });
 
         btAnnuler.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAnnuler.setText("Annuler");
@@ -212,13 +206,10 @@ public class FenetreCreerEtudiant extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txPrenomEtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPrenomEtuActionPerformed
+    private void btEnregistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnregistrerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txPrenomEtuActionPerformed
-
-    private void txAdresseEtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txAdresseEtuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txAdresseEtuActionPerformed
+        // TODO : ajouter Etudiant dans la base.
+    }//GEN-LAST:event_btEnregistrerActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAnnuler;
