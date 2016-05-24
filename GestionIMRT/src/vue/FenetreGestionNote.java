@@ -27,20 +27,20 @@ public class FenetreGestionNote extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jBSaisieNote = new javax.swing.JButton();
-        jBEditionBultinNote = new javax.swing.JButton();
+        lTitre = new javax.swing.JLabel();
+        btSaisieNotes = new javax.swing.JButton();
+        btEditionNotes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Gestion des notes");
+        lTitre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lTitre.setText("Gestion des notes");
 
-        jBSaisieNote.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jBSaisieNote.setText("Saisie des notes");
+        btSaisieNotes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btSaisieNotes.setText("Saisie des notes");
 
-        jBEditionBultinNote.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jBEditionBultinNote.setText("edition bulletin de note");
+        btEditionNotes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btEditionNotes.setText("Edition du bulletin de notes");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,22 +49,23 @@ public class FenetreGestionNote extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(185, 185, 185)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jBEditionBultinNote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBSaisieNote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1)))
-                .addContainerGap(209, Short.MAX_VALUE))
+                    .addComponent(btEditionNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btSaisieNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(240, 240, 240)
+                .addComponent(lTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(222, 222, 222))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
-                .addComponent(jBSaisieNote, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btSaisieNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(jBEditionBultinNote, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btEditionNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(90, Short.MAX_VALUE))
         );
 
@@ -74,8 +75,8 @@ public class FenetreGestionNote extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBEditionBultinNote;
-    private javax.swing.JButton jBSaisieNote;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btEditionNotes;
+    private javax.swing.JButton btSaisieNotes;
+    private javax.swing.JLabel lTitre;
     // End of variables declaration//GEN-END:variables
 }
