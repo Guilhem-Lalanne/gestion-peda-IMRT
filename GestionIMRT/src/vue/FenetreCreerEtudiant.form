@@ -182,9 +182,6 @@
           <Font name="Tahoma" size="12" style="0"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txPrenomEtuActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lDateNaissanceEtu">
       <Properties>
@@ -210,9 +207,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txAdresseEtu">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txAdresseEtuActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lNumFixe">
       <Properties>
@@ -297,6 +291,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Enregistrer"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEnregistrerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btAnnuler">
       <Properties>
