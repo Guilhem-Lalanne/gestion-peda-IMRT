@@ -120,7 +120,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         lAdresseEmp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lAdresseEmp.setText("Adresse employeur");
 
-        pStatutEN.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Statut EN", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pStatutEN.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Statut EN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         rbEN.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rbEN.setText("Education Nationale");
@@ -152,7 +152,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pDocuments.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Documents administratifs ", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pDocuments.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Documents administratifs ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         ckCNI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         ckCNI.setText("  Photocopie de la carte nationale d’identité");
@@ -193,7 +193,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        pUE.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "UE enseignée", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pUE.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "UE enseignée", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         pUE.setToolTipText("");
 
         lListeComplete.setText("Liste des UE");

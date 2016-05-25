@@ -10,10 +10,11 @@ package metier;
  * @author paul
  */
 public class Enseignant {
-     private int idEnseignant;
-      private String prenomEnseignant;
-     private String nomEnseignant;
-     private int idDiscipline;
+
+    private int idEnseignant;
+    private String prenomEnseignant;
+    private String nomEnseignant;
+    private int idDiscipline;
     private String dateNaissanceEnseignant;
     private String adresseEnseignant;
     private String numeroTelFixeEnseignant;
@@ -29,6 +30,24 @@ public class Enseignant {
     public Enseignant(String prenomEnseignant, String nomEnseignant, String dateNaissanceEnseignant, String adresseEnseignant, String numeroTelFixeEnseignant, String numeroTelMobilEnseignant, int mailEnseignant, String profession, int idEmployeur, Boolean docAdmPhotoCarteNat, Boolean docAdmPhotoCarteSecu, Boolean docAdmJustTrav, Boolean docAdmRecepArreteNomin) {
         this.prenomEnseignant = prenomEnseignant;
         this.nomEnseignant = nomEnseignant;
+        this.dateNaissanceEnseignant = dateNaissanceEnseignant;
+        this.adresseEnseignant = adresseEnseignant;
+        this.numeroTelFixeEnseignant = numeroTelFixeEnseignant;
+        this.numeroTelMobilEnseignant = numeroTelMobilEnseignant;
+        this.mailEnseignant = mailEnseignant;
+        this.profession = profession;
+        this.idEmployeur = idEmployeur;
+        this.docAdmPhotoCarteNat = docAdmPhotoCarteNat;
+        this.docAdmPhotoCarteSecu = docAdmPhotoCarteSecu;
+        this.docAdmJustTrav = docAdmJustTrav;
+        this.docAdmRecepArreteNomin = docAdmRecepArreteNomin;
+    }
+
+    public Enseignant(int idEnseignant, String prenomEnseignant, String nomEnseignant, int idDiscipline, String dateNaissanceEnseignant, String adresseEnseignant, String numeroTelFixeEnseignant, String numeroTelMobilEnseignant, int mailEnseignant, String profession, int idEmployeur, Boolean docAdmPhotoCarteNat, Boolean docAdmPhotoCarteSecu, Boolean docAdmJustTrav, Boolean docAdmRecepArreteNomin) {
+        this.idEnseignant = idEnseignant;
+        this.prenomEnseignant = prenomEnseignant;
+        this.nomEnseignant = nomEnseignant;
+        this.idDiscipline = idDiscipline;
         this.dateNaissanceEnseignant = dateNaissanceEnseignant;
         this.adresseEnseignant = adresseEnseignant;
         this.numeroTelFixeEnseignant = numeroTelFixeEnseignant;
@@ -161,5 +180,5 @@ public class Enseignant {
     public void setDocAdmRecepArreteNomin(Boolean docAdmRecepArreteNomin) {
         this.docAdmRecepArreteNomin = docAdmRecepArreteNomin;
     }
-    
+
 }
