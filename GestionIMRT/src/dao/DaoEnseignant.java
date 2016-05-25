@@ -32,12 +32,12 @@ public class DaoEnseignant {
         ResultSet rset = pstmt.executeQuery(requete);
 
         while (rset.next()) {       // traitement du résulat
-            int idEnseignant;
-            String prenomEnseignant;
-            String nomEnseignant;
-            int idDiscipline;
-            String dateNaissanceEnseignant;
-            String adresseEnseignant;
+            int idEnseignant= rset.getInt(1);
+            String prenomEnseignant= rset.getString(2);
+            String nomEnseignant= rset.getString(3);
+            //int idDiscipline= rset.getInt(4);
+            String dateNaissanceEnseignant= rset.getString(5);
+            String adresseEnseignant= rset.getString(6);
             String numeroTelFixeEnseignant;
             String numeroTelMobilEnseignant;
             int mailEnseignant;
