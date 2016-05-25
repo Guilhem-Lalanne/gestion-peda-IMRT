@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Alain
+ * @author paul
  */
 public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
      
@@ -186,8 +186,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jBGestionNote, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btPassageEtuClasSup, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
-                .addGap(81, 81, 81))
+                .addComponent(btPassageEtuClasSup, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(280, Short.MAX_VALUE))
         );
 
         pGestionEtudiant.addTab("gestion des étudiants", pGestionEtudiants);
