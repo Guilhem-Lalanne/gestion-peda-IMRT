@@ -122,8 +122,9 @@ public class FenetreChoixEtudiant extends javax.swing.JFrame {
         // Ouverture de la fenêtre de Modification / Suppression :
         // /!\ Code issu du cours de BDD ! A MODIFIER
         Etudiant etu = new Etudiant();
-        FenetreSaisie fen = new FenetreSaisie(this, etu);
+        FenetreModifSuprEtudiant fen = new FenetreModifSuprEtudiant(this, etu);
         if (fen.doModal() == true) {
+            /* TODO
             try {
                 leModele.insererLigne(etu);
             } catch (SQLException ex) {
@@ -132,6 +133,7 @@ public class FenetreChoixEtudiant extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, ex.getMessage(),
                         "Erreur !", JOptionPane.ERROR_MESSAGE);
             }
+            */
         }
     }//GEN-LAST:event_btChoixEtuOkActionPerformed
 

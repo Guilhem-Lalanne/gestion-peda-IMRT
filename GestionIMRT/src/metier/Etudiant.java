@@ -31,6 +31,12 @@ public class Etudiant {
         this.numeroTelMobilEtudiant = numeroTelMobilEtudiant;
         this.mailEtudiant = mailEtudiant;
     }
+    
+    /**
+     * Constructeur par défaut (sans paramètres)
+     */
+    public Etudiant() {
+    }
 
     public int getIdEtudiant() {
         return idEtudiant;

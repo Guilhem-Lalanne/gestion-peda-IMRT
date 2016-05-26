@@ -5,17 +5,28 @@
  */
 package vue;
 
+import metier.Etudiant;
+
 /**
  *
  * @author paul
  */
 public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
 
+    private boolean etatValidation;
+    
     /**
      * Creates new form FenetreModifSuprEtudiant
+     * @param parent
+     * @param etu
      */
-    public FenetreModifSuprEtudiant() {
+    public FenetreModifSuprEtudiant(java.awt.Frame parent, Etudiant etu) {
         initComponents();
+    }
+    
+    public boolean doModal() {
+        this.setVisible(true);
+        return etatValidation;
     }
 
     /**
