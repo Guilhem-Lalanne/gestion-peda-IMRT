@@ -26,17 +26,14 @@ public class Main {
      */
     public static void main(String[] args) throws IOException, FileNotFoundException, SQLException {
         
-        //je lance le fenetre principale
-        
+        //je fait la connexion à la base
         cnx = SourceOracle.getConnextion();
         
+        //je crée la fenêtre du login
         FenetreLogin fl = new FenetreLogin(Main.cnx);
         
+        //je le fait visible
         fl.setVisible(true);
-        
-        
-
-        
     }
     
 }

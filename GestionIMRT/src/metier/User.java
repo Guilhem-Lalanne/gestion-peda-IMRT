@@ -15,6 +15,10 @@ public class User {
     public String groupe;   //Mettre objet Groupe.java
     public String motDePasse;
     public String userNom;
+    
+    public User() {
+        //init constructor
+    }
 
     public User(String userLogin, String userFullname, String userGroupe) {
         this.login = userLogin;

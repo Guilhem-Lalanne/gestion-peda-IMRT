@@ -44,5 +44,40 @@ public class daoUser {
         pstmt.close();
         
     }
+    /**
+     * TODO: description
+     * 
+     * @param login
+     * @return
+     * @throws SQLException 
+     */
+    public User getUser(String login) throws SQLException {
+        
+        String req = "select user_groupe,user_nom from gi_users where login = ?";
+        PreparedStatement pstmt = cnx.prepareStatement(req);
+        
+        User currentUser = new User();
+        
+        pstmt.setString(1, login);
+        
+        ResultSet rset = pstmt.executeQuery();
+        
+        while (rset.next()) {       // traitement du résulat
+            
+            String userGroupe = rset.getString(1);
+            String userNom = rset.getString(2);
+            
+            currentUser.setLogin(login);
+            currentUser.setGroupe(userGroupe);
+            currentUser.setFullname(userNom);
+                    
+        }
+        
+        rset.close();
+        pstmt.close();
+        
+        return currentUser;
+        
+    }
     
 }

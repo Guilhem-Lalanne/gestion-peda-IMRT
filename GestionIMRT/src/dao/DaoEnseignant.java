@@ -38,19 +38,24 @@ public class DaoEnseignant {
             //int idDiscipline= rset.getInt(4);
             String dateNaissanceEnseignant= rset.getString(5);
             String adresseEnseignant= rset.getString(6);
-            String numeroTelFixeEnseignant;
+            String numeroTelFixeEnseignant = null;
             String numeroTelMobilEnseignant;
-            int mailEnseignant;
-            String profession;
+            int mailEnseignant = 0;
+            String profession = null;
             int idEmployeur;
-            Boolean docAdmPhotoCarteNat;
-            Boolean docAdmPhotoCarteSecu;
-            Boolean docAdmJustTrav;
-            Boolean docAdmRecepArreteNomin;
+            Boolean docAdmPhotoCarteNat = null;
+            Boolean docAdmPhotoCarteSecu = null;
+            Boolean docAdmJustTrav = null;
+            Boolean docAdmRecepArreteNomin = null;
             String userLogin = rset.getString(1);
             String userNom = rset.getString(2);
             String userGroupe = rset.getString(3);
-            Enseignant.add(new Enseignant());
+            
+            Enseignant en = new Enseignant(prenomEnseignant, nomEnseignant,
+                    idEnseignant, dateNaissanceEnseignant, adresseEnseignant,
+                    numeroTelFixeEnseignant, mailEnseignant, profession,
+                    userLogin, adresseEnseignant, docAdmPhotoCarteNat,
+                    docAdmPhotoCarteSecu, docAdmJustTrav, docAdmRecepArreteNomin);
 
         }
 

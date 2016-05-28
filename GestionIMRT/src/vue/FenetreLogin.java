@@ -8,12 +8,14 @@ package vue;
 
 import appli.tools;
 import dao.SourceOracle;
+import dao.daoUser;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.OptionPaneUI;
+import metier.User;
 
 /**
  *
@@ -150,19 +152,26 @@ public class FenetreLogin extends javax.swing.JFrame {
         tools.debug("tries to connect with login: "+txLogin.getText()+" pass: "+pwMotDePasse.getPassword());
         
         try {
+            
+            //tries to connect to database with login/password
             int login_res = SourceOracle.Login(this.cnx, txLogin.getText(), pwMotDePasse.getPassword());
             
+            //connexion ok
             if (login_res == 0) {
-                //JOptionPane.showMessageDialog(this, "Login ok");
                 
-                //affichage fenetre principale
+                //je cherche le prop d'user
+                daoUser du = new daoUser(this.cnx);
                 
-                FenetreAcceuilPrincipal fp = new FenetreAcceuilPrincipal(this.cnx);
+                User currentUser = du.getUser(txLogin.getText());
+                
+                //affichage de la fenetre principale
+                FenetreAcceuilPrincipal fp = new FenetreAcceuilPrincipal(this.cnx,currentUser);
                 
                 this.dispose();
                 fp.setVisible(true);
                 
             } else {
+                //connexion not ok
                 JOptionPane.showMessageDialog(this, "Login ko");
             }
             
