@@ -5,7 +5,7 @@
  */
 package appli;
 
-import dao.daoUser;
+import dao.DaoUser;
 import java.sql.SQLException;
 import metier.User;
 import java.util.ArrayList;
@@ -22,9 +22,9 @@ public class ModeleUser extends AbstractTableModel {
 
     private List<User> leConteneur;
     private String[] nomColonnes = {"login", "fullname","groupe"};
-    private daoUser leDao;
+    private DaoUser leDao;
 
-    public ModeleUser(daoUser leDao) {
+    public ModeleUser(DaoUser leDao) {
         
         this.leDao = leDao;
         leConteneur = new ArrayList<>();

@@ -6,7 +6,7 @@
 package vue;
 
 import appli.ModeleUser;
-import dao.daoUser;
+import dao.DaoUser;
 import java.sql.Connection;
 import javax.swing.JFrame;
 import javax.swing.table.TableModel;
@@ -20,7 +20,7 @@ public class FenetreUsers extends javax.swing.JFrame {
     Connection cnx;
     JFrame parent;
     private ModeleUser userModel;
-    private daoUser dao;
+    private DaoUser dao;
 
     /**
      * Creates new form FenetreUsers
@@ -30,7 +30,7 @@ public class FenetreUsers extends javax.swing.JFrame {
         this.cnx = cnx;
         this.parent = parent;
         
-        dao = new daoUser(cnx);
+        dao = new DaoUser(cnx);
         userModel = new ModeleUser(dao);
         
         initComponents();

@@ -5,10 +5,13 @@
 package vue;
 
 import appli.ModeleUser;
-import dao.daoUser;
+import dao.DaoPromotion;
+import dao.DaoUser;
 import java.awt.Component;
 import java.sql.Connection;
+import java.sql.SQLException;
 import javax.swing.JFrame;
+import metier.Promotion;
 import metier.User;
 
 /**
@@ -22,14 +25,15 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     JFrame parent;
     public User currentUser;
     private ModeleUser userModel;
-    private daoUser dao;
+    private DaoUser dao;
+    public Promotion promotion;
     
     /**
      * Creates new form Fenetre
      * @param cnx
      * @param u
      */
-    public FenetreAcceuilPrincipal(Connection cnx, User u) {
+    public FenetreAcceuilPrincipal(Connection cnx, User u) throws SQLException {
         
         //init connection
         this.cnx = cnx;
@@ -39,12 +43,30 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         
         initComponents();
         
+        //preparation affichage de la fenetre principale
         
         //affichage de la fenetre principale
-        pGroupPane.setEnabledAt(1, false);
-        pGroupPane.setEnabledAt(2, false);
+            
+            //je cherche la promotion qui est en cours
+            DaoPromotion dp = new DaoPromotion(this.cnx);
+            promotion = dp.getCurrentPromotion();
+            this.lAnnee.setText("Promotion en cours: "+promotion.getNomPromotion());
+            
+            //activation des fenetres
+            
+            this.lLogin.setText("User login: "+u.getLogin());
+            this.lNiveau.setText("Niveau: "+u.getGroupeLibelle());
+            
+            int[] activityTable = u.getOngletsGroupes();
+            
+            for (int i=0;i<=5;i++) {
+                if (activityTable[i] == 1)
+                    pGroupPane.setEnabledAt(i, true);
+                else 
+                    pGroupPane.setEnabledAt(i, false);
+            }
         
-        this.lLogin.setText(u.getLogin());
+        
         //this.l
         
         //pAccueil

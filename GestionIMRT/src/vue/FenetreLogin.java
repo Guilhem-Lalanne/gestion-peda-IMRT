@@ -8,7 +8,7 @@ package vue;
 
 import appli.tools;
 import dao.SourceOracle;
-import dao.daoUser;
+import dao.DaoUser;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -160,7 +160,7 @@ public class FenetreLogin extends javax.swing.JFrame {
             if (login_res == 0) {
                 
                 //je cherche le prop d'user
-                daoUser du = new daoUser(this.cnx);
+                DaoUser du = new DaoUser(this.cnx);
                 
                 User currentUser = du.getUser(txLogin.getText());
                 

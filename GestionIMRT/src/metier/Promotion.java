@@ -19,6 +19,10 @@ public class Promotion {
         this.année = année;
     }
 
+    public Promotion() {
+        //default constructor
+    }
+
     public int getIdPromotion() {
         return idPromotion;
     }

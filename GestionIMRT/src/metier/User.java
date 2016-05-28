@@ -11,26 +11,47 @@ package metier;
  */
 public class User {
 
+    //proprietes de base
     public String login;
-    public String groupe;   //Mettre objet Groupe.java
+    public int groupe;
     public String motDePasse;
     public String userNom;
+    
+    //propietes supplemendaires
+    public String groupeLibelle;
+
+    public String getUserNom() {
+        return userNom;
+    }
+
+    public void setUserNom(String userNom) {
+        this.userNom = userNom;
+    }
+
+    public String getGroupeLibelle() {
+        return groupeLibelle;
+    }
+
+    public void setGroupeLibelle(String groupeLibelle) {
+        this.groupeLibelle = groupeLibelle;
+    }
     
     public User() {
         //init constructor
     }
 
-    public User(String userLogin, String userFullname, String userGroupe) {
+    public User(String userLogin, String userFullname, int userGroupe, String userGroupeLib) {
         this.login = userLogin;
         this.userNom = userFullname;
         this.groupe = userGroupe;
+        this.groupeLibelle = userGroupeLib;
     }
     
     public String getLogin() {
         return login;
     }
 
-    public String getGroupe() {
+    public int getGroupe() {
         return groupe;
     }
 
@@ -46,7 +67,7 @@ public class User {
         this.login = login;
     }
 
-    public void setGroupe(String groupe) {
+    public void setGroupe(int groupe) {
         this.groupe = groupe;
     }
 
@@ -58,6 +79,60 @@ public class User {
         this.userNom = fullname;
     }
     
+    public int[] getOngletsGroupes() {
+        
+        /**
+         * Groupes
+         *  1	Admin
+            2	Secrétaire
+            3	User
+            4	Dev
+         */
+        
+        /* Onglets
+        0 - accueil
+        1 - Agenda
+        2 - Gestion des étudiants
+        3 - Gestion des enseignants
+        4 - Gestion des examens
+        5 - Gestion des users
+        */
+        int[] ret = new int[6];
+        
+        ret[0] = 0;
+        ret[1] = 0;
+        ret[2] = 0;
+        ret[3] = 0;
+        ret[4] = 0;
+        ret[5] = 0;
+        
+        //TODO: mettre ça comme il faut dans produit final
+        
+        switch (this.groupe) {
+            case 1:
+                //ADMIN
+                for (int i=0;i<=5;i++) ret[i] = 1;
+                break;
+            case 2:
+                //Secrétaire
+                for (int i=0;i<=4;i++) ret[i] = 1;
+                break;
+            case 3:
+                //User
+                for (int i=0;i<=4;i++) ret[i] = 1;
+                break;
+            case 4:
+                //User
+                for (int i=0;i<=5;i++) ret[i] = 1;
+                break;
+            default:
+                break;
+        }
+        
+        return ret;
+        
+    }
+     
     
     
 }
