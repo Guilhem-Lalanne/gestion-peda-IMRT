@@ -5,12 +5,14 @@
 package vue;
 
 import appli.ModeleUser;
+import appli.tools;
 import dao.DaoPromotion;
 import dao.DaoUser;
 import java.awt.Component;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
 import metier.Promotion;
 import metier.User;
 
@@ -146,6 +148,16 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         setTitle("Exemple d'utilisation des onglets");
 
         pGroupPane.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 2, 12))); // NOI18N
+        pGroupPane.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                pGroupPaneStateChanged(evt);
+            }
+        });
+        pGroupPane.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pGroupPaneMouseClicked(evt);
+            }
+        });
 
         lLogin.setText("Login:");
 
@@ -619,6 +631,17 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         pGroupPane.addTab("Gestion des examens", pGestionExamen);
 
+        pGestionUsers.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                showUsers(evt);
+            }
+        });
+        pGestionUsers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pGestionUsersMouseClicked(evt);
+            }
+        });
+
         spUser.setViewportView(LiUser);
 
         btAjouterUser.setText("Ajouter");
@@ -696,6 +719,35 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private void btSuprimerUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSuprimerUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btSuprimerUserActionPerformed
+
+    private void showUsers(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_showUsers
+    }//GEN-LAST:event_showUsers
+
+    private void pGestionUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pGestionUsersMouseClicked
+    }//GEN-LAST:event_pGestionUsersMouseClicked
+
+    private void pGroupPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pGroupPaneMouseClicked
+        
+        //actions supplementaires on clicque
+        
+        
+    }//GEN-LAST:event_pGroupPaneMouseClicked
+
+    private void pGroupPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pGroupPaneStateChanged
+        
+        //TODO: juste pour le periode de dev, apres il faut mettre toutes les
+        // pane's dans ce propres classes
+        
+        JTabbedPane sourceTabbedPane = (JTabbedPane)evt.getSource();
+        int index = sourceTabbedPane.getSelectedIndex();
+        
+        if (index == 5) {
+            tools.debug("->GestionUsers");
+            dao = new DaoUser(cnx);
+            userModel = new ModeleUser(dao);
+            LiUser.setModel(userModel);
+        }
+    }//GEN-LAST:event_pGroupPaneStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;
