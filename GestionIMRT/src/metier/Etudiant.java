@@ -13,6 +13,7 @@ public class Etudiant {
 
     private int idEtudiant;
     private int idGroupe;
+    private String nomGroupeEtudiant;
     private String nomEtudiant;
     private String prenomEtudiant;
     private String dateNaissanceEtudiant;
@@ -21,6 +22,7 @@ public class Etudiant {
     private String numeroTelMobilEtudiant;
     private int mailEtudiant;
     private int idClasse;
+    private String nomClasseEtudiant;
 
     public Etudiant(String nomEtudiant, String prenomEtudiant, String dateNaissanceEtudiant, String adresseEtudiant, String numeroTelFixeEtudiant, String numeroTelMobilEtudiant, int mailEtudiant) {
         this.nomEtudiant = nomEtudiant;
@@ -52,6 +54,13 @@ public class Etudiant {
 
     public void setIdGroupe(int idGroupe) {
         this.idGroupe = idGroupe;
+    }
+  public String getNomGroupeEtudiant() {
+        return nomGroupeEtudiant;
+    }
+
+    public void setNomGroupeEtudiant(String nomGroupeEtudiant) {
+        this.nomGroupeEtudiant = nomGroupeEtudiant;
     }
 
     public String getNomEtudiant() {
@@ -116,6 +125,16 @@ public class Etudiant {
 
     public void setIdClasse(int idClasse) {
         this.idClasse = idClasse;
+    }
+
+    @Override
+    public String toString() {
+        return "etudiant("+"nomGroupeEtudiant"+nomGroupeEtudiant+"+nomEtudiant"+nomEtudiant+
+               "prenomEtudiant"+prenomEtudiant+"dateNaissanceEtudiant"+
+                dateNaissanceEtudiant+"adresseEtudiant"+adresseEtudiant+
+                "numeroTelFixeEtudiant"+numeroTelFixeEtudiant+"numeroTel"
+                + "MobilEtudiant"+numeroTelMobilEtudiant+"mailEtudiant"+
+                "nomClasseEtudiant"+nomClasseEtudiant+")";
     }
 
    
