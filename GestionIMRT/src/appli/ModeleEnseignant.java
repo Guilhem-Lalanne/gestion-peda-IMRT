@@ -41,5 +41,19 @@ public class ModeleEnseignant extends AbstractTableModel{
     public String getColumnName(int col) {
         return nomColonnes[col];
     }
-    
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        Enseignant etu = leConteneurEnseignant.get(rowIndex);
+        /* TODO : Application à la classe Etudiant
+        switch (columnIndex) {
+            case 0:
+                return .getLogin();
+            case 1:
+                return .getFullname();
+            case 2:
+                return .getGroupe();
+        }
+        */
+        return null;
+    }
 }
