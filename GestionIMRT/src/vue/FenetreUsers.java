@@ -58,6 +58,11 @@ public class FenetreUsers extends javax.swing.JFrame {
         spListeUsers.setViewportView(tListeUsers);
 
         btAjouterUser.setText("Ajouter");
+        btAjouterUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAjouterUserActionPerformed(evt);
+            }
+        });
 
         btModifierUser.setText("Modifier");
         btModifierUser.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +123,11 @@ public class FenetreUsers extends javax.swing.JFrame {
         parent.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btRetourActionPerformed
+
+    private void btAjouterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterUserActionPerformed
+        //FenetreModifUser fu = new FenetreModifUser(parent, null);
+        
+    }//GEN-LAST:event_btAjouterUserActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAjouterUser;

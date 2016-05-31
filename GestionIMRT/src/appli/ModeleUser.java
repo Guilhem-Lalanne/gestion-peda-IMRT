@@ -35,6 +35,10 @@ public class ModeleUser extends AbstractTableModel {
             Logger.getLogger(ModeleUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public User get(int index) {
+        return leConteneur.get(index);
+    }
 
     @Override
     public int getRowCount() {
@@ -50,7 +54,7 @@ public class ModeleUser extends AbstractTableModel {
     public String getColumnName(int col) {
         return nomColonnes[col];
     }
-
+    
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         User u = leConteneur.get(rowIndex);
@@ -60,7 +64,7 @@ public class ModeleUser extends AbstractTableModel {
             case 1:
                 return u.getFullname();
             case 2:
-                return u.getGroupe();
+                return u.getGroupeLibelle();
         }
         return null;
     }
