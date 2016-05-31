@@ -60,7 +60,7 @@ public class ModeleUser extends AbstractTableModel {
             case 1:
                 return u.getFullname();
             case 2:
-                return u.getGroupe();
+                return u.getGroupeLibelle();
         }
         return null;
     }
