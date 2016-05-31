@@ -741,12 +741,25 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         JTabbedPane sourceTabbedPane = (JTabbedPane)evt.getSource();
         int index = sourceTabbedPane.getSelectedIndex();
         
+        //onglet users
         if (index == 5) {
             tools.debug("->GestionUsers");
+            
+            //init de dao pour recuperation des données
             dao = new DaoUser(cnx);
+            
+            //recuperation des données
             userModel = new ModeleUser(dao);
+            
+            //je met le model dans la table
             LiUser.setModel(userModel);
+            
+        } else if (index == 3) {
+            //onglet enseignant
+            
+            //TODO: Paul mettre model + dao d'ensegeignant
         }
+            
     }//GEN-LAST:event_pGroupPaneStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
