@@ -18,7 +18,7 @@ import metier.Enseignant;
  */
 public class ModeleEnseignant extends AbstractTableModel{
      private List<Enseignant> leConteneurEnseignant;
-    private String[] nomColonnes = {"", "", ""};
+    private String[] nomColonnes = {"NOM", "Prenom ", "adresse"};
     private DaoEnseignant leDaoEnseignant;
 
     public ModeleEnseignant(DaoEnseignant leDaoEnseignant) {

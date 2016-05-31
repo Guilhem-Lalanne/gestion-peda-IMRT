@@ -105,6 +105,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         jBImporter1 = new javax.swing.JButton();
         jBGestionNote1 = new javax.swing.JButton();
         btCreationEtatHeure = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         pGestionExamen = new javax.swing.JPanel();
         pSurveillantEpreuve = new javax.swing.JPanel();
         spSurveillantEpreuve = new javax.swing.JScrollPane();
@@ -175,7 +177,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                     .addComponent(lLogin)
                     .addComponent(lNiveau)
                     .addComponent(lAnnee))
-                .addContainerGap(1123, Short.MAX_VALUE))
+                .addContainerGap(1277, Short.MAX_VALUE))
         );
         pAccueilLayout.setVerticalGroup(
             pAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +197,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         pAgenda.setLayout(pAgendaLayout);
         pAgendaLayout.setHorizontalGroup(
             pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1215, Short.MAX_VALUE)
+            .addGap(0, 1369, Short.MAX_VALUE)
         );
         pAgendaLayout.setVerticalGroup(
             pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +257,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                     .addComponent(jBImporter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBGestionNote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btRestFichEtu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(725, Short.MAX_VALUE))
+                .addContainerGap(879, Short.MAX_VALUE))
         );
         pGestionEtudiantsLayout.setVerticalGroup(
             pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,41 +308,52 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btCreationEtatHeure.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btCreationEtatHeure.setText("creation d'état des heures");
 
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout pGestionEnseignantLayout = new javax.swing.GroupLayout(pGestionEnseignant);
         pGestionEnseignant.setLayout(pGestionEnseignantLayout);
         pGestionEnseignantLayout.setHorizontalGroup(
             pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1215, Short.MAX_VALUE)
-            .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pGestionEnseignantLayout.createSequentialGroup()
-                    .addGap(168, 168, 168)
-                    .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lTitreGestionEnseignants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btCreaSuprEtudiabnt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBModifEtudiant1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBImporter1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBGestionNote1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(766, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pGestionEnseignantLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jBImporter1)
+                .addGap(190, 190, 190))
+            .addGroup(pGestionEnseignantLayout.createSequentialGroup()
+                .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pGestionEnseignantLayout.createSequentialGroup()
+                        .addGap(383, 383, 383)
+                        .addComponent(lTitreGestionEnseignants))
+                    .addGroup(pGestionEnseignantLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBGestionNote1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBModifEtudiant1))
+                        .addGap(464, 464, 464)
+                        .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(btCreaSuprEtudiabnt1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pGestionEnseignantLayout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pGestionEnseignantLayout.setVerticalGroup(
             pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 865, Short.MAX_VALUE)
-            .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pGestionEnseignantLayout.createSequentialGroup()
-                    .addGap(101, 101, 101)
-                    .addComponent(lTitreGestionEnseignants, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(50, 50, 50)
-                    .addComponent(btCreaSuprEtudiabnt1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(30, 30, 30)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pGestionEnseignantLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(lTitreGestionEnseignants, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
+                .addComponent(jBGestionNote1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jBImporter1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBModifEtudiant1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(30, 30, 30)
-                    .addComponent(jBImporter1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(30, 30, 30)
-                    .addComponent(jBGestionNote1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                    .addGap(101, 101, 101)))
+                    .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btCreaSuprEtudiabnt1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44))
         );
 
         pGroupPane.addTab("Gestion des enseignants", pGestionEnseignant);
@@ -552,7 +565,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             .addGroup(pGestionExamenLayout.createSequentialGroup()
                 .addGap(171, 171, 171)
                 .addComponent(spListeEtudConvoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(592, Short.MAX_VALUE))
+                .addContainerGap(746, Short.MAX_VALUE))
             .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pGestionExamenLayout.createSequentialGroup()
                     .addContainerGap()
@@ -585,7 +598,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addComponent(btImprimPvSurveillant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btimprilConvocSurveil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btImprimPvIntero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(21, Short.MAX_VALUE)))
+                    .addContainerGap(175, Short.MAX_VALUE)))
         );
         pGestionExamenLayout.setVerticalGroup(
             pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -669,7 +682,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addComponent(btSuprimerUser, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btModifierUser, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(607, Short.MAX_VALUE))
+                .addContainerGap(761, Short.MAX_VALUE))
         );
         pGestionUsersLayout.setVerticalGroup(
             pGestionUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -708,10 +721,6 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBModifEtudiantActionPerformed
 
-    private void jBModifEtudiant1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModifEtudiant1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBModifEtudiant1ActionPerformed
-
     private void btAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btAjouterActionPerformed
@@ -749,6 +758,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_pGroupPaneStateChanged
 
+    private void jBModifEtudiant1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModifEtudiant1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBModifEtudiant1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;
     private javax.swing.JButton btAjouter;
@@ -781,6 +794,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jBImporter1;
     private javax.swing.JButton jBModifEtudiant;
     private javax.swing.JButton jBModifEtudiant1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lAnnee;
     private javax.swing.JLabel lLogin;
     private javax.swing.JLabel lNiveau;
