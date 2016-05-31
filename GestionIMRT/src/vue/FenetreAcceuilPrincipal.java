@@ -6,9 +6,11 @@ package vue;
 
 import appli.ModeleEnseignant;
 import appli.ModeleUser;
+import appli.ModeleReferentiel;
 import appli.tools;
 import dao.DaoEnseignant;
 import dao.DaoPromotion;
+import dao.DaoReferentiel;
 import dao.DaoUser;
 import java.awt.Component;
 import java.sql.Connection;
@@ -729,7 +731,18 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
     private void btSuprimerUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSuprimerUserActionPerformed
         
-        FenetreModifUser fmu = new FenetreModifUser(this, this.userModel.get(LiUser.getSelectedRow()), "Modifier user");
+        //init de dao pour recuperation des données
+            DaoReferentiel daoRef = new DaoReferentiel(cnx);
+            
+            //recuperation des données dans modelList
+            ModeleReferentiel refModel = new ModeleReferentiel(daoRef,"userGroupes");
+            
+        FenetreModifUser fmu = new FenetreModifUser
+            (this,  //fenetre pere
+            this.userModel.get(LiUser.getSelectedRow()), //ma selection d'user
+            refModel, //mon modele de groupes
+            "Modifier user");
+        
         fmu.setVisible(true);
         
     }//GEN-LAST:event_btSuprimerUserActionPerformed
@@ -783,11 +796,12 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_pGroupPaneStateChanged
 
     private void btAjouterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterUserActionPerformed
-        
+        /*
         User u = new User();
         
         FenetreModifUser fmu = new FenetreModifUser(this,u, "Création user");
         fmu.setVisible(true);
+                */
         
     }//GEN-LAST:event_btAjouterUserActionPerformed
 

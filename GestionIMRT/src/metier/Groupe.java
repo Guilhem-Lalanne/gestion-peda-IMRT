@@ -10,7 +10,7 @@ package metier;
  * @author paul
  */
 public class Groupe {
-    private int isGroupe;
+    private int idGroupe;
     private int idClasse;
     private String nom;
 
@@ -20,11 +20,11 @@ public class Groupe {
     }
 
     public int getIsGroupe() {
-        return isGroupe;
+        return idGroupe;
     }
 
     public void setIsGroupe(int isGroupe) {
-        this.isGroupe = isGroupe;
+        this.idGroupe = isGroupe;
     }
 
     public int getIdClasse() {

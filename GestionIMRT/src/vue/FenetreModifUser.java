@@ -5,8 +5,11 @@
  */
 package vue;
 
+import appli.ModeleReferentiel;
 import appli.tools;
+import javax.swing.ComboBoxModel;
 import metier.Etudiant;
+import metier.Referentiel;
 import metier.User;
 
 /**
@@ -22,7 +25,7 @@ public class FenetreModifUser extends javax.swing.JFrame {
      * @param parent
      * @param libelle
      */
-    public FenetreModifUser(java.awt.Frame parent, User user, String libelle) {
+    public FenetreModifUser(java.awt.Frame parent, User user, ModeleReferentiel userGroupes, String libelle) {
         
         initComponents();
         
@@ -30,6 +33,7 @@ public class FenetreModifUser extends javax.swing.JFrame {
         
         this.lLibelle.setText(libelle);
         this.txLogin.setText(user.getLogin());
+        this.cbUserGroupes.setModel(userGroupes);
         
     }
     
@@ -51,7 +55,7 @@ public class FenetreModifUser extends javax.swing.JFrame {
         txLogin = new javax.swing.JTextField();
         lPrenomEtu = new javax.swing.JLabel();
         lAdresse = new javax.swing.JLabel();
-        cbClasse = new javax.swing.JComboBox<String>();
+        cbUserGroupes = new javax.swing.JComboBox<String>();
         lPrenomEtu1 = new javax.swing.JLabel();
         txPrenomEtu1 = new javax.swing.JTextField();
         lLibelle = new javax.swing.JLabel();
@@ -71,7 +75,7 @@ public class FenetreModifUser extends javax.swing.JFrame {
         lAdresse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lAdresse.setText("Groupe");
 
-        cbClasse.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbUserGroupes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lPrenomEtu1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lPrenomEtu1.setText("Nom et prénom");
@@ -99,7 +103,7 @@ public class FenetreModifUser extends javax.swing.JFrame {
                             .addComponent(lPrenomEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbUserGroupes, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txLogin)
                             .addComponent(txPrenomEtu1)
                             .addComponent(lLibelle)
@@ -122,18 +126,14 @@ public class FenetreModifUser extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lPrenomEtu, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lPrenomEtu1, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txPrenomEtu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lPrenomEtu1, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
+                    .addComponent(txPrenomEtu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbClasse, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbUserGroupes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -143,7 +143,7 @@ public class FenetreModifUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbClasse;
+    private javax.swing.JComboBox<String> cbUserGroupes;
     private javax.swing.JButton jButton1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lAdresse;
