@@ -4,8 +4,10 @@
  */
 package vue;
 
+import appli.ModeleEnseignant;
 import appli.ModeleUser;
 import appli.tools;
+import dao.DaoEnseignant;
 import dao.DaoPromotion;
 import dao.DaoUser;
 import java.awt.Component;
@@ -26,9 +28,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     
     JFrame parent;
     public User currentUser;
+    public Promotion promotion;
+    
     private ModeleUser userModel;
     private DaoUser dao;
-    public Promotion promotion;
+    
     
     /**
      * Creates new form Fenetre
@@ -108,33 +112,33 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         pGestionExamen = new javax.swing.JPanel();
         pSurveillantEpreuve = new javax.swing.JPanel();
         spSurveillantEpreuve = new javax.swing.JScrollPane();
-        liSurveillantEpreuve = new javax.swing.JList<>();
+        liSurveillantEpreuve = new javax.swing.JList<String>();
         lNomSurveillant = new javax.swing.JLabel();
-        cbSurveillanEpreuve = new javax.swing.JComboBox<>();
+        cbSurveillanEpreuve = new javax.swing.JComboBox<String>();
         btAjouter = new javax.swing.JButton();
         lUE = new javax.swing.JLabel();
         btImprimListEmargement = new javax.swing.JButton();
-        cbChoixUe = new javax.swing.JComboBox<>();
+        cbChoixUe = new javax.swing.JComboBox<String>();
         btImprimPvSurveillant = new javax.swing.JButton();
         btImprimPvIntero = new javax.swing.JButton();
         btImprimConvocEtud = new javax.swing.JButton();
         pEtudrepasUe = new javax.swing.JPanel();
         lPromo = new javax.swing.JLabel();
-        cbChoixEtud = new javax.swing.JComboBox<>();
+        cbChoixEtud = new javax.swing.JComboBox<String>();
         lNomEtud = new javax.swing.JLabel();
-        cbChoixEtudRepasUe = new javax.swing.JComboBox<>();
+        cbChoixEtudRepasUe = new javax.swing.JComboBox<String>();
         btAjouterEtud = new javax.swing.JButton();
         btimprilConvocSurveil = new javax.swing.JButton();
         pInterogateurEpreuve = new javax.swing.JPanel();
         spListeInterogateur = new javax.swing.JScrollPane();
-        liListeInterogateur = new javax.swing.JList<>();
+        liListeInterogateur = new javax.swing.JList<String>();
         lNomInterogateur = new javax.swing.JLabel();
-        cbChoixInterogateur = new javax.swing.JComboBox<>();
+        cbChoixInterogateur = new javax.swing.JComboBox<String>();
         btAjouterInterrogateur = new javax.swing.JButton();
         btImprimConvocIntrogateur = new javax.swing.JButton();
         tTitreGestionExam = new javax.swing.JLabel();
         lPromotion = new javax.swing.JLabel();
-        cbChoixPromotion = new javax.swing.JComboBox<>();
+        cbChoixPromotion = new javax.swing.JComboBox<String>();
         spListeEtudConvoque = new javax.swing.JScrollPane();
         tListeEtudConvoquer = new javax.swing.JTable();
         pGestionUsers = new javax.swing.JPanel();
@@ -147,7 +151,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Exemple d'utilisation des onglets");
 
-        pGroupPane.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 2, 12))); // NOI18N
+        pGroupPane.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)), "", 0, 0, new java.awt.Font("Agency FB", 2, 12))); // NOI18N
         pGroupPane.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 pGroupPaneStateChanged(evt);
@@ -345,14 +349,14 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         pGroupPane.addTab("Gestion des enseignants", pGestionEnseignant);
 
-        pSurveillantEpreuve.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "surveillant de l'épreuve", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pSurveillantEpreuve.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "surveillant de l'épreuve", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         spSurveillantEpreuve.setViewportView(liSurveillantEpreuve);
 
         lNomSurveillant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lNomSurveillant.setText("Nom du surveillant");
 
-        cbSurveillanEpreuve.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbSurveillanEpreuve.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btAjouter.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAjouter.setText("Ajouter");
@@ -411,17 +415,17 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btImprimConvocEtud.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btImprimConvocEtud.setText("Imprimer convocation étudiants");
 
-        pEtudrepasUe.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Etudiants devant repasser l'U.E.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pEtudrepasUe.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Etudiants devant repasser l'U.E.", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         lPromo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lPromo.setText("promotion");
 
-        cbChoixEtud.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbChoixEtud.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lNomEtud.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lNomEtud.setText("nom de l'étudiant");
 
-        cbChoixEtudRepasUe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbChoixEtudRepasUe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btAjouterEtud.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAjouterEtud.setText("Ajouter");
@@ -462,12 +466,12 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btimprilConvocSurveil.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btimprilConvocSurveil.setText("Imprimer convocation surveillant");
 
-        pInterogateurEpreuve.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "interrogateur pour l'épreuve", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pInterogateurEpreuve.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "interrogateur pour l'épreuve", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
-        liListeInterogateur.setModel(new javax.swing.AbstractListModel<String>() {
+        liListeInterogateur.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         spListeInterogateur.setViewportView(liListeInterogateur);
 
@@ -475,7 +479,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         lNomInterogateur.setText("Nom de l'interogateur");
 
         cbChoixInterogateur.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbChoixInterogateur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbChoixInterogateur.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btAjouterInterrogateur.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAjouterInterrogateur.setText("Ajoute");
@@ -522,7 +526,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         lPromotion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lPromotion.setText("promotion");
 
-        cbChoixPromotion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbChoixPromotion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         tListeEtudConvoquer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -645,6 +649,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         spUser.setViewportView(LiUser);
 
         btAjouterUser.setText("Ajouter");
+        btAjouterUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAjouterUserActionPerformed(evt);
+            }
+        });
 
         btModifierUser.setText("Supprmier");
 
@@ -717,7 +726,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btAjouterActionPerformed
 
     private void btSuprimerUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSuprimerUserActionPerformed
-        // TODO add your handling code here:
+        
+        FenetreModifUser fmu = new FenetreModifUser(this, this.userModel.get(LiUser.getSelectedRow()), "Modifier user");
+        fmu.setVisible(true);
+        
     }//GEN-LAST:event_btSuprimerUserActionPerformed
 
     private void showUsers(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_showUsers
@@ -758,9 +770,23 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             //onglet enseignant
             
             //TODO: Paul mettre model + dao d'ensegeignant
+            tools.debug("->GestionEnseignants");
+            
+            //DaoEnseignant daoEns = new ModeleEnseignant(null)
+            
+            //ModeleEnseignant ensModel = new ModeleEnseignant(dao);
         }
             
     }//GEN-LAST:event_pGroupPaneStateChanged
+
+    private void btAjouterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterUserActionPerformed
+        
+        User u = new User();
+        
+        FenetreModifUser fmu = new FenetreModifUser(this,u, "Création user");
+        fmu.setVisible(true);
+        
+    }//GEN-LAST:event_btAjouterUserActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;
