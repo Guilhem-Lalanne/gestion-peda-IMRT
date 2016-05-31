@@ -43,17 +43,46 @@ public class ModeleEnseignant extends AbstractTableModel{
     }
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Enseignant etu = leConteneurEnseignant.get(rowIndex);
-        /* TODO : Application à la classe Etudiant
+        Enseignant ens = leConteneurEnseignant.get(rowIndex);
+     
         switch (columnIndex) {
             case 0:
-                return .getLogin();
+                return ens.getIdEnseignant();
             case 1:
-                return .getFullname();
+                return ens.getNomEnseignant();
             case 2:
-                return .getGroupe();
+                return  ens.getPrenomEnseignant();
+            case 3:
+                return ens.getIdDiscipline();
+            case 4:
+                return ens.getDateNaissanceEnseignant();
+            case 5:
+                return ens.getAdresseEnseignant();
+            case 6:
+                return ens.getNumeroTelFixeEnseignant();
+            case 7:
+                return ens.getNumeroTelMobilEnseignant();
+            case 8:
+                return ens.getMailEnseignant();
+            case 9:
+                return ens.getIdEmployeur();
+            case 10:
+                return ens.getDocAdmPhotoCarteNat();
+            case 11:
+                return ens.getDocAdmPhotoCarteSecu();
+            case 12:
+                return ens.getDocAdmRecepArreteNomin();
         }
-        */
+        
         return null;
+    }
+     public void supprimerLigne(int numeroLigne) {
+          leConteneurEnseignant.remove(numeroLigne);
+        this.fireTableDataChanged();
+    }
+
+    public void insererLigne(Enseignant ens) {
+       leConteneurEnseignant.add(ens);
+        this.fireTableDataChanged();
     }
 }
