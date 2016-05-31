@@ -332,14 +332,17 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addGap(383, 383, 383)
                         .addComponent(lTitreGestionEnseignants))
                     .addGroup(pGestionEnseignantLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jBGestionNote1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBModifEtudiant1))
-                        .addGap(464, 464, 464)
-                        .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(btCreaSuprEtudiabnt1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(87, 87, 87)
+                        .addComponent(jBGestionNote1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pGestionEnseignantLayout.createSequentialGroup()
+                                .addGap(464, 464, 464)
+                                .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(btCreaSuprEtudiabnt1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pGestionEnseignantLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jBModifEtudiant1))))
                     .addGroup(pGestionEnseignantLayout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -353,12 +356,13 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
-                .addComponent(jBGestionNote1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBGestionNote1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBModifEtudiant1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addComponent(jBImporter1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBModifEtudiant1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btCreaSuprEtudiabnt1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44))
@@ -735,7 +739,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBModifEtudiantActionPerformed
 
     private void jBModifEtudiant1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModifEtudiant1ActionPerformed
-        // TODO add your handling code here:
+
+        FenetreModificationEnseignant fmu;
+        fmu = new FenetreModificationEnseignant();
+        
+        fmu.setVisible(true);
     }//GEN-LAST:event_jBModifEtudiant1ActionPerformed
 
     private void btAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterActionPerformed

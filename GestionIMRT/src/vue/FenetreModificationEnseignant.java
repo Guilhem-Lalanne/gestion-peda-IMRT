@@ -5,6 +5,10 @@
  */
 package vue;
 
+import appli.ModeleReferentiel;
+import appli.tools;
+import metier.User;
+
 /**
  *
  * @author paul
@@ -17,6 +21,19 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
     public FenetreModificationEnseignant() {
         initComponents();
     }
+    
+    /*
+    public FenetreModifUser(java.awt.Frame parent, User user) {
+        
+        initComponents();
+        
+        tools.debug(user.toString()); 
+        
+        this.lLibelle.setText(libelle);
+        this.txLogin.setText(user.getLogin());
+      
+        
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,7 +85,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         btEnregistrerEns = new javax.swing.JButton();
         btAnnulerEns = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lTitre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lTitre.setText("Modification d'un Enseignant");

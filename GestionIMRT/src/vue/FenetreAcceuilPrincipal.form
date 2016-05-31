@@ -288,15 +288,20 @@
                               <Component id="lTitreGestionEnseignants" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jBGestionNote1" min="-2" pref="234" max="-2" attributes="0"/>
-                                  <Component id="jBModifEtudiant1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                              <Component id="jBGestionNote1" min="-2" pref="234" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="464" max="-2" attributes="0"/>
+                                      <Component id="btCreationEtatHeure" min="-2" pref="251" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                      <Component id="btCreaSuprEtudiabnt1" min="-2" pref="281" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jBModifEtudiant1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="464" max="-2" attributes="0"/>
-                              <Component id="btCreationEtatHeure" min="-2" pref="251" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                              <Component id="btCreaSuprEtudiabnt1" min="-2" pref="281" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
@@ -315,12 +320,14 @@
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="155" max="-2" attributes="0"/>
                       <EmptySpace pref="363" max="32767" attributes="0"/>
-                      <Component id="jBGestionNote1" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jBGestionNote1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="jBModifEtudiant1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Component id="jBImporter1" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jBModifEtudiant1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="btCreationEtatHeure" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="btCreaSuprEtudiabnt1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
