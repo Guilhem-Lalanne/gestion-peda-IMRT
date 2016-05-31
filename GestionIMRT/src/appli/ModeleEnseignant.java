@@ -24,6 +24,11 @@ public class ModeleEnseignant extends AbstractTableModel{
     public ModeleEnseignant(DaoEnseignant leDaoEnseignant) {
         this.leDaoEnseignant = leDaoEnseignant;
        leConteneurEnseignant = new ArrayList<>();
+        try {
+            charger();
+        } catch (SQLException ex) {
+            Logger.getLogger(ModeleEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
    
@@ -84,5 +89,8 @@ public class ModeleEnseignant extends AbstractTableModel{
     public void insererLigne(Enseignant ens) {
        leConteneurEnseignant.add(ens);
         this.fireTableDataChanged();
+    }
+      private void charger() throws SQLException {
+        leDaoEnseignant.getEnseignant(leConteneurEnseignant);
     }
 }

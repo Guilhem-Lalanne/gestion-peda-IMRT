@@ -27,7 +27,7 @@ public class DaoEnseignant {
 
     public void getEnseignant(List<Enseignant> enseignant) throws SQLException {
 
-        String requete = "select * from v_enseignant";
+        String requete = "select * from gi_enseignant";
         PreparedStatement pstmt = cnx.prepareStatement(requete);
         ResultSet rset = pstmt.executeQuery(requete);
 
@@ -56,7 +56,7 @@ public class DaoEnseignant {
                     numeroTelFixeEnseignant, mailEnseignant, profession,
                     userLogin, adresseEnseignant, docAdmPhotoCarteNat,
                     docAdmPhotoCarteSecu, docAdmJustTrav, docAdmRecepArreteNomin);
-
+                    enseignant.add(en);
         }
 
         rset.close();
