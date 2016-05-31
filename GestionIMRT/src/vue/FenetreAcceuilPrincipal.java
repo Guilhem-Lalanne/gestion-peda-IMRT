@@ -31,7 +31,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     public Promotion promotion;
     
     private ModeleUser userModel;
-    private DaoUser dao;
+    private DaoUser daoUser;
     
     
     /**
@@ -48,6 +48,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         this.currentUser = u;
         
         initComponents();
+        
+        //this.pGroupPane.add(new testOngletAjout());
         
         //preparation affichage de la fenetre principale
         
@@ -758,10 +760,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             tools.debug("->GestionUsers");
             
             //init de dao pour recuperation des données
-            dao = new DaoUser(cnx);
+            //1 seule dao par fonctionalité
+            daoUser = new DaoUser(cnx);
             
-            //recuperation des données
-            userModel = new ModeleUser(dao);
+            //recuperation des données dans modelList
+            userModel = new ModeleUser(daoUser);
             
             //je met le model dans la table
             LiUser.setModel(userModel);

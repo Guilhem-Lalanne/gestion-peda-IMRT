@@ -43,4 +43,36 @@ public class DaoPromotion {
         
     }
     
+    /**
+     * TODO: description
+     * 
+     * @param promotion
+     * @return
+     * @throws SQLException 
+     */
+    public Promotion getPromotion(String promotion) throws SQLException {
+        
+        String req = "select * from gi_promotion where ANNEE = ?";
+        PreparedStatement pstmt = cnx.prepareStatement(req);
+        pstmt.setString(1, promotion);
+        
+        Promotion p = new Promotion();
+        
+        ResultSet rset = pstmt.executeQuery();
+        
+        while (rset.next()) {       // traitement du résulat
+            
+            p.setIdPromotion(rset.getInt(1));
+            p.setNomPromotion(rset.getString(2));
+            p.setAnnée(rset.getString(3));
+            
+        }
+        
+        rset.close();
+        pstmt.close();
+        
+        return p;
+        
+    }
+    
 }

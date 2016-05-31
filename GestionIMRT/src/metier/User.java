@@ -79,6 +79,10 @@ public class User {
         this.userNom = fullname;
     }
     
+    public String toString() {
+        return this.login+" "+this.userNom+" "+this.groupeLibelle;
+    }
+    
     public int[] getOngletsGroupes() {
         
         /**
