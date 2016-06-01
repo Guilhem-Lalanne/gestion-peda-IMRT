@@ -51,6 +51,16 @@ public class ModeleEnseignant extends AbstractTableModel{
         Enseignant ens = leConteneurEnseignant.get(rowIndex);
      
         switch (columnIndex) {
+             case 0:
+                return ens.getNomEnseignant();
+            case 1:
+                return ens.getPrenomEnseignant();
+            case 2:
+                return  ens.getAdresseEnseignant();
+            
+            //le reste est inutile pôur ce modele
+        }
+            /**
             case 0:
                 return ens.getIdEnseignant();
             case 1:
@@ -78,7 +88,7 @@ public class ModeleEnseignant extends AbstractTableModel{
             case 12:
                 return ens.getDocAdmRecepArreteNomin();
         }
-        
+        */
         return null;
     }
      public void supprimerLigne(int numeroLigne) {
