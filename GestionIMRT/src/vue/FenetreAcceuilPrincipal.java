@@ -34,7 +34,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     
     private ModeleUser userModel;
     private DaoUser daoUser;
-    
+    private ModeleEnseignant ensModel;
     
     /**
      * Creates new form Fenetre
@@ -739,9 +739,13 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBModifEtudiantActionPerformed
 
     private void jBModifEtudiant1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModifEtudiant1ActionPerformed
-
+        DaoEnseignant daoEns =new  DaoEnseignant(cnx);
+        ModeleEnseignant modeleEns=new ModeleEnseignant(daoEns);
         FenetreModificationEnseignant fmu;
-        fmu = new FenetreModificationEnseignant();
+        
+        fmu = new FenetreModificationEnseignant(this,
+                this.ensModel.get(liEnseignant.getSelectedRow())
+        );
         
         fmu.setVisible(true);
     }//GEN-LAST:event_jBModifEtudiant1ActionPerformed

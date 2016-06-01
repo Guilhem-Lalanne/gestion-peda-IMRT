@@ -31,6 +31,14 @@ public class ModeleEnseignant extends AbstractTableModel{
         }
     }
     
+       
+    public Enseignant get(int index) {
+        return leConteneurEnseignant.get(index);
+    }
+
+  
+   
+
    
     @Override
     public int getRowCount() {
