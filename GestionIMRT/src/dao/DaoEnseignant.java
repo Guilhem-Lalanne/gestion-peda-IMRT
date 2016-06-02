@@ -27,7 +27,7 @@ public class DaoEnseignant {
 
     public void getEnseignant(List<Enseignant> enseignant) throws SQLException {
 
-        String requete = "select * from V_LISTE_ENSEIGNANT";
+        String requete = "select * from gi_enseignant";
         PreparedStatement pstmt = cnx.prepareStatement(requete);
         ResultSet rset = pstmt.executeQuery(requete);
 
