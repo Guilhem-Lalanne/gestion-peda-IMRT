@@ -17,7 +17,8 @@ public class Employeur {
     public Employeur() {
     }
 
-    public Employeur(String nomEmployeur, String adresseEmployeur) {
+    public Employeur(int idEmployeur,String nomEmployeur, String adresseEmployeur) {
+        this.idEmployeur=idEmployeur;
         this.nomEmployeur = nomEmployeur;
         this.adresseEmployeur = adresseEmployeur;
     }

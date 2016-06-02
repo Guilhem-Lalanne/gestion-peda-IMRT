@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import metier.Employeur;
 
 /**
@@ -16,63 +17,32 @@ import metier.Employeur;
  * @author paul
  */
 public class DaoEmployeur {
-      private Connection cnx;
-      
-     public void getCurrentEmployeur() throws SQLException {
-        
-        String req = "select * from ";
+
+    private Connection cnx;
+
+    public DaoEmployeur(Connection cnx) {
+        this.cnx = cnx;
+    }
+
+    public void getEmployeur(List<Employeur> employeur) throws SQLException {
+
+        String req = "select * from V_LISTE_EMPLOYEUR";
         PreparedStatement pstmt = cnx.prepareStatement(req);
-        
-        Employeur emp = new Employeur();
-        
+
         ResultSet rset = pstmt.executeQuery();
-        
+
         while (rset.next()) {       // traitement du résulat
+
+            int idEmployeur = rset.getInt(1);
+            String nomEmployeur = rset.getString(2);
+            String adresseEmployeur = rset.getString(3);
             
-         rset.getInt(1));
-            p.setNomPromotion(rset.getString(2));
-            p.setAnnée(rset.getString(3));
-            
+            Employeur emp = new Employeur(idEmployeur, nomEmployeur, adresseEmployeur);
+            employeur.add(emp);
         }
-        
+
         rset.close();
         pstmt.close();
-        
-        return emp;
-        
+
     }
-    
-    /**
-     * TODO: description
-     * 
-     * @param promotion
-     * @return
-     * @throws SQLException 
-     */
-    public Promotion getPromotion(String promotion) throws SQLException {
-        
-        String req = "select * from gi_promotion where ANNEE = ?";
-        PreparedStatement pstmt = cnx.prepareStatement(req);
-        pstmt.setString(1, promotion);
-        
-        Promotion p = new Promotion();
-        
-        ResultSet rset = pstmt.executeQuery();
-        
-        while (rset.next()) {       // traitement du résulat
-            
-            p.setIdPromotion(rset.getInt(1));
-            p.setNomPromotion(rset.getString(2));
-            p.setAnnée(rset.getString(3));
-            
-        }
-        
-        rset.close();
-        pstmt.close();
-        
-        return p;
-        
-    }
-    
-}
 }
