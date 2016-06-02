@@ -19,7 +19,7 @@ public class Enseignant {
     private String adresseEnseignant;
     private String numeroTelFixeEnseignant;
     private String numeroTelMobilEnseignant;
-    private int mailEnseignant;
+    private String mailEnseignant;
     private String profession;
     private int idEmployeur;
     private String nomEmployeur;
@@ -53,7 +53,7 @@ public class Enseignant {
   * @param docAdmJustTrav
   * @param docAdmRecepArreteNomin 
   */
-    public Enseignant(String prenomEnseignant, String nomEnseignant, int idDiscipline, String dateNaissanceEnseignant, String adresseEnseignant, String numeroTelFixeEnseignant, int mailEnseignant, String profession, String nomEmployeur, String adresseEmployeur, Boolean docAdmPhotoCarteNat, Boolean docAdmPhotoCarteSecu, Boolean docAdmJustTrav, Boolean docAdmRecepArreteNomin) {
+    public Enseignant(String prenomEnseignant, String nomEnseignant, int idDiscipline, String dateNaissanceEnseignant, String adresseEnseignant, String numeroTelFixeEnseignant, String mailEnseignant, String profession, String nomEmployeur, String adresseEmployeur, Boolean docAdmPhotoCarteNat, Boolean docAdmPhotoCarteSecu, Boolean docAdmJustTrav, Boolean docAdmRecepArreteNomin) {
         this.prenomEnseignant = prenomEnseignant;
         this.nomEnseignant = nomEnseignant;
         this.idDiscipline = idDiscipline;
@@ -64,6 +64,7 @@ public class Enseignant {
         this.profession = profession;
         this.nomEmployeur = nomEmployeur;
         this.adresseEmployeur = adresseEmployeur;
+        
         this.docAdmPhotoCarteNat = docAdmPhotoCarteNat;
         this.docAdmPhotoCarteSecu = docAdmPhotoCarteSecu;
         this.docAdmJustTrav = docAdmJustTrav;
@@ -134,11 +135,11 @@ public class Enseignant {
         this.numeroTelMobilEnseignant = numeroTelMobilEnseignant;
     }
 
-    public int getMailEnseignant() {
+    public String getMailEnseignant() {
         return mailEnseignant;
     }
 
-    public void setMailEnseignant(int mailEnseignant) {
+    public void setMailEnseignant(String mailEnseignant) {
         this.mailEnseignant = mailEnseignant;
     }
 
@@ -204,6 +205,11 @@ public class Enseignant {
 
     public void setDocAdmRecepArreteNomin(Boolean docAdmRecepArreteNomin) {
         this.docAdmRecepArreteNomin = docAdmRecepArreteNomin;
+    }
+
+    @Override
+    public String toString() {
+        return "Enseignant{" + "idEnseignant=" + idEnseignant + ", prenomEnseignant=" + prenomEnseignant + ", nomEnseignant=" + nomEnseignant + ", idDiscipline=" + idDiscipline + ", dateNaissanceEnseignant=" + dateNaissanceEnseignant + ", adresseEnseignant=" + adresseEnseignant + ", numeroTelFixeEnseignant=" + numeroTelFixeEnseignant + ", numeroTelMobilEnseignant=" + numeroTelMobilEnseignant + ", mailEnseignant=" + mailEnseignant + ", profession=" + profession + ", idEmployeur=" + idEmployeur + ", nomEmployeur=" + nomEmployeur + ", adresseEmployeur=" + adresseEmployeur + ", docAdmPhotoCarteNat=" + docAdmPhotoCarteNat + ", docAdmPhotoCarteSecu=" + docAdmPhotoCarteSecu + ", docAdmJustTrav=" + docAdmJustTrav + ", docAdmRecepArreteNomin=" + docAdmRecepArreteNomin + '}';
     }
 
     

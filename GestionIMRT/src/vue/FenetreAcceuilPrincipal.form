@@ -299,7 +299,7 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jBModifEtudiant1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jBModifEnsegnant" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -322,7 +322,7 @@
                       <EmptySpace pref="363" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jBGestionNote1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="jBModifEtudiant1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="jBModifEnsegnant" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Component id="jBImporter1" min="-2" pref="40" max="-2" attributes="0"/>
@@ -353,7 +353,7 @@
                 <Property name="text" type="java.lang.String" value="Cr&#xe9;ation d&apos;une fiche enseignant"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jBModifEtudiant1">
+            <Component class="javax.swing.JButton" name="jBModifEnsegnant">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -361,7 +361,7 @@
                 <Property name="text" type="java.lang.String" value="Modification d&apos;une fiche enseignants"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBModifEtudiant1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBModifEnsegnantActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jBImporter1">

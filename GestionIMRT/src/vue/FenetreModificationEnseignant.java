@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package vue;
+import appli.ModeleEnseignant;
 import java.awt.Component;
 import appli.ModeleReferentiel;
 import appli.tools;
@@ -17,18 +18,33 @@ import javax.swing.JTabbedPane;
  */
 public class FenetreModificationEnseignant extends javax.swing.JFrame {
 
+    private boolean etatValidation;
     /**
      * Creates new form FenetreModificationEnseignant
      */
     public FenetreModificationEnseignant(java.awt.Frame parent,Enseignant ens) {
         initComponents();
-        
-        
-        
-        
-        
+     
+         tools.debug(ens.toString()); 
+        this.txNomEns.setText(ens.getNomEnseignant());
+        this.txPrenomEns.setText(ens.getPrenomEnseignant());
+        this.txDateNaissanceEns.setText(ens.getDateNaissanceEnseignant());
+        this.txAdresseEns.setText(ens.getAdresseEnseignant());
+        this.txNumFixe.setText(ens.getNumeroTelFixeEnseignant());
+        this.txNumMobile.setText(ens.getNumeroTelMobilEnseignant());
+        this.txAdresseMail.setText(ens.getMailEnseignant());
+        this.txProfession.setText(ens.getProfession());
+        this.txNomEmp.setText(ens.getNomEmployeur());
+        this.txAdresseEmp.setText(ens.getAdresseEmployeur());
+        this.ckCNI.setText(String.valueOf(ens.getDocAdmPhotoCarteNat()));
+        this.ckSS.setText(String.valueOf(ens.getDocAdmPhotoCarteSecu()));
+        this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
+        this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
     }
-    
+      public boolean doModal() {
+        this.setVisible(true);
+        return etatValidation;
+      }
     /*
     public FenetreModifUser(java.awt.Frame parent, User user) {
         

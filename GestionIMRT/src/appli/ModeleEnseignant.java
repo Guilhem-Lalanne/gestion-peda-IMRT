@@ -38,8 +38,6 @@ public class ModeleEnseignant extends AbstractTableModel{
 
   
    
-
-   
     @Override
     public int getRowCount() {
         return leConteneurEnseignant.size();

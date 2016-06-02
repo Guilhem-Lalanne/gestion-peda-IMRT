@@ -40,7 +40,7 @@ public class DaoEnseignant {
             String adresseEnseignant= rset.getString(6);
             String numeroTelFixeEnseignant = null;
             String numeroTelMobilEnseignant;
-            int mailEnseignant = 0;
+            String mailEnseignant = null;
             String profession = null;
             int idEmployeur;
             Boolean docAdmPhotoCarteNat = null;

@@ -109,7 +109,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         pGestionEnseignant = new javax.swing.JPanel();
         lTitreGestionEnseignants = new javax.swing.JLabel();
         btCreaSuprEtudiabnt1 = new javax.swing.JButton();
-        jBModifEtudiant1 = new javax.swing.JButton();
+        jBModifEnsegnant = new javax.swing.JButton();
         jBImporter1 = new javax.swing.JButton();
         jBGestionNote1 = new javax.swing.JButton();
         btCreationEtatHeure = new javax.swing.JButton();
@@ -299,11 +299,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btCreaSuprEtudiabnt1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btCreaSuprEtudiabnt1.setText("Création d'une fiche enseignant");
 
-        jBModifEtudiant1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jBModifEtudiant1.setText("Modification d'une fiche enseignants");
-        jBModifEtudiant1.addActionListener(new java.awt.event.ActionListener() {
+        jBModifEnsegnant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBModifEnsegnant.setText("Modification d'une fiche enseignants");
+        jBModifEnsegnant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBModifEtudiant1ActionPerformed(evt);
+                jBModifEnsegnantActionPerformed(evt);
             }
         });
 
@@ -342,7 +342,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                                 .addComponent(btCreaSuprEtudiabnt1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pGestionEnseignantLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jBModifEtudiant1))))
+                                .addComponent(jBModifEnsegnant))))
                     .addGroup(pGestionEnseignantLayout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -358,7 +358,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
                 .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBGestionNote1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBModifEtudiant1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBModifEnsegnant, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addComponent(jBImporter1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -738,17 +738,18 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBModifEtudiantActionPerformed
 
-    private void jBModifEtudiant1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModifEtudiant1ActionPerformed
+    private void jBModifEnsegnantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModifEnsegnantActionPerformed
         DaoEnseignant daoEns =new  DaoEnseignant(cnx);
         ModeleEnseignant modeleEns=new ModeleEnseignant(daoEns);
         FenetreModificationEnseignant fmu;
         
         fmu = new FenetreModificationEnseignant(this,
-                this.ensModel.get(liEnseignant.getSelectedRow())
+                this.ensModel.get(liEnseignant.getSelectedRow()
+                        )
         );
         
         fmu.setVisible(true);
-    }//GEN-LAST:event_jBModifEtudiant1ActionPerformed
+    }//GEN-LAST:event_jBModifEnsegnantActionPerformed
 
     private void btAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterActionPerformed
         // TODO add your handling code here:
@@ -861,8 +862,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jBGestionNote1;
     private javax.swing.JButton jBImporter;
     private javax.swing.JButton jBImporter1;
+    private javax.swing.JButton jBModifEnsegnant;
     private javax.swing.JButton jBModifEtudiant;
-    private javax.swing.JButton jBModifEtudiant1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lAnnee;
     private javax.swing.JLabel lLogin;
