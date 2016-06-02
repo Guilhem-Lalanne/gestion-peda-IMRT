@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package appli;
+
 import dao.DaoEnseignant;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,16 +13,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 import metier.Enseignant;
+
 /**
  *
  * @author paul
  */
-public class ModeleEnseignant extends AbstractTableModel{
-     private List<Enseignant> leConteneurEnseignant;
+public class ModelModifEnseignant extends AbstractTableModel{ 
+    
+
+    private List<Enseignant> leConteneurEnseignant;
     private String[] nomColonnes = {"NOM", "Prenom ", "adresse"};
     private DaoEnseignant leDaoEnseignant;
 
-    public ModeleEnseignant(DaoEnseignant leDaoEnseignant) {
+    public ModelModifEnseignant(DaoEnseignant leDaoEnseignant) {
         this.leDaoEnseignant = leDaoEnseignant;
        leConteneurEnseignant = new ArrayList<>();
         try {
@@ -57,16 +61,8 @@ public class ModeleEnseignant extends AbstractTableModel{
         Enseignant ens = leConteneurEnseignant.get(rowIndex);
      
         switch (columnIndex) {
-             case 0:
-                return ens.getNomEnseignant();
-            case 1:
-                return ens.getPrenomEnseignant();
-            case 2:
-                return  ens.getAdresseEnseignant();
+        
             
-            //le reste est inutile pôur ce modele
-        }
-            /**
             case 0:
                 return ens.getIdEnseignant();
             case 1:
@@ -87,14 +83,14 @@ public class ModeleEnseignant extends AbstractTableModel{
                 return ens.getMailEnseignant();
             case 9:
                 return ens.getIdEmployeur();
-            case 10:+++
+            case 10:
                 return ens.getDocAdmPhotoCarteNat();
             case 11:
                 return ens.getDocAdmPhotoCarteSecu();
             case 12:
                 return ens.getDocAdmRecepArreteNomin();
         }
-        */
+        
         return null;
     }
      public void supprimerLigne(int numeroLigne) {

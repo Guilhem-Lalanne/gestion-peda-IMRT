@@ -4,6 +4,7 @@
  */
 package vue;
 
+import appli.ModelModifEnseignant;
 import appli.ModeleEnseignant;
 import appli.ModeleUser;
 import appli.ModeleReferentiel;
@@ -34,7 +35,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     
     private ModeleUser userModel;
     private DaoUser daoUser;
-    private ModeleEnseignant ensModel;
+    
     
     /**
      * Creates new form Fenetre
@@ -740,13 +741,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
     private void jBModifEnsegnantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModifEnsegnantActionPerformed
         DaoEnseignant daoEns =new  DaoEnseignant(cnx);
-        ModeleEnseignant modeleEns=new ModeleEnseignant(daoEns);
+        ModelModifEnseignant modeleEns=new ModelModifEnseignant(daoEns);
         FenetreModificationEnseignant fmu;
         
         fmu = new FenetreModificationEnseignant(this,
-                this.ensModel.get(liEnseignant.getSelectedRow()
-                        )
-        );
+               modeleEns.get(liEnseignant.getSelectedRow()));
         
         fmu.setVisible(true);
     }//GEN-LAST:event_jBModifEnsegnantActionPerformed

@@ -14,6 +14,9 @@ public class Employeur {
      private String nomEmployeur;
       private String adresseEmployeur;
 
+    public Employeur() {
+    }
+
     public Employeur(String nomEmployeur, String adresseEmployeur) {
         this.nomEmployeur = nomEmployeur;
         this.adresseEmployeur = adresseEmployeur;

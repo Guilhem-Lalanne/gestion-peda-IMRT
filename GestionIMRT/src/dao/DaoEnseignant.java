@@ -38,11 +38,11 @@ public class DaoEnseignant {
             int idDiscipline= rset.getInt(4);
             String dateNaissanceEnseignant= rset.getString(5);
             String adresseEnseignant= rset.getString(6);
-            String numeroTelFixeEnseignant = null;
-            String numeroTelMobilEnseignant;
-            String mailEnseignant = null;
-            String profession = null;
-            int idEmployeur;
+            String numeroTelFixeEnseignant =rset.getString(7);
+            String numeroTelMobilEnseignant=rset.getString(8);
+            String mailEnseignant = rset.getString(9);
+            String profession = rset.getString(10);
+            int idEmployeur=1;
             Boolean docAdmPhotoCarteNat = null;
             Boolean docAdmPhotoCarteSecu = null;
             Boolean docAdmJustTrav = null;
@@ -50,9 +50,17 @@ public class DaoEnseignant {
             String userLogin = rset.getString(1);
             String userNom = rset.getString(2);
             String userGroupe = rset.getString(3);
-            
-            Enseignant en = new Enseignant(prenomEnseignant, nomEnseignant,
-                    idEnseignant, dateNaissanceEnseignant, adresseEnseignant,
+            /**
+            int idEnseignant,String prenomEnseignant, String nomEnseignant,
+            int idDiscipline, String dateNaissanceEnseignant, 
+            String adresseEnseignant, String numeroTelFixeEnseignant, 
+            String mailEnseignant, String profession, String nomEmployeur, 
+            String adresseEmployeur, Boolean docAdmPhotoCarteNat, 
+            Boolean docAdmPhotoCarteSecu, Boolean docAdmJustTrav,
+            Boolean docAdmRecepArreteNomin
+            * **/
+            Enseignant en = new Enseignant(idEnseignant,prenomEnseignant, nomEnseignant,
+                    dateNaissanceEnseignant, adresseEnseignant,
                     numeroTelFixeEnseignant, mailEnseignant, profession,
                     userLogin, adresseEnseignant, docAdmPhotoCarteNat,
                     docAdmPhotoCarteSecu, docAdmJustTrav, docAdmRecepArreteNomin);

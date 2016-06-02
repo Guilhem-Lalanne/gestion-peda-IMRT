@@ -53,10 +53,25 @@ public class Enseignant {
   * @param docAdmJustTrav
   * @param docAdmRecepArreteNomin 
   */
-    public Enseignant(String prenomEnseignant, String nomEnseignant, int idDiscipline, String dateNaissanceEnseignant, String adresseEnseignant, String numeroTelFixeEnseignant, String mailEnseignant, String profession, String nomEmployeur, String adresseEmployeur, Boolean docAdmPhotoCarteNat, Boolean docAdmPhotoCarteSecu, Boolean docAdmJustTrav, Boolean docAdmRecepArreteNomin) {
+    /**
+    prenomEnseignant, nomEnseignant,
+                    idEnseignant, dateNaissanceEnseignant, adresseEnseignant,
+                    numeroTelFixeEnseignant, mailEnseignant, profession,
+                    userLogin, adresseEnseignant, docAdmPhotoCarteNat,
+                    docAdmPhotoCarteSecu, docAdmJustTrav, docAdmRecepArreteNomin
+                 **/
+    
+    public Enseignant(int idEnseignant,String prenomEnseignant, String nomEnseignant,
+            String dateNaissanceEnseignant, 
+            String adresseEnseignant, String numeroTelFixeEnseignant, 
+            String mailEnseignant, String profession, String nomEmployeur, 
+            String adresseEmployeur, Boolean docAdmPhotoCarteNat, 
+            Boolean docAdmPhotoCarteSecu, Boolean docAdmJustTrav,
+            Boolean docAdmRecepArreteNomin) {
+        this.idEnseignant=idEnseignant;
         this.prenomEnseignant = prenomEnseignant;
         this.nomEnseignant = nomEnseignant;
-        this.idDiscipline = idDiscipline;
+       // this.idDiscipline = idDiscipline;
         this.dateNaissanceEnseignant = dateNaissanceEnseignant;
         this.adresseEnseignant = adresseEnseignant;
         this.numeroTelFixeEnseignant = numeroTelFixeEnseignant;
