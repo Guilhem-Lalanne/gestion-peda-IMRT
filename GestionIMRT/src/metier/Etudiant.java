@@ -13,18 +13,32 @@ public class Etudiant {
 
     private int idEtudiant;
     private int idGroupe;
-    private String nomGroupeEtudiant;
     private String nomEtudiant;
     private String prenomEtudiant;
     private String dateNaissanceEtudiant;
     private String adresseEtudiant;
     private String numeroTelFixeEtudiant;
     private String numeroTelMobilEtudiant;
-    private int mailEtudiant;
+    private String mailEtudiant;
     private int idClasse;
-    private String nomClasseEtudiant;
-
-    public Etudiant(String nomEtudiant, String prenomEtudiant, String dateNaissanceEtudiant, String adresseEtudiant, String numeroTelFixeEtudiant, String numeroTelMobilEtudiant, int mailEtudiant) {
+    
+    /**
+     * 
+     * @param nomEtudiant
+     * @param prenomEtudiant
+     * @param dateNaissanceEtudiant
+     * @param adresseEtudiant
+     * @param numeroTelFixeEtudiant
+     * @param numeroTelMobilEtudiant
+     * @param mailEtudiant 
+     */
+    public Etudiant(String nomEtudiant, 
+            String prenomEtudiant, 
+            String dateNaissanceEtudiant, 
+            String adresseEtudiant, 
+            String numeroTelFixeEtudiant, 
+            String numeroTelMobilEtudiant, 
+            String mailEtudiant) {
         this.nomEtudiant = nomEtudiant;
         this.prenomEtudiant = prenomEtudiant;
         this.dateNaissanceEtudiant = dateNaissanceEtudiant;
@@ -33,7 +47,7 @@ public class Etudiant {
         this.numeroTelMobilEtudiant = numeroTelMobilEtudiant;
         this.mailEtudiant = mailEtudiant;
     }
-    
+
     /**
      * Constructeur par défaut (sans paramètres)
      */
@@ -54,13 +68,6 @@ public class Etudiant {
 
     public void setIdGroupe(int idGroupe) {
         this.idGroupe = idGroupe;
-    }
-  public String getNomGroupeEtudiant() {
-        return nomGroupeEtudiant;
-    }
-
-    public void setNomGroupeEtudiant(String nomGroupeEtudiant) {
-        this.nomGroupeEtudiant = nomGroupeEtudiant;
     }
 
     public String getNomEtudiant() {
@@ -111,11 +118,11 @@ public class Etudiant {
         this.numeroTelMobilEtudiant = numeroTelMobilEtudiant;
     }
 
-    public int getMailEtudiant() {
+    public String getMailEtudiant() {
         return mailEtudiant;
     }
 
-    public void setMailEtudiant(int mailEtudiant) {
+    public void setMailEtudiant(String mailEtudiant) {
         this.mailEtudiant = mailEtudiant;
     }
 
@@ -129,13 +136,8 @@ public class Etudiant {
 
     @Override
     public String toString() {
-        return "etudiant("+"nomGroupeEtudiant"+nomGroupeEtudiant+"+nomEtudiant"+nomEtudiant+
-               "prenomEtudiant"+prenomEtudiant+"dateNaissanceEtudiant"+
-                dateNaissanceEtudiant+"adresseEtudiant"+adresseEtudiant+
-                "numeroTelFixeEtudiant"+numeroTelFixeEtudiant+"numeroTel"
-                + "MobilEtudiant"+numeroTelMobilEtudiant+"mailEtudiant"+
-                "nomClasseEtudiant"+nomClasseEtudiant+")";
+        return "Etudiant{" + "idEtudiant=" + idEtudiant + ", idGroupe=" + idGroupe + ", idClasse=" + idClasse + ", nomEtudiant=" + nomEtudiant + ", prenomEtudiant=" + prenomEtudiant + ", dateNaissanceEtudiant=" + dateNaissanceEtudiant + ", adresseEtudiant=" + adresseEtudiant + ", numeroTelFixeEtudiant=" + numeroTelFixeEtudiant + ", numeroTelMobilEtudiant=" + numeroTelMobilEtudiant + ", mailEtudiant=" + mailEtudiant + '}';
     }
 
-   
+
 }
