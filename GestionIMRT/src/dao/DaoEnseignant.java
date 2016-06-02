@@ -27,7 +27,7 @@ public class DaoEnseignant {
 
     public void getEnseignant(List<Enseignant> enseignant) throws SQLException {
 
-        String requete = "select * from gi_enseignant";
+        String requete = "select * from V_LISTE_ENSEIGNANT";
         PreparedStatement pstmt = cnx.prepareStatement(requete);
         ResultSet rset = pstmt.executeQuery(requete);
 
@@ -50,15 +50,7 @@ public class DaoEnseignant {
             String userLogin = rset.getString(1);
             String userNom = rset.getString(2);
             String userGroupe = rset.getString(3);
-            /**
-            int idEnseignant,String prenomEnseignant, String nomEnseignant,
-            int idDiscipline, String dateNaissanceEnseignant, 
-            String adresseEnseignant, String numeroTelFixeEnseignant, 
-            String mailEnseignant, String profession, String nomEmployeur, 
-            String adresseEmployeur, Boolean docAdmPhotoCarteNat, 
-            Boolean docAdmPhotoCarteSecu, Boolean docAdmJustTrav,
-            Boolean docAdmRecepArreteNomin
-            * **/
+            
             Enseignant en = new Enseignant(idEnseignant,prenomEnseignant, nomEnseignant,
                     dateNaissanceEnseignant, adresseEnseignant,
                     numeroTelFixeEnseignant, mailEnseignant, profession,
