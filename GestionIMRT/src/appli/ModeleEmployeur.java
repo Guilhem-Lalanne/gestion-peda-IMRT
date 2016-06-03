@@ -21,7 +21,7 @@ import metier.Employeur;
 public class ModeleEmployeur extends AbstractTableModel{ 
     
      private List <Employeur>  leConteneurEmployeur;
-    private String[] nomColonnes = {"NOM", "Prenom ", "adresse"};
+    private String[] nomColonnes = {"id", "Nom ", "adresse"};
     private DaoEmployeur leDaoEmployeur;
 
     public ModeleEmployeur(DaoEmployeur leDaoEmployeur) {

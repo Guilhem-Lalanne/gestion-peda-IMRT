@@ -5,10 +5,13 @@
 package vue;
 
 import appli.ModelModifEnseignant;
+import appli.ModeleEmployeur;
 import appli.ModeleEnseignant;
+import appli.ModeleNomEmployeur;
 import appli.ModeleUser;
 import appli.ModeleReferentiel;
 import appli.tools;
+import dao.DaoEmployeur;
 import dao.DaoEnseignant;
 import dao.DaoPromotion;
 import dao.DaoReferentiel;
@@ -741,11 +744,13 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
     private void jBModifEnsegnantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModifEnsegnantActionPerformed
         DaoEnseignant daoEns =new  DaoEnseignant(cnx);
+        DaoEmployeur daoEmp =new DaoEmployeur(cnx);
+        ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
         ModelModifEnseignant modeleEns=new ModelModifEnseignant(daoEns);
         FenetreModificationEnseignant fmu;
         
         fmu = new FenetreModificationEnseignant(this,
-               modeleEns.get(liEnseignant.getSelectedRow()));
+               modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp);
         
         fmu.setVisible(true);
     }//GEN-LAST:event_jBModifEnsegnantActionPerformed

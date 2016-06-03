@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package vue;
+import appli.ModeleEmployeur;
 import appli.ModeleEnseignant;
+import appli.ModeleNomEmployeur;
 import java.awt.Component;
 import appli.ModeleReferentiel;
 import appli.tools;
@@ -22,7 +24,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
     /**
      * Creates new form FenetreModificationEnseignant
      */
-    public FenetreModificationEnseignant(java.awt.Frame parent,Enseignant ens) {
+    public FenetreModificationEnseignant(java.awt.Frame parent,Enseignant ens,ModeleNomEmployeur modelNomEmp) {
         initComponents();
      
          tools.debug(ens.toString()); 
@@ -34,8 +36,8 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         this.txNumMobile.setText(ens.getNumeroTelMobilEnseignant());
         this.txAdresseMail.setText(ens.getMailEnseignant());
         this.txProfession.setText(ens.getProfession());
-        this.txNomEmp.setText(ens.getNomEmployeur());
-        this.txAdresseEmp.setText(ens.getAdresseEmployeur());
+        this.cbNomEmployeur.setModel(modelNomEmp);
+        //this.txAdresseEmp.setText(cbNomEmployeur.);
         this.ckCNI.setText(String.valueOf(ens.getDocAdmPhotoCarteNat()));
         this.ckSS.setText(String.valueOf(ens.getDocAdmPhotoCarteSecu()));
         this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
@@ -79,7 +81,6 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         lProfession = new javax.swing.JLabel();
         txProfession = new javax.swing.JTextField();
         lNomEmp = new javax.swing.JLabel();
-        txNomEmp = new javax.swing.JTextField();
         lAdresseEmp = new javax.swing.JLabel();
         txAdresseEmp = new javax.swing.JTextField();
         pStatutEN = new javax.swing.JPanel();
@@ -101,6 +102,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         liListeEnseignee = new javax.swing.JList();
         btEnregistrerEns = new javax.swing.JButton();
         btAnnulerEns = new javax.swing.JButton();
+        cbNomEmployeur = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -301,6 +303,8 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         btAnnulerEns.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAnnulerEns.setText("Annuler");
 
+        cbNomEmployeur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -340,27 +344,25 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(pStatutEN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
+                                .addGap(17, 17, 17)
                                 .addComponent(lNomEmp)
-                                .addGap(36, 36, 36)
-                                .addComponent(txNomEmp))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(pStatutEN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbNomEmployeur, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
                                 .addComponent(pDocuments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(146, 146, 146)
+                                .addGap(106, 106, 106)
                                 .addComponent(lProfession, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27)
                                 .addComponent(txProfession, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
+                                .addGap(0, 0, 0)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(pUE, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -411,15 +413,15 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                     .addComponent(txProfession, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lNomEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txNomEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lAdresseEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txAdresseEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txAdresseEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lNomEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                            .addComponent(cbNomEmployeur))))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -450,6 +452,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
     private javax.swing.JButton btAnnulerEns;
     private javax.swing.JButton btEnregistrerEns;
     private javax.swing.JButton btSupprimerUE;
+    private javax.swing.JComboBox<String> cbNomEmployeur;
     private javax.swing.JCheckBox ckArreteNomination;
     private javax.swing.JCheckBox ckBulletinSalaire;
     private javax.swing.JCheckBox ckCNI;
@@ -480,7 +483,6 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
     private javax.swing.JTextField txAdresseEns;
     private javax.swing.JTextField txAdresseMail;
     private javax.swing.JTextField txDateNaissanceEns;
-    private javax.swing.JTextField txNomEmp;
     private javax.swing.JTextField txNomEns;
     private javax.swing.JTextField txNumFixe;
     private javax.swing.JTextField txNumMobile;

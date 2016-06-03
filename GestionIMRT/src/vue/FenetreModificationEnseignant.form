@@ -66,17 +66,14 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="pStatutEN" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Component id="lNomEmp" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="txNomEmp" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="pStatutEN" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txAdresseMail" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txAdresseMail" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="cbNomEmployeur" min="-2" pref="191" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -86,13 +83,13 @@
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                               <Component id="lProfession" min="-2" pref="116" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Component id="txProfession" min="-2" pref="244" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="pUE" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
@@ -158,17 +155,17 @@
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lNomEmp" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="txNomEmp" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lAdresseEmp" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="txAdresseEmp" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lNomEmp" pref="29" max="32767" attributes="0"/>
+                          <Component id="cbNomEmployeur" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -308,8 +305,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Nom employeur"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txNomEmp">
     </Component>
     <Component class="javax.swing.JLabel" name="lAdresseEmp">
       <Properties>
@@ -608,6 +603,21 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Annuler"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbNomEmployeur">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
