@@ -36,6 +36,11 @@ public class ModeleEtudiant extends AbstractTableModel {
         }
         
     }
+    
+    public Etudiant getEtu(int index) {
+        return leConteneurEtu.get(index);
+    }
+    
 
     public Etudiant getEtu(int index) {
         return leConteneurEtu.get(index);

@@ -29,7 +29,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pGroupPane" alignment="0" max="32767" attributes="0"/>
+          <Component id="pGroupPane" min="-2" pref="929" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -75,7 +75,7 @@
                           <Component id="lNiveau" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lAnnee" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="1277" max="32767" attributes="0"/>
+                      <EmptySpace pref="2215" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -88,7 +88,7 @@
                       <Component id="lNiveau" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lAnnee" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="800" max="32767" attributes="0"/>
+                      <EmptySpace pref="834" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -123,12 +123,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1369" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="2307" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="865" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="899" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -148,114 +148,113 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btPassageEtuClasSup" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jBGestionAbscence" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lTitreGestEtu" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jBCreaSuprEtudiabnt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jBModifEtudiant" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jBImporter" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jBGestionNote" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btRestFichEtu" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btAjouterEtudiant" min="-2" pref="108" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btModifierEtudiant" min="-2" pref="110" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btSupprimerEtudiant" min="-2" pref="113" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btRestaurerEtudiant" min="-2" pref="193" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="spEtudiants" alignment="0" min="-2" pref="598" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="btPassageEtudiant" max="32767" attributes="0"/>
+                                  <Component id="btAbsenceEtudiant" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btNotesEtudiant" alignment="1" min="-2" pref="299" max="-2" attributes="0"/>
+                                  <Component id="btImporterEtudiants" alignment="1" min="-2" pref="299" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="879" max="32767" attributes="0"/>
+                      <EmptySpace pref="1699" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="lTitreGestEtu" min="-2" pref="42" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                      <Component id="jBCreaSuprEtudiabnt" min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="spEtudiants" min="-2" pref="288" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btAjouterEtudiant" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btSupprimerEtudiant" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btModifierEtudiant" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="btRestaurerEtudiant" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btAbsenceEtudiant" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btNotesEtudiant" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jBModifEtudiant" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btRestFichEtu" min="-2" pref="36" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jBImporter" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jBGestionAbscence" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jBGestionNote" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btPassageEtuClasSup" min="-2" pref="92" max="-2" attributes="0"/>
-                      <EmptySpace pref="302" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btImporterEtudiants" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btPassageEtudiant" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="484" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jBGestionAbscence">
+            <Container class="javax.swing.JScrollPane" name="spEtudiants">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="liEtudiants">
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btAjouterEtudiant">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="1"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Ajouter"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btModifierEtudiant">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modifier"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btSupprimerEtudiant">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Supprimer"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btRestaurerEtudiant">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Restaurer la fiche d&apos;un &#xe9;tudiant"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btAbsenceEtudiant">
+              <Properties>
                 <Property name="text" type="java.lang.String" value="Gestion des abscences"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jBGestionNote">
+            <Component class="javax.swing.JButton" name="btNotesEtudiant">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="1"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Gestion des notes"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btRestFichEtu">
+            <Component class="javax.swing.JButton" name="btPassageEtudiant">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="restaurer la fiche d&apos;un &#xe9;tudiant"/>
+                <Property name="text" type="java.lang.String" value="Passage des &#xe9;tudiants en classe sup&#xe9;rieure"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btPassageEtuClasSup">
+            <Component class="javax.swing.JButton" name="btImporterEtudiants">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Passage des &#xe9;tudiants en classe superieur"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lTitreGestEtu">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="                Gestion des &#xe9;tudiants"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jBCreaSuprEtudiabnt">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Cr&#xe9;ation de la fiche d&apos;un &#xe9;tudiant"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCreaSuprEtudiabntActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jBModifEtudiant">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Modification/supression de la fiche d&apos;un &#xe9;tudiant"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBModifEtudiantActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jBImporter">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="1"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Importation &#xe0; partir d&apos;un fichier"/>
               </Properties>
             </Component>
@@ -319,7 +318,7 @@
                       <Component id="lTitreGestionEnseignants" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="155" max="-2" attributes="0"/>
-                      <EmptySpace pref="363" max="32767" attributes="0"/>
+                      <EmptySpace pref="397" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jBGestionNote1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="jBModifEnsegnant" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
@@ -421,7 +420,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
                       <Component id="spListeEtudConvoque" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="746" max="32767" attributes="0"/>
+                      <EmptySpace pref="1684" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -462,7 +461,7 @@
                               <Component id="btimprilConvocSurveil" alignment="0" max="32767" attributes="0"/>
                               <Component id="btImprimPvIntero" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="175" max="32767" attributes="0"/>
+                          <EmptySpace pref="1113" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -472,7 +471,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
                       <Component id="spListeEtudConvoque" min="-2" pref="131" max="-2" attributes="0"/>
-                      <EmptySpace pref="571" max="32767" attributes="0"/>
+                      <EmptySpace pref="605" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -1026,7 +1025,7 @@
                               <Component id="btModifierUser" min="-2" pref="110" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="761" max="32767" attributes="0"/>
+                      <EmptySpace pref="1699" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1041,7 +1040,7 @@
                           <Component id="btSuprimerUser" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btModifierUser" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="532" max="32767" attributes="0"/>
+                      <EmptySpace pref="566" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
