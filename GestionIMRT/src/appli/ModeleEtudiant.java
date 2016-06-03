@@ -20,29 +20,30 @@ import metier.Etudiant;
  */
 public class ModeleEtudiant extends AbstractTableModel {
 
-    private List<Etudiant> leConteneur;
-    private String[] nomColonnes = {"login", "fullname", "groupe"};
-    private DaoEtudiant leDao;
+    private List<Etudiant> leConteneurEtu;
+    private String[] nomColonnes = {"Nom", "Prenom", "Date de Naissance", "Adresse"};
+    private DaoEtudiant leDaoEtu;
 
-    public ModeleEtudiant (DaoEtudiant leDao) {
+    public ModeleEtudiant (DaoEtudiant leDaoEtu) {
 
-        this.leDao = leDao;
-        leConteneur = new ArrayList<>();
+        this.leDaoEtu = leDaoEtu;
+        leConteneurEtu = new ArrayList<>();
 
-        /*
-        TODO
-        
         try {
             charger();
         } catch (SQLException ex) {
-            Logger.getLogger(ModeleUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeleEtudiant.class.getName()).log(Level.SEVERE, null, ex);
         }
-        */
+        
+    }
+    
+     public Etudiant getEtu(int index) {
+        return leConteneurEtu.get(index);
     }
 
     @Override
     public int getRowCount() {
-        return leConteneur.size();
+        return leConteneurEtu.size();
     }
 
     @Override
@@ -57,34 +58,35 @@ public class ModeleEtudiant extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Etudiant etu = leConteneur.get(rowIndex);
-        /* TODO : Application à la classe Etudiant
+        Etudiant etu = leConteneurEtu.get(rowIndex);
+        // TODO : Application à la classe Etudiant
         switch (columnIndex) {
             case 0:
-                return etu.getLogin();
+                return etu.getNomEtudiant();
             case 1:
-                return etu.getFullname();
+                return etu.getPrenomEtudiant();
             case 2:
-                return etu.getGroupe();
+                return etu.getDateNaissanceEtudiant();
+            case 3:
+                return etu.getAdresseEtudiant();
         }
-        */
+        
         return null;
     }
 
     public void supprimerLigne(int numeroLigne) {
-        leConteneur.remove(numeroLigne);
+        leConteneurEtu.remove(numeroLigne);
         this.fireTableDataChanged();
     }
 
     public void insererLigne(Etudiant etu) {
-        //leConteneur.add(etu);
+        leConteneurEtu.add(etu);
         this.fireTableDataChanged();
     }
 
-    /*
+    
     private void charger() throws SQLException {
-        leDao.getUsers(leConteneur);
+        leDaoEtu.getListEtudiants(leConteneurEtu);
     }
-    */
 
 }
