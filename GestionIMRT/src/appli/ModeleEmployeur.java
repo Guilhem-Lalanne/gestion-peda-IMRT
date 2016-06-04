@@ -33,6 +33,9 @@ public class ModeleEmployeur extends AbstractTableModel{
             Logger.getLogger(ModeleEnseignant.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public ModeleEmployeur() {
+    }
     
        
     public Employeur get(int index) {

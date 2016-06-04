@@ -63,5 +63,28 @@ public class DaoEnseignant {
         pstmt.close();
 
     }
-    
+     public void setEnseignant(Enseignant ens) throws SQLException {
+        String requete = "insert into gi_enseignant (prenom,nom,ID_DISCIPLINE,DATE_NAISSANCE,"
+                + "ADRESSE,NUMERO_TEL_FIXE,NUMERO_TEL_MOBILE,MAIL,PROFFESION"
+                + "ID_EMPLOYEUR,DOC_ADM_PHOTO_CARTE_NA,DOC_ADM_PHOTO_CARTE_SECU,"
+                + "DOC_ADM_JUST_TRAV,DOC_ADM_RECEP_ARRETE_NOMIN) values (?,?,?,?,?,?"
+                + ",?,?,?,?,?,?,?,?)";
+        PreparedStatement pstmt = cnx.prepareStatement(requete);
+        pstmt.setString(2, ens.getPrenomEnseignant());
+        pstmt.setString(3,ens.getNomEnseignant());
+        pstmt.setInt(4, ens.getIdDiscipline());
+        pstmt.setString(5, ens.getDateNaissanceEnseignant());
+        pstmt.setString(6, ens.getAdresseEnseignant());
+        pstmt.setString(7, ens.getNumeroTelFixeEnseignant());
+        pstmt.setString(8, ens.getNumeroTelMobilEnseignant());
+        pstmt.setString(9, ens.getProfession());
+        pstmt.setInt(10, ens.getIdEmployeur());
+        pstmt.setBoolean(11, ens.getDocAdmPhotoCarteNat());
+        pstmt.setBoolean(12, ens.getDocAdmPhotoCarteSecu());
+        pstmt.setBoolean(13, ens.getDocAdmJustTrav());
+        pstmt.setBoolean(14, ens.getDocAdmRecepArreteNomin());
+        pstmt.executeUpdate();
+        pstmt.close();
+    } 
+
 }

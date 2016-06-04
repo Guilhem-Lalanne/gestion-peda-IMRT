@@ -21,12 +21,13 @@ import javax.swing.JTabbedPane;
 public class FenetreModificationEnseignant extends javax.swing.JFrame {
 
     private boolean etatValidation;
+    private ModeleNomEmployeur modelNomEmp;
     /**
      * Creates new form FenetreModificationEnseignant
      */
     public FenetreModificationEnseignant(java.awt.Frame parent,Enseignant ens,ModeleNomEmployeur modelNomEmp) {
         initComponents();
-     
+      
          tools.debug(ens.toString()); 
         this.txNomEns.setText(ens.getNomEnseignant());
         this.txPrenomEns.setText(ens.getPrenomEnseignant());
@@ -294,7 +295,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                         .addComponent(btAjouterUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btSupprimerUE)))
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         btEnregistrerEns.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -304,6 +305,11 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         btAnnulerEns.setText("Annuler");
 
         cbNomEmployeur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbNomEmployeur.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbNomEmployeurActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -328,7 +334,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                                         .addComponent(txPrenomEns, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(30, 30, 30)
                                         .addComponent(lDateNaissanceEns, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                                         .addComponent(txDateNaissanceEns, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(txAdresseEns)))
                             .addGroup(layout.createSequentialGroup()
@@ -361,14 +367,12 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                                 .addComponent(lProfession, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27)
                                 .addComponent(txProfession, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, 0)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(pUE, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(lAdresseEmp)
-                                        .addGap(54, 54, 54)
-                                        .addComponent(txAdresseEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(pUE, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(lAdresseEmp)
+                                    .addGap(54, 54, 54)
+                                    .addComponent(txAdresseEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(52, 52, 52))
             .addGroup(layout.createSequentialGroup()
                 .addGap(181, 181, 181)
@@ -376,7 +380,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(128, 128, 128)
-                .addComponent(btEnregistrerEns, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btEnregistrerEns, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btAnnulerEns, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(263, 263, 263))
@@ -446,6 +450,10 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
     private void txPrenomEnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPrenomEnsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txPrenomEnsActionPerformed
+
+    private void cbNomEmployeurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNomEmployeurActionPerformed
+      
+    }//GEN-LAST:event_cbNomEmployeurActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAjouterUE;
