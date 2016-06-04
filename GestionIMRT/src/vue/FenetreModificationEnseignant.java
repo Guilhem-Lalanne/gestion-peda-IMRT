@@ -21,13 +21,14 @@ import javax.swing.JTabbedPane;
 public class FenetreModificationEnseignant extends javax.swing.JFrame {
 
     private boolean etatValidation;
-    private ModeleNomEmployeur modelNomEmp;
+  
+    
     /**
      * Creates new form FenetreModificationEnseignant
      */
     public FenetreModificationEnseignant(java.awt.Frame parent,Enseignant ens,ModeleNomEmployeur modelNomEmp) {
         initComponents();
-      
+
          tools.debug(ens.toString()); 
         this.txNomEns.setText(ens.getNomEnseignant());
         this.txPrenomEns.setText(ens.getPrenomEnseignant());
@@ -43,6 +44,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         this.ckSS.setText(String.valueOf(ens.getDocAdmPhotoCarteSecu()));
         this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
         this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
+       
     }
       public boolean doModal() {
         this.setVisible(true);
@@ -300,6 +302,11 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
 
         btEnregistrerEns.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btEnregistrerEns.setText("Enregistrer");
+        btEnregistrerEns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEnregistrerEnsActionPerformed(evt);
+            }
+        });
 
         btAnnulerEns.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAnnulerEns.setText("Annuler");
@@ -454,6 +461,10 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
     private void cbNomEmployeurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNomEmployeurActionPerformed
       
     }//GEN-LAST:event_cbNomEmployeurActionPerformed
+
+    private void btEnregistrerEnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnregistrerEnsActionPerformed
+    
+    }//GEN-LAST:event_btEnregistrerEnsActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAjouterUE;
