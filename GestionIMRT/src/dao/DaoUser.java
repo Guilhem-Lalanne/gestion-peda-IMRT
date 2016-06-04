@@ -5,7 +5,6 @@
  */
 package dao;
 
-import appli.tools;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,9 +36,8 @@ public class DaoUser {
             String userLogin = rset.getString(1);
             String userNom = rset.getString(2);
             int userGroupe = rset.getInt(3);
-            String userGroupeLib = rset.getString(4);
-            
-            users.add(new User(userLogin, userNom, userGroupe, userGroupeLib));
+            String userGroupeString = rset.getString(4);
+            users.add(new User(userLogin, userNom, userGroupe, userGroupeString));
             
         }
         
@@ -56,12 +54,8 @@ public class DaoUser {
      */
     public User getUser(String login) throws SQLException {
         
-        String req = "select u.user_groupe,u.user_nom,r.libelle "
-                + " from gi_users u inner join ref_user_groupe r on u.user_groupe = r.id "
-                + "where u.login = ?";
+        String req = "select user_groupe,user_nom from gi_users where login = ?";
         PreparedStatement pstmt = cnx.prepareStatement(req);
-        
-        tools.debug(req);
         
         User currentUser = new User();
         
@@ -71,11 +65,12 @@ public class DaoUser {
         
         while (rset.next()) {       // traitement du résulat
             
-            currentUser.setLogin(login);
-            currentUser.setGroupe(rset.getInt(1));
-            currentUser.setFullname(rset.getString(2));
-            currentUser.setGroupeLibelle(rset.getString(3));
+            int userGroupe = rset.getInt(1);
+            String userNom = rset.getString(2);
             
+            currentUser.setLogin(login);
+            currentUser.setGroupe(userGroupe);
+            currentUser.setFullname(userNom);
                     
         }
         
