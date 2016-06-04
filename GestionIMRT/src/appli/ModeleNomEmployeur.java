@@ -26,7 +26,12 @@ public class ModeleNomEmployeur extends DefaultComboBoxModel {
       private List<Employeur> leConteneurEmployeur;
     private String[] nomColonnes = {"id", "nom","adresse"};
     private DaoEmployeur leDaoEmployeur;
-
+/**
+ * combobox prent en ntre deao empli=yeur 
+ * et permer d'avoir une combobox avc le nom de tout les
+ * employeur
+ * @param leDao 
+ */
     public ModeleNomEmployeur(DaoEmployeur leDao) {
         
         this.leDaoEmployeur= leDao;
