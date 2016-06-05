@@ -313,6 +313,11 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         btAnnulerEns.setText("Annuler");
 
         cbNomEmployeur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbNomEmployeur.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbNomEmployeurItemStateChanged(evt);
+            }
+        });
         cbNomEmployeur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbNomEmployeurActionPerformed(evt);
@@ -466,6 +471,11 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
     private void btEnregistrerEnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnregistrerEnsActionPerformed
     
     }//GEN-LAST:event_btEnregistrerEnsActionPerformed
+
+    private void cbNomEmployeurItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbNomEmployeurItemStateChanged
+  
+        //this.txAdresseEmp.setText(cbNomEmployeur.getItemAt(2));
+    }//GEN-LAST:event_cbNomEmployeurItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAjouterUE;
