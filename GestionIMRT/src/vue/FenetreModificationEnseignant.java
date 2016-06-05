@@ -13,6 +13,7 @@ import appli.tools;
 import metier.Enseignant;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+import metier.Employeur;
 
 /**
  *
@@ -28,7 +29,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
      */
     public FenetreModificationEnseignant(java.awt.Frame parent,Enseignant ens,ModeleNomEmployeur modelNomEmp) {
         initComponents();
-
+     
          tools.debug(ens.toString()); 
         this.txNomEns.setText(ens.getNomEnseignant());
         this.txPrenomEns.setText(ens.getPrenomEnseignant());
@@ -39,7 +40,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         this.txAdresseMail.setText(ens.getMailEnseignant());
         this.txProfession.setText(ens.getProfession());
         this.cbNomEmployeur.setModel(modelNomEmp);
-        //this.txAdresseEmp.setText(cbNomEmployeur.);
+        //this.txAdresseEmp.setText();
         this.ckCNI.setText(String.valueOf(ens.getDocAdmPhotoCarteNat()));
         this.ckSS.setText(String.valueOf(ens.getDocAdmPhotoCarteSecu()));
         this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));

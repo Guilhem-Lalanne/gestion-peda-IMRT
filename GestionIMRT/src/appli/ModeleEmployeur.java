@@ -82,8 +82,8 @@ public class ModeleEmployeur extends AbstractTableModel{
         this.fireTableDataChanged();
     }
 
-    public void insererLigne(Employeur ens) {
-       leConteneurEmployeur.add(ens);
+    public void insererLigne(Employeur emp) {
+       leConteneurEmployeur.add(emp);
         this.fireTableDataChanged();
     }
       private void charger() throws SQLException {
