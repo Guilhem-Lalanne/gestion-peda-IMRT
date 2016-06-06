@@ -474,7 +474,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
 
     private void cbNomEmployeurItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbNomEmployeurItemStateChanged
   
-        //this.txAdresseEmp.setText(cbNomEmployeur.getItemAt(2));
+        //this.txAdresseEmp.setText(cbNomEmployeur.returnAdresse(cbNomEmployeur.cbNomEmployeur.getSelectedItem()));
     }//GEN-LAST:event_cbNomEmployeurItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

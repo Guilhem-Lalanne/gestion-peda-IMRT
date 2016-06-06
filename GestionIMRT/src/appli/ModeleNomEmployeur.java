@@ -59,6 +59,24 @@ public class ModeleNomEmployeur extends DefaultComboBoxModel {
    
     }
     
+    /**
+     * 
+     * @param nomEmp
+     * @return 
+     */
+    public String returnAdresse(String nomEmp){
+        String adresse =" ";
+        String nomEmpTmp="";
+    for (int i=0;i<=leConteneurEmployeur.size();i++){
+    nomEmpTmp=leConteneurEmployeur.get(i).getNomEmployeur();
+    if(nomEmpTmp.equals(nomEmp)){
+        adresse=leConteneurEmployeur.get(i).getAdresseEmployeur();
+    }
+    }
+    
+        return adresse;
+    }
+            
     @Override
     public Object getElementAt(int i) {
         return leConteneurEmployeur.get(i).getNomEmployeur();

@@ -8,6 +8,7 @@ import appli.ModelModifEnseignant;
 import appli.ModeleEnseignant;
 import appli.ModeleUser;
 import appli.ModeleEtudiant;
+import appli.ModeleEtudiantExamen;
 import appli.ModeleNomEmployeur;
 import appli.ModeleReferentiel;
 import appli.tools;
@@ -42,6 +43,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private DaoUser daoUser;
     private ModeleEnseignant ensModel;
     private ModeleEtudiant etuModel;
+     private ModeleEtudiantExamen  etuModelExam;
     
     /**
      * Creates new form Fenetre
@@ -155,7 +157,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         lPromotion = new javax.swing.JLabel();
         cbChoixPromotion = new javax.swing.JComboBox<>();
         spListeEtudConvoque = new javax.swing.JScrollPane();
-        tListeEtudConvoquer = new javax.swing.JTable();
+        liEtudConvoquer = new javax.swing.JTable();
         pGestionUsers = new javax.swing.JPanel();
         spUser = new javax.swing.JScrollPane();
         LiUser = new javax.swing.JTable();
@@ -546,7 +548,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         cbChoixPromotion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        tListeEtudConvoquer.setModel(new javax.swing.table.DefaultTableModel(
+        liEtudConvoquer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -565,7 +567,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        spListeEtudConvoque.setViewportView(tListeEtudConvoquer);
+        spListeEtudConvoque.setViewportView(liEtudConvoquer);
 
         javax.swing.GroupLayout pGestionExamenLayout = new javax.swing.GroupLayout(pGestionExamen);
         pGestionExamen.setLayout(pGestionExamenLayout);
@@ -823,7 +825,21 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             liEtudiants.setModel(etuModel);
             
         }
+            else if (index == 4 ) {
+            // Onglet gestion examen
+            tools.debug("->GestionExamen");
             
+            //init de dao pour recuperation des données
+            //1 seule dao par fonctionalité
+            DaoEtudiant daoEtuExam = new DaoEtudiant(cnx);
+            
+            //recuperation des données dans modelList
+            etuModelExam = new ModeleEtudiantExamen(daoEtuExam);
+            
+            //je met le model dans la table
+           liEtudConvoquer.setModel(etuModelExam);
+            
+        }  
     }//GEN-LAST:event_pGroupPaneStateChanged
 
     private void btAjouterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterUserActionPerformed
@@ -881,6 +897,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lTitreGestionEnseignants;
     private javax.swing.JLabel lUE;
     private javax.swing.JTable liEnseignant;
+    private javax.swing.JTable liEtudConvoquer;
     private javax.swing.JTable liEtudiants;
     private javax.swing.JList<String> liListeInterogateur;
     private javax.swing.JList<String> liSurveillantEpreuve;
@@ -899,7 +916,6 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane spListeInterogateur;
     private javax.swing.JScrollPane spSurveillantEpreuve;
     private javax.swing.JScrollPane spUser;
-    private javax.swing.JTable tListeEtudConvoquer;
     private javax.swing.JLabel tTitreGestionExam;
     // End of variables declaration//GEN-END:variables
 }
