@@ -61,7 +61,7 @@ public class ModeleEtudiantExamen extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Etudiant etu = leConteneurEtu.get(rowIndex);
-        
+         
         // TODO : Application à la classe Etudiant
         switch (columnIndex) {
             case 0:
