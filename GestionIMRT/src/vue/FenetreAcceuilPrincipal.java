@@ -304,6 +304,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         btCreaSuprEtudiabnt1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btCreaSuprEtudiabnt1.setText("Création d'une fiche enseignant");
+        btCreaSuprEtudiabnt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCreaSuprEtudiabnt1ActionPerformed(evt);
+            }
+        });
 
         jBModifEnsegnant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jBModifEnsegnant.setText("Modification d'une fiche enseignants");
@@ -856,6 +861,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 */
         
     }//GEN-LAST:event_btAjouterUserActionPerformed
+
+    private void btCreaSuprEtudiabnt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCreaSuprEtudiabnt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btCreaSuprEtudiabnt1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;
