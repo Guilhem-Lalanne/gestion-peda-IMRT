@@ -22,6 +22,7 @@ import java.awt.Component;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import metier.Promotion;
 import metier.User;
@@ -735,11 +736,15 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
         ModelModifEnseignant modeleEns=new ModelModifEnseignant(daoEns);
         FenetreModificationEnseignant fmu;
-        
+        try{
         fmu = new FenetreModificationEnseignant(this,
                modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp);
         
         fmu.setVisible(true);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
+"information", JOptionPane.INFORMATION_MESSAGE); 
+        }
     }//GEN-LAST:event_jBModifEnsegnantActionPerformed
 
     private void btAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterActionPerformed
