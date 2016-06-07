@@ -43,10 +43,10 @@ public class DaoEnseignant {
             String mailEnseignant = rset.getString(9);
             String profession = rset.getString(10);
             int idEmployeur=1;
-            Boolean docAdmPhotoCarteNat = null;
-            Boolean docAdmPhotoCarteSecu = null;
-            Boolean docAdmJustTrav = null;
-            Boolean docAdmRecepArreteNomin = null;
+            Boolean docAdmPhotoCarteNat =true;
+            Boolean docAdmPhotoCarteSecu = true;
+            Boolean docAdmJustTrav = true;
+            Boolean docAdmRecepArreteNomin = true;
             String userLogin = rset.getString(1);
             String userNom = rset.getString(2);
             String userGroupe = rset.getString(3);

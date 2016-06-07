@@ -66,7 +66,6 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="pStatutEN" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Component id="lNomEmp" min="-2" max="-2" attributes="0"/>
@@ -76,9 +75,9 @@
                                   <Component id="cbNomEmployeur" min="-2" pref="191" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="pDocuments" max="32767" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="pDocuments" alignment="1" max="32767" attributes="0"/>
+                              <Component id="pStatutEN" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -389,13 +388,17 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="ckArreteNomination" alignment="0" max="32767" attributes="0"/>
-                      <Component id="ckBulletinSalaire" alignment="0" max="32767" attributes="0"/>
-                      <Component id="ckSS" alignment="0" max="32767" attributes="0"/>
-                      <Component id="ckCNI" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="ckCNI" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="ckArreteNomination" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ckBulletinSalaire" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ckSS" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
