@@ -30,6 +30,14 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
 
             this.lTitre.setText(libelle);
             this.btEnregistrerEtu.setText("supprimer");
+            this.lTitre.setText(libelle);
+            this.txNomEtu.setText(etu.getNomEtudiant());
+            this.txPrenomEtu.setText(etu.getPrenomEtudiant());
+            this.txDateNaissanceEtu.setText(etu.getDateNaissanceEtudiant());
+            this.txAdresse.setText(etu.getAdresseEtudiant());
+            this.txNumFixe.setText(etu.getNumeroTelFixeEtudiant());
+            this.txNumMobile.setText(etu.getNumeroTelMobilEtudiant());
+            this.txAdresseMail.setText(etu.getMailEtudiant());
             // code suprimerr etuf=diant
         } else if (libelle == "Modifier fiche Etudiant") {
 
