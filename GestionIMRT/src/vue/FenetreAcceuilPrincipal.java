@@ -120,13 +120,15 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btImporterEtudiants = new javax.swing.JButton();
         pGestionEnseignant = new javax.swing.JPanel();
         lTitreGestionEnseignants = new javax.swing.JLabel();
-        btCreaSuprEtudiabnt1 = new javax.swing.JButton();
         jBModifEnsegnant = new javax.swing.JButton();
         jBImporter1 = new javax.swing.JButton();
         jBGestionNote1 = new javax.swing.JButton();
         btCreationEtatHeure = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         liEnseignant = new javax.swing.JTable();
+        btAjouterEnseignant = new javax.swing.JButton();
+        btSupprimerEnseignant = new javax.swing.JButton();
+        btVoirEnseignant = new javax.swing.JButton();
         pGestionExamen = new javax.swing.JPanel();
         pSurveillantEpreuve = new javax.swing.JPanel();
         spSurveillantEpreuve = new javax.swing.JScrollPane();
@@ -302,16 +304,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         lTitreGestionEnseignants.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lTitreGestionEnseignants.setText("   Gestion des enseignants");
 
-        btCreaSuprEtudiabnt1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btCreaSuprEtudiabnt1.setText("Création d'une fiche enseignant");
-        btCreaSuprEtudiabnt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCreaSuprEtudiabnt1ActionPerformed(evt);
-            }
-        });
-
         jBModifEnsegnant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jBModifEnsegnant.setText("Modification d'une fiche enseignants");
+        jBModifEnsegnant.setText("modifier");
         jBModifEnsegnant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBModifEnsegnantActionPerformed(evt);
@@ -329,6 +323,22 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(liEnseignant);
 
+        btAjouterEnseignant.setText("Ajouter");
+        btAjouterEnseignant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAjouterEnseignantActionPerformed(evt);
+            }
+        });
+
+        btSupprimerEnseignant.setText("Supprimer");
+        btSupprimerEnseignant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSupprimerEnseignantActionPerformed(evt);
+            }
+        });
+
+        btVoirEnseignant.setText("voir");
+
         javax.swing.GroupLayout pGestionEnseignantLayout = new javax.swing.GroupLayout(pGestionEnseignant);
         pGestionEnseignant.setLayout(pGestionEnseignantLayout);
         pGestionEnseignantLayout.setHorizontalGroup(
@@ -345,12 +355,18 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBGestionNote1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBModifEnsegnant, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jBGestionNote1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btCreaSuprEtudiabnt1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
-                            .addComponent(jBImporter1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jBImporter1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pGestionEnseignantLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btAjouterEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(jBModifEnsegnant, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(btSupprimerEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btVoirEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(615, Short.MAX_VALUE))
         );
         pGestionEnseignantLayout.setVerticalGroup(
@@ -360,17 +376,19 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addComponent(lTitreGestionEnseignants, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100)
+                .addGap(42, 42, 42)
+                .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBModifEnsegnant, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btSupprimerEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAjouterEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btVoirEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
                 .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBGestionNote1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBImporter1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBModifEnsegnant, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btCreaSuprEtudiabnt1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(76, 76, 76)
                 .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(435, Short.MAX_VALUE))
+                .addContainerGap(382, Short.MAX_VALUE))
         );
 
         pGroupPane.addTab("Gestion des enseignants", pGestionEnseignant);
@@ -743,7 +761,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         FenetreModificationEnseignant fmu;
         try{
         fmu = new FenetreModificationEnseignant(this,
-               modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp);
+               modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Modifier fiche enseignant");
         
         fmu.setVisible(true);
         }catch(Exception e){
@@ -862,19 +880,49 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btAjouterUserActionPerformed
 
-    private void btCreaSuprEtudiabnt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCreaSuprEtudiabnt1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btCreaSuprEtudiabnt1ActionPerformed
+    private void btAjouterEnseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterEnseignantActionPerformed
+      DaoEnseignant daoEns =new  DaoEnseignant(cnx);
+        DaoEmployeur daoEmp =new DaoEmployeur(cnx);
+        ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
+        ModelModifEnseignant modeleEns=new ModelModifEnseignant(daoEns);
+        FenetreModificationEnseignant fmu;
+        try{
+        fmu = new FenetreModificationEnseignant(this,
+               modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Ajouter fiche enseignant");
+        
+        fmu.setVisible(true);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
+"information", JOptionPane.INFORMATION_MESSAGE); 
+        }
+    }//GEN-LAST:event_btAjouterEnseignantActionPerformed
+
+    private void btSupprimerEnseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSupprimerEnseignantActionPerformed
+      DaoEnseignant daoEns =new  DaoEnseignant(cnx);
+        DaoEmployeur daoEmp =new DaoEmployeur(cnx);
+        ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
+        ModelModifEnseignant modeleEns=new ModelModifEnseignant(daoEns);
+        FenetreModificationEnseignant fmu;
+        try{
+        fmu = new FenetreModificationEnseignant(this,
+               modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Suprimer fiche Enseignant");
+        
+        fmu.setVisible(true);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
+"information", JOptionPane.INFORMATION_MESSAGE); 
+        }
+    }//GEN-LAST:event_btSupprimerEnseignantActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;
     private javax.swing.JButton btAbsenceEtudiant;
     private javax.swing.JButton btAjouter;
+    private javax.swing.JButton btAjouterEnseignant;
     private javax.swing.JButton btAjouterEtud;
     private javax.swing.JButton btAjouterEtudiant;
     private javax.swing.JButton btAjouterInterrogateur;
     private javax.swing.JButton btAjouterUser;
-    private javax.swing.JButton btCreaSuprEtudiabnt1;
     private javax.swing.JButton btCreationEtatHeure;
     private javax.swing.JButton btImporterEtudiants;
     private javax.swing.JButton btImprimConvocEtud;
@@ -887,8 +935,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btNotesEtudiant;
     private javax.swing.JButton btPassageEtudiant;
     private javax.swing.JButton btRestaurerEtudiant;
+    private javax.swing.JButton btSupprimerEnseignant;
     private javax.swing.JButton btSupprimerEtudiant;
     private javax.swing.JButton btSuprimerUser;
+    private javax.swing.JButton btVoirEnseignant;
     private javax.swing.JButton btimprilConvocSurveil;
     private javax.swing.JComboBox<String> cbChoixEtud;
     private javax.swing.JComboBox<String> cbChoixEtudRepasUe;

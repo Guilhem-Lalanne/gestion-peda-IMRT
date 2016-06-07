@@ -64,7 +64,7 @@ public class ModeleNomEmployeur extends DefaultComboBoxModel {
      * @param nomEmp
      * @return 
      */
-    public String returnAdresse(String nomEmp){
+    public Object returnAdresse(String nomEmp){
         String adresse =" ";
         String nomEmpTmp="";
     for (int i=0;i<=leConteneurEmployeur.size();i++){

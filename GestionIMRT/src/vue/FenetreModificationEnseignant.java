@@ -25,12 +25,18 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
   
     
     /**
-     * Creates new form FenetreModificationEnseignant
+     * 
+     * @param parent
+     * @param ens
+     * @param modelNomEmp
+     * @param libelle 
      */
-    public FenetreModificationEnseignant(java.awt.Frame parent,Enseignant ens,ModeleNomEmployeur modelNomEmp) {
+    public FenetreModificationEnseignant(java.awt.Frame parent,Enseignant ens,ModeleNomEmployeur modelNomEmp,String libelle) {
         initComponents();
      
-         tools.debug(ens.toString()); 
+         tools.debug(ens.toString());
+         if(libelle=="Modifier fiche enseignant"){
+        this.lTitre.setText(libelle);
         this.txNomEns.setText(ens.getNomEnseignant());
         this.txPrenomEns.setText(ens.getPrenomEnseignant());
         this.txDateNaissanceEns.setText(ens.getDateNaissanceEnseignant());
@@ -45,7 +51,15 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         this.ckSS.setText(String.valueOf(ens.getDocAdmPhotoCarteSecu()));
         this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
         this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
+         }
+         else if(libelle=="Ajouter fiche enseignant")
+                {
+         this.lTitre.setText(libelle);
        
+    }
+         else if(libelle=="Suprimer fiche Enseignant"){
+         this.lTitre.setText(libelle);
+         }
     }
       public boolean doModal() {
         this.setVisible(true);
@@ -473,8 +487,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
     }//GEN-LAST:event_btEnregistrerEnsActionPerformed
 
     private void cbNomEmployeurItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbNomEmployeurItemStateChanged
-  
-        //this.txAdresseEmp.setText(cbNomEmployeur.returnAdresse(cbNomEmployeur.cbNomEmployeur.getSelectedItem()));
+       
     }//GEN-LAST:event_cbNomEmployeurItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

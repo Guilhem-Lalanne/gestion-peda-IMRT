@@ -290,13 +290,19 @@
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="btCreationEtatHeure" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jBGestionNote1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jBModifEnsegnant" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btCreaSuprEtudiabnt1" pref="281" max="32767" attributes="0"/>
-                                  <Component id="jBImporter1" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jBImporter1" min="-2" pref="281" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btAjouterEnseignant" min="-2" pref="112" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <Component id="jBModifEnsegnant" min="-2" pref="133" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="btSupprimerEnseignant" min="-2" pref="113" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="btVoirEnseignant" min="-2" pref="119" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="615" max="32767" attributes="0"/>
@@ -310,19 +316,21 @@
                       <Component id="lTitreGestionEnseignants" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="155" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jBModifEnsegnant" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="btSupprimerEnseignant" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="btAjouterEnseignant" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btVoirEnseignant" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jBGestionNote1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="jBImporter1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jBModifEnsegnant" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="btCreaSuprEtudiabnt1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                       <Component id="btCreationEtatHeure" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace pref="435" max="32767" attributes="0"/>
+                      <EmptySpace pref="382" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -336,23 +344,12 @@
                 <Property name="text" type="java.lang.String" value="   Gestion des enseignants"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btCreaSuprEtudiabnt1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Cr&#xe9;ation d&apos;une fiche enseignant"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCreaSuprEtudiabnt1ActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="jBModifEnsegnant">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Modification d&apos;une fiche enseignants"/>
+                <Property name="text" type="java.lang.String" value="modifier"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBModifEnsegnantActionPerformed"/>
@@ -398,6 +395,27 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="btAjouterEnseignant">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ajouter"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAjouterEnseignantActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btSupprimerEnseignant">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Supprimer"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSupprimerEnseignantActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btVoirEnseignant">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="voir"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pGestionExamen">
