@@ -30,7 +30,7 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
        
         this.lTitre.setText(libelle);
         this.btEnregistrerEtu.setText("supprimer");
-        // code modifier etuf=diant
+        // code suprimerr etuf=diant
        }
         else if(libelle=="Modifier fiche Etudiant"){
        
