@@ -14,31 +14,36 @@ import metier.Etudiant;
 public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
 
     private boolean etatValidation;
-    
+
     /**
      * Creates new form FenetreModifSuprEtudiant
+     *
      * @param parent
      * @param etu
      */
-    public FenetreModifSuprEtudiant(java.awt.Frame parent, Etudiant etu,String libelle) {
+    public FenetreModifSuprEtudiant(java.awt.Frame parent, Etudiant etu, String libelle) {
         initComponents();
-       if(libelle=="Ajouter fiche Etudiant"){
-       this.lTitre.setText(libelle);
-       //todo code suprimer etudiant
-       }
-       else if(libelle=="Suprimer fiche Etudiant"){
-       
-        this.lTitre.setText(libelle);
-        this.btEnregistrerEtu.setText("supprimer");
-        // code suprimerr etuf=diant
-       }
-        else if(libelle=="Modifier fiche Etudiant"){
-       
-        this.lTitre.setText(libelle);
-        // code modifier etuf=diant
-       }
+        if (libelle == "Ajouter fiche Etudiant") {
+            this.lTitre.setText(libelle);
+            //todo code suprimer etudiant
+        } else if (libelle == "Suprimer fiche Etudiant") {
+
+            this.lTitre.setText(libelle);
+            this.btEnregistrerEtu.setText("supprimer");
+            // code suprimerr etuf=diant
+        } else if (libelle == "Modifier fiche Etudiant") {
+
+            this.lTitre.setText(libelle);
+            this.txNomEtu.setText(etu.getNomEtudiant());
+            this.txPrenomEtu.setText(etu.getPrenomEtudiant());
+            this.txDateNaissanceEtu.setText(etu.getDateNaissanceEtudiant());
+            this.txAdresse.setText(etu.getAdresseEtudiant());
+            this.txNumFixe.setText(etu.getNumeroTelFixeEtudiant());
+            this.txNumMobile.setText(etu.getNumeroTelMobilEtudiant());
+            this.txAdresseMail.setText(etu.getMailEtudiant());
+        }
     }
-    
+
     public boolean doModal() {
         this.setVisible(true);
         return etatValidation;
