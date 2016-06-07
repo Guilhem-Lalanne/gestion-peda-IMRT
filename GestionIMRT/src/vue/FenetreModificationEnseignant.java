@@ -549,6 +549,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                 cstmt.setInt(2, id_suppression); 
                 cstmt.execute();
                 result = cstmt.getInt(1);
+                
                 tools.debug("Suppresion : " + result);
                 
                 if (result == 1) {
@@ -558,8 +559,10 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                             +this.ens.getNomEnseignant()+" "+this.ens.getPrenomEnseignant()
                             + " a été bien supprimé",
                      "Information", JOptionPane.INFORMATION_MESSAGE);
+                    
                     this.resultat = 1;
-                    this.dispose();
+                    
+                    //this.dispose();
                     
                 } else {
                     //result != 1

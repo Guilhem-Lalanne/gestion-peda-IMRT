@@ -46,9 +46,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private ModelModifEnseignant modeleEns;
     
     private DaoUser daoUser;
+    private DaoEnseignant daoEns;
+            
     private ModeleEnseignant ensModel;
     private ModeleEtudiant etuModel;
-     private ModeleEtudiantExamen  etuModelExam;
+    private ModeleEtudiantExamen  etuModelExam;
     
     /**
      * Creates new form Fenetre
@@ -857,8 +859,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             //TODO: Paul mettre model + dao d'ensegeignant
             tools.debug("->GestionEnseignants");
             
-            DaoEnseignant daoEns = new DaoEnseignant(cnx);
+            daoEns = new DaoEnseignant(cnx);
+            
             modeleEns = new ModelModifEnseignant(daoEns);
+            
             liEnseignant.setModel(modeleEns);
             //ModeleEnseignant ensModel = new ModeleEnseignant(dao);
         
@@ -908,10 +912,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
       DaoEnseignant daoEns =new  DaoEnseignant(cnx);
         DaoEmployeur daoEmp =new DaoEmployeur(cnx);
         ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
-        ModelModifEnseignant modeleEns=new ModelModifEnseignant(daoEns);
         FenetreModificationEnseignant fmu;
+        
         try{
-       fmu = new FenetreModificationEnseignant(this,
+        fmu = new FenetreModificationEnseignant(this,
                  modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Ajouter fiche Enseignant",cnx);
         
         fmu.setVisible(true);
@@ -922,27 +926,33 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btAjouterEnseignantActionPerformed
 
     private void btSupprimerEnseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSupprimerEnseignantActionPerformed
-      DaoEnseignant daoEns =new  DaoEnseignant(cnx);
-        DaoEmployeur daoEmp =new DaoEmployeur(cnx);
+      
+        DaoEmployeur daoEmp = new DaoEmployeur(cnx);
+        
         ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
-        modeleEns=new ModelModifEnseignant(daoEns);
-        FenetreModificationEnseignant fmu;
+        
+        FenetreModifEnseignant fmu;
         
         int selected_row = liEnseignant.getSelectedRow();
         
-        try{
-        fmu = new FenetreModificationEnseignant(this,
-               modeleEns.get(selected_row),modelNomEmp,"Suprimer fiche Enseignant",cnx);
+        try {
+            
+            //TODO: ajouter verif selection 
+            
+            fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Suprimer fiche Enseignant",cnx);
         
-        //fmu.setVisible(true);
+            int ret = fmu.doModal();
         
-        if (fmu.doModal() == 1) {
-            modeleEns.supprimerLigne(selected_row);
-        }
+            tools.debug("Suppression retour: "+ret);
         
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
-"information", JOptionPane.INFORMATION_MESSAGE); 
+            if (ret == 1) {
+                modeleEns.supprimerLigne(selected_row);
+            }
+        
+        } catch(Exception e) {
+            
+            /*JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
+            "information", JOptionPane.INFORMATION_MESSAGE); */
         }
     }//GEN-LAST:event_btSupprimerEnseignantActionPerformed
 
