@@ -10,8 +10,15 @@ import appli.ModeleNomEmployeur;
 import java.awt.Component;
 import appli.ModeleReferentiel;
 import appli.tools;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import metier.Enseignant;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import metier.Employeur;
 
@@ -21,7 +28,23 @@ import metier.Employeur;
  */
 public class FenetreModificationEnseignant extends javax.swing.JFrame {
 
-    private boolean etatValidation;
+    public Enseignant ens;
+    
+    /**
+     * 0 - init
+     * 1 - modification
+     * 2 - ajout
+     * 3 - suppresion
+     */
+    public int action;
+    
+    /**
+     * 0 - aucun action
+     * 1 - action ok (il faut mettre à jour le vue principale)
+     */
+    private int resultat;
+    
+    Connection cnx;
   
     
     /**
@@ -31,11 +54,22 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
      * @param modelNomEmp
      * @param libelle 
      */
-    public FenetreModificationEnseignant(java.awt.Frame parent,Enseignant ens,ModeleNomEmployeur modelNomEmp,String libelle) {
+    public FenetreModificationEnseignant(java.awt.Frame parent,
+            Enseignant ens,
+            ModeleNomEmployeur modelNomEmp,
+            String libelle,
+            Connection cnx) {
+        
         initComponents();
+        
+        this.ens = ens;
+        this.action = 0;
+        this.resultat = 0;
+        this.cnx = cnx;
      
          tools.debug(ens.toString());
          if(libelle=="Modifier fiche enseignant"){
+             this.action = 1;
         this.lTitre.setText(libelle);
         this.txNomEns.setText(ens.getNomEnseignant());
         this.txPrenomEns.setText(ens.getPrenomEnseignant());
@@ -54,11 +88,12 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
          }
          else if(libelle=="Ajouter fiche Enseignant")
                 {
+                    this.action = 2;
          this.lTitre.setText(libelle);
        
     }
          else if(libelle=="Suprimer fiche Enseignant"){
-       
+             this.action = 3;
           this.lTitre.setText(libelle);
         this.txNomEns.setText(ens.getNomEnseignant());
         this.txPrenomEns.setText(ens.getPrenomEnseignant());
@@ -77,9 +112,9 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         this.btEnregistrerEns.setText("suprimer");
          }
     }
-      public boolean doModal() {
+      public int doModal() {
         this.setVisible(true);
-        return etatValidation;
+        return resultat;
       }
     /*
     public FenetreModifUser(java.awt.Frame parent, User user) {
@@ -500,7 +535,46 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
     }//GEN-LAST:event_cbNomEmployeurActionPerformed
 
     private void btEnregistrerEnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnregistrerEnsActionPerformed
-    
+        if (this.action == 3){
+               //je suis dqns suppresion
+               try {
+            
+            
+                int result;
+                int id_suppression = this.ens.getIdEnseignant();
+                
+                CallableStatement cstmt = cnx.prepareCall ("{ ? = call SUPPRIMER_ENSEIGNANT(?)}");
+                
+                cstmt.registerOutParameter (1, Types.INTEGER);
+                cstmt.setInt(2, id_suppression); 
+                cstmt.execute();
+                result = cstmt.getInt(1);
+                tools.debug("Suppresion : " + result);
+                
+                if (result == 1) {
+                    
+                    
+                    JOptionPane.showMessageDialog(null, "Ens "
+                            +this.ens.getNomEnseignant()+" "+this.ens.getPrenomEnseignant()
+                            + " a été bien supprimé",
+                     "Information", JOptionPane.INFORMATION_MESSAGE);
+                    this.resultat = 1;
+                    this.dispose();
+                    
+                } else {
+                    //result != 1
+                    throw new Exception("Impossible de supprimer ens");
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else  if (this.action == 2){
+            //TODO creation
+        }
+        
     }//GEN-LAST:event_btEnregistrerEnsActionPerformed
 
     private void cbNomEmployeurItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbNomEmployeurItemStateChanged

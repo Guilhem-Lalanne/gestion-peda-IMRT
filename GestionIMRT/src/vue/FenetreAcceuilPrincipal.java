@@ -43,6 +43,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     public Promotion promotion;
     
     private ModeleUser userModel;
+    private ModelModifEnseignant modeleEns;
+    
     private DaoUser daoUser;
     private ModeleEnseignant ensModel;
     private ModeleEtudiant etuModel;
@@ -783,7 +785,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         FenetreModificationEnseignant fmu;
         try{
         fmu = new FenetreModificationEnseignant(this,
-               modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Modifier fiche enseignant");
+               modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Modifier fiche enseignant",cnx);
         
         fmu.setVisible(true);
         }catch(Exception e){
@@ -856,8 +858,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             tools.debug("->GestionEnseignants");
             
             DaoEnseignant daoEns = new DaoEnseignant(cnx);
-            ModeleEnseignant enseignantModel = new ModeleEnseignant(daoEns);
-            liEnseignant.setModel(enseignantModel );
+            modeleEns = new ModelModifEnseignant(daoEns);
+            liEnseignant.setModel(modeleEns);
             //ModeleEnseignant ensModel = new ModeleEnseignant(dao);
         
         } else if (index == 2) {
@@ -910,7 +912,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         FenetreModificationEnseignant fmu;
         try{
        fmu = new FenetreModificationEnseignant(this,
-                 modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Ajouter fiche Enseignant");
+                 modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Ajouter fiche Enseignant",cnx);
         
         fmu.setVisible(true);
         }catch(Exception e){
@@ -923,13 +925,21 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
       DaoEnseignant daoEns =new  DaoEnseignant(cnx);
         DaoEmployeur daoEmp =new DaoEmployeur(cnx);
         ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
-        ModelModifEnseignant modeleEns=new ModelModifEnseignant(daoEns);
+        modeleEns=new ModelModifEnseignant(daoEns);
         FenetreModificationEnseignant fmu;
+        
+        int selected_row = liEnseignant.getSelectedRow();
+        
         try{
         fmu = new FenetreModificationEnseignant(this,
-               modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Suprimer fiche Enseignant");
+               modeleEns.get(selected_row),modelNomEmp,"Suprimer fiche Enseignant",cnx);
         
-        fmu.setVisible(true);
+        //fmu.setVisible(true);
+        
+        if (fmu.doModal() == 1) {
+            modeleEns.supprimerLigne(selected_row);
+        }
+        
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
 "information", JOptionPane.INFORMATION_MESSAGE); 
