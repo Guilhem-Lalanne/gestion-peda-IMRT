@@ -222,16 +222,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ajouter"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAjouterEtudiantActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btModifierEtudiant">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modifier"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btModifierEtudiantActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btSupprimerEtudiant">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Supprimer"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSupprimerEtudiantActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btRestaurerEtudiant">
               <Properties>

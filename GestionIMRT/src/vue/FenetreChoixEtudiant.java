@@ -121,9 +121,9 @@ public class FenetreChoixEtudiant extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Ouverture de la fenêtre de Modification / Suppression :
         // /!\ Code issu du cours de BDD ! A MODIFIER
-        Etudiant etu = new Etudiant();
-        FenetreModifSuprEtudiant fen = new FenetreModifSuprEtudiant(this, etu);
-        if (fen.doModal() == true) {
+        //Etudiant etu = new Etudiant();
+        //FenetreModifSuprEtudiant fen = new FenetreModifSuprEtudiant(this, etu);
+       // if (fen.doModal() == true) {
             /* TODO
             try {
                 leModele.insererLigne(etu);
@@ -134,7 +134,7 @@ public class FenetreChoixEtudiant extends javax.swing.JFrame {
                         "Erreur !", JOptionPane.ERROR_MESSAGE);
             }
             */
-        }
+        //}
     }//GEN-LAST:event_btChoixEtuOkActionPerformed
 
     private void btChoixEtuAnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btChoixEtuAnnulerActionPerformed

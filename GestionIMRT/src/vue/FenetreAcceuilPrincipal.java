@@ -233,10 +233,25 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         spEtudiants.setViewportView(liEtudiants);
 
         btAjouterEtudiant.setText("Ajouter");
+        btAjouterEtudiant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAjouterEtudiantActionPerformed(evt);
+            }
+        });
 
         btModifierEtudiant.setText("Modifier");
+        btModifierEtudiant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btModifierEtudiantActionPerformed(evt);
+            }
+        });
 
         btSupprimerEtudiant.setText("Supprimer");
+        btSupprimerEtudiant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSupprimerEtudiantActionPerformed(evt);
+            }
+        });
 
         btRestaurerEtudiant.setText("Restaurer la fiche d'un étudiant");
 
@@ -887,8 +902,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         ModelModifEnseignant modeleEns=new ModelModifEnseignant(daoEns);
         FenetreModificationEnseignant fmu;
         try{
-        fmu = new FenetreModificationEnseignant(this,
-               modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Ajouter fiche enseignant");
+       fmu = new FenetreModificationEnseignant(this,
+                 modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Ajouter fiche Enseignant");
         
         fmu.setVisible(true);
         }catch(Exception e){
@@ -913,6 +928,56 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 "information", JOptionPane.INFORMATION_MESSAGE); 
         }
     }//GEN-LAST:event_btSupprimerEnseignantActionPerformed
+
+    private void btAjouterEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterEtudiantActionPerformed
+            DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
+       
+        ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
+        FenetreModifSuprEtudiant fmu;
+        try{
+        fmu = new FenetreModifSuprEtudiant(this,
+               modeleEtu.getEtu(liEtudiants.getSelectedRow()),"Ajouter fiche Etudiant");
+        
+        fmu.setVisible(true);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
+"information", JOptionPane.INFORMATION_MESSAGE); 
+        }
+    
+    }//GEN-LAST:event_btAjouterEtudiantActionPerformed
+
+    private void btModifierEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModifierEtudiantActionPerformed
+        DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
+       
+        ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
+        FenetreModifSuprEtudiant fmu;
+        try{
+        fmu = new FenetreModifSuprEtudiant(this,
+               modeleEtu.getEtu(liEtudiants.getSelectedRow()),"Modifier fiche Etudiant");
+        
+        fmu.setVisible(true);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
+"information", JOptionPane.INFORMATION_MESSAGE); 
+        }
+    }//GEN-LAST:event_btModifierEtudiantActionPerformed
+
+    private void btSupprimerEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSupprimerEtudiantActionPerformed
+      
+        DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
+       
+        ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
+        FenetreModifSuprEtudiant fmu;
+        try{
+        fmu = new FenetreModifSuprEtudiant(this,
+               modeleEtu.getEtu(liEtudiants.getSelectedRow()),"Suprimer fiche Etudiant");
+        
+        fmu.setVisible(true);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
+"information", JOptionPane.INFORMATION_MESSAGE); 
+        }
+    }//GEN-LAST:event_btSupprimerEtudiantActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;

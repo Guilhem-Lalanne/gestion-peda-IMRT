@@ -52,13 +52,29 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
         this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
         this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
          }
-         else if(libelle=="Ajouter fiche enseignant")
+         else if(libelle=="Ajouter fiche Enseignant")
                 {
          this.lTitre.setText(libelle);
        
     }
          else if(libelle=="Suprimer fiche Enseignant"){
-         this.lTitre.setText(libelle);
+       
+          this.lTitre.setText(libelle);
+        this.txNomEns.setText(ens.getNomEnseignant());
+        this.txPrenomEns.setText(ens.getPrenomEnseignant());
+        this.txDateNaissanceEns.setText(ens.getDateNaissanceEnseignant());
+        this.txAdresseEns.setText(ens.getAdresseEnseignant());
+        this.txNumFixe.setText(ens.getNumeroTelFixeEnseignant());
+        this.txNumMobile.setText(ens.getNumeroTelMobilEnseignant());
+        this.txAdresseMail.setText(ens.getMailEnseignant());
+        this.txProfession.setText(ens.getProfession());
+        this.cbNomEmployeur.setModel(modelNomEmp);
+        //this.txAdresseEmp.setText();
+        this.ckCNI.setText(String.valueOf(ens.getDocAdmPhotoCarteNat()));
+        this.ckSS.setText(String.valueOf(ens.getDocAdmPhotoCarteSecu()));
+        this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
+        this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
+        this.btEnregistrerEns.setText("suprimer");
          }
     }
       public boolean doModal() {

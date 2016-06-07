@@ -20,8 +20,23 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
      * @param parent
      * @param etu
      */
-    public FenetreModifSuprEtudiant(java.awt.Frame parent, Etudiant etu) {
+    public FenetreModifSuprEtudiant(java.awt.Frame parent, Etudiant etu,String libelle) {
         initComponents();
+       if(libelle=="Ajouter fiche Etudiant"){
+       this.lTitre.setText(libelle);
+       //todo code suprimer etudiant
+       }
+       else if(libelle=="Suprimer fiche Etudiant"){
+       
+        this.lTitre.setText(libelle);
+        this.btEnregistrerEtu.setText("supprimer");
+        // code modifier etuf=diant
+       }
+        else if(libelle=="Modifier fiche Etudiant"){
+       
+        this.lTitre.setText(libelle);
+        // code modifier etuf=diant
+       }
     }
     
     public boolean doModal() {
@@ -54,17 +69,16 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
         lAdresseMail = new javax.swing.JLabel();
         txAdresseMail = new javax.swing.JTextField();
         lClasse = new javax.swing.JLabel();
-        cbClasse = new javax.swing.JComboBox<String>();
+        cbClasse = new javax.swing.JComboBox<>();
         lGroupe = new javax.swing.JLabel();
-        cbGroupe = new javax.swing.JComboBox<String>();
+        cbGroupe = new javax.swing.JComboBox<>();
         btEnregistrerEtu = new javax.swing.JButton();
-        btSupprimerEtu = new javax.swing.JButton();
         btAnnulerEtu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lTitre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lTitre.setText("Supprimer ou modifier un étudiant");
+        lTitre.setText("titre");
 
         lNomEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lNomEtu.setText("Nom");
@@ -96,18 +110,15 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
         lClasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lClasse.setText("Classe");
 
-        cbClasse.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbClasse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lGroupe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lGroupe.setText("Groupe");
 
-        cbGroupe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbGroupe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btEnregistrerEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btEnregistrerEtu.setText("Enregistrer");
-
-        btSupprimerEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btSupprimerEtu.setText("Supprimer");
 
         btAnnulerEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAnnulerEtu.setText("Annuler");
@@ -151,13 +162,12 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                                         .addComponent(lAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                                         .addComponent(lClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(30, 30, 30))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(233, 233, 233)
                                 .addComponent(btEnregistrerEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(205, 205, 205)
-                                .addComponent(btSupprimerEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -210,8 +220,7 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                 .addGap(88, 88, 88)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btEnregistrerEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btAnnulerEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btSupprimerEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btAnnulerEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
@@ -221,7 +230,6 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAnnulerEtu;
     private javax.swing.JButton btEnregistrerEtu;
-    private javax.swing.JButton btSupprimerEtu;
     private javax.swing.JComboBox<String> cbClasse;
     private javax.swing.JComboBox<String> cbGroupe;
     private javax.swing.JLabel lAdresse;
