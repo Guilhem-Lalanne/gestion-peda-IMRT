@@ -39,6 +39,16 @@ public class ModeleUser extends AbstractTableModel {
     public User get(int index) {
         return leConteneur.get(index);
     }
+    
+    /**
+     * Renvoi le login de la ligne utilisateur
+     * 
+     * @param index
+     * @return 
+     */
+    public String getLogin(int index) {
+        return leConteneur.get(index).login;
+    }
 
     @Override
     public int getRowCount() {
