@@ -285,11 +285,11 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
             
                 int result;
                 int id_suppression = this.etu.getIdEtudiant();
-                
+                tools.debug("id etudiant Suppresion : "+id_suppression);
                 CallableStatement cstmt = cnx.prepareCall ("{ ? = call SUPPRIMER_etudiant(?)}");
-                
+                 
                 cstmt.registerOutParameter (1, Types.INTEGER);
-                cstmt.setInt(2, id_suppression); 
+                cstmt.setInt(2,id_suppression); 
                 cstmt.execute();
                 result = cstmt.getInt(1);
                 

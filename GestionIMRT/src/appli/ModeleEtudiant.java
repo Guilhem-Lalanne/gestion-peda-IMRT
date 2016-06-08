@@ -63,13 +63,15 @@ public class ModeleEtudiant extends AbstractTableModel {
         Etudiant etu = leConteneurEtu.get(rowIndex);
         // TODO : Application à la classe Etudiant
         switch (columnIndex) {
-            case 0:
-                return etu.getNomEtudiant();
+             case 0:
+                return etu.getIdEtudiant();
             case 1:
-                return etu.getPrenomEtudiant();
+                return etu.getNomEtudiant();
             case 2:
-                return etu.getDateNaissanceEtudiant();
+                return etu.getPrenomEtudiant();
             case 3:
+                return etu.getDateNaissanceEtudiant();
+            case 4:
                 return etu.getAdresseEtudiant();
         }
         

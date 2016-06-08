@@ -32,13 +32,15 @@ public class Etudiant {
      * @param numeroTelMobilEtudiant
      * @param mailEtudiant 
      */
-    public Etudiant(String nomEtudiant, 
+  
+    public Etudiant(int idEtudiant,String nomEtudiant, 
             String prenomEtudiant, 
             String dateNaissanceEtudiant, 
             String adresseEtudiant, 
             String numeroTelFixeEtudiant, 
             String numeroTelMobilEtudiant, 
             String mailEtudiant) {
+        this.idEtudiant =  idEtudiant;
         this.nomEtudiant = nomEtudiant;
         this.prenomEtudiant = prenomEtudiant;
         this.dateNaissanceEtudiant = dateNaissanceEtudiant;
@@ -47,12 +49,27 @@ public class Etudiant {
         this.numeroTelMobilEtudiant = numeroTelMobilEtudiant;
         this.mailEtudiant = mailEtudiant;
     }
-
+    
+    
     /**
      * Constructeur par défaut (sans paramètres)
      */
     public Etudiant() {
     }
+
+    public Etudiant(int idEtudiant, int idGroupe, String nomEtudiant, String prenomEtudiant, String dateNaissanceEtudiant, String adresseEtudiant, String numeroTelFixeEtudiant, String numeroTelMobilEtudiant, String mailEtudiant, int idClasse) {
+        this.idEtudiant = idEtudiant;
+        this.idGroupe = idGroupe;
+        this.nomEtudiant = nomEtudiant;
+        this.prenomEtudiant = prenomEtudiant;
+        this.dateNaissanceEtudiant = dateNaissanceEtudiant;
+        this.adresseEtudiant = adresseEtudiant;
+        this.numeroTelFixeEtudiant = numeroTelFixeEtudiant;
+        this.numeroTelMobilEtudiant = numeroTelMobilEtudiant;
+        this.mailEtudiant = mailEtudiant;
+        this.idClasse = idClasse;
+    }
+    
 
     public int getIdEtudiant() {
         return idEtudiant;
