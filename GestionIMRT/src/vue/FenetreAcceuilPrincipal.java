@@ -961,8 +961,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         
         } catch(Exception e) {
             
-            /*JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
-            "information", JOptionPane.INFORMATION_MESSAGE); */
+           // JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
+          //  "information", JOptionPane.INFORMATION_MESSAGE); 
         }
     }//GEN-LAST:event_btSupprimerEnseignantActionPerformed
 
@@ -970,19 +970,21 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             //DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
        
         //ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
-          int selected_row = liEtudiants.getSelectedRow();
+          //int selected_row = liEtudiants.getSelectedRow();
         FenetreModifSuprEtudiant fmu;
+        Etudiant etu =new Etudiant ();
         try{
             //fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Suprimer fiche Enseignant",cnx);
         fmu = new FenetreModifSuprEtudiant(this,
-                etuModel.getEtu(selected_row),"Ajouter fiche Etudiant",cnx);
+                etu,"Ajouter fiche Etudiant",cnx);
           int ret = fmu.doModal();
+            etuModel.insererLigne(etu);
          if (ret == 1) {
                //etuModel.supprimerLigne(selected_row);
          }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
-"information", JOptionPane.INFORMATION_MESSAGE); 
+           // JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
+//"information", JOptionPane.INFORMATION_MESSAGE); 
         }
     
     }//GEN-LAST:event_btAjouterEtudiantActionPerformed

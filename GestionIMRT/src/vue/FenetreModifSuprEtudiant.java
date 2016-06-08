@@ -317,9 +317,55 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else  if (this.action == 2){
-            //TODO creation
+        }  else  if (this.action == 2){
+            //ajout enseigenant
+            try {
+
+                int result;
+                //int id_suppression = this.ens.getIdEnseignant();
+                
+                etu.setNomEtudiant(this.txNomEtu.getText());
+                etu.setPrenomEtudiant(this.txPrenomEtu.getText());
+                
+                //TODO: VALIDATION
+
+                CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_etudiant(?, ?)}");
+
+                cstmt.registerOutParameter (1, Types.INTEGER);
+                
+                cstmt.setString(3, etu.getNomEtudiant());
+                cstmt.setString(4,etu.getPrenomEtudiant());
+                
+                cstmt.execute();
+                
+                result = cstmt.getInt(1);
+
+                tools.debug("Ajout : " + result);
+
+                //if (result == 1) {
+
+                    JOptionPane.showMessageDialog(null, "etudiant "
+                        +this.etu.getNomEtudiant()+" "+this.etu.getPrenomEtudiant()
+                        + " a été bien ajouté",
+                        "Information", JOptionPane.INFORMATION_MESSAGE);
+
+                    this.resultat = 1;
+
+                    this.dispose();
+                    
+                /*
+                } else {
+                    //result != 1
+                    throw new Exception("Impossible de supprimer ens");
+                }*/
+
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+
     }//GEN-LAST:event_btEnregistrerEtuActionPerformed
 
     private void btAnnulerEtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAnnulerEtuActionPerformed
