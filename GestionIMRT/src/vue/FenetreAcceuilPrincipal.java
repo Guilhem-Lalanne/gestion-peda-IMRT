@@ -957,15 +957,19 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btSupprimerEnseignantActionPerformed
 
     private void btAjouterEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterEtudiantActionPerformed
-            DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
+            //DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
        
-        ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
+        //ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
+          int selected_row = liEtudiants.getSelectedRow();
         FenetreModifSuprEtudiant fmu;
         try{
+            //fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Suprimer fiche Enseignant",cnx);
         fmu = new FenetreModifSuprEtudiant(this,
-               modeleEtu.getEtu(liEtudiants.getSelectedRow()),"Ajouter fiche Etudiant");
-        
-        fmu.setVisible(true);
+                etuModel.getEtu(selected_row),"Ajouter fiche Etudiant",cnx);
+          int ret = fmu.doModal();
+         if (ret == 1) {
+               //etuModel.supprimerLigne(selected_row);
+         }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
 "information", JOptionPane.INFORMATION_MESSAGE); 
@@ -974,6 +978,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btAjouterEtudiantActionPerformed
 
     private void btModifierEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModifierEtudiantActionPerformed
+        /**
         DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
        
         ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
@@ -987,19 +992,24 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
 "information", JOptionPane.INFORMATION_MESSAGE); 
         }
+        **/
     }//GEN-LAST:event_btModifierEtudiantActionPerformed
 
     private void btSupprimerEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSupprimerEtudiantActionPerformed
       
-        DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
+          //DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
        
-        ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
+        //ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
+          int selected_row = liEtudiants.getSelectedRow();
         FenetreModifSuprEtudiant fmu;
         try{
+            //fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Suprimer fiche Enseignant",cnx);
         fmu = new FenetreModifSuprEtudiant(this,
-               modeleEtu.getEtu(liEtudiants.getSelectedRow()),"Suprimer fiche Etudiant");
-        
-        fmu.setVisible(true);
+                etuModel.getEtu(selected_row),"Suprimer fiche Etudiant",cnx);
+          int ret = fmu.doModal();
+         if (ret == 1) {
+               etuModel.supprimerLigne(selected_row);
+         }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
 "information", JOptionPane.INFORMATION_MESSAGE); 
