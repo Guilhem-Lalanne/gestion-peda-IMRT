@@ -329,12 +329,13 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                 
                 //TODO: VALIDATION
 
-                CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_etudiant(?, ?)}");
+                CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_etudiant(?,?, ?)}");
 
                 cstmt.registerOutParameter (1, Types.INTEGER);
-                
+                  cstmt.setInt(2,7);
                 cstmt.setString(3, etu.getNomEtudiant());
                 cstmt.setString(4,etu.getPrenomEtudiant());
+               
                 
                 cstmt.execute();
                 
