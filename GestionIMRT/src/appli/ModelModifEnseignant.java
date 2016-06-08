@@ -64,11 +64,14 @@ public class ModelModifEnseignant extends AbstractTableModel{
         
             
             case 0:
-                return ens.getIdEnseignant();
-            case 1:
+                //return ens.getIdEnseignant();
                 return ens.getNomEnseignant();
-            case 2:
+            case 1:
+                //return ens.getNomEnseignant();
                 return  ens.getPrenomEnseignant();
+            case 2:
+                //return  ens.getPrenomEnseignant();
+                return ens.getAdresseEnseignant();
             case 3:
                 return ens.getIdDiscipline();
             case 4:

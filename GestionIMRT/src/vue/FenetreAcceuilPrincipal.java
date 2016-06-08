@@ -26,6 +26,7 @@ import java.sql.Types;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
+import metier.Enseignant;
 import metier.Promotion;
 import metier.User;
 import metier.Etudiant;
@@ -48,7 +49,6 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private DaoUser daoUser;
     private DaoEnseignant daoEns;
             
-    private ModeleEnseignant ensModel;
     private ModeleEtudiant etuModel;
     private ModeleEtudiantExamen  etuModelExam;
     
@@ -864,7 +864,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             modeleEns = new ModelModifEnseignant(daoEns);
             
             liEnseignant.setModel(modeleEns);
-            //ModeleEnseignant ensModel = new ModeleEnseignant(dao);
+            
         
         } else if (index == 2) {
             // Onglet Etudiants
@@ -909,19 +909,29 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btAjouterUserActionPerformed
 
     private void btAjouterEnseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterEnseignantActionPerformed
-      DaoEnseignant daoEns =new  DaoEnseignant(cnx);
-        DaoEmployeur daoEmp =new DaoEmployeur(cnx);
+
+        DaoEmployeur daoEmp = new DaoEmployeur(cnx);
         ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
-        FenetreModificationEnseignant fmu;
+        FenetreModifEnseignant fmu;
         
-        try{
-        fmu = new FenetreModificationEnseignant(this,
-                 modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Ajouter fiche Enseignant",cnx);
+        Enseignant ens = new Enseignant();
         
-        fmu.setVisible(true);
+        try {
+            fmu = new FenetreModifEnseignant(this,ens,modelNomEmp,"Ajouter fiche Enseignant",cnx);
+            int ret = fmu.doModal();
+            
+            tools.debug("Ajout retour: "+ens.getNomEnseignant());
+            
+            modeleEns.insererLigne(ens);
+        
+            if (ret == 1) {
+                //modeleEns.addTableModelListener(LiUser
+                //modeleEns.insererLigne(null);
+            }
+        
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
-"information", JOptionPane.INFORMATION_MESSAGE); 
+            /*JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
+"information", JOptionPane.INFORMATION_MESSAGE); */
         }
     }//GEN-LAST:event_btAjouterEnseignantActionPerformed
 
@@ -938,7 +948,6 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         try {
             
             //TODO: ajouter verif selection 
-            
             fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Suprimer fiche Enseignant",cnx);
         
             int ret = fmu.doModal();

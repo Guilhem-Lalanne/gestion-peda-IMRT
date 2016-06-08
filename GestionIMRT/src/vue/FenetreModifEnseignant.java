@@ -60,49 +60,46 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
      
          tools.debug(ens.toString());
          
-         if(libelle=="Modifier fiche enseignant"){
-             this.action = 1;
-        this.lTitre.setText(libelle);
-        this.txNomEns.setText(ens.getNomEnseignant());
-        this.txPrenomEns.setText(ens.getPrenomEnseignant());
-        this.txDateNaissanceEns.setText(ens.getDateNaissanceEnseignant());
-        this.txAdresseEns.setText(ens.getAdresseEnseignant());
-        this.txNumFixe.setText(ens.getNumeroTelFixeEnseignant());
-        this.txNumMobile.setText(ens.getNumeroTelMobilEnseignant());
-        this.txAdresseMail.setText(ens.getMailEnseignant());
-        this.txProfession.setText(ens.getProfession());
-        this.cbNomEmployeur.setModel(modelNomEmp);
-        //this.txAdresseEmp.setText();
-        this.ckCNI.setSelected(ens.getDocAdmPhotoCarteNat());
-        this.ckSS.setSelected(ens.getDocAdmPhotoCarteSecu());
-        this.ckBulletinSalaire.setSelected(ens.getDocAdmJustTrav());
-        this.ckArreteNomination.setSelected(ens.getDocAdmRecepArreteNomin());
-         }
-         else if(libelle=="Ajouter fiche Enseignant")
-                {
-                    this.action = 2;
-         this.lTitre.setText(libelle);
-       
-    }
-         else if(libelle=="Suprimer fiche Enseignant"){
-             this.action = 3;
-          this.lTitre.setText(libelle);
-        this.txNomEns.setText(ens.getNomEnseignant());
-        this.txPrenomEns.setText(ens.getPrenomEnseignant());
-        this.txDateNaissanceEns.setText(ens.getDateNaissanceEnseignant());
-        this.txAdresseEns.setText(ens.getAdresseEnseignant());
-        this.txNumFixe.setText(ens.getNumeroTelFixeEnseignant());
-        this.txNumMobile.setText(ens.getNumeroTelMobilEnseignant());
-        this.txAdresseMail.setText(ens.getMailEnseignant());
-        this.txProfession.setText(ens.getProfession());
-        this.cbNomEmployeur.setModel(modelNomEmp);
-        //this.txAdresseEmp.setText();
-        this.ckCNI.setText(String.valueOf(ens.getDocAdmPhotoCarteNat()));
-        this.ckSS.setText(String.valueOf(ens.getDocAdmPhotoCarteSecu()));
-        this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
-        this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
-        this.btEnregistrerEns.setText("suprimer");
-         }
+         if (libelle == "Modifier fiche enseignant") {
+            this.action = 1;
+            this.lTitre.setText(libelle);
+            this.txNomEns.setText(ens.getNomEnseignant());
+            this.txPrenomEns.setText(ens.getPrenomEnseignant());
+            this.txDateNaissanceEns.setText(ens.getDateNaissanceEnseignant());
+            this.txAdresseEns.setText(ens.getAdresseEnseignant());
+            this.txNumFixe.setText(ens.getNumeroTelFixeEnseignant());
+            this.txNumMobile.setText(ens.getNumeroTelMobilEnseignant());
+            this.txAdresseMail.setText(ens.getMailEnseignant());
+            this.txProfession.setText(ens.getProfession());
+            this.cbNomEmployeur.setModel(modelNomEmp);
+            //this.txAdresseEmp.setText();
+            this.ckCNI.setSelected(ens.getDocAdmPhotoCarteNat());
+            this.ckSS.setSelected(ens.getDocAdmPhotoCarteSecu());
+            this.ckBulletinSalaire.setSelected(ens.getDocAdmJustTrav());
+            this.ckArreteNomination.setSelected(ens.getDocAdmRecepArreteNomin());
+        } else if (libelle == "Ajouter fiche Enseignant") {
+            this.action = 2;
+            this.lTitre.setText(libelle);
+
+        } else if (libelle == "Suprimer fiche Enseignant") {
+            this.action = 3;
+            this.lTitre.setText(libelle);
+            this.txNomEns.setText(ens.getNomEnseignant());
+            this.txPrenomEns.setText(ens.getPrenomEnseignant());
+            this.txDateNaissanceEns.setText(ens.getDateNaissanceEnseignant());
+            this.txAdresseEns.setText(ens.getAdresseEnseignant());
+            this.txNumFixe.setText(ens.getNumeroTelFixeEnseignant());
+            this.txNumMobile.setText(ens.getNumeroTelMobilEnseignant());
+            this.txAdresseMail.setText(ens.getMailEnseignant());
+            this.txProfession.setText(ens.getProfession());
+            this.cbNomEmployeur.setModel(modelNomEmp);
+            //this.txAdresseEmp.setText();
+            this.ckCNI.setText(String.valueOf(ens.getDocAdmPhotoCarteNat()));
+            this.ckSS.setText(String.valueOf(ens.getDocAdmPhotoCarteSecu()));
+            this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
+            this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
+            this.btEnregistrerEns.setText("suprimer");
+        }
     }
     
     public int doModal() {
@@ -519,6 +516,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
 
     private void btEnregistrerEnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnregistrerEnsActionPerformed
         if (this.action == 3){
+            
             //je suis dqns suppresion
             try {
 
@@ -556,7 +554,52 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else  if (this.action == 2){
-            //TODO creation
+            //ajout enseigenant
+            try {
+
+                int result;
+                //int id_suppression = this.ens.getIdEnseignant();
+                
+                ens.setNomEnseignant(this.txNomEns.getText());
+                ens.setPrenomEnseignant(this.txPrenomEns.getText());
+                
+                //TODO: VALIDATION
+
+                CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_enseignant(?, ?)}");
+
+                cstmt.registerOutParameter (1, Types.INTEGER);
+                
+                cstmt.setString(2, ens.getNomEnseignant());
+                cstmt.setString(3, ens.getPrenomEnseignant());
+                
+                cstmt.execute();
+                
+                result = cstmt.getInt(1);
+
+                tools.debug("Ajout : " + result);
+
+                //if (result == 1) {
+
+                    JOptionPane.showMessageDialog(null, "Ens "
+                        +this.ens.getNomEnseignant()+" "+this.ens.getPrenomEnseignant()
+                        + " a été bien ajouté",
+                        "Information", JOptionPane.INFORMATION_MESSAGE);
+
+                    this.resultat = 1;
+
+                    this.dispose();
+                    
+                /*
+                } else {
+                    //result != 1
+                    throw new Exception("Impossible de supprimer ens");
+                }*/
+
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }//GEN-LAST:event_btEnregistrerEnsActionPerformed
