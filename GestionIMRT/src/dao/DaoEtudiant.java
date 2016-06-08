@@ -47,7 +47,7 @@ public class DaoEtudiant {
             String etuMail = rset.getString(9);
             int etuClasseId = rset.getInt(10);
 
-            etudiants.add(new Etudiant(etuNom,
+            etudiants.add(new Etudiant(etuId,etuNom,
                     etuPrenom,
                     etuDateNaissance,
                     etuAdresse,

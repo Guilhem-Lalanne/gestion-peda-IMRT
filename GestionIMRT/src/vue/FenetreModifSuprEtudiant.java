@@ -5,6 +5,14 @@
  */
 package vue;
 
+import appli.tools;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import metier.Etudiant;
 
 /**
@@ -13,7 +21,18 @@ import metier.Etudiant;
  */
 public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
 
-    private boolean etatValidation;
+    public Etudiant etu;
+    /**
+     * 0 - init 1 - modification 2 - ajout 3 - suppresion
+     */
+    public int action;
+
+    /**
+     * 0 - aucun action 1 - action ok (il faut mettre à jour le vue principale)
+     */
+    private int resultat;
+
+    Connection cnx;
 
     /**
      * Creates new form FenetreModifSuprEtudiant
@@ -21,13 +40,31 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
      * @param parent
      * @param etu
      */
-    public FenetreModifSuprEtudiant(java.awt.Frame parent, Etudiant etu, String libelle) {
+    public FenetreModifSuprEtudiant(java.awt.Frame parent,
+            Etudiant etu, String libelle, Connection cnx) {
         initComponents();
-        if (libelle == "Ajouter fiche Etudiant") {
+
+        this.etu = etu;
+        this.action = 0;
+        this.resultat = 0;
+        this.cnx = cnx;
+
+        if (libelle == "Modifier fiche Etudiant") {
+            this.action = 1;
+            this.lTitre.setText(libelle);
+            this.txNomEtu.setText(etu.getNomEtudiant());
+            this.txPrenomEtu.setText(etu.getPrenomEtudiant());
+            this.txDateNaissanceEtu.setText(etu.getDateNaissanceEtudiant());
+            this.txAdresse.setText(etu.getAdresseEtudiant());
+            this.txNumFixe.setText(etu.getNumeroTelFixeEtudiant());
+            this.txNumMobile.setText(etu.getNumeroTelMobilEtudiant());
+            this.txAdresseMail.setText(etu.getMailEtudiant());
+        } else if (libelle == "Ajouter fiche Etudiant") {
+            this.action = 2;
             this.lTitre.setText(libelle);
             //todo code suprimer etudiant
         } else if (libelle == "Suprimer fiche Etudiant") {
-
+            this.action = 3;
             this.lTitre.setText(libelle);
             this.btEnregistrerEtu.setText("supprimer");
             this.lTitre.setText(libelle);
@@ -38,23 +75,13 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
             this.txNumFixe.setText(etu.getNumeroTelFixeEtudiant());
             this.txNumMobile.setText(etu.getNumeroTelMobilEtudiant());
             this.txAdresseMail.setText(etu.getMailEtudiant());
-            // code suprimerr etuf=diant
-        } else if (libelle == "Modifier fiche Etudiant") {
-
-            this.lTitre.setText(libelle);
-            this.txNomEtu.setText(etu.getNomEtudiant());
-            this.txPrenomEtu.setText(etu.getPrenomEtudiant());
-            this.txDateNaissanceEtu.setText(etu.getDateNaissanceEtudiant());
-            this.txAdresse.setText(etu.getAdresseEtudiant());
-            this.txNumFixe.setText(etu.getNumeroTelFixeEtudiant());
-            this.txNumMobile.setText(etu.getNumeroTelMobilEtudiant());
-            this.txAdresseMail.setText(etu.getMailEtudiant());
+            // code suprimerr etufdiant
         }
     }
 
-    public boolean doModal() {
+    public int doModal() {
         this.setVisible(true);
-        return etatValidation;
+        return resultat;
     }
 
     /**
@@ -132,9 +159,19 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
 
         btEnregistrerEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btEnregistrerEtu.setText("Enregistrer");
+        btEnregistrerEtu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEnregistrerEtuActionPerformed(evt);
+            }
+        });
 
         btAnnulerEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAnnulerEtu.setText("Annuler");
+        btAnnulerEtu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAnnulerEtuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,6 +276,55 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btEnregistrerEtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnregistrerEtuActionPerformed
+          if (this.action == 3){
+               //je suis dqns suppresion
+               try {
+            
+            
+                int result;
+                int id_suppression = this.etu.getIdEtudiant();
+                tools.debug("id etudiant Suppresion : "+id_suppression);
+                CallableStatement cstmt = cnx.prepareCall ("{ ? = call SUPPRIMER_etudiant(?)}");
+                 
+                cstmt.registerOutParameter (1, Types.INTEGER);
+                cstmt.setInt(2,id_suppression); 
+                cstmt.execute();
+                result = cstmt.getInt(1);
+                
+                tools.debug("Suppresion : " + result);
+                
+                if (result == 1) {
+                    
+                    
+                    JOptionPane.showMessageDialog(null, "Etudiand "
+                            +this.etu.getNomEtudiant()+" "+ this.etu.getPrenomEtudiant()
+                            + " a été bien supprimé",
+                     "Information", JOptionPane.INFORMATION_MESSAGE);
+                    
+                    this.resultat = 1;
+                    
+                    //this.dispose();
+                    
+                } else {
+                    //result != 1
+                    //throw new Exception("Impossible de supprimer etudiant");
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else  if (this.action == 2){
+            //TODO creation
+        }
+    }//GEN-LAST:event_btEnregistrerEtuActionPerformed
+
+    private void btAnnulerEtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAnnulerEtuActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btAnnulerEtuActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAnnulerEtu;
