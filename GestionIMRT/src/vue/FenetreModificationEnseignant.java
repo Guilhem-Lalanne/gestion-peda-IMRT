@@ -536,7 +536,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
 
     private void btEnregistrerEnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnregistrerEnsActionPerformed
         if (this.action == 3){
-               //je suis dqns suppresion
+               //je suis dans suppresion
                try {
             
             
@@ -553,7 +553,7 @@ public class FenetreModificationEnseignant extends javax.swing.JFrame {
                 tools.debug("Suppresion : " + result);
                 
                 if (result == 1) {
-                    
+                    //je suis dans ajoutter
                     
                     JOptionPane.showMessageDialog(null, "Ens "
                             +this.ens.getNomEnseignant()+" "+this.ens.getPrenomEnseignant()

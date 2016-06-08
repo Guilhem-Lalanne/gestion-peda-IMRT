@@ -780,19 +780,31 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBModifEnsegnantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModifEnsegnantActionPerformed
-        DaoEnseignant daoEns =new  DaoEnseignant(cnx);
-        DaoEmployeur daoEmp =new DaoEmployeur(cnx);
-        ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
-        ModelModifEnseignant modeleEns=new ModelModifEnseignant(daoEns);
-        FenetreModificationEnseignant fmu;
-        try{
-        fmu = new FenetreModificationEnseignant(this,
-               modeleEns.get(liEnseignant.getSelectedRow()),modelNomEmp,"Modifier fiche enseignant",cnx);
+        DaoEmployeur daoEmp = new DaoEmployeur(cnx);
         
-        fmu.setVisible(true);
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
-"information", JOptionPane.INFORMATION_MESSAGE); 
+        ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
+        
+        FenetreModifEnseignant fmu;
+        
+        int selected_row = liEnseignant.getSelectedRow();
+        
+        try {
+          
+            //TODO: ajouter verif selection 
+            fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Modifier fiche enseignant",cnx);
+        
+            int ret = fmu.doModal();
+        
+            tools.debug("Suppression retour: "+ret);
+        
+            if (ret == 1) {
+               modeleEns.insererLigne(modeleEns.get(selected_row));
+            }
+        
+        } catch(Exception e) {
+            
+           // JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
+          //  "information", JOptionPane.INFORMATION_MESSAGE); 
         }
     }//GEN-LAST:event_jBModifEnsegnantActionPerformed
 

@@ -533,7 +533,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 tools.debug("Suppresion : " + result);
 
                 if (result == 1) {
-
+                            //todo implementer methode modifier
                     JOptionPane.showMessageDialog(null, "Ens "
                         +this.ens.getNomEnseignant()+" "+this.ens.getPrenomEnseignant()
                         + " a été bien supprimé",
