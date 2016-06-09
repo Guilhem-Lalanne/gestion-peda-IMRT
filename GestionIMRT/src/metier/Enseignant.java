@@ -22,8 +22,6 @@ public class Enseignant {
     private String mailEnseignant;
     private String profession;
     private int idEmployeur;
-    private String nomEmployeur;
-    private String adresseEmployeur;
     private int docAdmPhotoCarteNat;
     private int docAdmPhotoCarteSecu;
     private int docAdmJustTrav;
@@ -42,12 +40,13 @@ public class Enseignant {
      * @param idEnseignant
      * @param prenomEnseignant
      * @param nomEnseignant
+     * @param idDiscipline
      * @param dateNaissanceEnseignant
      * @param adresseEnseignant
      * @param numeroTelFixeEnseignant
+     * @param numeroTelMobileEnseignant
      * @param mailEnseignant
      * @param profession
-     * @param adresseEmployeur
      * @param docAdmPhotoCarteNat
      * @param docAdmPhotoCarteSecu
      * @param docAdmJustTrav
@@ -82,7 +81,6 @@ public class Enseignant {
         this.numeroTelMobilEnseignant   = numeroTelMobileEnseignant;
         this.mailEnseignant             = mailEnseignant;
         this.profession                 = profession;
-        this.adresseEmployeur           = adresseEmployeur;
         this.idEmployeur                = idEmployer;
         this.docAdmPhotoCarteNat        = docAdmPhotoCarteNat;
         this.docAdmPhotoCarteSecu       = docAdmPhotoCarteSecu;
@@ -222,25 +220,9 @@ public class Enseignant {
         this.idEmployeur = idEmployeur;
     }
 
-    public String getNomEmployeur() {
-        return nomEmployeur;
-    }
-
-    public void setNomEmployeur(String nomEmployeur) {
-        this.nomEmployeur = nomEmployeur;
-    }
-
-    public String getAdresseEmployeur() {
-        return adresseEmployeur;
-    }
-
-    public void setAdresseEmployeur(String adresseEmployeur) {
-        this.adresseEmployeur = adresseEmployeur;
-    }
-
     @Override
     public String toString() {
-        return "Enseignant{" + "idEnseignant=" + idEnseignant + ", prenomEnseignant=" + prenomEnseignant + ", nomEnseignant=" + nomEnseignant + ", idDiscipline=" + idDiscipline + ", dateNaissanceEnseignant=" + dateNaissanceEnseignant + ", adresseEnseignant=" + adresseEnseignant + ", numeroTelFixeEnseignant=" + numeroTelFixeEnseignant + ", numeroTelMobilEnseignant=" + numeroTelMobilEnseignant + ", mailEnseignant=" + mailEnseignant + ", profession=" + profession + ", idEmployeur=" + idEmployeur + ", nomEmployeur=" + nomEmployeur + ", adresseEmployeur=" + adresseEmployeur + ", docAdmPhotoCarteNat=" + docAdmPhotoCarteNat + ", docAdmPhotoCarteSecu=" + docAdmPhotoCarteSecu + ", docAdmJustTrav=" + docAdmJustTrav + ", docAdmRecepArreteNomin=" + docAdmRecepArreteNomin + '}';
+        return "Enseignant{" + "idEnseignant=" + idEnseignant + ", prenomEnseignant=" + prenomEnseignant + ", nomEnseignant=" + nomEnseignant + ", idDiscipline=" + idDiscipline + ", dateNaissanceEnseignant=" + dateNaissanceEnseignant + ", adresseEnseignant=" + adresseEnseignant + ", numeroTelFixeEnseignant=" + numeroTelFixeEnseignant + ", numeroTelMobilEnseignant=" + numeroTelMobilEnseignant + ", mailEnseignant=" + mailEnseignant + ", profession=" + profession + ", idEmployeur=" + idEmployeur + ", docAdmPhotoCarteNat=" + docAdmPhotoCarteNat + ", docAdmPhotoCarteSecu=" + docAdmPhotoCarteSecu + ", docAdmJustTrav=" + docAdmJustTrav + ", docAdmRecepArreteNomin=" + docAdmRecepArreteNomin + '}';
     }
 
     

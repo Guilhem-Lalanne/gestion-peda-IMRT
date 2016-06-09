@@ -54,8 +54,8 @@ public class ModeleNomEmployeur extends DefaultComboBoxModel {
     private void charger() throws SQLException {
         leDaoEmployeur.getEmployeur(leConteneurEmployeur);
     }
-    public Object getAdresseAt(int i){
-            return leConteneurEmployeur.get(i).getAdresseEmployeur();
+    public String getAdresseAt(int i){
+        return leConteneurEmployeur.get(i).getAdresseEmployeur();
    
     }
     

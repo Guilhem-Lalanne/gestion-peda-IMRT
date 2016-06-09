@@ -38,10 +38,17 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
      */
     private int resultat;
     
+    public ModeleNomEmployeur modelNomEmp;
+    
     Connection cnx;
 
     /**
      * Creates new form FenetreModifEnseignant
+     * @param parent
+     * @param ens
+     * @param modelNomEmp
+     * @param libelle
+     * @param cnx 
      */
     public FenetreModifEnseignant(java.awt.Frame parent, 
                                   Enseignant ens,
@@ -55,6 +62,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
         this.action = 0;
         this.resultat = 0;
         this.cnx = cnx;
+        this.modelNomEmp = modelNomEmp;
         
         initComponents();
      
@@ -81,6 +89,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
             tools.debug("je suis dans modifier : " + action);
             
             this.cbNomEmployeur.setSelectedIndex(ens.getIdEmployeur()-1);
+            this.txAdresseEmp.setText(modelNomEmp.getAdresseAt(ens.getIdEmployeur()-1));
          
         } else if (libelle == "Ajouter fiche Enseignant") {
             this.action = 2;
@@ -683,7 +692,8 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
     }//GEN-LAST:event_btEnregistrerEnsActionPerformed
 
     private void cbNomEmployeurItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbNomEmployeurItemStateChanged
-
+        int id_select = cbNomEmployeur.getSelectedIndex();
+        txAdresseEmp.setText(modelNomEmp.getAdresseAt(id_select));
     }//GEN-LAST:event_cbNomEmployeurItemStateChanged
 
     private void cbNomEmployeurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNomEmployeurActionPerformed
