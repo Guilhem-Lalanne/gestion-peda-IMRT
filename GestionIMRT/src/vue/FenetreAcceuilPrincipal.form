@@ -1042,9 +1042,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btAjouterUser" min="-2" pref="108" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btSuprimerUser" min="-2" pref="113" max="-2" attributes="0"/>
+                              <Component id="btModifier" min="-2" pref="113" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btModifierUser" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="btSupprimer" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="887" max="32767" attributes="0"/>
@@ -1059,8 +1059,8 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btAjouterUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btSuprimerUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btModifierUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btSupprimer" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btModifier" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="566" max="32767" attributes="0"/>
                   </Group>
@@ -1087,20 +1087,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAjouterUserActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btModifierUser">
+            <Component class="javax.swing.JButton" name="btSupprimer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Supprmier"/>
+                <Property name="text" type="java.lang.String" value="Supprimer"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btModifierUserActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSupprimerActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btSuprimerUser">
+            <Component class="javax.swing.JButton" name="btModifier">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modifier"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSuprimerUserActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btModifierActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
