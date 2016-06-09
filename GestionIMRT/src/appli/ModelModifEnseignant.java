@@ -88,6 +88,7 @@ public class ModelModifEnseignant extends AbstractTableModel{
                 return ens.getIdEmployeur();
             case 10:
                 return ens.getDocAdmPhotoCarteNat();
+                
             case 11:
                 return ens.getDocAdmPhotoCarteSecu();
             case 12:

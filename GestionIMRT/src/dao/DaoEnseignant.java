@@ -5,6 +5,7 @@
  */
 package dao;
 
+import appli.tools;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,7 +44,7 @@ public class DaoEnseignant {
             String mailEnseignant = rset.getString(9);
             String profession = rset.getString(10);
             int idEmployeur=1;
-            Boolean docAdmPhotoCarteNat =true;
+            int docAdmPhotoCarteNatInt =rset.getInt(11);
             Boolean docAdmPhotoCarteSecu = true;
             Boolean docAdmJustTrav = true;
             Boolean docAdmRecepArreteNomin = true;
@@ -51,6 +52,12 @@ public class DaoEnseignant {
             String userNom = rset.getString(2);
             String userGroupe = rset.getString(3);
             
+            boolean docAdmPhotoCarteNat=true;
+            
+            if(docAdmPhotoCarteNatInt==0){
+           docAdmPhotoCarteNat=false;
+            }
+            tools.debug(" boolean docAdmPhotoCarteNat=true;\n" +docAdmPhotoCarteNat);
             Enseignant en = new Enseignant(idEnseignant,prenomEnseignant, nomEnseignant,
                     dateNaissanceEnseignant, adresseEnseignant,
                     numeroTelFixeEnseignant, mailEnseignant, profession,
