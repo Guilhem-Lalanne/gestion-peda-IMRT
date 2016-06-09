@@ -278,7 +278,8 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btEnregistrerEtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnregistrerEtuActionPerformed
-          if (this.action == 3){
+          
+        if (this.action == 3){
                //je suis dqns suppresion
                try {
             
@@ -329,14 +330,14 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                 
                 //TODO: VALIDATION
 
-                CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_etudiant(?,?, ?)}");
+                CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_etudiant(?,?,?,?)}");
 
                 cstmt.registerOutParameter (1, Types.INTEGER);
-                  cstmt.setInt(2,7);
+                cstmt.setInt(2,7);
                 cstmt.setString(3, etu.getNomEtudiant());
                 cstmt.setString(4,etu.getPrenomEtudiant());
+                cstmt.setInt(5,3);
                
-                
                 cstmt.execute();
                 
                 result = cstmt.getInt(1);
