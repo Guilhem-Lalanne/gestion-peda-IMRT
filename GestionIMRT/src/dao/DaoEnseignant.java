@@ -75,8 +75,10 @@ public class DaoEnseignant {
         pstmt.close();
 
     }
+
      public void setEnseignant(Enseignant ens) throws SQLException {
          /*
+
         String requete = "insert into gi_enseignant (prenom,nom,ID_DISCIPLINE,DATE_NAISSANCE,"
                 + "ADRESSE,NUMERO_TEL_FIXE,NUMERO_TEL_MOBILE,MAIL,PROFFESION"
                 + "ID_EMPLOYEUR,DOC_ADM_PHOTO_CARTE_NA,DOC_ADM_PHOTO_CARTE_SECU,"
@@ -84,7 +86,7 @@ public class DaoEnseignant {
                 + ",?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = cnx.prepareStatement(requete);
         pstmt.setString(2, ens.getPrenomEnseignant());
-        pstmt.setString(3,ens.getNomEnseignant());
+        pstmt.setString(3, ens.getNomEnseignant());
         pstmt.setInt(4, ens.getIdDiscipline());
         pstmt.setString(5, ens.getDateNaissanceEnseignant());
         pstmt.setString(6, ens.getAdresseEnseignant());
@@ -97,7 +99,9 @@ public class DaoEnseignant {
         pstmt.setInt(13, ens.getDocAdmJustTrav());
         pstmt.setInt(14, ens.getDocAdmRecepArreteNomin());
         pstmt.executeUpdate();
-        pstmt.close();*/
-    } 
 
 }
+        pstmt.close();*/
+    } 
+}
+
