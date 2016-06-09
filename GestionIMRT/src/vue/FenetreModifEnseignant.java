@@ -573,12 +573,18 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 
                 //TODO: VALIDATION
 
-                CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_enseignant(?, ?)}");
+                CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_enseignant(?, ?,?,?,?,?,?,?}");
 
                 cstmt.registerOutParameter (1, Types.INTEGER);
                 
                 cstmt.setString(2, ens.getNomEnseignant());
                 cstmt.setString(3, ens.getPrenomEnseignant());
+                cstmt.setString(4,ens.getDateNaissanceEnseignant());
+                cstmt.setString(5,ens.getAdresseEnseignant());
+                cstmt.setString(6,ens.getNumeroTelFixeEnseignant());
+                cstmt.setString(7,ens.getNumeroTelMobilEnseignant());
+                cstmt.setString(8,ens.getMailEnseignant());
+                cstmt.setString(9,ens.getProfession());
                 
                 cstmt.execute();
                 
