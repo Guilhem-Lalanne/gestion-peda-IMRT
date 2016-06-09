@@ -77,9 +77,11 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
             this.ckSS.setSelected(ens.getDocAdmPhotoCarteSecu());
             this.ckBulletinSalaire.setSelected(ens.getDocAdmJustTrav());
             this.ckArreteNomination.setSelected(ens.getDocAdmRecepArreteNomin());
+         tools.debug("je suis dans modifier : " + action);
         } else if (libelle == "Ajouter fiche Enseignant") {
             this.action = 2;
             this.lTitre.setText(libelle);
+             
 
         } else if (libelle == "Suprimer fiche Enseignant") {
             this.action = 3;
@@ -99,6 +101,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
             this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
             this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
             this.btEnregistrerEns.setText("suprimer");
+            tools.debug("je suis dans modifier : " + action);
         }
     }
     
@@ -155,7 +158,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
         liListeEnseignee = new javax.swing.JList();
         btEnregistrerEns = new javax.swing.JButton();
         btAnnulerEns = new javax.swing.JButton();
-        cbNomEmployeur = new javax.swing.JComboBox<String>();
+        cbNomEmployeur = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -209,7 +212,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
         lAdresseEmp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lAdresseEmp.setText("Adresse employeur");
 
-        pStatutEN.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Statut EN", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pStatutEN.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Statut EN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         rbEN.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rbEN.setText("Education Nationale");
@@ -241,7 +244,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pDocuments.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Documents administratifs ", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pDocuments.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Documents administratifs ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         ckCNI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         ckCNI.setText("  Photocopie de la carte nationale d’identité");
@@ -284,7 +287,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        pUE.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "UE enseignée", 0, 0, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pUE.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "UE enseignée", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         pUE.setToolTipText("");
 
         lListeComplete.setText("Liste des UE");
@@ -362,8 +365,13 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
 
         btAnnulerEns.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAnnulerEns.setText("Annuler");
+        btAnnulerEns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAnnulerEnsActionPerformed(evt);
+            }
+        });
 
-        cbNomEmployeur.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbNomEmployeur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbNomEmployeur.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbNomEmployeurItemStateChanged(evt);
@@ -517,7 +525,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
     private void btEnregistrerEnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnregistrerEnsActionPerformed
         if (this.action == 3){
             
-            //je suis dqns suppresion
+            //je suis dans suppresion
             try {
 
                 int result;
@@ -549,9 +557,9 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 }
 
             } catch (SQLException ex) {
-                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
             } catch (Exception ex) {
-                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else  if (this.action == 2){
             //ajout enseigenant
@@ -596,10 +604,60 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 }*/
 
             } catch (SQLException ex) {
-                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
             } catch (Exception ex) {
-                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+        }else  if (this.action == 1){
+        
+                //modifier enseigenant
+            try {
+
+                int result;
+                int id_modification = this.ens.getIdEnseignant();
+               
+                ens.setNomEnseignant(this.txNomEns.getText());
+                ens.setPrenomEnseignant(this.txPrenomEns.getText());
+                
+                //TODO: VALIDATION
+
+                CallableStatement cstmt = cnx.prepareCall ("{ ? = call modifier_enseignant (?,?, ?)}");
+
+                cstmt.registerOutParameter (1, Types.INTEGER);
+                 cstmt.setInt(2, id_modification );
+                cstmt.setString(3, ens.getNomEnseignant());
+                cstmt.setString(4, ens.getPrenomEnseignant());
+                
+                cstmt.execute();
+                
+                result = cstmt.getInt(1);
+
+                tools.debug("Ajout : " + result);
+
+                //if (result == 1) {
+
+                    JOptionPane.showMessageDialog(null, "Ens "
+                        +this.ens.getNomEnseignant()+" "+this.ens.getPrenomEnseignant()
+                        + " a  bien été modifier",
+                        "Information", JOptionPane.INFORMATION_MESSAGE);
+
+                    this.resultat = 1;
+
+                    this.dispose();
+                    
+                /*
+                } else {
+                    //result != 1
+                    throw new Exception("Impossible de supprimer ens");
+                }*/
+
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
         }
 
     }//GEN-LAST:event_btEnregistrerEnsActionPerformed
@@ -611,6 +669,10 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
     private void cbNomEmployeurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNomEmployeurActionPerformed
 
     }//GEN-LAST:event_cbNomEmployeurActionPerformed
+
+    private void btAnnulerEnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAnnulerEnsActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btAnnulerEnsActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAjouterUE;

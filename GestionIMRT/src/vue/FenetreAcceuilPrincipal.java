@@ -798,7 +798,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             tools.debug("Suppression retour: "+ret);
         
             if (ret == 1) {
-               modeleEns.insererLigne(modeleEns.get(selected_row));
+                //todo rajouter rafraichissemment liste enseignant
+               //modeleEns.setEnseignant(modeleEns.get(),modeleEns.get(selected_row));
             }
         
         } catch(Exception e) {

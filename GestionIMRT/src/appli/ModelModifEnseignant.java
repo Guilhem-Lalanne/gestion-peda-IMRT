@@ -108,4 +108,13 @@ public class ModelModifEnseignant extends AbstractTableModel{
       private void charger() throws SQLException {
         leDaoEnseignant.getEnseignant(leConteneurEnseignant);
     }
+    
+    public void setEnseignant(int index,Enseignant ens){
+        int i=0;
+        while( i<index){
+            i++;  
+        }
+    leConteneurEnseignant.add(ens);
+    }
+   
 }

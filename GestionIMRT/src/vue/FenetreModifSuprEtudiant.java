@@ -313,9 +313,9 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                 }
                 
             } catch (SQLException ex) {
-                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
             } catch (Exception ex) {
-                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
             }
         }  else  if (this.action == 2){
             //ajout enseigenant
@@ -361,9 +361,9 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                 }*/
 
             } catch (SQLException ex) {
-                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
             } catch (Exception ex) {
-                Logger.getLogger(FenetreModificationEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
