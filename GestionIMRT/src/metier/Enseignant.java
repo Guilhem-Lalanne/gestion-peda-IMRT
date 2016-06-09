@@ -23,11 +23,11 @@ public class Enseignant {
     private String profession;
     private int idEmployeur;
     private String nomEmployeur;
-     private String adresseEmployeur;
-    private Boolean docAdmPhotoCarteNat;
-    private Boolean docAdmPhotoCarteSecu;
-    private Boolean docAdmJustTrav;
-    private Boolean docAdmRecepArreteNomin;
+    private String adresseEmployeur;
+    private int docAdmPhotoCarteNat;
+    private int docAdmPhotoCarteSecu;
+    private int docAdmJustTrav;
+    private int docAdmRecepArreteNomin;
 
 
 /**
@@ -36,53 +36,101 @@ public class Enseignant {
     
     public Enseignant() {
     }
- /**
-  * constructeur enseignat total sans id enseignant et id employeur
-  * @param prenomEnseignant
-  * @param nomEnseignant
-  * @param idDiscipline
-  * @param dateNaissanceEnseignant
-  * @param adresseEnseignant
-  * @param numeroTelFixeEnseignant
-  * @param mailEnseignant
-  * @param profession
-  * @param nomEmployeur
-  * @param adresseEmployeur
-  * @param docAdmPhotoCarteNat
-  * @param docAdmPhotoCarteSecu
-  * @param docAdmJustTrav
-  * @param docAdmRecepArreteNomin 
-  */
-    /**
-    prenomEnseignant, nomEnseignant,
-                    idEnseignant, dateNaissanceEnseignant, adresseEnseignant,
-                    numeroTelFixeEnseignant, mailEnseignant, profession,
-                    userLogin, adresseEnseignant, docAdmPhotoCarteNat,
-                    docAdmPhotoCarteSecu, docAdmJustTrav, docAdmRecepArreteNomin
-                 **/
     
-    public Enseignant(int idEnseignant,String prenomEnseignant, String nomEnseignant,
+    /**
+     * 
+     * @param idEnseignant
+     * @param prenomEnseignant
+     * @param nomEnseignant
+     * @param dateNaissanceEnseignant
+     * @param adresseEnseignant
+     * @param numeroTelFixeEnseignant
+     * @param mailEnseignant
+     * @param profession
+     * @param adresseEmployeur
+     * @param docAdmPhotoCarteNat
+     * @param docAdmPhotoCarteSecu
+     * @param docAdmJustTrav
+     * @param docAdmRecepArreteNomin
+     * @param idEmployer 
+     */
+    public Enseignant(
+            int idEnseignant,
+            String prenomEnseignant, 
+            String nomEnseignant,
+            int idDiscipline,
             String dateNaissanceEnseignant, 
-            String adresseEnseignant, String numeroTelFixeEnseignant, 
-            String mailEnseignant, String profession, String nomEmployeur, 
-            String adresseEmployeur, Boolean docAdmPhotoCarteNat, 
-            Boolean docAdmPhotoCarteSecu, Boolean docAdmJustTrav,
-            Boolean docAdmRecepArreteNomin) {
-        this.idEnseignant=idEnseignant;
-        this.prenomEnseignant = prenomEnseignant;
-        this.nomEnseignant = nomEnseignant;
-       // this.idDiscipline = idDiscipline;
-        this.dateNaissanceEnseignant = dateNaissanceEnseignant;
-        this.adresseEnseignant = adresseEnseignant;
-        this.numeroTelFixeEnseignant = numeroTelFixeEnseignant;
-        this.mailEnseignant = mailEnseignant;
-        this.profession = profession;
-        this.nomEmployeur = nomEmployeur;
-        this.adresseEmployeur = adresseEmployeur;
+            String adresseEnseignant, 
+            String numeroTelFixeEnseignant, 
+            String numeroTelMobileEnseignant, 
+            String mailEnseignant, 
+            String profession, 
+            int idEmployer,
+            int docAdmPhotoCarteNat, 
+            int docAdmPhotoCarteSecu, 
+            int docAdmJustTrav,
+            int docAdmRecepArreteNomin
+            ) {
         
+        this.idEnseignant               = idEnseignant;
+        this.prenomEnseignant           = prenomEnseignant;
+        this.nomEnseignant              = nomEnseignant;
+        this.idDiscipline               = idDiscipline;
+        this.dateNaissanceEnseignant    = dateNaissanceEnseignant;
+        this.adresseEnseignant          = adresseEnseignant;
+        this.numeroTelFixeEnseignant    = numeroTelFixeEnseignant;
+        this.numeroTelMobilEnseignant   = numeroTelMobileEnseignant;
+        this.mailEnseignant             = mailEnseignant;
+        this.profession                 = profession;
+        this.adresseEmployeur           = adresseEmployeur;
+        this.idEmployeur                = idEmployer;
+        this.docAdmPhotoCarteNat        = docAdmPhotoCarteNat;
+        this.docAdmPhotoCarteSecu       = docAdmPhotoCarteSecu;
+        this.docAdmJustTrav             = docAdmJustTrav;
+        this.docAdmRecepArreteNomin     = docAdmRecepArreteNomin;
+    }
+
+    public Boolean getDocAdmPhotoCarteNat() {
+        if (docAdmPhotoCarteNat == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    public void setDocAdmPhotoCarteNat(int docAdmPhotoCarteNat) {
         this.docAdmPhotoCarteNat = docAdmPhotoCarteNat;
+    }
+
+    public Boolean getDocAdmPhotoCarteSecu() {
+        if (docAdmPhotoCarteSecu == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    public void setDocAdmPhotoCarteSecu(int docAdmPhotoCarteSecu) {
         this.docAdmPhotoCarteSecu = docAdmPhotoCarteSecu;
+    }
+
+    public Boolean getDocAdmJustTrav() {
+        if (docAdmJustTrav == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    public void setDocAdmJustTrav(int docAdmJustTrav) {
         this.docAdmJustTrav = docAdmJustTrav;
+    }
+
+    public Boolean getDocAdmRecepArreteNomin() {
+        if (docAdmRecepArreteNomin == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    public void setDocAdmRecepArreteNomin(int docAdmRecepArreteNomin) {
         this.docAdmRecepArreteNomin = docAdmRecepArreteNomin;
     }
 
@@ -188,38 +236,6 @@ public class Enseignant {
 
     public void setAdresseEmployeur(String adresseEmployeur) {
         this.adresseEmployeur = adresseEmployeur;
-    }
-
-    public Boolean getDocAdmPhotoCarteNat() {
-        return docAdmPhotoCarteNat;
-    }
-
-    public void setDocAdmPhotoCarteNat(Boolean docAdmPhotoCarteNat) {
-        this.docAdmPhotoCarteNat = docAdmPhotoCarteNat;
-    }
-
-    public Boolean getDocAdmPhotoCarteSecu() {
-        return docAdmPhotoCarteSecu;
-    }
-
-    public void setDocAdmPhotoCarteSecu(Boolean docAdmPhotoCarteSecu) {
-        this.docAdmPhotoCarteSecu = docAdmPhotoCarteSecu;
-    }
-
-    public Boolean getDocAdmJustTrav() {
-        return docAdmJustTrav;
-    }
-
-    public void setDocAdmJustTrav(Boolean docAdmJustTrav) {
-        this.docAdmJustTrav = docAdmJustTrav;
-    }
-
-    public Boolean getDocAdmRecepArreteNomin() {
-        return docAdmRecepArreteNomin;
-    }
-
-    public void setDocAdmRecepArreteNomin(Boolean docAdmRecepArreteNomin) {
-        this.docAdmRecepArreteNomin = docAdmRecepArreteNomin;
     }
 
     @Override

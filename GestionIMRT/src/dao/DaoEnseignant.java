@@ -31,39 +31,44 @@ public class DaoEnseignant {
         String requete = "select * from gi_enseignant";
         PreparedStatement pstmt = cnx.prepareStatement(requete);
         ResultSet rset = pstmt.executeQuery(requete);
-
+        
         while (rset.next()) {       // traitement du résulat
-            int idEnseignant= rset.getInt(1);
-            String prenomEnseignant= rset.getString(2);
-            String nomEnseignant= rset.getString(3);
-            int idDiscipline= rset.getInt(4);
-            String dateNaissanceEnseignant= rset.getString(5);
-            String adresseEnseignant= rset.getString(6);
-            String numeroTelFixeEnseignant =rset.getString(7);
-            String numeroTelMobilEnseignant=rset.getString(8);
-            String mailEnseignant = rset.getString(9);
-            String profession = rset.getString(10);
-            int idEmployeur=1;
-            int docAdmPhotoCarteNatInt =rset.getInt(11);
-            Boolean docAdmPhotoCarteSecu = true;
-            Boolean docAdmJustTrav = true;
-            Boolean docAdmRecepArreteNomin = true;
-            String userLogin = rset.getString(1);
-            String userNom = rset.getString(2);
-            String userGroupe = rset.getString(3);
             
-            boolean docAdmPhotoCarteNat=true;
+            int idEnseignant                = rset.getInt(1);
+            String prenomEnseignant         = rset.getString(2);
+            String nomEnseignant            = rset.getString(3);
+            int idDiscipline                = rset.getInt(4);
+            String dateNaissanceEnseignant  = rset.getString(5);
+            String adresseEnseignant        = rset.getString(6);
+            String numeroTelFixeEnseignant  = rset.getString(7);
+            String numeroTelMobilEnseignant = rset.getString(8);
+            String mailEnseignant           = rset.getString(9);
+            String profession               = rset.getString(10);
+            int idEmployeur                 = rset.getInt(11);
+            int docAdmPhotoCarteNat         = rset.getInt(12);
+            int docAdmPhotoCarteSecu        = rset.getInt(13);
+            int docAdmJustTrav              = rset.getInt(14);
+            int docAdmRecepArreteNomin      = rset.getInt(15);
             
-            if(docAdmPhotoCarteNatInt==0){
-           docAdmPhotoCarteNat=false;
-            }
-            tools.debug(" boolean docAdmPhotoCarteNat=true;\n" +docAdmPhotoCarteNat);
-            Enseignant en = new Enseignant(idEnseignant,prenomEnseignant, nomEnseignant,
-                    dateNaissanceEnseignant, adresseEnseignant,
-                    numeroTelFixeEnseignant, mailEnseignant, profession,
-                    userLogin, adresseEnseignant, docAdmPhotoCarteNat,
-                    docAdmPhotoCarteSecu, docAdmJustTrav, docAdmRecepArreteNomin);
-                    enseignant.add(en);
+            
+            Enseignant en = new Enseignant(idEnseignant,
+                    prenomEnseignant,
+                    nomEnseignant,
+                    idDiscipline,
+                    dateNaissanceEnseignant,
+                    adresseEnseignant,
+                    numeroTelFixeEnseignant,
+                    numeroTelMobilEnseignant,
+                    mailEnseignant, 
+                    profession,
+                    idEmployeur,
+                    docAdmPhotoCarteNat,
+                    docAdmPhotoCarteSecu,
+                    docAdmJustTrav,
+                    docAdmRecepArreteNomin);
+            
+            enseignant.add(en);
+                    
         }
 
         rset.close();
@@ -71,6 +76,7 @@ public class DaoEnseignant {
 
     }
      public void setEnseignant(Enseignant ens) throws SQLException {
+         /*
         String requete = "insert into gi_enseignant (prenom,nom,ID_DISCIPLINE,DATE_NAISSANCE,"
                 + "ADRESSE,NUMERO_TEL_FIXE,NUMERO_TEL_MOBILE,MAIL,PROFFESION"
                 + "ID_EMPLOYEUR,DOC_ADM_PHOTO_CARTE_NA,DOC_ADM_PHOTO_CARTE_SECU,"
@@ -86,12 +92,12 @@ public class DaoEnseignant {
         pstmt.setString(8, ens.getNumeroTelMobilEnseignant());
         pstmt.setString(9, ens.getProfession());
         pstmt.setInt(10, ens.getIdEmployeur());
-        pstmt.setBoolean(11, ens.getDocAdmPhotoCarteNat());
-        pstmt.setBoolean(12, ens.getDocAdmPhotoCarteSecu());
-        pstmt.setBoolean(13, ens.getDocAdmJustTrav());
-        pstmt.setBoolean(14, ens.getDocAdmRecepArreteNomin());
+        pstmt.setInt(11, ens.getDocAdmPhotoCarteNat());
+        pstmt.setInt(12, ens.getDocAdmPhotoCarteSecu());
+        pstmt.setInt(13, ens.getDocAdmJustTrav());
+        pstmt.setInt(14, ens.getDocAdmRecepArreteNomin());
         pstmt.executeUpdate();
-        pstmt.close();
+        pstmt.close();*/
     } 
 
 }
