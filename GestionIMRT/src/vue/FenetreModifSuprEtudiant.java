@@ -318,7 +318,7 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                 Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
             }
         }  else  if (this.action == 2){
-            //ajout enseigenant
+            //partie ajout etudiant
             try {
 
                 int result;
@@ -348,6 +348,54 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "etudiant "
                         +this.etu.getNomEtudiant()+" "+this.etu.getPrenomEtudiant()
                         + " a été bien ajouté",
+                        "Information", JOptionPane.INFORMATION_MESSAGE);
+
+                    this.resultat = 1;
+
+                    this.dispose();
+                    
+                /*
+                } else {
+                    //result != 1
+                    throw new Exception("Impossible de supprimer ens");
+                }*/
+
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }   else  if (this.action == 1){
+            //partier modifier etudiant
+            try {
+
+                int result;
+               int id_modification = this.etu.getIdEtudiant();
+                
+                etu.setNomEtudiant(this.txNomEtu.getText());
+                etu.setPrenomEtudiant(this.txPrenomEtu.getText());
+                
+                //TODO: VALIDATION
+
+                CallableStatement cstmt = cnx.prepareCall ("{ ? = call modifier_etudiant(?,?, ?)}");
+
+                cstmt.registerOutParameter (1, Types.INTEGER);
+                cstmt.setInt(2,etu.getIdGroupe());
+                cstmt.setString(3, etu.getNomEtudiant());
+                cstmt.setString(4,etu.getPrenomEtudiant());
+                cstmt.setInt(2,etu.getIdClasse());
+                
+                cstmt.execute();
+                
+                result = cstmt.getInt(1);
+
+                tools.debug("modifier : " + result);
+
+                //if (result == 1) {
+
+                    JOptionPane.showMessageDialog(null, "etudiant "
+                        +this.etu.getNomEtudiant()+" "+this.etu.getPrenomEtudiant()
+                        + " a été bien été modifié",
                         "Information", JOptionPane.INFORMATION_MESSAGE);
 
                     this.resultat = 1;
