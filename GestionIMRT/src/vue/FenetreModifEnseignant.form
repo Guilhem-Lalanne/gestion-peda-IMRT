@@ -130,15 +130,17 @@
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                      <Component id="txNomEns" alignment="0" pref="32" max="32767" attributes="0"/>
-                      <Component id="lPrenomEns" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="lPrenomEns" alignment="3" max="32767" attributes="0"/>
+                          <Component id="txNomEns" alignment="3" pref="32" max="32767" attributes="0"/>
+                      </Group>
                       <Component id="lDateNaissanceEns" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txDateNaissanceEns" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txDateNaissanceEns" alignment="0" pref="33" max="32767" attributes="0"/>
                       <Component id="lNomEns" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="txPrenomEns" alignment="1" min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txAdresseEns" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lAdresseEns" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>

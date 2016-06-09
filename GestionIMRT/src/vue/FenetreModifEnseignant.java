@@ -487,13 +487,14 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txNomEns, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                        .addComponent(lPrenomEns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lPrenomEns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txNomEns, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
                         .addComponent(lDateNaissanceEns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txDateNaissanceEns)
+                        .addComponent(txDateNaissanceEns, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                         .addComponent(lNomEns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(txPrenomEns, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txAdresseEns, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lAdresseEns, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -593,6 +594,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 
                 ens.setNomEnseignant(this.txNomEns.getText());
                 ens.setPrenomEnseignant(this.txPrenomEns.getText());
+                
                 ens.setDateNaissanceEnseignant(this.txDateNaissanceEns.getText());
                 ens.setAdresseEnseignant(this.txAdresseEns.getText());
                 ens.setNumeroTelFixeEnseignant(this.txNumFixe.getText());
@@ -600,19 +602,22 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 ens.setMailEnseignant(this.txAdresseMail.getText());
                 ens.setProfession(this.txProfession.getText());
                 //TODO: VALIDATION
-
-                CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_enseignant(?, ?,?,?,?,?,?,?}");
+               
+                 CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_enseignant (?,?,?,?,?,?,?,?)}");
 
                 cstmt.registerOutParameter (1, Types.INTEGER);
                 
                 cstmt.setString(2, ens.getNomEnseignant());
                 cstmt.setString(3, ens.getPrenomEnseignant());
+                
                 cstmt.setString(4,ens.getDateNaissanceEnseignant());
                 cstmt.setString(5,ens.getAdresseEnseignant());
                 cstmt.setString(6,ens.getNumeroTelFixeEnseignant());
                 cstmt.setString(7,ens.getNumeroTelMobilEnseignant());
                 cstmt.setString(8,ens.getMailEnseignant());
                 cstmt.setString(9,ens.getProfession());
+                
+                tools.debug(ens.toString());
                 
                 cstmt.execute();
                 
