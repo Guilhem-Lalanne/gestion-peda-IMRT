@@ -791,7 +791,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         try {
             
             //TODO: ajouter verif selection 
-            fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"modifier fiche Enseignant",cnx);
+            fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Modifier fiche enseignant",cnx);
         
             int ret = fmu.doModal();
         

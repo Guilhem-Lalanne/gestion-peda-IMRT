@@ -68,9 +68,17 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
      
          tools.debug(ens.toString());
          
-         if (libelle == "Modifier fiche enseignant") {
+       
+         
+         if (libelle == "Ajouter fiche Enseignant") {
+            this.action = 2;
+            this.lTitre.setText(libelle);
              
-            this.action = 1;
+
+        }
+          if (libelle == "Modifier fiche enseignant") {
+             
+            this.action = 2;
             this.lTitre.setText(libelle);
             this.txNomEns.setText(ens.getNomEnseignant());
             this.txPrenomEns.setText(ens.getPrenomEnseignant());
@@ -82,21 +90,14 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
             this.txProfession.setText(ens.getProfession());
             this.cbNomEmployeur.setModel(modelNomEmp);
             //this.txAdresseEmp.setText();
-            this.ckCNI.setSelected(ens.getDocAdmPhotoCarteNat());
-            this.ckSS.setSelected(ens.getDocAdmPhotoCarteSecu());
-            this.ckBulletinSalaire.setSelected(ens.getDocAdmJustTrav());
-            this.ckArreteNomination.setSelected(ens.getDocAdmRecepArreteNomin());
-            tools.debug("je suis dans modifier : " + action);
-            
-            this.cbNomEmployeur.setSelectedIndex(ens.getIdEmployeur()-1);
-            this.txAdresseEmp.setText(modelNomEmp.getAdresseAt(ens.getIdEmployeur()-1));
-         
-        } else if (libelle == "Ajouter fiche Enseignant") {
-            this.action = 2;
-            this.lTitre.setText(libelle);
-             
-
-        } else if (libelle == "Suprimer fiche Enseignant") {
+            this.ckCNI.setText(String.valueOf(ens.getDocAdmPhotoCarteNat()));
+            this.ckSS.setText(String.valueOf(ens.getDocAdmPhotoCarteSecu()));
+            this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
+            this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
+            this.btEnregistrerEns.setText("suprimer");
+            tools.debug("je modifie : " + action);
+           }
+        if (libelle == "Suprimer fiche Enseignant") {
             this.action = 3;
             this.lTitre.setText(libelle);
             this.txNomEns.setText(ens.getNomEnseignant());
@@ -114,7 +115,8 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
             this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
             this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
             this.btEnregistrerEns.setText("suprimer");
-            tools.debug("je suis dans modifier : " + action);
+            tools.debug("je suprimer : " + action);
+            
         }
     }
     
