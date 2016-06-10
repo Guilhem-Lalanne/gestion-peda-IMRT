@@ -90,10 +90,10 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
             this.txProfession.setText(ens.getProfession());
             this.cbNomEmployeur.setModel(modelNomEmp);
             //this.txAdresseEmp.setText();
-            this.ckCNI.setText(String.valueOf(ens.getDocAdmPhotoCarteNat()));
-            this.ckSS.setText(String.valueOf(ens.getDocAdmPhotoCarteSecu()));
-            this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
-            this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
+           this.ckCNI.setSelected(ens.getDocAdmPhotoCarteNat());
+            this.ckSS.setSelected(ens.getDocAdmPhotoCarteSecu());
+            this.ckBulletinSalaire.setSelected(ens.getDocAdmJustTrav());
+            this.ckArreteNomination.setSelected(ens.getDocAdmRecepArreteNomin());
           
             tools.debug("je modifie : " + action);
            }
@@ -110,10 +110,10 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
             this.txProfession.setText(ens.getProfession());
             this.cbNomEmployeur.setModel(modelNomEmp);
             //this.txAdresseEmp.setText();
-            this.ckCNI.setText(String.valueOf(ens.getDocAdmPhotoCarteNat()));
-            this.ckSS.setText(String.valueOf(ens.getDocAdmPhotoCarteSecu()));
-            this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
-            this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
+            this.ckCNI.setSelected(ens.getDocAdmPhotoCarteNat());
+            this.ckSS.setSelected(ens.getDocAdmPhotoCarteSecu());
+            this.ckBulletinSalaire.setSelected(ens.getDocAdmJustTrav());
+            this.ckArreteNomination.setSelected(ens.getDocAdmRecepArreteNomin());
             this.btEnregistrerEns.setText("suprimer");
             tools.debug("je suprimer : " + action);
             

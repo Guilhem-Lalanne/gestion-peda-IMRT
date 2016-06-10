@@ -107,7 +107,7 @@ public class FenetreModificationEnseignantAcienne extends javax.swing.JFrame {
         //this.txAdresseEmp.setText();
         this.ckCNI.setText(String.valueOf(ens.getDocAdmPhotoCarteNat()));
         this.ckSS.setText(String.valueOf(ens.getDocAdmPhotoCarteSecu()));
-        this.ckBulletinSalaire.setText(String.valueOf(ens.getDocAdmJustTrav()));
+        this.ckBulletinSalaire.setEnabled(ens.getDocAdmJustTrav());
         this.ckArreteNomination.setText(String.valueOf(ens.getDocAdmRecepArreteNomin()));
         this.btEnregistrerEns.setText("suprimer");
          }

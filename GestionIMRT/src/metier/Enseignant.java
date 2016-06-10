@@ -95,8 +95,13 @@ public class Enseignant {
         return true;
     }
 
-    public void setDocAdmPhotoCarteNat(int docAdmPhotoCarteNat) {
-        this.docAdmPhotoCarteNat = docAdmPhotoCarteNat;
+    public void setDocAdmPhotoCarteNat(boolean docAdmPhotoCarteNat) {
+        if(docAdmPhotoCarteNat==false){
+        this.docAdmPhotoCarteNat = 0;
+        }
+        else{
+        this.docAdmPhotoCarteNat = 1;
+        }
     }
 
     public Boolean getDocAdmPhotoCarteSecu() {
@@ -106,8 +111,13 @@ public class Enseignant {
         return true;
     }
 
-    public void setDocAdmPhotoCarteSecu(int docAdmPhotoCarteSecu) {
-        this.docAdmPhotoCarteSecu = docAdmPhotoCarteSecu;
+    public void setDocAdmPhotoCarteSecu(boolean docAdmPhotoCarteSecu) {
+         if(docAdmPhotoCarteSecu==false){
+        this.docAdmPhotoCarteSecu = 0;
+        }
+        else{
+        this.docAdmPhotoCarteSecu = 1;
+        }
     }
 
     public Boolean getDocAdmJustTrav() {
@@ -117,8 +127,13 @@ public class Enseignant {
         return true;
     }
 
-    public void setDocAdmJustTrav(int docAdmJustTrav) {
-        this.docAdmJustTrav = docAdmJustTrav;
+    public void setDocAdmJustTrav(boolean docAdmJustTrav) {
+        if(docAdmJustTrav==false){
+        this.docAdmJustTrav = 0;
+        }
+        else{
+        this.docAdmJustTrav = 1;
+        }
     }
 
     public Boolean getDocAdmRecepArreteNomin() {
@@ -128,8 +143,13 @@ public class Enseignant {
         return true;
     }
 
-    public void setDocAdmRecepArreteNomin(int docAdmRecepArreteNomin) {
-        this.docAdmRecepArreteNomin = docAdmRecepArreteNomin;
+    public void setDocAdmRecepArreteNomin(boolean docAdmRecepArreteNomin) {
+        if(docAdmRecepArreteNomin==false){
+        this.docAdmRecepArreteNomin = 0;
+        }
+        else{
+        this.docAdmRecepArreteNomin = 1;
+        }
     }
 
     public int getIdEnseignant() {
