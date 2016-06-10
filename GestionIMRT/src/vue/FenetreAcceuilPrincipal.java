@@ -796,11 +796,12 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             int ret = fmu.doModal();
         
             tools.debug("modifier retour: "+ret);
-        
+            /**
+             * mettre a jour la liste
             if (ret == 1) {
                 modeleEns.supprimerLigne(selected_row);
             }
-        
+        **/
         } catch(Exception e) {
             
            JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
@@ -997,21 +998,27 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btAjouterEtudiantActionPerformed
 
     private void btModifierEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModifierEtudiantActionPerformed
-        /**
-        DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
        
-        ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
+        //DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
+       
+        //ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
+          int selected_row = liEtudiants.getSelectedRow();
         FenetreModifSuprEtudiant fmu;
         try{
+            //fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Suprimer fiche Enseignant",cnx);
         fmu = new FenetreModifSuprEtudiant(this,
-               modeleEtu.getEtu(liEtudiants.getSelectedRow()),"Modifier fiche Etudiant");
-        
-        fmu.setVisible(true);
+                etuModel.getEtu(selected_row),"Modifier fiche Etudiant",cnx);
+          int ret = fmu.doModal();
+          /**
+         if (ret == 1) {
+               etuModel.supprimerLigne(selected_row);
+         }
+         **/
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
 "information", JOptionPane.INFORMATION_MESSAGE); 
         }
-        **/
+       
     }//GEN-LAST:event_btModifierEtudiantActionPerformed
 
     private void btSupprimerEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSupprimerEtudiantActionPerformed
