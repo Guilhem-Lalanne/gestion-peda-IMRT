@@ -603,9 +603,10 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 ens.setNumeroTelMobilEnseignant(this.txNumMobile.getText());
                 ens.setMailEnseignant(this.txAdresseMail.getText());
                 ens.setProfession(this.txProfession.getText());
+                ens.setDocAdmPhotoCarteNat(this.ckCNI.isSelected() );
                 //TODO: VALIDATION
                
-                 CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_enseignant (?,?,?,?,?,?,?,?)}");
+                 CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_enseignant (?,?,?,?,?,?,?,?,?)}");
 
                 cstmt.registerOutParameter (1, Types.INTEGER);
                 
@@ -618,6 +619,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 cstmt.setString(7,ens.getNumeroTelMobilEnseignant());
                 cstmt.setString(8,ens.getMailEnseignant());
                 cstmt.setString(9,ens.getProfession());
+                cstmt.setInt(10,ens.getIntDocAdmPhotoCarteNat());
                 
                 tools.debug(ens.toString());
                 

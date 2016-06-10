@@ -27,16 +27,14 @@ public class Enseignant {
     private int docAdmJustTrav;
     private int docAdmRecepArreteNomin;
 
-
-/**
- * constructeur vide
- */
-    
+    /**
+     * constructeur vide
+     */
     public Enseignant() {
     }
-    
+
     /**
-     * 
+     *
      * @param idEnseignant
      * @param prenomEnseignant
      * @param nomEnseignant
@@ -51,41 +49,41 @@ public class Enseignant {
      * @param docAdmPhotoCarteSecu
      * @param docAdmJustTrav
      * @param docAdmRecepArreteNomin
-     * @param idEmployer 
+     * @param idEmployer
      */
     public Enseignant(
             int idEnseignant,
-            String prenomEnseignant, 
+            String prenomEnseignant,
             String nomEnseignant,
             int idDiscipline,
-            String dateNaissanceEnseignant, 
-            String adresseEnseignant, 
-            String numeroTelFixeEnseignant, 
-            String numeroTelMobileEnseignant, 
-            String mailEnseignant, 
-            String profession, 
+            String dateNaissanceEnseignant,
+            String adresseEnseignant,
+            String numeroTelFixeEnseignant,
+            String numeroTelMobileEnseignant,
+            String mailEnseignant,
+            String profession,
             int idEmployer,
-            int docAdmPhotoCarteNat, 
-            int docAdmPhotoCarteSecu, 
+            int docAdmPhotoCarteNat,
+            int docAdmPhotoCarteSecu,
             int docAdmJustTrav,
             int docAdmRecepArreteNomin
-            ) {
-        
-        this.idEnseignant               = idEnseignant;
-        this.prenomEnseignant           = prenomEnseignant;
-        this.nomEnseignant              = nomEnseignant;
-        this.idDiscipline               = idDiscipline;
-        this.dateNaissanceEnseignant    = dateNaissanceEnseignant;
-        this.adresseEnseignant          = adresseEnseignant;
-        this.numeroTelFixeEnseignant    = numeroTelFixeEnseignant;
-        this.numeroTelMobilEnseignant   = numeroTelMobileEnseignant;
-        this.mailEnseignant             = mailEnseignant;
-        this.profession                 = profession;
-        this.idEmployeur                = idEmployer;
-        this.docAdmPhotoCarteNat        = docAdmPhotoCarteNat;
-        this.docAdmPhotoCarteSecu       = docAdmPhotoCarteSecu;
-        this.docAdmJustTrav             = docAdmJustTrav;
-        this.docAdmRecepArreteNomin     = docAdmRecepArreteNomin;
+    ) {
+
+        this.idEnseignant = idEnseignant;
+        this.prenomEnseignant = prenomEnseignant;
+        this.nomEnseignant = nomEnseignant;
+        this.idDiscipline = idDiscipline;
+        this.dateNaissanceEnseignant = dateNaissanceEnseignant;
+        this.adresseEnseignant = adresseEnseignant;
+        this.numeroTelFixeEnseignant = numeroTelFixeEnseignant;
+        this.numeroTelMobilEnseignant = numeroTelMobileEnseignant;
+        this.mailEnseignant = mailEnseignant;
+        this.profession = profession;
+        this.idEmployeur = idEmployer;
+        this.docAdmPhotoCarteNat = docAdmPhotoCarteNat;
+        this.docAdmPhotoCarteSecu = docAdmPhotoCarteSecu;
+        this.docAdmJustTrav = docAdmJustTrav;
+        this.docAdmRecepArreteNomin = docAdmRecepArreteNomin;
     }
 
     public Boolean getDocAdmPhotoCarteNat() {
@@ -95,12 +93,23 @@ public class Enseignant {
         return true;
     }
 
+    /**
+     * geters qui retourne la valeur DocAdmPhotoCarteNat sans la convertir en
+     * boolean
+     *
+     * @return int docAdmPhotoCarteNat
+     */
+    public int getIntDocAdmPhotoCarteNat() {
+
+        return docAdmPhotoCarteNat;
+
+    }
+
     public void setDocAdmPhotoCarteNat(boolean docAdmPhotoCarteNat) {
-        if(docAdmPhotoCarteNat==false){
-        this.docAdmPhotoCarteNat = 0;
-        }
-        else{
-        this.docAdmPhotoCarteNat = 1;
+        if (docAdmPhotoCarteNat == false) {
+            this.docAdmPhotoCarteNat = 0;
+        } else {
+            this.docAdmPhotoCarteNat = 1;
         }
     }
 
@@ -111,12 +120,22 @@ public class Enseignant {
         return true;
     }
 
+    /**
+     * geters qui retourne la valeur docAdmPhotoCarteSecu sans la convertir en
+     * boolean
+     *
+     * @return int docAdmPhotoCarteSecu
+     */
+    public int getIntDocAdmPhotoCarteSecu() {
+
+        return docAdmPhotoCarteSecu;
+    }
+
     public void setDocAdmPhotoCarteSecu(boolean docAdmPhotoCarteSecu) {
-         if(docAdmPhotoCarteSecu==false){
-        this.docAdmPhotoCarteSecu = 0;
-        }
-        else{
-        this.docAdmPhotoCarteSecu = 1;
+        if (docAdmPhotoCarteSecu == false) {
+            this.docAdmPhotoCarteSecu = 0;
+        } else {
+            this.docAdmPhotoCarteSecu = 1;
         }
     }
 
@@ -127,12 +146,22 @@ public class Enseignant {
         return true;
     }
 
+    /**
+     * geters qui retourne la valeur geInttDocAdmJustTra sans la convertir en
+     * boolean
+     *
+     * @return int geInttDocAdmJustTra
+     */
+    public int geInttDocAdmJustTrav() {
+
+        return docAdmJustTrav;
+    }
+
     public void setDocAdmJustTrav(boolean docAdmJustTrav) {
-        if(docAdmJustTrav==false){
-        this.docAdmJustTrav = 0;
-        }
-        else{
-        this.docAdmJustTrav = 1;
+        if (docAdmJustTrav == false) {
+            this.docAdmJustTrav = 0;
+        } else {
+            this.docAdmJustTrav = 1;
         }
     }
 
@@ -143,12 +172,21 @@ public class Enseignant {
         return true;
     }
 
+    /**
+     * geters qui retourne la valeur docAdmRecepArreteNomin sans la convertir en
+     * boolean
+     * @return int docAdmRecepArreteNomin
+     */
+    public int getIntDocAdmRecepArreteNomin() {
+        
+        return docAdmRecepArreteNomin;
+    }
+
     public void setDocAdmRecepArreteNomin(boolean docAdmRecepArreteNomin) {
-        if(docAdmRecepArreteNomin==false){
-        this.docAdmRecepArreteNomin = 0;
-        }
-        else{
-        this.docAdmRecepArreteNomin = 1;
+        if (docAdmRecepArreteNomin == false) {
+            this.docAdmRecepArreteNomin = 0;
+        } else {
+            this.docAdmRecepArreteNomin = 1;
         }
     }
 
@@ -244,8 +282,5 @@ public class Enseignant {
     public String toString() {
         return "Enseignant{" + "idEnseignant=" + idEnseignant + ", prenomEnseignant=" + prenomEnseignant + ", nomEnseignant=" + nomEnseignant + ", idDiscipline=" + idDiscipline + ", dateNaissanceEnseignant=" + dateNaissanceEnseignant + ", adresseEnseignant=" + adresseEnseignant + ", numeroTelFixeEnseignant=" + numeroTelFixeEnseignant + ", numeroTelMobilEnseignant=" + numeroTelMobilEnseignant + ", mailEnseignant=" + mailEnseignant + ", profession=" + profession + ", idEmployeur=" + idEmployeur + ", docAdmPhotoCarteNat=" + docAdmPhotoCarteNat + ", docAdmPhotoCarteSecu=" + docAdmPhotoCarteSecu + ", docAdmJustTrav=" + docAdmJustTrav + ", docAdmRecepArreteNomin=" + docAdmRecepArreteNomin + '}';
     }
-
-    
-   
 
 }
