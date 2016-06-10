@@ -147,12 +147,12 @@ public class Enseignant {
     }
 
     /**
-     * geters qui retourne la valeur geInttDocAdmJustTra sans la convertir en
+     * geters qui retourne la valeur getIntDocAdmJustTra sans la convertir en
      * boolean
      *
-     * @return int geInttDocAdmJustTra
+     * @return int getIntDocAdmJustTra
      */
-    public int geInttDocAdmJustTrav() {
+    public int getIntDocAdmJustTrav() {
 
         return docAdmJustTrav;
     }

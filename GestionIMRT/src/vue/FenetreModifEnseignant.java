@@ -591,12 +591,11 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
             //ajout enseigenant
             try {
 
-                int result;
+               int result;
                 //int id_suppression = this.ens.getIdEnseignant();
-                
+                //bloc servant a recuperer les valeur dans les different fenetre
                 ens.setNomEnseignant(this.txNomEns.getText());
                 ens.setPrenomEnseignant(this.txPrenomEns.getText());
-                
                 ens.setDateNaissanceEnseignant(this.txDateNaissanceEns.getText());
                 ens.setAdresseEnseignant(this.txAdresseEns.getText());
                 ens.setNumeroTelFixeEnseignant(this.txNumFixe.getText());
@@ -604,9 +603,14 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 ens.setMailEnseignant(this.txAdresseMail.getText());
                 ens.setProfession(this.txProfession.getText());
                 ens.setDocAdmPhotoCarteNat(this.ckCNI.isSelected() );
+                ens.setDocAdmPhotoCarteSecu(this.ckSS.isSelected());
+                ens.setDocAdmJustTrav(this.ckBulletinSalaire.isSelected());
+                ens.setDocAdmRecepArreteNomin(this.ckArreteNomination.isSelected());
+                //todo gestion employeur et ue
+                
                 //TODO: VALIDATION
                
-                 CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_enseignant (?,?,?,?,?,?,?,?,?)}");
+                 CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_enseignant (?,?,?,?,?,?,?,?,?,?,?,?)}");
 
                 cstmt.registerOutParameter (1, Types.INTEGER);
                 
@@ -620,6 +624,9 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 cstmt.setString(8,ens.getMailEnseignant());
                 cstmt.setString(9,ens.getProfession());
                 cstmt.setInt(10,ens.getIntDocAdmPhotoCarteNat());
+                cstmt.setInt(11,ens.getIntDocAdmPhotoCarteSecu());
+                cstmt.setInt(12,ens.getIntDocAdmJustTrav());
+                cstmt.setInt(13,ens.getIntDocAdmRecepArreteNomin());
                 
                 tools.debug(ens.toString());
                 
