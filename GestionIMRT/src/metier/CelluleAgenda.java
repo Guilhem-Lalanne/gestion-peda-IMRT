@@ -9,6 +9,6 @@ package metier;
  *
  * @author Mateusz
  */
-public class Agenda {
+public class CelluleAgenda {
     
 }

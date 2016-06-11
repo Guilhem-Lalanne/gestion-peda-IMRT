@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import metier.Agenda;
 import javax.swing.table.AbstractTableModel;
+import metier.LigneAgenda;
 
 /**
  *
@@ -21,16 +21,20 @@ import javax.swing.table.AbstractTableModel;
 public class ModeleAgenda extends AbstractTableModel { 
     
     private DaoAgenda leDao;
-    private List<Agenda> leCont;
+    private List<LigneAgenda> leCont;
     
     //private List <Employeur>  leConteneurEmployeur;
-    private String[] nomColonnes = {"Lundi", "Mardi", "Mercredi","Jeudi","Vendredi"};
+    private String[] nomColonnes = {"Heure","Lundi", "Mardi", "Mercredi","Jeudi","Vendredi"};
     //private DaoEmployeur leDaoEmployeur;
 
     public ModeleAgenda(DaoAgenda leDao) {
         
         this.leDao = leDao;
         leCont = new ArrayList<>();
+        
+        for (int i = 7; i <= 18; i++) {
+            leCont.add(new LigneAgenda(i));
+        }
         
         try {
             charger();
@@ -59,17 +63,12 @@ public class ModeleAgenda extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         
-        Agenda a = leCont.get(rowIndex);
-        /*
+        LigneAgenda a = leCont.get(rowIndex);
+        
         switch (columnIndex) {
             case 0:
-                return emp.getIdEmployeur();
-            case 1:
-                return emp.getNomEmployeur();
-            case 2:
-                return emp.getAdresseEmployeur();
-           
-        }*/
+                return a.getHeure();
+        }
         
         return null;
     }
@@ -79,8 +78,8 @@ public class ModeleAgenda extends AbstractTableModel {
         this.fireTableDataChanged();
     }
 
-    public void insererLigne(Agenda emp) {
-       leCont.add(emp);
+    public void insererLigne(LigneAgenda a) {
+       leCont.add(a);
         this.fireTableDataChanged();
     }
      
