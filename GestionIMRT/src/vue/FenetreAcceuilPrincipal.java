@@ -936,6 +936,15 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             agendaModel = new ModeleAgenda(daoAg);
             
             liAgenda.setModel(agendaModel);
+            
+            //init agenda visibility
+            for (int i = 0; i <= agendaModel.getRowCount(); i++) {
+                liAgenda.setRowHeight(i, 66);
+            }
+            
+            liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
+            
+            
         }
     }//GEN-LAST:event_pGroupPaneStateChanged
 
