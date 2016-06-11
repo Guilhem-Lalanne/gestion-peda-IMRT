@@ -6,11 +6,15 @@
 package appli;
 
 import dao.DaoAgenda;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import metier.LigneAgenda;
 
@@ -68,6 +72,7 @@ public class ModeleAgenda extends AbstractTableModel {
         switch (columnIndex) {
             case 0: return a.getHeure();
             case 1: return a.getLundi();
+            //case 2: return a.getMardi(nomColonnes, columnIndex, rowIndex);
             //case 2: return a.getMardi();
             //case 3: return a.getMercredi();
             //case 4: return a.getJeudi();

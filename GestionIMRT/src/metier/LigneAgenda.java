@@ -5,6 +5,12 @@
  */
 package metier;
 
+import java.awt.Button;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mateusz
@@ -25,8 +31,15 @@ public class LigneAgenda {
         this.lundi = lundi;
     }
 
-    public CelluleAgenda getMardi() {
-        return mardi;
+    public JButton getMardi(String[] nomColonnes, int columnIndex, int rowIndex) {
+        JButton button = new JButton(nomColonnes[columnIndex]);
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(button), 
+                        "Button clicked for row "+rowIndex);
+            }
+        });
+        return button;
     }
 
     public void setMardi(CelluleAgenda mardi) {
