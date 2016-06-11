@@ -7,6 +7,7 @@ package vue;
 
 import appli.ModeleNomEmployeur;
 import appli.tools;
+import dao.DaoEmployeur;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -14,6 +15,7 @@ import java.sql.Types;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import metier.Employeur;
 import metier.Enseignant;
 
 /**
@@ -174,7 +176,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
         btEnregistrerEns = new javax.swing.JButton();
         btAnnulerEns = new javax.swing.JButton();
         cbNomEmployeur = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        btAjoutEmployeur = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -399,10 +401,10 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setText("Ajout nouveau employer");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btAjoutEmployeur.setText("Ajout nouveau employer");
+        btAjoutEmployeur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btAjoutEmployeurActionPerformed(evt);
             }
         });
 
@@ -483,7 +485,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                         .addComponent(lTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btAjoutEmployeur, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -525,7 +527,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                         .addComponent(lAdresseEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txAdresseEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btAjoutEmployeur)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -730,11 +732,33 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btAnnulerEnsActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btAjoutEmployeurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjoutEmployeurActionPerformed
+  DaoEmployeur daoEmp = new DaoEmployeur(cnx);
+        ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
+   
+        
+        Employeur emp = new Employeur();
+         /**
+        try{
+         
+       FenetreAjoutEmployeur fmu;
+      fmu = new FenetreAjoutEmployeur(this,
+              emp,cnx);
+          int ret = fmu.doModal();
+            //etuModel.insererLigne(etu);
+         if (ret == 1) {
+               //etuModel.supprimerLigne(selected_row);
+         }
+        }catch(Exception e){
+           // JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
+//"information", JOptionPane.INFORMATION_MESSAGE); 
+        }
+        
+      **/  
+    }//GEN-LAST:event_btAjoutEmployeurActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAjoutEmployeur;
     private javax.swing.JButton btAjouterUE;
     private javax.swing.JButton btAnnulerEns;
     private javax.swing.JButton btEnregistrerEns;
@@ -744,7 +768,6 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
     private javax.swing.JCheckBox ckBulletinSalaire;
     private javax.swing.JCheckBox ckCNI;
     private javax.swing.JCheckBox ckSS;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lAdresseEmp;
     private javax.swing.JLabel lAdresseEns;
     private javax.swing.JLabel lAdresseMail;
