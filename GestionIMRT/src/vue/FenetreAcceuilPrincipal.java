@@ -5,6 +5,7 @@
 package vue;
 
 import appli.ModelModifEnseignant;
+import appli.ModeleEmployeur;
 import appli.ModeleEnseignant;
 import appli.ModeleUser;
 import appli.ModeleEtudiant;
@@ -51,6 +52,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             
     private ModeleEtudiant etuModel;
     private ModeleEtudiantExamen  etuModelExam;
+    private ModeleEmployeur modelNomEmp;
     
     /**
      * Creates new form Fenetre

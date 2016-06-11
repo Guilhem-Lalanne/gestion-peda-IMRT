@@ -30,9 +30,10 @@ public class FenetreAjoutEmployeur extends javax.swing.JFrame {
     /**
      * Creates new form FenetreAjoutEmployeur
      */
-    public FenetreAjoutEmployeur() {
+    public FenetreAjoutEmployeur(java.awt.Frame parent,Employeur emp,Connection cnx ) {
         initComponents();
-        
+        this.emp=emp;
+        this.cnx=cnx;
     }
 
     /**
