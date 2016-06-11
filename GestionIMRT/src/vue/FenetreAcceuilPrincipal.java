@@ -26,6 +26,13 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -131,6 +138,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btSemaineChoix = new javax.swing.JButton();
         btModifSeance = new javax.swing.JButton();
         btSuppSeance = new javax.swing.JButton();
+        lSemaine = new javax.swing.JLabel();
         pGestionEtudiants = new javax.swing.JPanel();
         spEtudiants = new javax.swing.JScrollPane();
         liEtudiants = new javax.swing.JTable();
@@ -266,6 +274,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         btSuppSeance.setText("Supprmier Seance");
 
+        lSemaine.setText("jLabel1");
+
         javax.swing.GroupLayout pAgendaLayout = new javax.swing.GroupLayout(pAgenda);
         pAgenda.setLayout(pAgendaLayout);
         pAgendaLayout.setHorizontalGroup(
@@ -277,19 +287,22 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                     .addGroup(pAgendaLayout.createSequentialGroup()
                         .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pAgendaLayout.createSequentialGroup()
-                                .addComponent(btAjoutSeance)
+                                .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pAgendaLayout.createSequentialGroup()
+                                        .addComponent(btAjoutSeance)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btModifSeance))
+                                    .addComponent(lDate))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btModifSeance)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btSuppSeance))
-                            .addGroup(pAgendaLayout.createSequentialGroup()
-                                .addComponent(lDate)
-                                .addGap(83, 83, 83)
-                                .addComponent(btSemainePrec)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btSemaineNext)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btSemaineChoix)))
+                                .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pAgendaLayout.createSequentialGroup()
+                                        .addComponent(btSemainePrec)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btSemaineNext)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btSemaineChoix))
+                                    .addComponent(btSuppSeance)))
+                            .addComponent(lSemaine))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -302,12 +315,14 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                     .addComponent(btSemainePrec)
                     .addComponent(btSemaineNext)
                     .addComponent(btSemaineChoix))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lSemaine)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btAjoutSeance)
                     .addComponent(btModifSeance)
                     .addComponent(btSuppSeance))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -981,6 +996,28 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             
             liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
             
+            String timeStamp = new SimpleDateFormat("dd/MM/yyyy").
+                       format(Calendar.getInstance().getTime());
+            
+            lDate.setText("Aujourd'hui " + timeStamp);
+            
+            String input = "20130507";
+            String format = "yyyyMMdd";
+
+            SimpleDateFormat df = new SimpleDateFormat(format);
+            Date date = null;
+            try {
+                date = df.parse(input);
+            } catch (ParseException ex) {
+                Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            int week = cal.get(Calendar.WEEK_OF_YEAR);
+            
+            lSemaine.setText("Semaine "+String.valueOf(week));
+            
         }
     }//GEN-LAST:event_pGroupPaneStateChanged
 
@@ -1249,6 +1286,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lNomSurveillant;
     private javax.swing.JLabel lPromo;
     private javax.swing.JLabel lPromotion;
+    private javax.swing.JLabel lSemaine;
     private javax.swing.JLabel lTitreGestionEnseignants;
     private javax.swing.JLabel lUE;
     private javax.swing.JTable liAgenda;
