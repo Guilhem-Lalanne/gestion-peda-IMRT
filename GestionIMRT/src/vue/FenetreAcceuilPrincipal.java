@@ -5,6 +5,7 @@
 package vue;
 
 import appli.ModelModifEnseignant;
+import appli.ModeleAgenda;
 import appli.ModeleEmployeur;
 import appli.ModeleEnseignant;
 import appli.ModeleUser;
@@ -13,6 +14,7 @@ import appli.ModeleEtudiantExamen;
 import appli.ModeleNomEmployeur;
 import appli.ModeleReferentiel;
 import appli.tools;
+import dao.DaoAgenda;
 import dao.DaoEmployeur;
 import dao.DaoEnseignant;
 import dao.DaoPromotion;
@@ -49,10 +51,12 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     
     private DaoUser daoUser;
     private DaoEnseignant daoEns;
+    private DaoAgenda daoAg;
             
     private ModeleEtudiant etuModel;
     private ModeleEtudiantExamen  etuModelExam;
     private ModeleEmployeur modelNomEmp;
+    private ModeleAgenda agendaModel;
     
     /**
      * Creates new form Fenetre
@@ -115,6 +119,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         lNiveau = new javax.swing.JLabel();
         lAnnee = new javax.swing.JLabel();
         pAgenda = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        liAgenda = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         pGestionEtudiants = new javax.swing.JPanel();
         spEtudiants = new javax.swing.JScrollPane();
         liEtudiants = new javax.swing.JTable();
@@ -185,11 +194,6 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 pGroupPaneStateChanged(evt);
             }
         });
-        pGroupPane.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pGroupPaneMouseClicked(evt);
-            }
-        });
 
         lLogin.setText("Login:");
 
@@ -223,15 +227,53 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         pGroupPane.addTab("Accueil", pAccueil);
 
+        liAgenda.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(liAgenda);
+
+        jButton1.setText("jButton1");
+
+        jButton2.setText("jButton2");
+
+        jButton3.setText("jButton3");
+
         javax.swing.GroupLayout pAgendaLayout = new javax.swing.GroupLayout(pAgenda);
         pAgenda.setLayout(pAgendaLayout);
         pAgendaLayout.setHorizontalGroup(
             pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1495, Short.MAX_VALUE)
+            .addGroup(pAgendaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1475, Short.MAX_VALUE)
+                    .addGroup(pAgendaLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pAgendaLayout.setVerticalGroup(
             pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 899, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAgendaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 823, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pGroupPane.addTab("Agenda", pAgenda);
@@ -821,13 +863,6 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private void pGestionUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pGestionUsersMouseClicked
     }//GEN-LAST:event_pGestionUsersMouseClicked
 
-    private void pGroupPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pGroupPaneMouseClicked
-        
-        //actions supplementaires on clicque
-        
-        
-    }//GEN-LAST:event_pGroupPaneMouseClicked
-
     private void pGroupPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pGroupPaneStateChanged
         
         //TODO: juste pour le periode de dev, apres il faut mettre toutes les
@@ -877,8 +912,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             //je met le model dans la table
             liEtudiants.setModel(etuModel);
             
-        }
-            else if (index == 4 ) {
+        } else if (index == 4 ) {
             // Onglet gestion examen
             tools.debug("->GestionExamen");
             
@@ -892,7 +926,17 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             //je met le model dans la table
            liEtudConvoquer.setModel(etuModelExam);
             
-        }  
+        } else if (index == 1) {
+            //Agenda affichage
+            
+            tools.debug("->Agenda");
+            
+            daoAg = new DaoAgenda(cnx);
+            
+            agendaModel = new ModeleAgenda(daoAg);
+            
+            liAgenda.setModel(agendaModel);
+        }
     }//GEN-LAST:event_pGroupPaneStateChanged
 
     private void btAjouterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterUserActionPerformed
@@ -1135,7 +1179,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jBGestionNote1;
     private javax.swing.JButton jBImporter1;
     private javax.swing.JButton jBModifEnsegnant;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lAnnee;
     private javax.swing.JLabel lLogin;
     private javax.swing.JLabel lNiveau;
@@ -1146,6 +1194,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lPromotion;
     private javax.swing.JLabel lTitreGestionEnseignants;
     private javax.swing.JLabel lUE;
+    private javax.swing.JTable liAgenda;
     private javax.swing.JTable liEnseignant;
     private javax.swing.JTable liEtudConvoquer;
     private javax.swing.JTable liEtudiants;
