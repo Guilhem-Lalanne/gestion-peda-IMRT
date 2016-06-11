@@ -11,4 +11,18 @@ package metier;
  */
 public class CelluleAgenda {
     
+    String value;
+    
+    public CelluleAgenda() {
+        value = "";
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+    
 }

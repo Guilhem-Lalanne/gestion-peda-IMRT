@@ -66,8 +66,12 @@ public class ModeleAgenda extends AbstractTableModel {
         LigneAgenda a = leCont.get(rowIndex);
         
         switch (columnIndex) {
-            case 0:
-                return a.getHeure();
+            case 0: return a.getHeure();
+            case 1: return a.getLundi();
+            //case 2: return a.getMardi();
+            //case 3: return a.getMercredi();
+            //case 4: return a.getJeudi();
+            //case 5: return a.getVendredi();
         }
         
         return null;
