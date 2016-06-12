@@ -40,7 +40,7 @@ public class DaoAgenda {
                     "inner join GI_CLASSE cc on g.ID_CLASS = cc.ID "
                 + "where s.date_seance >= ? and s.date_seance <= ?";
         
-        tools.debug(req);
+        //tools.debug(req);
         
         PreparedStatement pstmt = cnx.prepareStatement(req);
         pstmt.setDate(1, Date.valueOf(date_debut));

@@ -28,8 +28,8 @@ public class ModeleAgenda extends AbstractTableModel {
     private DaoAgenda leDao;            //porte pour la base
     private List<LigneAgenda> leCont;   // liste de lignes avec données
     
-    private String date_debut;
-    private String date_fin;
+    public String date_debut;
+    public String date_fin;
     
     //private List <Employeur>  leConteneurEmployeur;
     private String[] nomColonnes = {"Heure","Lundi", "Mardi", "Mercredi","Jeudi","Vendredi"};
@@ -90,7 +90,7 @@ public class ModeleAgenda extends AbstractTableModel {
         this.fireTableDataChanged();
     }
      
-    private void charger() throws SQLException {
+    public void charger() throws SQLException {
         
        //je cherche toutes les sceances
         ArrayList<Seance> listSeances = new ArrayList<>();
@@ -99,12 +99,14 @@ public class ModeleAgenda extends AbstractTableModel {
         leDao.getSeances(listSeances, date_debut, date_fin);
         
         for (Seance s : listSeances) {
-            tools.debug(s.toString());
+            //tools.debug(s.toString());
         }
         
         for (int i = 7; i <= 18; i++) {
             leCont.add(new LigneAgenda(i,date_debut, listSeances));
         }
+        
+        this.fireTableDataChanged();
         
     }
 }

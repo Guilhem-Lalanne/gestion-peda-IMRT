@@ -73,8 +73,8 @@ public class LigneAgenda {
         
         for (Seance s : ls) {
             
-            tools.debug(s.getDate().substring(0, 10) + " "+s.getHeureDebut()+" "+s.getHeureFin()
-                    + " func: day:"+day+" heure:"+heure);
+            /*0tools.debug(s.getDate().substring(0, 10) + " "+s.getHeureDebut()+" "+s.getHeureFin()
+                    + " func: day:"+day+" heure:"+heure);*/
             
             cal_tmp.setTime(Date.valueOf(s.getDate().substring(0, 10)));
             
@@ -84,7 +84,7 @@ public class LigneAgenda {
                  
                  a.add(s.getAffichageTable());
                  
-                 tools.debug(s.getDate().substring(0, 10));
+                 //tools.debug(s.getDate().substring(0, 10));
              }
             
         }

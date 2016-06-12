@@ -5,6 +5,7 @@
  */
 package metier;
 
+import appli.tools;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -21,6 +22,38 @@ public class Agenda {
     
     public static String getDate(Calendar c) {
         return new SimpleDateFormat("dd/MM/yyyy").format(c.getTime());
+    }
+    
+    public static String getDateDebut(Calendar dateAgenda) {
+        //debut de la semaine
+        Calendar first = (Calendar) dateAgenda.clone();
+        first.add(Calendar.DAY_OF_WEEK,-1);
+        first.add(Calendar.DAY_OF_WEEK, 
+          first.getFirstDayOfWeek() - first.get(Calendar.DAY_OF_WEEK));
+
+        //fin de la semaine
+        Calendar last = (Calendar) first.clone();
+        last.add(Calendar.DAY_OF_YEAR, 6);
+
+        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+
+        return formatDate.format(first.getTime());
+    }
+    
+    public static String getDateFin(Calendar dateAgenda) {
+        //debut de la semaine
+        Calendar first = (Calendar) dateAgenda.clone();
+        first.add(Calendar.DAY_OF_WEEK,-1);
+        first.add(Calendar.DAY_OF_WEEK, 
+          first.getFirstDayOfWeek() - first.get(Calendar.DAY_OF_WEEK));
+
+        //fin de la semaine
+        Calendar last = (Calendar) first.clone();
+        last.add(Calendar.DAY_OF_YEAR, 6);
+
+        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+
+        return formatDate.format(last.getTime());
     }
     
     public static String getWeek(Calendar c) {

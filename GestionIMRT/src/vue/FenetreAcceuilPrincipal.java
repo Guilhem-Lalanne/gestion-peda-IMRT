@@ -995,40 +995,23 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             
             choixDate.setDate(dateAgenda.getTime());
             
-            //debut de la semaine
-            Calendar first = (Calendar) dateAgenda.clone();
-            first.add(Calendar.DAY_OF_WEEK,-1);
-            first.add(Calendar.DAY_OF_WEEK, 
-              first.getFirstDayOfWeek() - first.get(Calendar.DAY_OF_WEEK));
-            
-            //fin de la semaine
-            Calendar last = (Calendar) first.clone();
-            last.add(Calendar.DAY_OF_YEAR, 6);
-            
-            SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
-            
-            tools.debug(" date debut: "+formatDate.format(first.getTime()) 
-                    + " date fin:" + formatDate.format(last.getTime()));
-            
-            
             daoAg = new DaoAgenda(cnx);
+            
             try {
                 
                 agendaModel = new ModeleAgenda
-                        (daoAg, formatDate.format(first.getTime()),
-                        formatDate.format(last.getTime()));
+                        (daoAg, Agenda.getDateDebut(dateAgenda),
+                                Agenda.getDateFin(dateAgenda));
                 
             } catch (SQLException ex) {
                 Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            
-            
             liAgenda.setModel(agendaModel);
             
             //init agenda visibility
             for (int i = 0; i <= agendaModel.getRowCount(); i++) {
-                liAgenda.setRowHeight(i, 50);
+                liAgenda.setRowHeight(i, 55);
             }
             
             liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
@@ -1242,25 +1225,86 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btModifierActionPerformed
 
     private void btSemainePrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSemainePrecActionPerformed
+       
         Agenda.setPreviousWeek(dateAgenda);
         //lDate.setText("Aujourd'hui " + Agenda.getDate(dateAgenda));
         lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
         choixDate.setDate(dateAgenda.getTime());
         
+        //TODO: put getter et setter
+        agendaModel.date_debut = Agenda.getDateDebut(dateAgenda);
+        agendaModel.date_fin = Agenda.getDateFin(dateAgenda);
+        
+        tools.debug("new date: " + agendaModel.date_debut+ "->" + agendaModel.date_fin);
+        
+        try {
+            agendaModel.charger();
+        } catch (SQLException ex) {
+            Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //init agenda visibility
+        for (int i = 0; i <= agendaModel.getRowCount(); i++) {
+            liAgenda.setRowHeight(i, 55);
+        }
+
+        liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
+        
     }//GEN-LAST:event_btSemainePrecActionPerformed
 
     private void btSemaineNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSemaineNextActionPerformed
+        
         Agenda.setNextWeek(dateAgenda);
         //lDate.setText("Aujourd'hui " + Agenda.getDate(dateAgenda));
         lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
         choixDate.setDate(dateAgenda.getTime());
         
+        //TODO: put getter et setter
+        agendaModel.date_debut = Agenda.getDateDebut(dateAgenda);
+        agendaModel.date_fin = Agenda.getDateFin(dateAgenda);
+        
+        tools.debug("new date: " + agendaModel.date_debut+ "->" + agendaModel.date_fin);
+        
+        try {
+            agendaModel.charger();
+        } catch (SQLException ex) {
+            Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //init agenda visibility
+        for (int i = 0; i <= agendaModel.getRowCount(); i++) {
+            liAgenda.setRowHeight(i, 55);
+        }
+
+        liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
+        
     }//GEN-LAST:event_btSemaineNextActionPerformed
 
     private void choixDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choixDateActionPerformed
+        
         //tools.debug("test");
         dateAgenda.setTime(choixDate.getDate());
         lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
+        
+        //TODO: put getter et setter
+        agendaModel.date_debut = Agenda.getDateDebut(dateAgenda);
+        agendaModel.date_fin = Agenda.getDateFin(dateAgenda);
+        
+        tools.debug("new date: " + agendaModel.date_debut+ "->" + agendaModel.date_fin);
+        
+        try {
+            agendaModel.charger();
+        } catch (SQLException ex) {
+            Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //init agenda visibility
+        for (int i = 0; i <= agendaModel.getRowCount(); i++) {
+            liAgenda.setRowHeight(i, 55);
+        }
+
+        liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
+        
     }//GEN-LAST:event_choixDateActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
