@@ -35,24 +35,61 @@ public class LigneAgenda {
         
         line = i;
         
+        int jour = 0;
+        
         Calendar c = Calendar.getInstance();
         c.setTime(Date.valueOf(date_debut));
         
-        //tools.debug("Ligne : " + i + "date de ligne: " + date_debut);
-        
         //Je crée les jours
-        lundi = new CelluleAgenda(c.get(Calendar.DAY_OF_MONTH),i);
+        jour = c.get(Calendar.DAY_OF_MONTH);
+        lundi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        
         c.add(Calendar.DAY_OF_MONTH, 1);
-        mardi = new CelluleAgenda(c.get(Calendar.DAY_OF_MONTH),i);
+        jour = c.get(Calendar.DAY_OF_MONTH);
+        mardi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        
         c.add(Calendar.DAY_OF_MONTH, 1);
-        mercredi = new CelluleAgenda(c.get(Calendar.DAY_OF_MONTH),i);
+        jour = c.get(Calendar.DAY_OF_MONTH);
+        mercredi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        
         c.add(Calendar.DAY_OF_MONTH, 1);
-        jeudi = new CelluleAgenda(c.get(Calendar.DAY_OF_MONTH),i);
+        jour = c.get(Calendar.DAY_OF_MONTH);
+        jeudi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        
         c.add(Calendar.DAY_OF_MONTH, 1);
-        vendredi = new CelluleAgenda(c.get(Calendar.DAY_OF_MONTH),i);
+        jour = c.get(Calendar.DAY_OF_MONTH);
+        vendredi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
         
         Heure = convertHeure(Integer.toString(i));
         
+    }
+    
+    public ArrayList<String> getSeancesParJour(ArrayList<Seance> ls, int day, int heure) {
+        
+        ArrayList<String> a = new ArrayList<>();
+        
+        Date date = null; // your date
+        Calendar cal_tmp = Calendar.getInstance();
+        
+        for (Seance s : ls) {
+            
+            tools.debug(s.getDate().substring(0, 10) + " "+s.getHeureDebut()+" "+s.getHeureFin()
+                    + " func: day:"+day+" heure:"+heure);
+            
+            cal_tmp.setTime(Date.valueOf(s.getDate().substring(0, 10)));
+            
+             if (cal_tmp.get(Calendar.DAY_OF_MONTH) == day &&
+                     heure >= s.getHeureDebut() && heure < s.getHeureFin()) {
+                 //a.add("test");
+                 
+                 a.add(s.getAffichageTable());
+                 
+                 tools.debug(s.getDate().substring(0, 10));
+             }
+            
+        }
+        
+        return a;
     }
 
     public String getLundi() {

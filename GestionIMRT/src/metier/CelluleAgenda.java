@@ -5,32 +5,35 @@
  */
 package metier;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Mateusz
  */
 public class CelluleAgenda {
     
-    String value;
+    ArrayList<String> listeElements;
     
     int day;
     int heure;
     
-    public CelluleAgenda(int d, int h) {
-        
+    public CelluleAgenda(int d, int h, ArrayList<String> s) {
         day = d;
         heure = h;
-        
-        
-        value = d+" "+h;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
+        listeElements = s;
     }
     
+    public String getValue() {
+        
+        String affichage = "";
+        
+        for (String s : listeElements) {
+            affichage += s;
+        }
+        
+        return affichage;
+    }
+    
+    //private 
 }

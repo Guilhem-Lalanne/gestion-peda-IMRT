@@ -19,14 +19,25 @@ public class Seance {
     private int idSalle;
     private int heureDebut;
     private int heureFin;
+    
+    private String affichageTable;
 
-    public Seance(int idSeance, String date, int idCours, int idSalle, int heureDebut, int heureFin) {
+    public Seance(int idSeance, String date, int idCours, int idSalle, int heureDebut, int heureFin, String affichageTable) {
         this.idSeance = idSeance;
         this.date = date;
         this.idCours = idCours;
         this.idSalle = idSalle;
         this.heureDebut = heureDebut;
         this.heureFin = heureFin;
+        this.affichageTable = affichageTable;
+    }
+    
+    public String getAffichageTable() {
+        return affichageTable;
+    }
+
+    public void setAffichageTable(String affichageTable) {
+        this.affichageTable = affichageTable;
     }
 
     public int getIdSeance() {
