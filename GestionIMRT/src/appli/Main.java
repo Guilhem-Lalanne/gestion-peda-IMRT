@@ -24,7 +24,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException, FileNotFoundException, SQLException {
+    public static void main(String[] args) throws IOException, FileNotFoundException, SQLException, InterruptedException {
         
         //je fait la connexion à la base
         cnx = SourceOracle.getConnextion();

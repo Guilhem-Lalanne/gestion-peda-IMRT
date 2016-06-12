@@ -11,11 +11,13 @@ package metier;
  */
 public class Classe {
     private int idClasse;
-    private String IdPromotion;
+    private int IdPromotion;
     private String code;
     private String nom;
 
-    public Classe(String code, String nom) {
+    public Classe(int classe, int promotion, String code, String nom) {
+        this.idClasse = classe;
+        this.IdPromotion = promotion;
         this.code = code;
         this.nom = nom;
     }
@@ -28,11 +30,11 @@ public class Classe {
         this.idClasse = idClasse;
     }
 
-    public String getIdPromotion() {
+    public int getIdPromotion() {
         return IdPromotion;
     }
 
-    public void setIdPromotion(String IdPromotion) {
+    public void setIdPromotion(int IdPromotion) {
         this.IdPromotion = IdPromotion;
     }
 

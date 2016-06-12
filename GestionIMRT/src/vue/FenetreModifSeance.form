@@ -26,118 +26,117 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Component id="btValider" min="-2" pref="193" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btAnnuler" min="-2" pref="153" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lUE" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lDate" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lClasse" alignment="0" pref="73" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cbDate" alignment="0" pref="100" max="32767" attributes="0"/>
-                          <Component id="cbClasse" alignment="0" max="32767" attributes="0"/>
-                          <Component id="cbUE" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lTitre" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lHeureDebut" alignment="0" pref="122" max="32767" attributes="0"/>
-                                      <Component id="lGroupe" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="lEnseignant" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="cbHeureDebut" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="cbGroupe" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="cbEnseignant" alignment="0" pref="104" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jCheckBox1" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="lSalle" min="-2" pref="91" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="cbSalle" min="-2" pref="81" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lHeureFin" min="-2" pref="91" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="cbHeureFin" min="-2" pref="81" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
                   </Group>
                   <Component id="pValidationCours" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lHeureDebut" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="lDate" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lTitre" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jCheckBox1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lUE" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="cbHeureDebut" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                                          <Component id="cbClasse" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lGroupe" min="-2" pref="122" max="-2" attributes="0"/>
+                                          <Component id="lHeureFin" min="-2" pref="91" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="cbUE" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lEnseignant" min="-2" pref="122" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Component id="cbHeureFin" min="-2" pref="105" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="cbGroupe" min="-2" pref="104" max="-2" attributes="0"/>
+                                          <Component id="cbEnseignant" min="-2" pref="104" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lClasse" min="-2" pref="108" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="398" max="-2" attributes="0"/>
+                              <Component id="lSalle" min="-2" pref="91" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="cbSalle" min="-2" pref="81" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="lTitre" min="-2" pref="44" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lDate" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                  <Component id="cbDate" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="lHeureDebut" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                  <Component id="cbHeureDebut" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="lHeureFin" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="cbHeureFin" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lDate" min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lClasse" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="cbClasse" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="cbGroupe" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="lSalle" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                          <Component id="cbSalle" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="lGroupe" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="lHeureFin" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lHeureDebut" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="cbHeureDebut" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="cbHeureFin" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="cbUE" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lUE" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lEnseignant" alignment="0" max="32767" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="cbEnseignant" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jCheckBox1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lClasse" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="cbClasse" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="lGroupe" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="cbGroupe" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="lSalle" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="cbSalle" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lUE" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="lEnseignant" alignment="3" max="32767" attributes="0"/>
+                  <Component id="cbEnseignant" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbUE" alignment="3" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jCheckBox1" min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="pValidationCours" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="8" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btValider" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btAnnuler" alignment="0" pref="56" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btValider" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="btAnnuler" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -180,8 +179,19 @@
     <Component class="javax.swing.JComboBox" name="cbHeureFin">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="10:00"/>
+          <StringArray count="12">
+            <StringItem index="0" value="07:00"/>
+            <StringItem index="1" value="08:00"/>
+            <StringItem index="2" value="09:00"/>
+            <StringItem index="3" value="10:00"/>
+            <StringItem index="4" value="11:00"/>
+            <StringItem index="5" value="12:00"/>
+            <StringItem index="6" value="13:00"/>
+            <StringItem index="7" value="14:00"/>
+            <StringItem index="8" value="15:00"/>
+            <StringItem index="9" value="16:00"/>
+            <StringItem index="10" value="17:00"/>
+            <StringItem index="11" value="18:00"/>
           </StringArray>
         </Property>
       </Properties>
@@ -199,33 +209,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAnnulerActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cbUE">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="4.2"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cbDate">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
-        </Property>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="26/04/2016"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lUE">
       <Properties>
@@ -344,8 +327,19 @@
     <Component class="javax.swing.JComboBox" name="cbHeureDebut">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="08:00"/>
+          <StringArray count="12">
+            <StringItem index="0" value="07:00"/>
+            <StringItem index="1" value="08:00"/>
+            <StringItem index="2" value="09:00"/>
+            <StringItem index="3" value="10:00"/>
+            <StringItem index="4" value="11:00"/>
+            <StringItem index="5" value="12:00"/>
+            <StringItem index="6" value="13:00"/>
+            <StringItem index="7" value="14:00"/>
+            <StringItem index="8" value="15:00"/>
+            <StringItem index="9" value="16:00"/>
+            <StringItem index="10" value="17:00"/>
+            <StringItem index="11" value="18:00"/>
           </StringArray>
         </Property>
       </Properties>
@@ -393,7 +387,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Validation d&apos;un cours"/>
+        <Property name="text" type="java.lang.String" value="Titre"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox1">
@@ -403,6 +397,18 @@
         </Property>
         <Property name="text" type="java.lang.String" value=" R&#xe9;currence"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbUE">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="4.2"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

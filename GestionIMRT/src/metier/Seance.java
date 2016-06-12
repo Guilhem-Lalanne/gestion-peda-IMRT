@@ -22,6 +22,17 @@ public class Seance {
     
     private String affichageTable;
 
+    /**
+     * Version pour la table
+     * 
+     * @param idSeance
+     * @param date
+     * @param idCours
+     * @param idSalle
+     * @param heureDebut
+     * @param heureFin
+     * @param affichageTable 
+     */
     public Seance(int idSeance, String date, int idCours, int idSalle, int heureDebut, int heureFin, String affichageTable) {
         this.idSeance = idSeance;
         this.date = date;
@@ -30,6 +41,19 @@ public class Seance {
         this.heureDebut = heureDebut;
         this.heureFin = heureFin;
         this.affichageTable = affichageTable;
+    }
+
+    /**
+     * Version pour la modification
+     */
+    public Seance(int idSeance, String date, int idCours, int idSalle, int heureDebut, int heureFin) {
+        this.idSeance = idSeance;
+        this.date = date;
+        this.idCours = idCours;
+        this.idSalle = idSalle;
+        this.heureDebut = heureDebut;
+        this.heureFin = heureFin;
+        this.affichageTable = "";
     }
     
     public String getAffichageTable() {

@@ -25,6 +25,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -270,6 +271,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         });
 
         btAjoutSeance.setText("Ajout Seance");
+        btAjoutSeance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAjoutSeanceActionPerformed(evt);
+            }
+        });
 
         btModifSeance.setText("Modifier Seance");
         btModifSeance.addActionListener(new java.awt.event.ActionListener() {
@@ -1315,14 +1321,36 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
     private void btModifSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModifSeanceActionPerformed
         
-     CelluleAgenda ca = agendaModel.getObjetAt(liAgenda.getSelectedRow(), liAgenda.getSelectedColumn());
+        CelluleAgenda ca = agendaModel.getObjetAt(liAgenda.getSelectedRow(), liAgenda.getSelectedColumn());
+
+        FenetreModifSeance fs = null;
         
-        FenetreModifSeance fs = new FenetreModifSeance(this, ca.id_seance, cnx);
-        
+        try {
+            fs = new FenetreModifSeance(this, ca, cnx, 1);
+        } catch (ParseException ex) {
+            Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         //if - actions
         fs.doModal();
         
     }//GEN-LAST:event_btModifSeanceActionPerformed
+
+    private void btAjoutSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjoutSeanceActionPerformed
+        
+        CelluleAgenda ca = agendaModel.getObjetAt(liAgenda.getSelectedRow(), liAgenda.getSelectedColumn());
+
+        FenetreModifSeance fs = null;
+        
+        try {
+            fs = new FenetreModifSeance(this, ca, cnx, 0);
+        } catch (ParseException ex) {
+            Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //if - actions
+        fs.doModal();
+    }//GEN-LAST:event_btAjoutSeanceActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;

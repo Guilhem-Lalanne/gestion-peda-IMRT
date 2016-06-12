@@ -42,27 +42,27 @@ public class LigneAgenda {
         
         //Je crée les jours
         jour = c.get(Calendar.DAY_OF_MONTH);
-        lundi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        lundi = new CelluleAgenda(jour,i,c.getTime(),getSeancesParJour(ls, jour, line));
         lundi.id_seance = this.getIdDeSeance(ls, jour, line);
         
         c.add(Calendar.DAY_OF_MONTH, 1);
         jour = c.get(Calendar.DAY_OF_MONTH);
-        mardi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        mardi = new CelluleAgenda(jour,i,c.getTime(),getSeancesParJour(ls, jour, line));
         mardi.id_seance = this.getIdDeSeance(ls, jour, line);
         
         c.add(Calendar.DAY_OF_MONTH, 1);
         jour = c.get(Calendar.DAY_OF_MONTH);
-        mercredi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        mercredi = new CelluleAgenda(jour,i,c.getTime(),getSeancesParJour(ls, jour, line));
         mercredi.id_seance = this.getIdDeSeance(ls, jour, line);
         
         c.add(Calendar.DAY_OF_MONTH, 1);
         jour = c.get(Calendar.DAY_OF_MONTH);
-        jeudi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        jeudi = new CelluleAgenda(jour,i,c.getTime(),getSeancesParJour(ls, jour, line));
         jeudi.id_seance = this.getIdDeSeance(ls, jour, line);
         
         c.add(Calendar.DAY_OF_MONTH, 1);
         jour = c.get(Calendar.DAY_OF_MONTH);
-        vendredi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        vendredi = new CelluleAgenda(jour,i,c.getTime(),getSeancesParJour(ls, jour, line));
         vendredi.id_seance = this.getIdDeSeance(ls, jour, line);
         
         Heure = convertHeure(Integer.toString(i));

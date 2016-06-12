@@ -65,5 +65,35 @@ public class DaoAgenda {
         pstmt.close();
         
     }
+    
+    public void getSeanceUnique(Seance s, int id_seance) throws SQLException {
+        
+        String req = "select * from "
+                + "gi_seance inner join gi_cours c on s.id_cours = c.id "
+                + " "
+                + "where id = ?";
+        
+        PreparedStatement pstmt = cnx.prepareStatement(req);
+        pstmt.setInt(1, id_seance);
+        
+        ResultSet rset = pstmt.executeQuery();
+
+        while (rset.next()) {       // traitement du résulat
+
+            s = new Seance(rset.getInt(1),
+                    rset.getString(2),
+                    rset.getInt(3),
+                    rset.getInt(4),
+                    rset.getInt(5),
+                    rset.getInt(6));
+        }
+
+        rset.close();
+        pstmt.close();
+    }
+    
+    public void updateSeance() {
+        
+    }
 
 }

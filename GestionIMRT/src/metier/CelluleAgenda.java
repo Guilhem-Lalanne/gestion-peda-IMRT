@@ -6,6 +6,7 @@
 package metier;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -15,14 +16,16 @@ public class CelluleAgenda {
     
     ArrayList<String> listeElements;
     
-    int day;
-    int heure;
+    public int day;
+    public int heure;
     public int id_seance;
+    public Date date;
     
-    public CelluleAgenda(int d, int h, ArrayList<String> s) {
+    public CelluleAgenda(int d, int h, Date ladate, ArrayList<String> s) {
         day = d;
         heure = h;
         listeElements = s;
+        date = ladate;
     }
     
     public String getValue() {
