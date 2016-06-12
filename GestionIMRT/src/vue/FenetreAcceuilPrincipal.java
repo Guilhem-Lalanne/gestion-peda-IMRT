@@ -43,6 +43,7 @@ import metier.Promotion;
 import metier.User;
 import metier.Etudiant;
 import javax.swing.table.DefaultTableModel;
+import metier.Agenda;
 
 /**
  *
@@ -68,6 +69,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private ModeleEmployeur modelNomEmp;
     private ModeleAgenda agendaModel;
     
+    private Calendar dateAgenda;
+    
     /**
      * Creates new form Fenetre
      * @param cnx
@@ -83,30 +86,33 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         
         initComponents();
         
+        //init agenda date
+        dateAgenda = Calendar.getInstance();
+        
         //this.pGroupPane.add(new testOngletAjout());
         
         //preparation affichage de la fenetre principale
         
         //affichage de la fenetre principale
             
-            //je cherche la promotion qui est en cours
-            DaoPromotion dp = new DaoPromotion(this.cnx);
-            promotion = dp.getCurrentPromotion();
-            this.lAnnee.setText("Promotion en cours: "+promotion.getNomPromotion());
-            
-            //activation des fenetres
-            
-            this.lLogin.setText("User login: "+u.getLogin());
-            this.lNiveau.setText("Niveau: "+u.getGroupeLibelle());
-            
-            int[] activityTable = u.getOngletsGroupes();
-            
-            for (int i=0;i<=5;i++) {
-                if (activityTable[i] == 1)
-                    pGroupPane.setEnabledAt(i, true);
-                else 
-                    pGroupPane.setEnabledAt(i, false);
-            }
+        //je cherche la promotion qui est en cours
+        DaoPromotion dp = new DaoPromotion(this.cnx);
+        promotion = dp.getCurrentPromotion();
+        this.lAnnee.setText("Promotion en cours: "+promotion.getNomPromotion());
+
+        //activation des fenetres
+
+        this.lLogin.setText("User login: "+u.getLogin());
+        this.lNiveau.setText("Niveau: "+u.getGroupeLibelle());
+
+        int[] activityTable = u.getOngletsGroupes();
+
+        for (int i=0;i<=5;i++) {
+            if (activityTable[i] == 1)
+                pGroupPane.setEnabledAt(i, true);
+            else 
+                pGroupPane.setEnabledAt(i, false);
+        }
         
         
         //this.l
@@ -263,6 +269,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         });
 
         btSemaineNext.setText("Semaine Prochaine");
+        btSemaineNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSemaineNextActionPerformed(evt);
+            }
+        });
 
         lDate.setText("jLabel1");
 
@@ -309,7 +320,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         pAgendaLayout.setVerticalGroup(
             pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAgendaLayout.createSequentialGroup()
-                .addGap(4, 4, 4)
+                .addContainerGap()
                 .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lDate)
                     .addComponent(btSemainePrec)
@@ -993,30 +1004,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 liAgenda.setRowHeight(i, 50);
             }
             
-            
             liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
             
-            String timeStamp = new SimpleDateFormat("dd/MM/yyyy").
-                       format(Calendar.getInstance().getTime());
-            
-            lDate.setText("Aujourd'hui " + timeStamp);
-            
-            String input = "20130507";
-            String format = "yyyyMMdd";
-
-            SimpleDateFormat df = new SimpleDateFormat(format);
-            Date date = null;
-            try {
-                date = df.parse(input);
-            } catch (ParseException ex) {
-                Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(date);
-            int week = cal.get(Calendar.WEEK_OF_YEAR);
-            
-            lSemaine.setText("Semaine "+String.valueOf(week));
+            lDate.setText("Aujourd'hui " + Agenda.getDate(dateAgenda));
+            lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
             
         }
     }//GEN-LAST:event_pGroupPaneStateChanged
@@ -1227,12 +1218,19 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btModifierActionPerformed
 
     private void btSemainePrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSemainePrecActionPerformed
-        // TODO add your handling code here:
-        
-        
-        //liAgenda.
+        Agenda.setPreviousWeek(dateAgenda);
+        lDate.setText("Aujourd'hui " + Agenda.getDate(dateAgenda));
+        lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
         
     }//GEN-LAST:event_btSemainePrecActionPerformed
+
+    private void btSemaineNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSemaineNextActionPerformed
+        Agenda.setNextWeek(dateAgenda);
+        lDate.setText("Aujourd'hui " + Agenda.getDate(dateAgenda));
+        lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
+        
+        
+    }//GEN-LAST:event_btSemaineNextActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;

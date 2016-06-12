@@ -21,5 +21,4 @@ public class tools {
         System.out.println("Result: " + result);
     }
     
-    
 }
