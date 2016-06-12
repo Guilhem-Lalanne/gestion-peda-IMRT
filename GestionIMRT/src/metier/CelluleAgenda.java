@@ -18,7 +18,6 @@ public class CelluleAgenda {
     
     public CelluleAgenda(int d, int h) {
         
-        
         day = d;
         heure = h;
         

@@ -5,6 +5,7 @@
  */
 package metier;
 
+import appli.tools;
 import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,12 +38,18 @@ public class LigneAgenda {
         Calendar c = Calendar.getInstance();
         c.setTime(Date.valueOf(date_debut));
         
+        //tools.debug("Ligne : " + i + "date de ligne: " + date_debut);
+        
         //Je crée les jours
-        lundi = new CelluleAgenda(c.get(Calendar.MONDAY),i);
-        mardi = new CelluleAgenda(c.get(Calendar.TUESDAY),i);
-        mercredi = new CelluleAgenda(c.get(Calendar.WEDNESDAY),i);
-        jeudi = new CelluleAgenda(c.get(Calendar.THURSDAY),i);
-        vendredi = new CelluleAgenda(c.get(Calendar.FRIDAY),i);
+        lundi = new CelluleAgenda(c.get(Calendar.DAY_OF_MONTH),i);
+        c.add(Calendar.DAY_OF_MONTH, 1);
+        mardi = new CelluleAgenda(c.get(Calendar.DAY_OF_MONTH),i);
+        c.add(Calendar.DAY_OF_MONTH, 1);
+        mercredi = new CelluleAgenda(c.get(Calendar.DAY_OF_MONTH),i);
+        c.add(Calendar.DAY_OF_MONTH, 1);
+        jeudi = new CelluleAgenda(c.get(Calendar.DAY_OF_MONTH),i);
+        c.add(Calendar.DAY_OF_MONTH, 1);
+        vendredi = new CelluleAgenda(c.get(Calendar.DAY_OF_MONTH),i);
         
         Heure = convertHeure(Integer.toString(i));
         
@@ -64,24 +71,24 @@ public class LigneAgenda {
         this.mardi = mardi;
     }
 
-    public CelluleAgenda getMercredi() {
-        return mercredi;
+    public String getMercredi() {
+        return mercredi.getValue();
     }
 
     public void setMercredi(CelluleAgenda mercredi) {
         this.mercredi = mercredi;
     }
 
-    public CelluleAgenda getJeudi() {
-        return jeudi;
+    public String getJeudi() {
+        return jeudi.getValue();
     }
 
     public void setJeudi(CelluleAgenda jeudi) {
         this.jeudi = jeudi;
     }
 
-    public CelluleAgenda getVendredi() {
-        return vendredi;
+    public String getVendredi() {
+        return vendredi.getValue();
     }
 
     public void setVendredi(CelluleAgenda vendredi) {

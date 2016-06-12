@@ -72,9 +72,9 @@ public class ModeleAgenda extends AbstractTableModel {
             case 0: return a.getHeure();
             case 1: return a.getLundi();
             case 2: return a.getMardi();
-            //case 3: return a.getMercredi();
-            //case 4: return a.getJeudi();
-            //case 5: return a.getVendredi();
+            case 3: return a.getMercredi();
+            case 4: return a.getJeudi();
+            case 5: return a.getVendredi();
         }
         
         return null;

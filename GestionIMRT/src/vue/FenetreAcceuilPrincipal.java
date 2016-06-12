@@ -25,8 +25,10 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -80,7 +82,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         initComponents();
         
         //init agenda date
-        dateAgenda = Calendar.getInstance();
+        dateAgenda = Calendar.getInstance(Locale.FRANCE);
+        //dateAgenda.setFirstDayOfWeek(Calendar.MONDAY);
         
         //this.pGroupPane.add(new testOngletAjout());
         
@@ -247,6 +250,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        liAgenda.setCellSelectionEnabled(true);
+        liAgenda.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(liAgenda);
 
         btSemainePrec.setText("Semaine Precedant");
@@ -987,16 +992,37 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             tools.debug("->Agenda");
             
             lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
+            
             choixDate.setDate(dateAgenda.getTime());
             
-            tools.debug("Monday " + dateAgenda.get(Calendar.MONDAY));
+            //debut de la semaine
+            Calendar first = (Calendar) dateAgenda.clone();
+            first.add(Calendar.DAY_OF_WEEK,-1);
+            first.add(Calendar.DAY_OF_WEEK, 
+              first.getFirstDayOfWeek() - first.get(Calendar.DAY_OF_WEEK));
+            
+            //fin de la semaine
+            Calendar last = (Calendar) first.clone();
+            last.add(Calendar.DAY_OF_YEAR, 6);
+            
+            SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+            
+            tools.debug(" date debut: "+formatDate.format(first.getTime()) 
+                    + " date fin:" + formatDate.format(last.getTime()));
+            
             
             daoAg = new DaoAgenda(cnx);
             try {
-                agendaModel = new ModeleAgenda(daoAg, "2016-06-02", "2016-06-15");
+                
+                agendaModel = new ModeleAgenda
+                        (daoAg, formatDate.format(first.getTime()),
+                        formatDate.format(last.getTime()));
+                
             } catch (SQLException ex) {
                 Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            
             
             liAgenda.setModel(agendaModel);
             
