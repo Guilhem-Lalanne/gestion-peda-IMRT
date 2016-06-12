@@ -129,13 +129,13 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="btAjoutSeance" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="btModifSeance" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="lDate" min="-2" max="-2" attributes="0"/>
+                                          <Component id="choixDate" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -143,8 +143,6 @@
                                               <Component id="btSemainePrec" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="btSemaineNext" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="btSemaineChoix" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="btSuppSeance" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -161,14 +159,21 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btSemainePrec" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btSemaineNext" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btSemaineChoix" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btSemainePrec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btSemaineNext" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="choixDate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="lSemaine" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -221,19 +226,9 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSemaineNextActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="lDate">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel1"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="btAjoutSeance">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ajout Seance"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btSemaineChoix">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Choisir Semaine"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btModifSeance">
@@ -250,6 +245,11 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
+            </Component>
+            <Component class="org.jdesktop.swingx.JXDatePicker" name="choixDate">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="choixDateActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
