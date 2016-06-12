@@ -26,6 +26,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -983,8 +986,17 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             
             tools.debug("->Agenda");
             
+            lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
+            choixDate.setDate(dateAgenda.getTime());
+            
+            tools.debug("Monday " + dateAgenda.get(Calendar.MONDAY));
+            
             daoAg = new DaoAgenda(cnx);
-            agendaModel = new ModeleAgenda(daoAg);
+            try {
+                agendaModel = new ModeleAgenda(daoAg, "2016-06-02", "2016-06-15");
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             liAgenda.setModel(agendaModel);
             
@@ -994,10 +1006,6 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             }
             
             liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
-            
-            //lDate.setText("Aujourd'hui " + Agenda.getDate(dateAgenda));
-            lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
-            choixDate.setDate(dateAgenda.getTime());
             
         }
     }//GEN-LAST:event_pGroupPaneStateChanged

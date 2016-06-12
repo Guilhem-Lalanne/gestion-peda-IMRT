@@ -12,23 +12,16 @@ import java.sql.Date;
  * @author paul
  */
 public class Seance {
+    
     private int idSeance;
-    private Date date;
+    private String date;
     private int idCours;
     private int idSalle;
     private int heureDebut;
     private int heureFin;
 
-    public Seance(int idSeance, Date date, int idCours, int idSalle, int heureDebut, int heureFin) {
+    public Seance(int idSeance, String date, int idCours, int idSalle, int heureDebut, int heureFin) {
         this.idSeance = idSeance;
-        this.date = date;
-        this.idCours = idCours;
-        this.idSalle = idSalle;
-        this.heureDebut = heureDebut;
-        this.heureFin = heureFin;
-    }
-
-    public Seance(Date date, int idCours, int idSalle, int heureDebut, int heureFin) {
         this.date = date;
         this.idCours = idCours;
         this.idSalle = idSalle;
@@ -44,11 +37,11 @@ public class Seance {
         this.idSeance = idSeance;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -82,6 +75,14 @@ public class Seance {
 
     public void setHeureFin(int heureFin) {
         this.heureFin = heureFin;
+    }
+    
+    public String toString() {
+        return (this.idSeance + " " +
+        this.date + " " +
+        this.idCours + " " +
+        this.idSalle + " " +
+        this.heureDebut + " " + this.heureFin + " ");
     }
     
 }

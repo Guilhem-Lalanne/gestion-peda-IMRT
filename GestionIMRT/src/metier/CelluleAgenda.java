@@ -13,8 +13,17 @@ public class CelluleAgenda {
     
     String value;
     
-    public CelluleAgenda() {
-        value = "";
+    int day;
+    int heure;
+    
+    public CelluleAgenda(int d, int h) {
+        
+        
+        day = d;
+        heure = h;
+        
+        
+        value = d+" "+h;
     }
 
     public String getValue() {

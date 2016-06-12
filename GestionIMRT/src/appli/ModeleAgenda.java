@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import metier.LigneAgenda;
+import metier.Seance;
 
 /**
  *
@@ -24,27 +25,25 @@ import metier.LigneAgenda;
  */
 public class ModeleAgenda extends AbstractTableModel { 
     
-    private DaoAgenda leDao;
-    private List<LigneAgenda> leCont;
+    private DaoAgenda leDao;            //porte pour la base
+    private List<LigneAgenda> leCont;   // liste de lignes avec données
+    
+    private String date_debut;
+    private String date_fin;
     
     //private List <Employeur>  leConteneurEmployeur;
     private String[] nomColonnes = {"Heure","Lundi", "Mardi", "Mercredi","Jeudi","Vendredi"};
     //private DaoEmployeur leDaoEmployeur;
 
-    public ModeleAgenda(DaoAgenda leDao) {
+    public ModeleAgenda(DaoAgenda leDao, String dd, String df) throws SQLException {
         
         this.leDao = leDao;
         leCont = new ArrayList<>();
         
-        for (int i = 7; i <= 18; i++) {
-            leCont.add(new LigneAgenda(i));
-        }
+        this.date_debut = dd;
+        this.date_fin = df;
         
-        try {
-            charger();
-        } catch (SQLException ex) {
-            Logger.getLogger(ModeleEnseignant.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        charger();
     }
 
     public ModeleAgenda() {
@@ -72,8 +71,7 @@ public class ModeleAgenda extends AbstractTableModel {
         switch (columnIndex) {
             case 0: return a.getHeure();
             case 1: return a.getLundi();
-            //case 2: return a.getMardi(nomColonnes, columnIndex, rowIndex);
-            //case 2: return a.getMardi();
+            case 2: return a.getMardi();
             //case 3: return a.getMercredi();
             //case 4: return a.getJeudi();
             //case 5: return a.getVendredi();
@@ -93,6 +91,20 @@ public class ModeleAgenda extends AbstractTableModel {
     }
      
     private void charger() throws SQLException {
-        leDao.getAgenda(leDao);
+        
+       //je cherche toutes les sceances
+        ArrayList<Seance> listSeances = new ArrayList<>();
+        leCont.removeAll(leCont);
+        
+        leDao.getSeances(listSeances, date_debut, date_fin);
+        
+        for (Seance s : listSeances) {
+            tools.debug(s.toString());
+        }
+        
+        for (int i = 7; i <= 18; i++) {
+            leCont.add(new LigneAgenda(i,date_debut, listSeances));
+        }
+        
     }
 }
