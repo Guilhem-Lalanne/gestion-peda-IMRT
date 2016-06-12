@@ -43,48 +43,65 @@ public class LigneAgenda {
         //Je crée les jours
         jour = c.get(Calendar.DAY_OF_MONTH);
         lundi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        lundi.id_seance = this.getIdDeSeance(ls, jour, line);
         
         c.add(Calendar.DAY_OF_MONTH, 1);
         jour = c.get(Calendar.DAY_OF_MONTH);
         mardi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        mardi.id_seance = this.getIdDeSeance(ls, jour, line);
         
         c.add(Calendar.DAY_OF_MONTH, 1);
         jour = c.get(Calendar.DAY_OF_MONTH);
         mercredi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        mercredi.id_seance = this.getIdDeSeance(ls, jour, line);
         
         c.add(Calendar.DAY_OF_MONTH, 1);
         jour = c.get(Calendar.DAY_OF_MONTH);
         jeudi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        jeudi.id_seance = this.getIdDeSeance(ls, jour, line);
         
         c.add(Calendar.DAY_OF_MONTH, 1);
         jour = c.get(Calendar.DAY_OF_MONTH);
         vendredi = new CelluleAgenda(jour,i,getSeancesParJour(ls, jour, line));
+        vendredi.id_seance = this.getIdDeSeance(ls, jour, line);
         
         Heure = convertHeure(Integer.toString(i));
         
     }
     
-    public ArrayList<String> getSeancesParJour(ArrayList<Seance> ls, int day, int heure) {
+    private ArrayList<String> getSeancesParJour(ArrayList<Seance> ls, int day, int heure) {
         
         ArrayList<String> a = new ArrayList<>();
         
-        Date date = null; // your date
         Calendar cal_tmp = Calendar.getInstance();
         
         for (Seance s : ls) {
-            
-            /*0tools.debug(s.getDate().substring(0, 10) + " "+s.getHeureDebut()+" "+s.getHeureFin()
-                    + " func: day:"+day+" heure:"+heure);*/
             
             cal_tmp.setTime(Date.valueOf(s.getDate().substring(0, 10)));
             
              if (cal_tmp.get(Calendar.DAY_OF_MONTH) == day &&
                      heure >= s.getHeureDebut() && heure < s.getHeureFin()) {
-                 //a.add("test");
-                 
                  a.add(s.getAffichageTable());
-                 
-                 //tools.debug(s.getDate().substring(0, 10));
+             }
+            
+        }
+        
+        return a;
+    }
+    
+    public int getIdDeSeance(ArrayList<Seance> ls, int day, int heure) {
+        
+        int a = 0;
+        
+        Calendar cal_tmp = Calendar.getInstance();
+        
+        for (Seance s : ls) {
+            
+            cal_tmp.setTime(Date.valueOf(s.getDate().substring(0, 10)));
+            
+             if (cal_tmp.get(Calendar.DAY_OF_MONTH) == day &&
+                     heure >= s.getHeureDebut() && heure < s.getHeureFin()) {
+                 a = s.getIdSeance();
              }
             
         }
@@ -138,6 +155,26 @@ public class LigneAgenda {
     
     public String convertHeure(String a) {
         return String.format("%2s", a).replace(' ', '0') + ":00";
+    }
+
+    public CelluleAgenda getCellLundi() {
+        return lundi;
+    }
+
+    public CelluleAgenda getCellMardi() {
+        return mardi;
+    }
+
+    public CelluleAgenda getCellMercredi() {
+        return mercredi;
+    }
+
+    public CelluleAgenda getCellJeudi() {
+        return jeudi;
+    }
+
+    public CelluleAgenda getCellVendredi() {
+        return vendredi;
     }
 
     

@@ -17,6 +17,7 @@ public class CelluleAgenda {
     
     int day;
     int heure;
+    public int id_seance;
     
     public CelluleAgenda(int d, int h, ArrayList<String> s) {
         day = d;

@@ -28,11 +28,12 @@ public class FenetreLogin extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public FenetreLogin(Connection c) {
+    public FenetreLogin(Connection c) throws InterruptedException {
         
         this.cnx = c;
         
         initComponents();
+        
     }
 
     /**

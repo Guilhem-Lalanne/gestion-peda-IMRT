@@ -39,6 +39,7 @@ import metier.Promotion;
 import metier.User;
 import metier.Etudiant;
 import metier.Agenda;
+import metier.CelluleAgenda;
 
 /**
  *
@@ -271,6 +272,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btAjoutSeance.setText("Ajout Seance");
 
         btModifSeance.setText("Modifier Seance");
+        btModifSeance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btModifSeanceActionPerformed(evt);
+            }
+        });
 
         btSuppSeance.setText("Supprmier Seance");
 
@@ -1306,6 +1312,17 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
         
     }//GEN-LAST:event_choixDateActionPerformed
+
+    private void btModifSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModifSeanceActionPerformed
+        
+     CelluleAgenda ca = agendaModel.getObjetAt(liAgenda.getSelectedRow(), liAgenda.getSelectedColumn());
+        
+        FenetreModifSeance fs = new FenetreModifSeance(this, ca.id_seance, cnx);
+        
+        //if - actions
+        fs.doModal();
+        
+    }//GEN-LAST:event_btModifSeanceActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;

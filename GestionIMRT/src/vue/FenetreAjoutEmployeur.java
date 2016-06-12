@@ -184,9 +184,9 @@ public class FenetreAjoutEmployeur extends javax.swing.JFrame {
                 }*/
 
             } catch (SQLException ex) {
-                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
             } catch (Exception ex) {
-                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
             }
         
     }//GEN-LAST:event_btEnejistrerEmpActionPerformed

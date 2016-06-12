@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
+import metier.CelluleAgenda;
 import metier.LigneAgenda;
 import metier.Seance;
 
@@ -75,6 +76,22 @@ public class ModeleAgenda extends AbstractTableModel {
             case 3: return a.getMercredi();
             case 4: return a.getJeudi();
             case 5: return a.getVendredi();
+        }
+        
+        return null;
+    }
+    
+    public CelluleAgenda getObjetAt(int rowIndex, int columnIndex) {
+        
+        LigneAgenda a = leCont.get(rowIndex);
+        
+        switch (columnIndex) {
+            case 0: return null;
+            case 1: return a.getCellLundi();
+            case 2: return a.getCellMardi();
+            case 3: return a.getCellMercredi();
+            case 4: return a.getCellJeudi();
+            case 5: return a.getCellVendredi();
         }
         
         return null;
