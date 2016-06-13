@@ -23,6 +23,7 @@ import metier.Employeur;
  */
 public class FenetreAjoutEmployeur extends javax.swing.JFrame {
     private Employeur emp;
+      private int resultat;
     Connection cnx;
     
     JFrame parent;
@@ -35,7 +36,10 @@ public class FenetreAjoutEmployeur extends javax.swing.JFrame {
         this.emp=emp;
         this.cnx=cnx;
     }
-
+    public int doModal() {
+        this.setVisible(true);
+        return resultat;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

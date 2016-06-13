@@ -41,6 +41,7 @@ import metier.User;
 import metier.Etudiant;
 import metier.Agenda;
 import metier.CelluleAgenda;
+import metier.Employeur;
 
 /**
  *
@@ -160,6 +161,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btAjouterEnseignant = new javax.swing.JButton();
         btSupprimerEnseignant = new javax.swing.JButton();
         btVoirEnseignant = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         pGestionExamen = new javax.swing.JPanel();
         pSurveillantEpreuve = new javax.swing.JPanel();
         spSurveillantEpreuve = new javax.swing.JScrollPane();
@@ -475,6 +477,13 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         btVoirEnseignant.setText("voir");
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pGestionEnseignantLayout = new javax.swing.GroupLayout(pGestionEnseignant);
         pGestionEnseignant.setLayout(pGestionEnseignantLayout);
         pGestionEnseignantLayout.setHorizontalGroup(
@@ -492,8 +501,13 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jBGestionNote1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jBImporter1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pGestionEnseignantLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jBImporter1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pGestionEnseignantLayout.createSequentialGroup()
+                                .addGap(81, 81, 81)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(pGestionEnseignantLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btAjouterEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -523,7 +537,9 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                     .addComponent(jBGestionNote1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBImporter1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(76, 76, 76)
-                .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(382, Short.MAX_VALUE))
         );
 
@@ -1329,7 +1345,9 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             fs = new FenetreModifSeance(this, ca, cnx, 1);
         } catch (ParseException ex) {
             Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } catch (SQLException ex) {
+         Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+     }
 
         //if - actions
         fs.doModal();
@@ -1346,11 +1364,38 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             fs = new FenetreModifSeance(this, ca, cnx, 0);
         } catch (ParseException ex) {
             Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } catch (SQLException ex) {
+         Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+     }
 
         //if - actions
         fs.doModal();
     }//GEN-LAST:event_btAjoutSeanceActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     DaoEmployeur daoEmp = null;
+      ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
+   
+        
+        Employeur emp = new Employeur();
+         
+        try{
+         
+       FenetreAjoutEmployeur fmu;
+      fmu = new FenetreAjoutEmployeur(this,
+              emp,cnx);
+          int ret = fmu.doModal();
+            //etuModel.insererLigne(etu);
+         if (ret == 1) {
+               //etuModel.supprimerLigne(selected_row);
+         }
+        }catch(Exception e){
+           // JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
+//"information", JOptionPane.INFORMATION_MESSAGE); 
+        }
+        
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;
@@ -1393,6 +1438,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jBGestionNote1;
     private javax.swing.JButton jBImporter1;
     private javax.swing.JButton jBModifEnsegnant;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lAnnee;

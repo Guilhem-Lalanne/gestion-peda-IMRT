@@ -76,7 +76,10 @@ public class ModeleNomEmployeur extends DefaultComboBoxModel {
     
         return adresse;
     }
-            
+    public void insererLigne(Employeur emp) {
+        leConteneurEmployeur.add(emp);
+        
+    }         
     @Override
     public Object getElementAt(int i) {
         return leConteneurEmployeur.get(i).getNomEmployeur();
@@ -86,5 +89,4 @@ public class ModeleNomEmployeur extends DefaultComboBoxModel {
     public int getSize() {
         return leConteneurEmployeur.size();
     }
-
 }
