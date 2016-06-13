@@ -20,6 +20,8 @@ import dao.DaoPromotion;
 import dao.DaoReferentiel;
 import dao.DaoUser;
 import dao.DaoEtudiant;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -84,6 +86,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         
         initComponents();
         
+
+        
+        
+        
         //init agenda date
         dateAgenda = Calendar.getInstance(Locale.FRANCE);
         //dateAgenda.setFirstDayOfWeek(Calendar.MONDAY);
@@ -112,6 +118,14 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             else 
                 pGroupPane.setEnabledAt(i, false);
         }
+        
+                Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        double width = screenSize.getWidth();
+        double height = screenSize.getHeight();
+        
+        tools.debug("dim:" + width + " "+height);
+        
+        this.setSize(Integer.valueOf((int) width), (int) (height-25));
         
     }
 

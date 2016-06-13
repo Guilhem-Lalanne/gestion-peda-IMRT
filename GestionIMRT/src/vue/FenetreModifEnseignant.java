@@ -8,12 +8,14 @@ package vue;
 import appli.ModeleNomEmployeur;
 import appli.tools;
 import dao.DaoEmployeur;
+import java.awt.Frame;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import metier.Employeur;
 import metier.Enseignant;
@@ -40,6 +42,8 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
      */
     private int resultat;
     
+    public Frame parenta;
+    
     public ModeleNomEmployeur modelNomEmp;
     
     Connection cnx;
@@ -59,6 +63,8 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                                   Connection cnx
                                   ) {
         super(parent, true);
+        
+        parenta = parent;
         
         this.ens = ens;
         this.action = 0;
@@ -738,13 +744,14 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
    
         
         Employeur emp = new Employeur();
-         /**
-        try{
          
-       FenetreAjoutEmployeur fmu;
-      fmu = new FenetreAjoutEmployeur(this,
-              emp,cnx);
-          int ret = fmu.doModal();
+       // try{
+         
+       FenetreAjoutModifEmployeur fmu = new FenetreAjoutModifEmployeur(parenta,emp,cnx);
+       
+       fmu.setVisible(true);
+       
+          /*int ret = fmu.doModal();
             //etuModel.insererLigne(etu);
          if (ret == 1) {
                //etuModel.supprimerLigne(selected_row);
@@ -752,9 +759,9 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
         }catch(Exception e){
            // JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
 //"information", JOptionPane.INFORMATION_MESSAGE); 
-        }
+        }*/
         
-      **/  
+      
     }//GEN-LAST:event_btAjoutEmployeurActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
