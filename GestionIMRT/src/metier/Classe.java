@@ -5,21 +5,47 @@
  */
 package metier;
 
+import appli.tools;
+
 /**
  *
  * @author paul
  */
 public class Classe {
+    
     private int idClasse;
     private int IdPromotion;
     private String code;
     private String nom;
+    private String Promotion;
 
+    
+    public Classe() {
+        
+    }
+    
     public Classe(int classe, int promotion, String code, String nom) {
         this.idClasse = classe;
         this.IdPromotion = promotion;
         this.code = code;
         this.nom = nom;
+    }
+    
+    public Classe(int classe, int promotion, String code, String nom, String promotion_s) {
+        tools.debug(promotion_s);
+        this.idClasse = classe;
+        this.IdPromotion = promotion;
+        this.code = code;
+        this.nom = nom;
+        this.Promotion = promotion_s;
+    }
+    
+    public String getPromotion() {
+        return Promotion;
+    }
+
+    public void setPromotion(String Promotion) {
+        this.Promotion = Promotion;
     }
 
     public int getIdClasse() {
@@ -56,8 +82,7 @@ public class Classe {
 
     @Override
     public String toString() {
-        return "Classe{" + "idClasse=" + idClasse + ", IdPromotion=" 
-                + IdPromotion + ", code=" + code + ", nom=" + nom + '}';
+        return "Classe{" + "idClasse=" + idClasse + ", IdPromotion=" + IdPromotion + ", code=" + code + ", nom=" + nom + ", Promotion=" + Promotion + '}';
     }
-    
+
 }

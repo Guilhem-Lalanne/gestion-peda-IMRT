@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import metier.Promotion;
 import metier.User;
 
@@ -72,6 +73,30 @@ public class DaoPromotion {
         pstmt.close();
         
         return p;
+        
+    }
+
+    public void getPromotions(List<Promotion> leConteneur) throws SQLException {
+        
+        String req = "select * from gi_promotion";
+        PreparedStatement pstmt = cnx.prepareStatement(req);
+        
+        ResultSet rset = pstmt.executeQuery();
+        
+        while (rset.next()) {       // traitement du résulat
+            
+            Promotion p = new Promotion();
+            
+            p.setIdPromotion(rset.getInt(1));
+            p.setNomPromotion(rset.getString(2));
+            p.setAnnée(rset.getString(3));
+            
+            leConteneur.add(p);
+            
+        }
+        
+        rset.close();
+        pstmt.close();
         
     }
     
