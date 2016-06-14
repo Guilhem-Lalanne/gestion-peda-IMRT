@@ -15,6 +15,7 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
      * Creates new form FenetreGestionNotes
      */
     public FenetreSaisieNotes() {
+        
         initComponents();
     }
 
