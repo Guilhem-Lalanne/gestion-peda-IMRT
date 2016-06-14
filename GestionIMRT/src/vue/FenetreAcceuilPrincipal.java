@@ -86,13 +86,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         
         initComponents();
         
-
-        
-        
-        
         //init agenda date
         dateAgenda = Calendar.getInstance(Locale.FRANCE);
-        //dateAgenda.setFirstDayOfWeek(Calendar.MONDAY);
         
         //this.pGroupPane.add(new testOngletAjout());
         
@@ -119,7 +114,9 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 pGroupPane.setEnabledAt(i, false);
         }
         
-                Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.pGroupPane.add(new PanelClasse(cnx,this));
+        
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double width = screenSize.getWidth();
         double height = screenSize.getHeight();
         

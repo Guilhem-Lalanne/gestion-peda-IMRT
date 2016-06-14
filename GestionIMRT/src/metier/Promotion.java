@@ -12,11 +12,11 @@ package metier;
 public class Promotion {
     private int idPromotion;
     private String nomPromotion;
-    private String année;
+    private String annee;
 
     public Promotion(String nomPromotion, String année) {
         this.nomPromotion = nomPromotion;
-        this.année = année;
+        this.annee = année;
     }
 
     public Promotion() {
@@ -40,11 +40,16 @@ public class Promotion {
     }
 
     public String getAnnée() {
-        return année;
+        return annee;
     }
 
     public void setAnnée(String année) {
-        this.année = année;
+        this.annee = année;
+    }
+
+    @Override
+    public String toString() {
+        return "Promotion{" + "idPromotion=" + idPromotion + ", nomPromotion=" + nomPromotion + ", ann\u00e9e=" + annee + '}';
     }
     
     

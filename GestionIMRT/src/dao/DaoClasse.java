@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import metier.Classe;
 import metier.Groupe;
@@ -25,9 +26,12 @@ public class DaoClasse {
         this.cnx = cnx;
     }
     
-    public void getClasse(List<Classe> classes) throws SQLException {
+    public void getClasses(List<Classe> classes) throws SQLException {
         
-        String requete = "select * from gi_classe";
+        String requete = "select g.id,g.id_promotion,g.code,g.nom,"
+                + "p.nom_promotion,p.annee "
+                + "from gi_classe g "
+                + " inner join gi_promotion p on g.id_promotion = p.id ";
         PreparedStatement pstmt = cnx.prepareStatement(requete);
         ResultSet rset = pstmt.executeQuery(requete);
         
@@ -37,13 +41,37 @@ public class DaoClasse {
                     rset.getInt(1),
                     rset.getInt(2),
                     rset.getString(3),
-                    rset.getString(4)));
-            
+                    rset.getString(4),
+                    rset.getString(5)));
         }
         
         rset.close();
         pstmt.close();
         
+    }
+    
+    public void insertClasse(Classe c) throws SQLException {
+        
+        String requete = "insert into gi_classe (id_promotion,code,nom)"
+                + " values (?,?,?)";
+        String generatedColumns[] = { "ID" };
+        PreparedStatement pstmt = cnx.prepareStatement(requete, generatedColumns);
+        pstmt.setInt(1, c.getIdPromotion());
+        pstmt.setString(2, c.getCode());
+        pstmt.setString(3, c.getNom());
+
+        pstmt.executeUpdate();
+        
+        try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
+            if (generatedKeys.next()) {
+                c.setIdClasse((int) generatedKeys.getInt(1));
+            }
+            else {
+                throw new SQLException("Creating user failed, no ID obtained.");
+            }
+        }
+        
+        pstmt.close();
     }
     
     

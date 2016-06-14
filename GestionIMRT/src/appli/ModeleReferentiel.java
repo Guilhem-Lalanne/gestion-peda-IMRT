@@ -26,7 +26,7 @@ import metier.Referentiel;
 public class ModeleReferentiel extends DefaultComboBoxModel {
 
     private List<Referentiel> leConteneur;
-    private String[] nomColonnes = {"id", "libelle"};
+    //private String[] nomColonnes = {"id", "libelle"};
     private DaoReferentiel leDao;
 
     public ModeleReferentiel(DaoReferentiel leDao, String type) {
