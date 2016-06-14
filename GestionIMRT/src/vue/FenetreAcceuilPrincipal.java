@@ -395,6 +395,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btAbsenceEtudiant.setText("Gestion des abscences");
 
         btNotesEtudiant.setText("Gestion des notes");
+        btNotesEtudiant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNotesEtudiantActionPerformed(evt);
+            }
+        });
 
         btPassageEtudiant.setText("Passage des étudiants en classe supérieure");
 
@@ -1410,6 +1415,29 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         
     
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btNotesEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNotesEtudiantActionPerformed
+        
+   
+        
+    
+         
+       try{
+         
+       FenetreSaisieNotes fmu;
+      fmu = new FenetreSaisieNotes(this,cnx);
+      
+          int ret = fmu.doModal();
+            //etuModel.insererLigne(etu);
+         if (ret == 1) {
+             //etuModel.supprimerLigne(selected_row);
+         }
+       }catch(Exception e){
+           // JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
+//"information", JOptionPane.INFORMATION_MESSAGE); 
+        }
+        
+    }//GEN-LAST:event_btNotesEtudiantActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;

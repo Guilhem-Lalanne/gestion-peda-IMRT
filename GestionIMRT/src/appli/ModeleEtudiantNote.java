@@ -20,8 +20,11 @@ import metier.Etudiant;
  */
 public class ModeleEtudiantNote extends AbstractTableModel{
    private List<Etudiant> leConteneurEtu;
-    private String[] nomColonnes = {"Nom", "Prenom", "Date de Naissance"," UE validé ",};
+    private String[] nomColonnes = {"Nom", "Prenom", "Date de Naissance"};
     private DaoEtudiant leDaoEtu;
+
+    public ModeleEtudiantNote() {
+    }
 
     public ModeleEtudiantNote (DaoEtudiant leDaoEtu) {
 
@@ -56,7 +59,10 @@ public class ModeleEtudiantNote extends AbstractTableModel{
     public String getColumnName(int col) {
         return nomColonnes[col];
     }
-
+ public int getIdAt(int i){
+        return leConteneurEtu.get(i).getIdClasse();
+   
+    }
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Etudiant etu = leConteneurEtu.get(rowIndex);
@@ -70,7 +76,7 @@ public class ModeleEtudiantNote extends AbstractTableModel{
             case 2:
                 return etu.getDateNaissanceEtudiant();
             case 3:
-              
+           
         }
         
         return null;

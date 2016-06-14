@@ -53,7 +53,7 @@ public class DaoEtudiant {
                     etuAdresse,
                     etuNumFixe,
                     etuNumMobile,
-                    etuMail));
+                    etuMail,etuClasseId));
 
         }
 

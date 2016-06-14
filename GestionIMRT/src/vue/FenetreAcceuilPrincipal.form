@@ -386,6 +386,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Gestion des notes"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btNotesEtudiantActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btPassageEtudiant">
               <Properties>
