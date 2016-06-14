@@ -39,7 +39,7 @@ public class Etudiant {
             String adresseEtudiant, 
             String numeroTelFixeEtudiant, 
             String numeroTelMobilEtudiant, 
-            String mailEtudiant) {
+            String mailEtudiant,int idClasse) {
         this.idEtudiant =  idEtudiant;
         this.nomEtudiant = nomEtudiant;
         this.prenomEtudiant = prenomEtudiant;
@@ -48,6 +48,7 @@ public class Etudiant {
         this.numeroTelFixeEtudiant = numeroTelFixeEtudiant;
         this.numeroTelMobilEtudiant = numeroTelMobilEtudiant;
         this.mailEtudiant = mailEtudiant;
+        this.idClasse=idClasse;
     }
     
     

@@ -7,6 +7,7 @@ package vue;
 
 import appli.tools;
 import dao.DaoUser;
+import java.awt.Frame;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -21,25 +22,38 @@ import metier.Employeur;
  *
  * @author paul
  */
-public class FenetreAjoutEmployeur extends javax.swing.JFrame {
-    private Employeur emp;
-      private int resultat;
-    Connection cnx;
+public class FenetreAjoutModifEmployeur extends javax.swing.JDialog {
     
-    JFrame parent;
-     private DaoUser daoEmployeur;
+    public Employeur emp;
+    Connection cnx;
+
     /**
-     * Creates new form FenetreAjoutEmployeur
+     * Creates new form FenetreAjoutModifEmployeur
+     * @param parenta
+     * @param emp
+     * @param cnx
      */
-    public FenetreAjoutEmployeur(java.awt.Frame parent,Employeur emp,Connection cnx ) {
+    /*
+    public FenetreAjoutModifEmployeur(java.awt.Frame parent,
+            Employeur e,
+            Connection cnx) {
+        super(parent, true);
+        emp = e;
+        cnx = cnx;
+        
         initComponents();
-        this.emp=emp;
-        this.cnx=cnx;
+    }*/
+
+    public FenetreAjoutModifEmployeur(Frame parenta, Employeur emp, Connection cnx) {
+        super(parenta, true);
+        emp = emp;
+        cnx = cnx;
+        
+        initComponents();
     }
-    public int doModal() {
-        this.setVisible(true);
-        return resultat;
-    }
+
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,7 +71,7 @@ public class FenetreAjoutEmployeur extends javax.swing.JFrame {
         btEnejistrerEmp = new javax.swing.JButton();
         btAnnulerEmp = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lTitreAjouEmp.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lTitreAjouEmp.setText("Ajout d'un nouvel employeur");
@@ -109,7 +123,7 @@ public class FenetreAjoutEmployeur extends javax.swing.JFrame {
                                         .addComponent(txNomEmp)
                                         .addComponent(txAdresseEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)))
                                 .addComponent(btEnejistrerEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +138,7 @@ public class FenetreAjoutEmployeur extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txAdresseEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btAnnulerEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btEnejistrerEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -137,65 +151,63 @@ public class FenetreAjoutEmployeur extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btAnnulerEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAnnulerEmpActionPerformed
-         this.dispose();
-    }//GEN-LAST:event_btAnnulerEmpActionPerformed
-
     private void btEnejistrerEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnejistrerEmpActionPerformed
-     try {
+        try {
 
-               int result;
-                //int id_suppression = this.ens.getIdEnseignant();
-                //bloc servant a recuperer les valeur dans les different fenetre
-                emp.setNomEmployeur(this.txNomEmp.getText());
-                emp.setAdresseEmployeur(this.txAdresseEmp.getText());
-                //todo gestion employeur et ue
-                
-                //TODO: VALIDATION
-               
-                 CallableStatement cstmt = cnx.prepareCall ("{ ? = call AJOUTER_EMPLOYEUR (?,?)}");
+            int result;
+            //int id_suppression = this.ens.getIdEnseignant();
+            //bloc servant a recuperer les valeur dans les different fenetre
+            emp.setNomEmployeur(this.txNomEmp.getText());
+            emp.setAdresseEmployeur(this.txAdresseEmp.getText());
+            //todo gestion employeur et ue
 
-                cstmt.registerOutParameter (1, Types.INTEGER);
-                
-                cstmt.setString(2,emp.getNomEmployeur());
-                cstmt.setString(3,emp.getAdresseEmployeur());
-                
-               
-                
-                tools.debug(emp.toString());
-                
-                cstmt.execute();
-                
-                result = cstmt.getInt(1);
+            //TODO: VALIDATION
 
-                tools.debug("Ajout : " + result);
+            CallableStatement cstmt = cnx.prepareCall ("{ ? = call AJOUTER_EMPLOYEUR (?,?)}");
 
-                //if (result == 1) {
+            cstmt.registerOutParameter (1, Types.INTEGER);
 
-                    JOptionPane.showMessageDialog(null, "Ens "
-                        +this.emp.getNomEmployeur()
-                        + " a été bien ajouté",
-                        "Information", JOptionPane.INFORMATION_MESSAGE);
+            cstmt.setString(2,emp.getNomEmployeur());
+            cstmt.setString(3,emp.getAdresseEmployeur());
 
-                    //this.result = 1;
+            tools.debug(emp.toString());
 
-                    this.dispose();
-                    
+            cstmt.execute();
+
+            result = cstmt.getInt(1);
+
+            tools.debug("Ajout : " + result);
+
+            //if (result == 1) {
+
+                JOptionPane.showMessageDialog(null, "Ens "
+                    +this.emp.getNomEmployeur()
+                    + " a été bien ajouté",
+                    "Information", JOptionPane.INFORMATION_MESSAGE);
+
+                //this.result = 1;
+
+                this.dispose();
+
                 /*
-                } else {
-                    //result != 1
-                    throw new Exception("Impossible de supprimer ens");
-                }*/
+            } else {
+                //result != 1
+                throw new Exception("Impossible de supprimer ens");
+            }*/
 
-            } catch (SQLException ex) {
-                Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Exception ex) {
-                Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
+        } catch (SQLException ex) {
+            Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_btEnejistrerEmpActionPerformed
 
-  
+    private void btAnnulerEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAnnulerEmpActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btAnnulerEmpActionPerformed
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAnnulerEmp;

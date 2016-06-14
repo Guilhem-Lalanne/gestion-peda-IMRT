@@ -14,9 +14,11 @@ public class Ue {
     private String nomUe;
     private String noUe;
     private int idSemestre;
-    private String nbHeureEtudiant;
+    private int nbHeureEtudiant;
 
-    public Ue(String nomUe, String noUe, int idSemestre, String nbHeureEtudiant) {
+    
+    public Ue(int idUe, String nomUe, String noUe, int idSemestre, int nbHeureEtudiant) {
+        this.idUe=idUe;
         this.nomUe = nomUe;
         this.noUe = noUe;
         this.idSemestre = idSemestre;
@@ -55,11 +57,11 @@ public class Ue {
         this.idSemestre = idSemestre;
     }
 
-    public String getNbHeureEtudiant() {
+    public int getNbHeureEtudiant() {
         return nbHeureEtudiant;
     }
 
-    public void setNbHeureEtudiant(String nbHeureEtudiant) {
+    public void setNbHeureEtudiant(int nbHeureEtudiant) {
         this.nbHeureEtudiant = nbHeureEtudiant;
     }
     
