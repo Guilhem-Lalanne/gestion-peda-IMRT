@@ -212,15 +212,14 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
     }//GEN-LAST:event_cbClasseActionPerformed
 
     private void cbClasseItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbClasseItemStateChanged
-      /**
-       // int id_select = cbClasse.getItemAt(WIDTH));
-       tools.debug("numeros id select"+id_select);
-     DaoEtudiant daoEtu = new DaoEtudiant(cnx);
-        modelEtuClasse = new ModeleEtudiantClasse(daoEtu,id_select);
-   ;
+      
+    int id_select = modelClass.get(cbClasse.getSelectedIndex()).getIdClasse();
+    tools.debug("numeros id select"+id_select);
+    DaoEtudiant daoEtu = new DaoEtudiant(cnx);
+    modelEtuClasse = new ModeleEtudiantClasse(daoEtu,id_select);
         
-        tListeNotes.setModel(modelEtuClasse); 
-        **/
+    tListeNotes.setModel(modelEtuClasse); 
+       
     }//GEN-LAST:event_cbClasseItemStateChanged
 
     private void btFinNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinNotesActionPerformed
