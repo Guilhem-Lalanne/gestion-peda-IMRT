@@ -96,4 +96,41 @@ public class DaoEtudiant {
         return currentEtu;
         
     }
+    public void getEtudiantClasse(List<Etudiant> etudiants,int idClasse) throws SQLException {
+        
+        // TODO : Modif des champs !
+        // ie plus intéressant d'avoir le groupe et/ou la classe, imo (Guilhem)
+        String req = "select etu.id,etu.NOM, etu.PRENOM, etu.DATE_NAISSANCE  "
+                + " from GI_ETUDIANT etu "
+                + "where etu.ID_CLASSE = ?";
+        PreparedStatement pstmt = cnx.prepareStatement(req);
+        
+        tools.debug(req);
+        
+        Etudiant currentEtu = new Etudiant();
+        
+        pstmt.setInt(1,idClasse);
+        
+        ResultSet rset = pstmt.executeQuery();
+        
+        while (rset.next()) {       // traitement du résulat
+            
+            currentEtu.setIdEtudiant(rset.getInt(1));
+            currentEtu.setNomEtudiant(rset.getString(2));
+            currentEtu.setPrenomEtudiant(rset.getString(3));
+            currentEtu.setDateNaissanceEtudiant(rset.getString(4));
+             etudiants.add(currentEtu);         
+                    
+        }
+       
+        rset.close();
+        pstmt.close();
+        
+       
+        
+    }
+
+    public void getEtudiantClasse(List<Etudiant> leConteneurEtu) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

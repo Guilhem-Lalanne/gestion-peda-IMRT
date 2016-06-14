@@ -6,12 +6,17 @@
 package vue;
 
 import appli.ModeleClasse;
+import appli.ModeleEtudiantClasse;
+import appli.ModeleEtudiantExamen;
 import appli.ModeleEtudiantNote;
+import appli.ModeleUe;
 import appli.tools;
 import dao.DaoClasse;
 import dao.DaoEtudiant;
+import dao.DaoUe;
 import java.awt.Frame;
 import java.sql.Connection;
+import javax.swing.ComboBoxModel;
 
 /**
  *
@@ -25,10 +30,11 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
      * 1 - action ok (il faut mettre à jour le vue principale)
      */
     private int resultat;
-    
+    private int idClasse;
     public Frame parenta;
+    ModeleClasse modelClass;
     
-    public ModeleEtudiantNote modelNoteEtu;
+    public ModeleEtudiantClasse modelEtuClasse;
     
     Connection cnx;
 
@@ -38,18 +44,24 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
     public FenetreSaisieNotes(java.awt.Frame parent,Connection cnx) {
         
         initComponents();
+        idClasse=1;
         this.cnx=cnx;
          DaoClasse daoClas =new  DaoClasse(cnx);
          DaoEtudiant daoEtu = new DaoEtudiant(cnx);
-            ModeleClasse modelClass =new ModeleClasse(daoClas);
+         DaoUe daoUe =new DaoUe(cnx);
+         modelClass =new ModeleClasse(daoClas);
+         ModeleEtudiantExamen modelEtu= new ModeleEtudiantExamen(daoEtu);
             
             //recuperation des données dans modelList
-            modelNoteEtu = new ModeleEtudiantNote(daoEtu);
+            
+            ModeleUe modelUe =new ModeleUe(daoUe);
             
             //je met le model dans la table
            
-            tListeNotes.setModel(modelNoteEtu);
+            tListeNotes.setModel(modelEtu);
             cbClasse.setModel(modelClass);
+            
+            cbUe.setModel( modelUe);
     }
    public int doModal() {
         this.setVisible(true);
@@ -68,7 +80,7 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
         lClasse = new javax.swing.JLabel();
         cbClasse = new javax.swing.JComboBox<>();
         lUE = new javax.swing.JLabel();
-        cbUE = new javax.swing.JComboBox<>();
+        cbUe = new javax.swing.JComboBox<>();
         spListeNotes = new javax.swing.JScrollPane();
         tListeNotes = new javax.swing.JTable();
         btImporterNotes = new javax.swing.JButton();
@@ -99,7 +111,7 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
         lUE.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lUE.setText("U.E");
 
-        cbUE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbUe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         tListeNotes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tListeNotes.setModel(new javax.swing.table.DefaultTableModel(
@@ -126,40 +138,49 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
 
         btFinNotes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btFinNotes.setText("Fin");
+        btFinNotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFinNotesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btImporterNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(btEnregistrerNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(btAnnulerNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                        .addComponent(btFinNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(spListeNotes, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(47, 47, 47)
-                                        .addComponent(lUE, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(cbUE, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(106, 106, 106)
-                                        .addComponent(lSaisieNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btImporterNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(128, 128, 128)
+                                .addComponent(btEnregistrerNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(82, 82, 82)
+                                .addComponent(btAnnulerNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                                .addComponent(btFinNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(spListeNotes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(48, 48, 48))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(lClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(189, 189, 189)
+                                .addComponent(lSaisieNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(cbClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69)
+                                .addComponent(lUE, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cbUe, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,16 +192,15 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
                     .addComponent(lClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbClasse)
                     .addComponent(lUE, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbUE, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                    .addComponent(cbUe, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
                 .addComponent(spListeNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(115, 115, 115)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btAnnulerNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btImporterNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btEnregistrerNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btFinNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(92, 92, 92)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btImporterNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btEnregistrerNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btFinNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAnnulerNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(141, 141, 141))
         );
 
@@ -192,23 +212,20 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
     }//GEN-LAST:event_cbClasseActionPerformed
 
     private void cbClasseItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbClasseItemStateChanged
-      
-        int id_select = cbClasse.getSelectedIndex();
-        int taille=modelNoteEtu.getRowCount();
-        taille=taille;
-     ModeleEtudiantNote modelNoteEtuTemp = new ModeleEtudiantNote();
-     
-      modelNoteEtuTemp=modelNoteEtu;
-         tools.debug("talle de liste etudiant classe : " + taille);
-           tools.debug("talle de liste etudiant classe temp : " + modelNoteEtuTemp.getRowCount() );
-        for(int i=0;i<=taille;i++){
-        if(id_select!=modelNoteEtu.getIdAt(i));
-        modelNoteEtuTemp.supprimerLigne(i);
-          tools.debug("talle de liste etudiant classe : " + taille);
-        }
-        tListeNotes.setModel(modelNoteEtuTemp); 
+      /**
+       // int id_select = cbClasse.getItemAt(WIDTH));
+       tools.debug("numeros id select"+id_select);
+     DaoEtudiant daoEtu = new DaoEtudiant(cnx);
+        modelEtuClasse = new ModeleEtudiantClasse(daoEtu,id_select);
+   ;
         
+        tListeNotes.setModel(modelEtuClasse); 
+        **/
     }//GEN-LAST:event_cbClasseItemStateChanged
+
+    private void btFinNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinNotesActionPerformed
+         this.dispose();
+    }//GEN-LAST:event_btFinNotesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -217,7 +234,7 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
     private javax.swing.JButton btFinNotes;
     private javax.swing.JButton btImporterNotes;
     private javax.swing.JComboBox<String> cbClasse;
-    private javax.swing.JComboBox<String> cbUE;
+    private javax.swing.JComboBox<String> cbUe;
     private javax.swing.JLabel lClasse;
     private javax.swing.JLabel lSaisieNotes;
     private javax.swing.JLabel lUE;

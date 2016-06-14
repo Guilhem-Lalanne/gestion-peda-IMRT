@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JCheckBox;
 import javax.swing.table.AbstractTableModel;
 import metier.Etudiant;
 
@@ -19,13 +18,13 @@ import metier.Etudiant;
  *
  * @author paul
  */
-public class ModeleEtudiantExamen extends AbstractTableModel {
-     private List<Etudiant> leConteneurEtu;
+public class ModeleEtudiantClasse extends AbstractTableModel {
+       private List<Etudiant> leConteneurEtu;
     private String[] nomColonnes = {"Nom", "Prenom", "Date de Naissance"};
     private DaoEtudiant leDaoEtu;
-
-    public ModeleEtudiantExamen (DaoEtudiant leDaoEtu) {
-
+    private int idClasse;
+    public ModeleEtudiantClasse (DaoEtudiant leDaoEtu,int idClasse) {
+        this.idClasse=idClasse;
         this.leDaoEtu = leDaoEtu;
         leConteneurEtu = new ArrayList<>();
 
@@ -89,6 +88,6 @@ public class ModeleEtudiantExamen extends AbstractTableModel {
 
     
     private void charger() throws SQLException {
-        leDaoEtu.getListEtudiants(leConteneurEtu);
+        leDaoEtu.getEtudiantClasse(leConteneurEtu,idClasse);
     }
 }

@@ -49,6 +49,9 @@ public class ModeleClasse extends DefaultComboBoxModel {
     public Object getElementAt(int i) {
         return leConteneur.get(i).getNom();
     }
+     public Object getElementAtIdClasse(int i) {
+        return leConteneur.get(i).getIdClasse();
+    }
 
     @Override
     public int getSize() {

@@ -19,74 +19,39 @@ import metier.Ue;
  *
  * @author paul
  */
-public class ModeleUe extends AbstractTableModel {
-       //private List<Etudiant> leConteneurEtu;
-    private List<Ue> leConteneurUe;
-    private String[] nomColonnes = {"id", "Nom ",};
-    private DaoUe leDaoUe;
+public class ModeleUe extends DefaultComboBoxModel {
+      private List<Ue> leConteneur;
+    private DaoUe leDao;
 
-    public ModeleUe(DaoUe leDaoUe) {
-        this.leDaoUe = leDaoUe;
-        leConteneurUe = new ArrayList<>();
+    public ModeleUe(DaoUe leDao) {
+        
+        this.leDao = leDao;
+        leConteneur = new ArrayList<>();
         
         try {
-            charger();
-        } catch (SQLException ex) {
-            Logger.getLogger(ModeleUe.class.getName()).log(Level.SEVERE, null, ex);
+            
+            chargerClasses();
+            
+       } catch (SQLException ex) {
+            Logger.getLogger(ModeleUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    public ModeleUe() {
-    }
-
+    
     public Ue get(int index) {
-        return leConteneurUe.get(index);
+        return leConteneur.get(index);
+    }
+
+    private void chargerClasses() throws SQLException {
+        leDao.getLisetUe(leConteneur);
+    }
+    
+    @Override
+    public Object getElementAt(int i) {
+        return leConteneur.get(i).getNomUe();
     }
 
     @Override
-    public int getRowCount() {
-        return leConteneurUe.size();
-    }
-
-    @Override
-    public int getColumnCount() {
-        return nomColonnes.length;
-    }
-
-    @Override
-    public String getColumnName(int col) {
-        return nomColonnes[col];
-    }
-
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        Ue ue = leConteneurUe.get(rowIndex);
-
-        switch (columnIndex) {
-
-            case 0:
-                return ue.getIdUe();
-            case 1:
-                return ue.getNomUe();
-            case 2:
-                return ue.getNoUe();
-
-        }
-
-        return null;
-    }
-
-    public void supprimerLigne(int numeroLigne) {
-        leConteneurUe.remove(numeroLigne);
-        this.fireTableDataChanged();
-    }
-
-    public void insererLigne(Ue ue) {
-        leConteneurUe.add(ue);
-        this.fireTableDataChanged();
-    }
-
-     private void charger() throws SQLException {
-        leDaoUe.getLisetUe(leConteneurUe);
+    public int getSize() {
+        return leConteneur.size();
     }
 }
