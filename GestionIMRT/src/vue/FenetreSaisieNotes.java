@@ -32,7 +32,7 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
     private int resultat;
     private int idClasse;
     public Frame parenta;
-    ModeleClasse modelClass;
+    public ModeleClasse modelClass;
     
     public ModeleEtudiantClasse modelEtuClasse;
     
@@ -60,8 +60,9 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
            
             tListeNotes.setModel(modelEtu);
             cbClasse.setModel(modelClass);
-            
+            cbClasse.setSelectedItem(modelClass.getElementAt(2));//a changer car lindice  change 
             cbUe.setModel( modelUe);
+            cbUe.setSelectedItem(modelUe.getElementAt(1));
     }
    public int doModal() {
         this.setVisible(true);
@@ -178,8 +179,8 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
                                 .addGap(69, 69, 69)
                                 .addComponent(lUE, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(cbUe, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(cbUe, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
@@ -190,7 +191,7 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbClasse)
+                    .addComponent(cbClasse, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                     .addComponent(lUE, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbUe, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(70, 70, 70)
@@ -207,24 +208,23 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbClasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbClasseActionPerformed
-      
-    }//GEN-LAST:event_cbClasseActionPerformed
-
-    private void cbClasseItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbClasseItemStateChanged
-      
-    int id_select = modelClass.get(cbClasse.getSelectedIndex()).getIdClasse();
-    tools.debug("numeros id select"+id_select);
-    DaoEtudiant daoEtu = new DaoEtudiant(cnx);
-    modelEtuClasse = new ModeleEtudiantClasse(daoEtu,id_select);
-        
-    tListeNotes.setModel(modelEtuClasse); 
-       
-    }//GEN-LAST:event_cbClasseItemStateChanged
-
     private void btFinNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinNotesActionPerformed
          this.dispose();
     }//GEN-LAST:event_btFinNotesActionPerformed
+
+    private void cbClasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbClasseActionPerformed
+
+    }//GEN-LAST:event_cbClasseActionPerformed
+
+    private void cbClasseItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbClasseItemStateChanged
+
+        int id_select = modelClass.get(cbClasse.getSelectedIndex()).getIdClasse();
+        tools.debug("numeros id select"+id_select);
+        DaoEtudiant daoEtu = new DaoEtudiant(cnx);
+        modelEtuClasse = new ModeleEtudiantClasse(daoEtu,id_select);
+
+        tListeNotes.setModel(modelEtuClasse);
+    }//GEN-LAST:event_cbClasseItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

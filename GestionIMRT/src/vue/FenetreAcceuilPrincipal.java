@@ -6,20 +6,25 @@ package vue;
 
 import appli.ModelModifEnseignant;
 import appli.ModeleAgenda;
+import appli.ModeleClasse;
 import appli.ModeleEmployeur;
 import appli.ModeleUser;
 import appli.ModeleEtudiant;
+import appli.ModeleEtudiantClasse;
 import appli.ModeleEtudiantExamen;
 import appli.ModeleNomEmployeur;
 import appli.ModeleReferentiel;
+import appli.ModeleUe;
 import appli.tools;
 import dao.DaoAgenda;
+import dao.DaoClasse;
 import dao.DaoEmployeur;
 import dao.DaoEnseignant;
 import dao.DaoPromotion;
 import dao.DaoReferentiel;
 import dao.DaoUser;
 import dao.DaoEtudiant;
+import dao.DaoUe;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -50,80 +55,79 @@ import metier.Employeur;
  * @author paul
  */
 public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
-     
- Connection cnx;
-    
+
+    Connection cnx;
+
     JFrame parent;
     public User currentUser;
     public Promotion promotion;
-    
+
     private ModeleUser userModel;
     private ModelModifEnseignant modeleEns;
-    
+
     private DaoUser daoUser;
     private DaoEnseignant daoEns;
     private DaoAgenda daoAg;
-            
+
+    private ModeleEtudiantClasse modelEtuClasse;
     private ModeleEtudiant etuModel;
-    private ModeleEtudiantExamen  etuModelExam;
+    private ModeleEtudiantExamen etuModelExam;
     private ModeleEmployeur modelNomEmp;
     private ModeleAgenda agendaModel;
-    
+    private ModeleClasse modelClass;
     private Calendar dateAgenda;
-    
+
     /**
      * Creates new form Fenetre
+     *
      * @param cnx
      * @param u
      */
     public FenetreAcceuilPrincipal(Connection cnx, User u) throws SQLException {
-        
+
         //init connection
         this.cnx = cnx;
-        
+
         //init user
         this.currentUser = u;
-        
+
         initComponents();
-        
+
         //init agenda date
         dateAgenda = Calendar.getInstance(Locale.FRANCE);
-        
+
         //this.pGroupPane.add(new testOngletAjout());
-        
         //preparation affichage de la fenetre principale
-        
         //affichage de la fenetre principale
-            
         //je cherche la promotion qui est en cours
         DaoPromotion dp = new DaoPromotion(this.cnx);
         promotion = dp.getCurrentPromotion();
-        this.lAnnee.setText("Promotion en cours: "+promotion.getNomPromotion());
+        this.lAnnee.setText("Promotion en cours: " + promotion.getNomPromotion());
 
         //activation des fenetres
-
-        this.lLogin.setText("User login: "+u.getLogin());
-        this.lNiveau.setText("Niveau: "+u.getGroupeLibelle());
+        this.lLogin.setText("User login: " + u.getLogin());
+        this.lNiveau.setText("Niveau: " + u.getGroupeLibelle());
 
         int[] activityTable = u.getOngletsGroupes();
 
-        for (int i=0;i<=5;i++) {
-            if (activityTable[i] == 1)
+        for (int i = 0; i <= 5; i++) {
+            if (activityTable[i] == 1) {
                 pGroupPane.setEnabledAt(i, true);
-            else 
+            } else {
                 pGroupPane.setEnabledAt(i, false);
+            }
         }
-        
-        this.pGroupPane.add(new PanelClasse(cnx,this));
-        
+
+        this.pGroupPane.add(new PanelClasse(cnx, this));
+
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double width = screenSize.getWidth();
         double height = screenSize.getHeight();
-        
-        tools.debug("dim:" + width + " "+height);
-        
-        this.setSize(Integer.valueOf((int) width), (int) (height-25));
-        
+
+        tools.debug("dim:" + width + " " + height);
+
+        this.setSize(Integer.valueOf((int) width), (int) (height - 25));
+
     }
 
     /**
@@ -202,9 +206,9 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btImprimConvocIntrogateur = new javax.swing.JButton();
         tTitreGestionExam = new javax.swing.JLabel();
         lPromotion = new javax.swing.JLabel();
-        cbChoixPromotion = new javax.swing.JComboBox<>();
         spListeEtudConvoque = new javax.swing.JScrollPane();
         liEtudConvoquer = new javax.swing.JTable();
+        cbChoixClasse = new javax.swing.JComboBox<>();
         pGestionUsers = new javax.swing.JPanel();
         spUser = new javax.swing.JScrollPane();
         LiUser = new javax.swing.JTable();
@@ -738,8 +742,6 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         lPromotion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lPromotion.setText("promotion");
 
-        cbChoixPromotion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         liEtudConvoquer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -761,31 +763,41 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         });
         spListeEtudConvoque.setViewportView(liEtudConvoquer);
 
+        cbChoixClasse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbChoixClasse.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbChoixClasseItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout pGestionExamenLayout = new javax.swing.GroupLayout(pGestionExamen);
         pGestionExamen.setLayout(pGestionExamenLayout);
         pGestionExamenLayout.setHorizontalGroup(
             pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pGestionExamenLayout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addComponent(spListeEtudConvoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pGestionExamenLayout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(spListeEtudConvoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pGestionExamenLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(cbChoixClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(872, Short.MAX_VALUE))
             .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pGestionExamenLayout.createSequentialGroup()
-                    .addContainerGap()
                     .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pGestionExamenLayout.createSequentialGroup()
-                            .addComponent(lPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(27, 27, 27)
-                            .addComponent(cbChoixPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(122, 122, 122)
+                            .addGap(389, 389, 389)
                             .addComponent(lUE, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(58, 58, 58)
                             .addComponent(cbChoixUe, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(pGestionExamenLayout.createSequentialGroup()
-                            .addGap(295, 295, 295)
+                            .addGap(305, 305, 305)
                             .addComponent(tTitreGestionExam, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(pGestionExamenLayout.createSequentialGroup()
-                            .addGap(9, 9, 9)
+                            .addGap(19, 19, 19)
                             .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(pEtudrepasUe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(pGestionExamenLayout.createSequentialGroup()
@@ -806,7 +818,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         pGestionExamenLayout.setVerticalGroup(
             pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pGestionExamenLayout.createSequentialGroup()
-                .addGap(163, 163, 163)
+                .addGap(92, 92, 92)
+                .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbChoixClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addComponent(spListeEtudConvoque, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(605, Short.MAX_VALUE))
             .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -816,13 +832,9 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                     .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pGestionExamenLayout.createSequentialGroup()
                             .addGap(23, 23, 23)
-                            .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbChoixPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(cbChoixUe, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lUE, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cbChoixUe, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lUE, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(pGestionExamenLayout.createSequentialGroup()
                             .addGap(38, 38, 38)
                             .addComponent(btImprimListEmargement, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -927,32 +939,31 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBModifEnsegnantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModifEnsegnantActionPerformed
-               DaoEmployeur daoEmp = new DaoEmployeur(cnx);
-        
+        DaoEmployeur daoEmp = new DaoEmployeur(cnx);
+
         ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
-        
+
         FenetreModifEnseignant fmu;
-        
+
         int selected_row = liEnseignant.getSelectedRow();
-        
+
         try {
-            
+
             //TODO: ajouter verif selection 
-            fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Modifier fiche enseignant",cnx);
-        
+            fmu = new FenetreModifEnseignant(this, modeleEns.get(selected_row), modelNomEmp, "Modifier fiche enseignant", cnx);
+
             int ret = fmu.doModal();
-        
-            tools.debug("modifier retour: "+ret);
+
+            tools.debug("modifier retour: " + ret);
             /**
-             * mettre a jour la liste
-            if (ret == 1) {
-                modeleEns.supprimerLigne(selected_row);
-            }
-        **/
-        } catch(Exception e) {
-            
-           JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
-           "information", JOptionPane.INFORMATION_MESSAGE); 
+             * mettre a jour la liste if (ret == 1) {
+             * modeleEns.supprimerLigne(selected_row); }
+        *
+             */
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
+                    "information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jBModifEnsegnantActionPerformed
 
@@ -967,123 +978,125 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_pGestionUsersMouseClicked
 
     private void pGroupPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pGroupPaneStateChanged
-        
+
         //TODO: juste pour le periode de dev, apres il faut mettre toutes les
         // pane's dans ce propres classes
-        
-        JTabbedPane sourceTabbedPane = (JTabbedPane)evt.getSource();
+        JTabbedPane sourceTabbedPane = (JTabbedPane) evt.getSource();
         int index = sourceTabbedPane.getSelectedIndex();
-        
+
         //onglet users
         if (index == 5) {
             tools.debug("->GestionUsers");
-            
+
             //init de dao pour recuperation des données
             //1 seule dao par fonctionalité
             daoUser = new DaoUser(cnx);
-            
+
             //recuperation des données dans modelList
             userModel = new ModeleUser(daoUser);
-            
+
             //je met le model dans la table
             LiUser.setModel(userModel);
-            
+
         } else if (index == 3) {
             //onglet enseignant
-            
+
             //TODO: Paul mettre model + dao d'ensegeignant
             tools.debug("->GestionEnseignants");
-            
+
             daoEns = new DaoEnseignant(cnx);
-            
+
             modeleEns = new ModelModifEnseignant(daoEns);
-            
+
             liEnseignant.setModel(modeleEns);
-            
-        
+
         } else if (index == 2) {
             // Onglet Etudiants
             tools.debug("->GestionEtudiants");
-            
+
             //init de dao pour recuperation des données
             //1 seule dao par fonctionalité
             DaoEtudiant daoEtu = new DaoEtudiant(cnx);
-            
+
             //recuperation des données dans modelList
             etuModel = new ModeleEtudiant(daoEtu);
-            
+
             //je met le model dans la table
             liEtudiants.setModel(etuModel);
-            
-        } else if (index == 4 ) {
+
+        } else if (index == 4) {
             // Onglet gestion examen
             tools.debug("->GestionExamen");
-            
+
             //init de dao pour recuperation des données
             //1 seule dao par fonctionalité
             DaoEtudiant daoEtuExam = new DaoEtudiant(cnx);
-            
+            DaoClasse daoClas = new DaoClasse(cnx);
+            DaoUe daoUe = new DaoUe(cnx);
+            ModeleUe modelUe = new ModeleUe(daoUe);
+
+            modelClass = new ModeleClasse(daoClas);
             //recuperation des données dans modelList
             etuModelExam = new ModeleEtudiantExamen(daoEtuExam);
-            
-            //je met le model dans la table
-           liEtudConvoquer.setModel(etuModelExam);
-            
+            cbChoixClasse.setModel(modelClass);
+            cbChoixClasse.setSelectedItem(modelClass.getElementAt(2));//a changer car lindice  change 
+            liEtudConvoquer.setModel(etuModelExam);
+            cbChoixUe.setModel(modelUe);
+            cbChoixUe.setSelectedItem(modelUe.getElementAt(1));
+
         } else if (index == 1) {
             //TODO here
             //Agenda affichage
-            
+
             tools.debug("->Agenda");
-            
+
             lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
-            
+
             choixDate.setDate(dateAgenda.getTime());
-            
+
             daoAg = new DaoAgenda(cnx);
-            
+
             try {
-                
-                agendaModel = new ModeleAgenda
-                        (daoAg, Agenda.getDateDebut(dateAgenda),
-                                Agenda.getDateFin(dateAgenda));
-                
+
+                agendaModel = new ModeleAgenda(daoAg, Agenda.getDateDebut(dateAgenda),
+                        Agenda.getDateFin(dateAgenda));
+
             } catch (SQLException ex) {
                 Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             liAgenda.setModel(agendaModel);
-            
+
             //init agenda visibility
             for (int i = 0; i <= agendaModel.getRowCount(); i++) {
                 liAgenda.setRowHeight(i, 55);
             }
-            
+
             liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
-            
+
         }
     }//GEN-LAST:event_pGroupPaneStateChanged
 
     private void btAjouterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterUserActionPerformed
-        
+
         //init de dao pour recuperation des données
         DaoReferentiel daoRef = new DaoReferentiel(cnx);
-            
+
         //recuperation des données dans modelList
-        ModeleReferentiel refModel = new ModeleReferentiel(daoRef,"userGroupes");
-        
+        ModeleReferentiel refModel = new ModeleReferentiel(daoRef, "userGroupes");
+
         User u = new User();
-            
-        FenetreAjoutModifUser fmu = new FenetreAjoutModifUser
-            (this,  //fenetre pere
-             u, //ma selection d'user
-            refModel, //mon modele de groupes
-            0,
-            cnx);
-        
-       if (fmu.doModal()) {
-           userModel.insererLigne(u);
-       }
-        
+
+        FenetreAjoutModifUser fmu = new FenetreAjoutModifUser(this, //fenetre pere
+                u, //ma selection d'user
+                refModel, //mon modele de groupes
+                0,
+                cnx);
+
+        if (fmu.doModal()) {
+            userModel.insererLigne(u);
+        }
+
     }//GEN-LAST:event_btAjouterUserActionPerformed
 
     private void btAjouterEnseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterEnseignantActionPerformed
@@ -1091,350 +1104,349 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         DaoEmployeur daoEmp = new DaoEmployeur(cnx);
         ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
         FenetreModifEnseignant fmu;
-        
+
         Enseignant ens = new Enseignant();
-        
+
         try {
-            fmu = new FenetreModifEnseignant(this,ens,modelNomEmp,"Ajouter fiche Enseignant",cnx);
+            fmu = new FenetreModifEnseignant(this, ens, modelNomEmp, "Ajouter fiche Enseignant", cnx);
             int ret = fmu.doModal();
-            
-            tools.debug("Ajout retour: "+ens.getNomEnseignant());
-            
+
+            tools.debug("Ajout retour: " + ens.getNomEnseignant());
+
             modeleEns.insererLigne(ens);
-        
+
             if (ret == 1) {
                 //modeleEns.addTableModelListener(LiUser
                 //modeleEns.insererLigne(null);
                 //teste commit
             }
-        
-        }catch(Exception e){
+
+        } catch (Exception e) {
             /*JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
 "information", JOptionPane.INFORMATION_MESSAGE); */
         }
     }//GEN-LAST:event_btAjouterEnseignantActionPerformed
 
     private void btSupprimerEnseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSupprimerEnseignantActionPerformed
-      
+
         DaoEmployeur daoEmp = new DaoEmployeur(cnx);
-        
+
         ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
-        
+
         FenetreModifEnseignant fmu;
-        
+
         int selected_row = liEnseignant.getSelectedRow();
-        
+
         try {
-            
+
             //TODO: ajouter verif selection 
-            fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Suprimer fiche Enseignant",cnx);
-        
+            fmu = new FenetreModifEnseignant(this, modeleEns.get(selected_row), modelNomEmp, "Suprimer fiche Enseignant", cnx);
+
             int ret = fmu.doModal();
-        
-            tools.debug("Suppression retour: "+ret);
-        
+
+            tools.debug("Suppression retour: " + ret);
+
             if (ret == 1) {
                 modeleEns.supprimerLigne(selected_row);
             }
-        
-        } catch(Exception e) {
-            
-           // JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
-          //  "information", JOptionPane.INFORMATION_MESSAGE); 
+
+        } catch (Exception e) {
+
+            // JOptionPane.showMessageDialog(null, "selectionner un enseignant dans la liste ",
+            //  "information", JOptionPane.INFORMATION_MESSAGE); 
         }
     }//GEN-LAST:event_btSupprimerEnseignantActionPerformed
 
     private void btAjouterEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjouterEtudiantActionPerformed
-            //DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
-       
+        //DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
+
         //ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
-          //int selected_row = liEtudiants.getSelectedRow();
+        //int selected_row = liEtudiants.getSelectedRow();
         FenetreModifSuprEtudiant fmu;
-        Etudiant etu =new Etudiant ();
-        try{
+        Etudiant etu = new Etudiant();
+        try {
             //fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Suprimer fiche Enseignant",cnx);
-        fmu = new FenetreModifSuprEtudiant(this,
-                etu,"Ajouter fiche Etudiant",cnx);
-          int ret = fmu.doModal();
+            fmu = new FenetreModifSuprEtudiant(this,
+                    etu, "Ajouter fiche Etudiant", cnx);
+            int ret = fmu.doModal();
             etuModel.insererLigne(etu);
-         if (ret == 1) {
-               //etuModel.supprimerLigne(selected_row);
-         }
-        }catch(Exception e){
-           // JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
+            if (ret == 1) {
+                //etuModel.supprimerLigne(selected_row);
+            }
+        } catch (Exception e) {
+            // JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
 //"information", JOptionPane.INFORMATION_MESSAGE); 
         }
-    
+
     }//GEN-LAST:event_btAjouterEtudiantActionPerformed
 
     private void btModifierEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModifierEtudiantActionPerformed
-       
+
         //DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
-       
         //ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
-          int selected_row = liEtudiants.getSelectedRow();
+        int selected_row = liEtudiants.getSelectedRow();
         FenetreModifSuprEtudiant fmu;
-        try{
+        try {
             //fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Suprimer fiche Enseignant",cnx);
-        fmu = new FenetreModifSuprEtudiant(this,
-                etuModel.getEtu(selected_row),"Modifier fiche Etudiant",cnx);
-          int ret = fmu.doModal();
-          /**
-         if (ret == 1) {
-               etuModel.supprimerLigne(selected_row);
-         }
-         **/
-        }catch(Exception e){
+            fmu = new FenetreModifSuprEtudiant(this,
+                    etuModel.getEtu(selected_row), "Modifier fiche Etudiant", cnx);
+            int ret = fmu.doModal();
+            /**
+             * if (ret == 1) { etuModel.supprimerLigne(selected_row); }
+         *
+             */
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
-"information", JOptionPane.INFORMATION_MESSAGE); 
+                    "information", JOptionPane.INFORMATION_MESSAGE);
         }
-       
+
     }//GEN-LAST:event_btModifierEtudiantActionPerformed
 
     private void btSupprimerEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSupprimerEtudiantActionPerformed
-      
-          //DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
-       
+
+        //DaoEtudiant daoEtu =new   DaoEtudiant(cnx);
         //ModeleEtudiant modeleEtu=new ModeleEtudiant(daoEtu);
-          int selected_row = liEtudiants.getSelectedRow();
+        int selected_row = liEtudiants.getSelectedRow();
         FenetreModifSuprEtudiant fmu;
-        try{
+        try {
             //fmu = new FenetreModifEnseignant(this,modeleEns.get(selected_row),modelNomEmp,"Suprimer fiche Enseignant",cnx);
-        fmu = new FenetreModifSuprEtudiant(this,
-                etuModel.getEtu(selected_row),"Suprimer fiche Etudiant",cnx);
-          int ret = fmu.doModal();
-         if (ret == 1) {
-               etuModel.supprimerLigne(selected_row);
-         }
-        }catch(Exception e){
+            fmu = new FenetreModifSuprEtudiant(this,
+                    etuModel.getEtu(selected_row), "Suprimer fiche Etudiant", cnx);
+            int ret = fmu.doModal();
+            if (ret == 1) {
+                etuModel.supprimerLigne(selected_row);
+            }
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
-"information", JOptionPane.INFORMATION_MESSAGE); 
+                    "information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btSupprimerEtudiantActionPerformed
 
     private void btSupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSupprimerActionPerformed
         try {
-            
+
             if (LiUser.getSelectedRow() != -1) {
-                
+
                 int result;
                 String login_suppresion = this.userModel.getLogin(LiUser.getSelectedRow());
-                
-                CallableStatement cstmt = cnx.prepareCall ("{ ? = call supprimer_user(?)}");
-                
-                cstmt.registerOutParameter (1, Types.INTEGER);
-                cstmt.setString (2, login_suppresion); 
+
+                CallableStatement cstmt = cnx.prepareCall("{ ? = call supprimer_user(?)}");
+
+                cstmt.registerOutParameter(1, Types.INTEGER);
+                cstmt.setString(2, login_suppresion);
                 cstmt.execute();
                 result = cstmt.getInt(1);
                 tools.debug("Suppresion : " + result);
-                
+
                 if (result == 1) {
                     this.userModel.supprimerLigne(LiUser.getSelectedRow());
-                    
-                    JOptionPane.showMessageDialog(null, "Utilisateur "+login_suppresion+ " a été bien supprimé",
-                "Information", JOptionPane.INFORMATION_MESSAGE);
-                    
+
+                    JOptionPane.showMessageDialog(null, "Utilisateur " + login_suppresion + " a été bien supprimé",
+                            "Information", JOptionPane.INFORMATION_MESSAGE);
+
                 } else {
                     //result != 1
                     throw new Exception("Impossible de supprimer utilisateur");
                 }
-                
+
             } else {
                 throw new Exception("Selectionner un User");
             }
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(),
-                "Information", JOptionPane.INFORMATION_MESSAGE);
+                    "Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btSupprimerActionPerformed
 
     private void btModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModifierActionPerformed
-        
+
         //init de dao pour recuperation des données
         DaoReferentiel daoRef = new DaoReferentiel(cnx);
-            
+
         //recuperation des données dans modelList
-        ModeleReferentiel refModel = new ModeleReferentiel(daoRef,"userGroupes");
-            
-        FenetreAjoutModifUser fmu = new FenetreAjoutModifUser
-            (this,  //fenetre pere
-            this.userModel.get(LiUser.getSelectedRow()), //ma selection d'user
-            refModel, //mon modele de groupes
-            1,
-            cnx);
-        
+        ModeleReferentiel refModel = new ModeleReferentiel(daoRef, "userGroupes");
+
+        FenetreAjoutModifUser fmu = new FenetreAjoutModifUser(this, //fenetre pere
+                this.userModel.get(LiUser.getSelectedRow()), //ma selection d'user
+                refModel, //mon modele de groupes
+                1,
+                cnx);
+
         fmu.doModal();
-        
+
     }//GEN-LAST:event_btModifierActionPerformed
 
     private void btSemainePrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSemainePrecActionPerformed
-       
+
         Agenda.setPreviousWeek(dateAgenda);
         //lDate.setText("Aujourd'hui " + Agenda.getDate(dateAgenda));
         lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
         choixDate.setDate(dateAgenda.getTime());
-        
+
         //TODO: put getter et setter
         agendaModel.date_debut = Agenda.getDateDebut(dateAgenda);
         agendaModel.date_fin = Agenda.getDateFin(dateAgenda);
-        
-        tools.debug("new date: " + agendaModel.date_debut+ "->" + agendaModel.date_fin);
-        
+
+        tools.debug("new date: " + agendaModel.date_debut + "->" + agendaModel.date_fin);
+
         try {
             agendaModel.charger();
         } catch (SQLException ex) {
             Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //init agenda visibility
         for (int i = 0; i <= agendaModel.getRowCount(); i++) {
             liAgenda.setRowHeight(i, 55);
         }
 
         liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
-        
+
     }//GEN-LAST:event_btSemainePrecActionPerformed
 
     private void btSemaineNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSemaineNextActionPerformed
-        
+
         Agenda.setNextWeek(dateAgenda);
         //lDate.setText("Aujourd'hui " + Agenda.getDate(dateAgenda));
         lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
         choixDate.setDate(dateAgenda.getTime());
-        
+
         //TODO: put getter et setter
         agendaModel.date_debut = Agenda.getDateDebut(dateAgenda);
         agendaModel.date_fin = Agenda.getDateFin(dateAgenda);
-        
-        tools.debug("new date: " + agendaModel.date_debut+ "->" + agendaModel.date_fin);
-        
+
+        tools.debug("new date: " + agendaModel.date_debut + "->" + agendaModel.date_fin);
+
         try {
             agendaModel.charger();
         } catch (SQLException ex) {
             Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //init agenda visibility
         for (int i = 0; i <= agendaModel.getRowCount(); i++) {
             liAgenda.setRowHeight(i, 55);
         }
 
         liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
-        
+
     }//GEN-LAST:event_btSemaineNextActionPerformed
 
     private void choixDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choixDateActionPerformed
-        
+
         //tools.debug("test");
         dateAgenda.setTime(choixDate.getDate());
         lSemaine.setText("Semaine " + Agenda.getWeek(dateAgenda));
-        
+
         //TODO: put getter et setter
         agendaModel.date_debut = Agenda.getDateDebut(dateAgenda);
         agendaModel.date_fin = Agenda.getDateFin(dateAgenda);
-        
-        tools.debug("new date: " + agendaModel.date_debut+ "->" + agendaModel.date_fin);
-        
+
+        tools.debug("new date: " + agendaModel.date_debut + "->" + agendaModel.date_fin);
+
         try {
             agendaModel.charger();
         } catch (SQLException ex) {
             Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //init agenda visibility
         for (int i = 0; i <= agendaModel.getRowCount(); i++) {
             liAgenda.setRowHeight(i, 55);
         }
 
         liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
-        
+
     }//GEN-LAST:event_choixDateActionPerformed
 
     private void btModifSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModifSeanceActionPerformed
-        
+
         CelluleAgenda ca = agendaModel.getObjetAt(liAgenda.getSelectedRow(), liAgenda.getSelectedColumn());
 
         FenetreModifSeance fs = null;
-        
+
         try {
             fs = new FenetreModifSeance(this, ca, cnx, 1);
         } catch (ParseException ex) {
             Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-         Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-     }
+            Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         //if - actions
         fs.doModal();
-        
+
     }//GEN-LAST:event_btModifSeanceActionPerformed
 
     private void btAjoutSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjoutSeanceActionPerformed
-        
+
         CelluleAgenda ca = agendaModel.getObjetAt(liAgenda.getSelectedRow(), liAgenda.getSelectedColumn());
 
         FenetreModifSeance fs = null;
-        
+
         try {
             fs = new FenetreModifSeance(this, ca, cnx, 0);
         } catch (ParseException ex) {
             Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-         Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-     }
+            Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         //if - actions
         fs.doModal();
     }//GEN-LAST:event_btAjoutSeanceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     DaoEmployeur daoEmp = null;
-      ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
-   
-        
+        DaoEmployeur daoEmp = null;
+        ModeleNomEmployeur modelNomEmp = new ModeleNomEmployeur(daoEmp);
+
         Employeur emp = new Employeur();
-         
-        try{
-         
-       FenetreAjoutEmployeur fmu;
-      fmu = new FenetreAjoutEmployeur(this,
-              emp,cnx);
-          int ret = fmu.doModal();
+
+        try {
+
+            FenetreAjoutEmployeur fmu;
+            fmu = new FenetreAjoutEmployeur(this,
+                    emp, cnx);
+            int ret = fmu.doModal();
             //etuModel.insererLigne(etu);
-         if (ret == 1) {
-               //etuModel.supprimerLigne(selected_row);
-         }
-        }catch(Exception e){
-           // JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
+            if (ret == 1) {
+                //etuModel.supprimerLigne(selected_row);
+            }
+        } catch (Exception e) {
+            // JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
 //"information", JOptionPane.INFORMATION_MESSAGE); 
         }
-        
-    
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btNotesEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNotesEtudiantActionPerformed
-        
-   
-        
-    
-         
-       try{
-         
-       FenetreSaisieNotes fmu;
-      fmu = new FenetreSaisieNotes(this,cnx);
-      
-          int ret = fmu.doModal();
+
+        try {
+
+            FenetreSaisieNotes fmu;
+            fmu = new FenetreSaisieNotes(this, cnx);
+
+            int ret = fmu.doModal();
             //etuModel.insererLigne(etu);
-         if (ret == 1) {
-             //etuModel.supprimerLigne(selected_row);
-         }
-       }catch(Exception e){
-           // JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
+            if (ret == 1) {
+                //etuModel.supprimerLigne(selected_row);
+            }
+        } catch (Exception e) {
+            // JOptionPane.showMessageDialog(null, "selectionner un Etudiant ",
 //"information", JOptionPane.INFORMATION_MESSAGE); 
         }
-        
+
     }//GEN-LAST:event_btNotesEtudiantActionPerformed
+
+    private void cbChoixClasseItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbChoixClasseItemStateChanged
+        int id_select = modelClass.get(cbChoixClasse.getSelectedIndex()).getIdClasse();
+        tools.debug("numeros id select" + id_select);
+        DaoEtudiant daoEtu = new DaoEtudiant(cnx);
+        modelEtuClasse = new ModeleEtudiantClasse(daoEtu, id_select);
+        liEtudConvoquer.setModel(modelEtuClasse);
+    }//GEN-LAST:event_cbChoixClasseItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;
@@ -1467,10 +1479,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btSupprimerEtudiant;
     private javax.swing.JButton btVoirEnseignant;
     private javax.swing.JButton btimprilConvocSurveil;
+    private javax.swing.JComboBox<String> cbChoixClasse;
     private javax.swing.JComboBox<String> cbChoixEtud;
     private javax.swing.JComboBox<String> cbChoixEtudRepasUe;
     private javax.swing.JComboBox<String> cbChoixInterogateur;
-    private javax.swing.JComboBox<String> cbChoixPromotion;
     private javax.swing.JComboBox<String> cbChoixUe;
     private javax.swing.JComboBox<String> cbSurveillanEpreuve;
     private org.jdesktop.swingx.JXDatePicker choixDate;
