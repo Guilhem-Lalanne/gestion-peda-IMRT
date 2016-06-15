@@ -32,7 +32,7 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
     private int resultat;
     private int idClasse;
     public Frame parenta;
-    public ModeleClasse modelClass;
+    private ModeleClasse modelClass;
     
     public ModeleEtudiantClasse modelEtuClasse;
     

@@ -5,7 +5,9 @@
  */
 package vue;
 
+import appli.ModeleClasse;
 import appli.tools;
+import dao.DaoClasse;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -20,7 +22,9 @@ import metier.Etudiant;
  * @author paul
  */
 public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
-
+    
+    private ModeleClasse modelClass;
+    private int id_classe;
     public Etudiant etu;
     /**
      * 0 - init 1 - modification 2 - ajout 3 - suppresion
@@ -48,7 +52,10 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
         this.action = 0;
         this.resultat = 0;
         this.cnx = cnx;
-
+             DaoClasse daoClas =new  DaoClasse(cnx);
+               modelClass =new ModeleClasse(daoClas);
+              cbClasse.setModel(modelClass);
+             cbClasse.setSelectedItem(modelClass.getElementAt(2));
         if (libelle == "Modifier fiche Etudiant") {
             this.action = 1;
             this.lTitre.setText(libelle);
@@ -59,6 +66,7 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
             this.txNumFixe.setText(etu.getNumeroTelFixeEtudiant());
             this.txNumMobile.setText(etu.getNumeroTelMobilEtudiant());
             this.txAdresseMail.setText(etu.getMailEtudiant());
+            this.cbClasse.setSelectedItem(modelClass.getElementAt(2));
         } else if (libelle == "Ajouter fiche Etudiant") {
             this.action = 2;
             this.lTitre.setText(libelle);
@@ -327,7 +335,12 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                 
                 etu.setNomEtudiant(this.txNomEtu.getText());
                 etu.setPrenomEtudiant(this.txPrenomEtu.getText());
-                
+                etu.setDateNaissanceEtudiant(this.txDateNaissanceEtu.getText());
+                etu.setAdresseEtudiant(this.txAdresse.getText());
+                etu.setNumeroTelFixeEtudiant(this.txNumFixe.getText());
+                etu.setNumeroTelMobilEtudiant(this.txNumMobile.getText());
+                etu.setMailEtudiant(this.txAdresseMail.getText());
+               
                 //TODO: VALIDATION
 
                 CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_etudiant(?,?,?,?)}");
@@ -336,6 +349,7 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                 cstmt.setInt(2,7);
                 cstmt.setString(3, etu.getNomEtudiant());
                 cstmt.setString(4,etu.getPrenomEtudiant());
+                
                 cstmt.setInt(5,3);
                
                 cstmt.execute();
@@ -378,13 +392,14 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                 
                 //TODO: VALIDATION
 
-                CallableStatement cstmt = cnx.prepareCall ("{ ? = call modifier_etudiant(?,?, ?)}");
+                CallableStatement cstmt = cnx.prepareCall ("{ ? = call modifier_etudiant(?,?,?,?,?)}");
 
                 cstmt.registerOutParameter (1, Types.INTEGER);
-                cstmt.setInt(2,etu.getIdGroupe());
-                cstmt.setString(3, etu.getNomEtudiant());
-                cstmt.setString(4,etu.getPrenomEtudiant());
-                cstmt.setInt(2,etu.getIdClasse());
+                cstmt.setInt(2,id_modification);
+                cstmt.setInt(3,etu.getIdGroupe());
+                cstmt.setString(4, etu.getNomEtudiant());
+                cstmt.setString(5,etu.getPrenomEtudiant());
+                cstmt.setInt(6,etu.getIdClasse());
                 
                 cstmt.execute();
                 
