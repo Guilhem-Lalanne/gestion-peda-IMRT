@@ -22,9 +22,10 @@ import metier.Etudiant;
  * @author paul
  */
 public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
-    
+
     private ModeleClasse modelClass;
-    private int id_classe;
+
+    private int idClasse;
     public Etudiant etu;
     /**
      * 0 - init 1 - modification 2 - ajout 3 - suppresion
@@ -52,11 +53,12 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
         this.action = 0;
         this.resultat = 0;
         this.cnx = cnx;
-             DaoClasse daoClas =new  DaoClasse(cnx);
-               modelClass =new ModeleClasse(daoClas);
-              cbClasse.setModel(modelClass);
-             cbClasse.setSelectedItem(modelClass.getElementAt(2));
+        DaoClasse daoClas = new DaoClasse(cnx);
+        modelClass = new ModeleClasse(daoClas);
+        cbClasse.setModel(modelClass);
+        //cbClasse.setSelectedItem(modelClass.getElementAt(2));
         if (libelle == "Modifier fiche Etudiant") {
+            idClasse = etu.getIdClasse();
             this.action = 1;
             this.lTitre.setText(libelle);
             this.txNomEtu.setText(etu.getNomEtudiant());
@@ -66,7 +68,8 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
             this.txNumFixe.setText(etu.getNumeroTelFixeEtudiant());
             this.txNumMobile.setText(etu.getNumeroTelMobilEtudiant());
             this.txAdresseMail.setText(etu.getMailEtudiant());
-            this.cbClasse.setSelectedItem(modelClass.getElementAt(2));
+
+            this.cbClasse.setSelectedItem(modelClass.getElementAt(idClasse));
         } else if (libelle == "Ajouter fiche Etudiant") {
             this.action = 2;
             this.lTitre.setText(libelle);
@@ -159,6 +162,11 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
         lClasse.setText("Classe");
 
         cbClasse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbClasse.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbClasseItemStateChanged(evt);
+            }
+        });
 
         lGroupe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lGroupe.setText("Groupe");
@@ -286,53 +294,11 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btEnregistrerEtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnregistrerEtuActionPerformed
-          
-        if (this.action == 3){
-               //je suis dqns suppresion
-               try {
-            
-            
-                int result;
-                int id_suppression = this.etu.getIdEtudiant();
-                tools.debug("id etudiant Suppresion : "+id_suppression);
-                CallableStatement cstmt = cnx.prepareCall ("{ ? = call SUPPRIMER_etudiant(?)}");
-                 
-                cstmt.registerOutParameter (1, Types.INTEGER);
-                cstmt.setInt(2,id_suppression); 
-                cstmt.execute();
-                result = cstmt.getInt(1);
-                
-                tools.debug("Suppresion : " + result);
-                
-                if (result == 1) {
-                    
-                    
-                    JOptionPane.showMessageDialog(null, "Etudiand "
-                            +this.etu.getNomEtudiant()+" "+ this.etu.getPrenomEtudiant()
-                            + " a été bien supprimé",
-                     "Information", JOptionPane.INFORMATION_MESSAGE);
-                    
-                    this.resultat = 1;
-                    
-                    //this.dispose();
-                    
-                } else {
-                    //result != 1
-                    //throw new Exception("Impossible de supprimer etudiant");
-                }
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Exception ex) {
-                Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }  else  if (this.action == 2){
-            //partie ajout etudiant
+
+        if (this.action == 3) {
+            //je suis dqns suppresion
             try {
 
-                int result;
-                //int id_suppression = this.ens.getIdEnseignant();
-                
                 etu.setNomEtudiant(this.txNomEtu.getText());
                 etu.setPrenomEtudiant(this.txPrenomEtu.getText());
                 etu.setDateNaissanceEtudiant(this.txDateNaissanceEtu.getText());
@@ -340,90 +306,165 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
                 etu.setNumeroTelFixeEtudiant(this.txNumFixe.getText());
                 etu.setNumeroTelMobilEtudiant(this.txNumMobile.getText());
                 etu.setMailEtudiant(this.txAdresseMail.getText());
-               
-                //TODO: VALIDATION
+                etu.setIdClasse(idClasse);
 
-                CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_etudiant(?,?,?,?)}");
+                //TODO: VALIDATION 
+                CallableStatement cstmtaj = cnx.prepareCall("{ ? = call AJOUTER_ETUDIANT_SUPRIMER(?,?,?,?,?,?,?,?,?)}");
 
-                cstmt.registerOutParameter (1, Types.INTEGER);
-                cstmt.setInt(2,7);
-                cstmt.setString(3, etu.getNomEtudiant());
-                cstmt.setString(4,etu.getPrenomEtudiant());
-                
-                cstmt.setInt(5,3);
-               
+                cstmtaj.registerOutParameter(1, Types.INTEGER);
+                cstmtaj.setInt(2, etu.getIdGroupe());
+                cstmtaj.setString(3, etu.getNomEtudiant());
+                cstmtaj.setString(4, etu.getPrenomEtudiant());
+                cstmtaj.setString(5, etu.getMailEtudiant());
+                cstmtaj.setString(6, etu.getAdresseEtudiant());
+                cstmtaj.setString(7, etu.getNumeroTelFixeEtudiant());
+                cstmtaj.setString(8, etu.getNumeroTelMobilEtudiant());
+                cstmtaj.setString(9, etu.getMailEtudiant());
+                cstmtaj.setInt(10, etu.getIdClasse());
+
+                cstmtaj.execute();
+
+                int result;
+                int id_suppression = this.etu.getIdEtudiant();
+                tools.debug("id etudiant Suppresion : " + id_suppression);
+                CallableStatement cstmt = cnx.prepareCall("{ ? = call SUPPRIMER_etudiant(?)}");
+
+                cstmt.registerOutParameter(1, Types.INTEGER);
+                cstmt.setInt(2, id_suppression);
                 cstmt.execute();
-                
                 result = cstmt.getInt(1);
 
-                tools.debug("Ajout : " + result);
+                tools.debug("Suppresion : " + result);
 
-                //if (result == 1) {
+                if (result == 1) {
 
-                    JOptionPane.showMessageDialog(null, "etudiant "
-                        +this.etu.getNomEtudiant()+" "+this.etu.getPrenomEtudiant()
-                        + " a été bien ajouté",
-                        "Information", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Etudiand "
+                            + this.etu.getNomEtudiant() + " " + this.etu.getPrenomEtudiant()
+                            + " a été bien supprimé",
+                            "Information", JOptionPane.INFORMATION_MESSAGE);
 
                     this.resultat = 1;
 
-                    this.dispose();
-                    
-                /*
                 } else {
                     //result != 1
-                    throw new Exception("Impossible de supprimer ens");
-                }*/
-
+                    //throw new Exception("Impossible de supprimer etudiant");
+                }
+                this.dispose();
             } catch (SQLException ex) {
                 Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
             } catch (Exception ex) {
                 Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }   else  if (this.action == 1){
-            //partier modifier etudiant
+
+        } else if (this.action == 2) {
+            //partie ajout etudiant
             try {
 
                 int result;
-               int id_modification = this.etu.getIdEtudiant();
-                
+
                 etu.setNomEtudiant(this.txNomEtu.getText());
                 etu.setPrenomEtudiant(this.txPrenomEtu.getText());
-                
+                etu.setDateNaissanceEtudiant(this.txDateNaissanceEtu.getText());
+                etu.setAdresseEtudiant(this.txAdresse.getText());
+                etu.setNumeroTelFixeEtudiant(this.txNumFixe.getText());
+                etu.setNumeroTelMobilEtudiant(this.txNumMobile.getText());
+                etu.setMailEtudiant(this.txAdresseMail.getText());
+                etu.setIdClasse(idClasse);
+
                 //TODO: VALIDATION
+                CallableStatement cstmt = cnx.prepareCall("{ ? = call ajouter_etudiant(?,?,?,?,?,?,?,?,?)}");
 
-                CallableStatement cstmt = cnx.prepareCall ("{ ? = call modifier_etudiant(?,?,?,?,?)}");
+                cstmt.registerOutParameter(1, Types.INTEGER);
+                cstmt.setInt(2, etu.getIdGroupe());
+                cstmt.setString(3, etu.getNomEtudiant());
+                cstmt.setString(4, etu.getPrenomEtudiant());
+                cstmt.setString(5, etu.getDateNaissanceEtudiant());
+                cstmt.setString(6, etu.getAdresseEtudiant());
+                cstmt.setString(7, etu.getNumeroTelFixeEtudiant());
+                cstmt.setString(8, etu.getNumeroTelMobilEtudiant());
+                cstmt.setString(9, etu.getMailEtudiant());
+                cstmt.setInt(10, etu.getIdClasse());
 
-                cstmt.registerOutParameter (1, Types.INTEGER);
-                cstmt.setInt(2,id_modification);
-                cstmt.setInt(3,etu.getIdGroupe());
-                cstmt.setString(4, etu.getNomEtudiant());
-                cstmt.setString(5,etu.getPrenomEtudiant());
-                cstmt.setInt(6,etu.getIdClasse());
-                
+                //cstmt.setInt(5, 3);
                 cstmt.execute();
-                
+
                 result = cstmt.getInt(1);
 
-                tools.debug("modifier : " + result);
+                tools.debug("Ajout : " + result);
 
                 //if (result == 1) {
-
-                    JOptionPane.showMessageDialog(null, "etudiant "
-                        +this.etu.getNomEtudiant()+" "+this.etu.getPrenomEtudiant()
-                        + " a été bien été modifié",
+                JOptionPane.showMessageDialog(null, "etudiant "
+                        + this.etu.getNomEtudiant() + " " + this.etu.getPrenomEtudiant()
+                        + " a été bien ajouté",
                         "Information", JOptionPane.INFORMATION_MESSAGE);
 
-                    this.resultat = 1;
+                this.resultat = 1;
 
-                    this.dispose();
-                    
+                this.dispose();
+
                 /*
                 } else {
                     //result != 1
                     throw new Exception("Impossible de supprimer ens");
                 }*/
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (this.action == 1) {
+            //partier modifier etudiant
+            try {
 
+                int result;
+                int id_modification = this.etu.getIdEtudiant();
+
+                etu.setNomEtudiant(this.txNomEtu.getText());
+                etu.setPrenomEtudiant(this.txPrenomEtu.getText());
+                etu.setDateNaissanceEtudiant(this.txDateNaissanceEtu.getText());
+                etu.setAdresseEtudiant(this.txAdresse.getText());
+                etu.setNumeroTelFixeEtudiant(this.txNumFixe.getText());
+                etu.setNumeroTelMobilEtudiant(this.txNumMobile.getText());
+                etu.setMailEtudiant(this.txAdresseMail.getText());
+                etu.setIdClasse(idClasse);
+                tools.debug(" id classe etudiant modifier " + idClasse);
+                //TODO: VALIDATION
+
+                CallableStatement cstmt = cnx.prepareCall("{ ? = call modifier_etudiant(?,?,?,?,?,?,?,?,?,?)}");
+
+                cstmt.registerOutParameter(1, Types.INTEGER);
+                cstmt.setInt(2, id_modification);
+                cstmt.setInt(3, etu.getIdGroupe());
+                cstmt.setString(4, etu.getNomEtudiant());
+                cstmt.setString(5, etu.getPrenomEtudiant());
+                cstmt.setString(6, etu.getDateNaissanceEtudiant());
+                cstmt.setString(7, etu.getAdresseEtudiant());
+                cstmt.setString(8, etu.getNumeroTelFixeEtudiant());
+                cstmt.setString(9, etu.getNumeroTelMobilEtudiant());
+                cstmt.setString(10, etu.getMailEtudiant());
+                cstmt.setInt(11, etu.getIdClasse());
+
+                cstmt.execute();
+
+                result = cstmt.getInt(1);
+
+                tools.debug("modifier : " + result);
+
+                //if (result == 1) {
+                JOptionPane.showMessageDialog(null, "etudiant "
+                        + this.etu.getNomEtudiant() + " " + this.etu.getPrenomEtudiant()
+                        + " a été bien été modifié",
+                        "Information", JOptionPane.INFORMATION_MESSAGE);
+
+                this.resultat = 1;
+
+                this.dispose();
+
+                /*
+                } else {
+                    //result != 1
+                    throw new Exception("Impossible de supprimer ens");
+                }*/
             } catch (SQLException ex) {
                 Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
             } catch (Exception ex) {
@@ -436,6 +477,11 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
     private void btAnnulerEtuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAnnulerEtuActionPerformed
         this.dispose();
     }//GEN-LAST:event_btAnnulerEtuActionPerformed
+
+    private void cbClasseItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbClasseItemStateChanged
+        idClasse = modelClass.get(cbClasse.getSelectedIndex()).getIdClasse();
+
+    }//GEN-LAST:event_cbClasseItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAnnulerEtu;
