@@ -10,6 +10,7 @@ import appli.ModeleEtudiantClasse;
 import appli.ModeleEtudiantExamen;
 import appli.ModeleEtudiantNote;
 import appli.ModeleUe;
+import appli.MyCellRenderer;
 import appli.tools;
 import dao.DaoClasse;
 import dao.DaoEtudiant;
@@ -34,7 +35,7 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
     public Frame parenta;
     private ModeleClasse modelClass;
     
-    public ModeleEtudiantClasse modelEtuClasse;
+    public ModeleEtudiantClasse modelEtuClasseNote;
     
     Connection cnx;
 
@@ -221,9 +222,11 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
         int id_select = modelClass.get(cbClasse.getSelectedIndex()).getIdClasse();
         tools.debug("numeros id select"+id_select);
         DaoEtudiant daoEtu = new DaoEtudiant(cnx);
-        modelEtuClasse = new ModeleEtudiantClasse(daoEtu,id_select);
+        modelEtuClasseNote = new ModeleEtudiantClasse(daoEtu,id_select);
 
-        tListeNotes.setModel(modelEtuClasse);
+        tListeNotes.setModel(modelEtuClasseNote);
+        
+   new MyCellRenderer());;
     }//GEN-LAST:event_cbClasseItemStateChanged
 
 

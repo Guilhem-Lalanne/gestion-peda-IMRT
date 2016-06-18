@@ -46,14 +46,14 @@ public class DaoEtudiant {
             String etuNumMobile = rset.getString(8);
             String etuMail = rset.getString(9);
             int etuClasseId = rset.getInt(10);
-
+            boolean etuNote=false;
             etudiants.add(new Etudiant(etuId,etuNom,
                     etuPrenom,
                     etuDateNaissance,
                     etuAdresse,
                     etuNumFixe,
                     etuNumMobile,
-                    etuMail,etuClasseId));
+                    etuMail,etuNote,etuClasseId));
 
         }
 

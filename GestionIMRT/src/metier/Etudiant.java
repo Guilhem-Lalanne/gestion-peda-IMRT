@@ -20,6 +20,7 @@ public class Etudiant {
     private String numeroTelFixeEtudiant;
     private String numeroTelMobilEtudiant;
     private String mailEtudiant;
+    private boolean note;
     private int idClasse;
     
     /**
@@ -39,7 +40,7 @@ public class Etudiant {
             String adresseEtudiant, 
             String numeroTelFixeEtudiant, 
             String numeroTelMobilEtudiant, 
-            String mailEtudiant,int idClasse) {
+            String mailEtudiant,boolean note,int idClasse) {
         this.idEtudiant =  idEtudiant;
         this.nomEtudiant = nomEtudiant;
         this.prenomEtudiant = prenomEtudiant;
@@ -48,6 +49,7 @@ public class Etudiant {
         this.numeroTelFixeEtudiant = numeroTelFixeEtudiant;
         this.numeroTelMobilEtudiant = numeroTelMobilEtudiant;
         this.mailEtudiant = mailEtudiant;
+        this.note=note;
         this.idClasse=idClasse;
     }
     
@@ -152,10 +154,20 @@ public class Etudiant {
         this.idClasse = idClasse;
     }
 
+    public boolean getNote() {
+        return note;
+    }
+
+    public void setNote(boolean note) {
+        this.note = note;
+    }
+
     @Override
     public String toString() {
-        return "Etudiant{" + "idEtudiant=" + idEtudiant + ", idGroupe=" + idGroupe + ", idClasse=" + idClasse + ", nomEtudiant=" + nomEtudiant + ", prenomEtudiant=" + prenomEtudiant + ", dateNaissanceEtudiant=" + dateNaissanceEtudiant + ", adresseEtudiant=" + adresseEtudiant + ", numeroTelFixeEtudiant=" + numeroTelFixeEtudiant + ", numeroTelMobilEtudiant=" + numeroTelMobilEtudiant + ", mailEtudiant=" + mailEtudiant + '}';
+        return "Etudiant{" + "idEtudiant=" + idEtudiant + ", idGroupe=" + idGroupe + ", nomEtudiant=" + nomEtudiant + ", prenomEtudiant=" + prenomEtudiant + ", dateNaissanceEtudiant=" + dateNaissanceEtudiant + ", adresseEtudiant=" + adresseEtudiant + ", numeroTelFixeEtudiant=" + numeroTelFixeEtudiant + ", numeroTelMobilEtudiant=" + numeroTelMobilEtudiant + ", mailEtudiant=" + mailEtudiant + ", note=" + note + ", idClasse=" + idClasse + '}';
     }
+
+   
 
 
 }
