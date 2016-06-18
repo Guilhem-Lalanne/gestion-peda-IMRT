@@ -226,7 +226,7 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
 
         tListeNotes.setModel(modelEtuClasseNote);
         
-   new MyCellRenderer());;
+   
     }//GEN-LAST:event_cbClasseItemStateChanged
 
 
