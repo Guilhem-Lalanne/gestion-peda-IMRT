@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JCheckBox;
 import javax.swing.table.AbstractTableModel;
 import metier.Etudiant;
 
@@ -20,7 +21,7 @@ import metier.Etudiant;
  */
 public class ModeleEtudiantNote extends AbstractTableModel{
    private List<Etudiant> leConteneurEtu;
-    private String[] nomColonnes = {"Nom", "Prenom", "Date de Naissance"};
+    private String[] nomColonnes = {"Nom", "Prenom", "Date de Naissance","Oui/Non"};
     private DaoEtudiant leDaoEtu;
 
     public ModeleEtudiantNote() {
@@ -76,7 +77,7 @@ public class ModeleEtudiantNote extends AbstractTableModel{
             case 2:
                 return etu.getDateNaissanceEtudiant();
             case 3:
-           
+                return new JCheckBox();
         }
         
         return null;

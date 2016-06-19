@@ -10,7 +10,6 @@ import appli.ModeleEtudiantClasse;
 import appli.ModeleEtudiantExamen;
 import appli.ModeleEtudiantNote;
 import appli.ModeleUe;
-import appli.MyCellRenderer;
 import appli.tools;
 import dao.DaoClasse;
 import dao.DaoEtudiant;

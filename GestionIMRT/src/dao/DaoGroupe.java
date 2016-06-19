@@ -28,27 +28,62 @@ public class DaoGroupe {
     }
     
 
-    public void getGroupes(List<Groupe> groupes) throws SQLException {
+    public void getGroupes(List<Groupe> groupes, String Promotion, int idClasse) throws SQLException {
         
-        /*
-        
-        String requete = "select * from v_liste_users";
-        PreparedStatement pstmt = cnx.prepareStatement(requete);
-        ResultSet rset = pstmt.executeQuery(requete);
-        
-        while (rset.next()) {       // traitement du résulat
+        String requete = "select g.id,g.id_class,g.code,c.nom,"
+                + " p.nom_promotion || ' ' || c.nom  from gi_groupe g"
+                + " inner join gi_classe c on g.id_class = c.id "
+                + " inner join gi_promotion p on c.id_promotion = p.id "
+                + " where p.annee = ? and c.id = ? ";
+                        
+        try (PreparedStatement pstmt = cnx.prepareStatement(requete)) {
             
-            String userLogin = rset.getString(1);
-            String userNom = rset.getString(2);
-            int userGroupe = rset.getInt(3);
-            String userGroupeLib = rset.getString(4);
+            tools.debug("pro:" + Promotion);
+            pstmt.setString(1, Promotion);
+            pstmt.setInt(2, idClasse);
             
-            users.add(new User(userLogin, userNom, userGroupe, userGroupeLib));
+            tools.debug(requete);
             
+            try (ResultSet rset = pstmt.executeQuery()) {
+                while (rset.next()) {       // traitement du résulat
+                    
+                    groupes.add( new Groupe(
+                            rset.getInt(1),
+                            rset.getInt(2),
+                            rset.getString(3),
+                            rset.getString(4),
+                            rset.getString(5)
+                            )
+                    );
+                    
+                }
+            }
         }
         
-        rset.close();
-        pstmt.close();*/
+    }
+
+    public void insertGroupe(Groupe g) throws SQLException {
+        
+        String requete = "insert into gi_groupe (id_class,code)"
+                + " values (?,?)";
+        String generatedColumns[] = { "ID" };
+        PreparedStatement pstmt = cnx.prepareStatement(requete, generatedColumns);
+        
+        pstmt.setInt(1, g.getIdClasse());
+        pstmt.setString(2, g.getNom());
+
+        pstmt.executeUpdate();
+        
+        try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
+            if (generatedKeys.next()) {
+                g.setIdGroupe((int) generatedKeys.getInt(1));
+            }
+            else {
+                throw new SQLException("Creating user failed, no ID obtained.");
+            }
+        }
+        
+        pstmt.close();
         
     }
     

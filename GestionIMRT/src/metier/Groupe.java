@@ -10,13 +10,48 @@ package metier;
  * @author paul
  */
 public class Groupe {
+    
     private int idGroupe;
     private int idClasse;
     private String nom;
+    private String nomClasse;
+    
+    private String classFullname;
 
-    public Groupe(int idClasse, String nom) {
+    public String getClassFullname() {
+        return classFullname;
+    }
+
+    public void setClassFullname(String classFullname) {
+        this.classFullname = classFullname;
+    }
+
+    public Groupe() {
+        
+    }
+    
+    public Groupe(int idGroupe, int idClasse, String nom, String nomClasse, String classFullname ) {
         this.idClasse = idClasse;
         this.nom = nom;
+        this.idGroupe = idGroupe;
+        this.nomClasse = nomClasse;
+        this.classFullname = classFullname;
+    }
+
+    public int getIdGroupe() {
+        return idGroupe;
+    }
+
+    public void setIdGroupe(int idGroupe) {
+        this.idGroupe = idGroupe;
+    }
+
+    public String getNomClasse() {
+        return nomClasse;
+    }
+
+    public void setNomClasse(String nomClasse) {
+        this.nomClasse = nomClasse;
     }
 
     public int getIsGroupe() {
@@ -43,7 +78,10 @@ public class Groupe {
         this.nom = nom;
     }
 
-   
-    
+    @Override
+    public String toString() {
+        return "Groupe{" + "idGroupe=" + idGroupe + ", idClasse=" + idClasse + ", nom=" + nom + ", nomClasse=" + nomClasse + ", classFullname=" + classFullname + '}';
+    }
+
         
 }

@@ -5,32 +5,33 @@
  */
 package vue;
 
-import appli.ModeleClasse;
 import appli.ModelePromotion;
 import appli.tools;
 import dao.DaoClasse;
+import dao.DaoGroupe;
 import dao.DaoPromotion;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import metier.Classe;
+import metier.Groupe;
 import metier.Promotion;
 
 /**
  *
  * @author Mateusz
  */
-public class FenetreAjoutModifClasse extends javax.swing.JDialog {
+public class FenetreAjoutModifGroupe extends javax.swing.JDialog {
     
     public int resultat;
     
     ModelePromotion mp;
     
     DaoPromotion dao;
-    DaoClasse daoC;
+    DaoGroupe daoC;
     
-    public Classe maclass;
+    public Groupe maclass;
 
     /**
      * Creates new form FenetreAjoutModifClasse
@@ -38,29 +39,27 @@ public class FenetreAjoutModifClasse extends javax.swing.JDialog {
      * @param c
      * @param cnx
      */
-    public FenetreAjoutModifClasse(java.awt.Frame parent, Classe c, Connection cnx) {
+    public FenetreAjoutModifGroupe(java.awt.Frame parent, Groupe c, Connection cnx) {
         
         super(parent, true);
         initComponents();
         
-        this.setTitle("Ajout de la classe");
+        this.setTitle("Ajout du groupe");
         
         resultat = 1;
         
         dao = new DaoPromotion(cnx);
-        daoC = new DaoClasse(cnx);
+        daoC = new DaoGroupe(cnx);
         
         mp = new ModelePromotion(dao);
         
         this.maclass = c;
         
-        cbPromotion.setModel(mp);
-        
-        cbPromotion.setSelectedIndex(0);
+        this.lClasse.setText(c.getNomClasse());
         
     }
     
-    public Classe doModal() {
+    public Groupe doModal() {
         this.setVisible(true);
         return maclass;
     }
@@ -77,21 +76,15 @@ public class FenetreAjoutModifClasse extends javax.swing.JDialog {
         lCode = new javax.swing.JLabel();
         txCode = new javax.swing.JTextField();
         lPromotion = new javax.swing.JLabel();
-        cbPromotion = new javax.swing.JComboBox<>();
-        lNom = new javax.swing.JLabel();
-        txNom = new javax.swing.JTextField();
         bAjout = new javax.swing.JButton();
         bAnnuler = new javax.swing.JButton();
+        lClasse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lCode.setText("Code");
 
-        lPromotion.setText("Promotion");
-
-        cbPromotion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        lNom.setText("Nom");
+        lPromotion.setText("Class");
 
         bAjout.setText("Ajout");
         bAjout.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +100,8 @@ public class FenetreAjoutModifClasse extends javax.swing.JDialog {
             }
         });
 
+        lClasse.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,18 +109,12 @@ public class FenetreAjoutModifClasse extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lCode)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                        .addComponent(txCode, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lPromotion)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbPromotion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lNom)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txNom, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lCode)
+                    .addComponent(lPromotion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lClasse)
+                    .addComponent(txCode, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
@@ -140,20 +129,16 @@ public class FenetreAjoutModifClasse extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lPromotion)
-                    .addComponent(cbPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
+                    .addComponent(lClasse))
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lCode)
                     .addComponent(txCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lNom)
-                    .addComponent(txNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bAjout)
                     .addComponent(bAnnuler))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         pack();
@@ -162,36 +147,27 @@ public class FenetreAjoutModifClasse extends javax.swing.JDialog {
     private void bAjoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAjoutActionPerformed
         
         //preparation ajout
-        String nom = txNom.getText();
         String code = txCode.getText();
-        Promotion p = mp.get(cbPromotion.getSelectedIndex());
         
-        tools.debug(p.toString());
-
-        if (nom == "") {
-            
-        } else if (code == "") {
-            
-        } else if (p.getNomPromotion() == "") {
+        if ("".equals(code)) {
             
         } else {
             
-            maclass = new Classe(0, p.getIdPromotion(), code, nom, p.getNomPromotion());
+            maclass.setNom(code);
             
             tools.debug(maclass.toString());
             
             try {
-                daoC.insertClasse(maclass);
+                daoC.insertGroupe(maclass);
                 
             } catch (SQLException ex) {
-                Logger.getLogger(FenetreAjoutModifClasse.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FenetreAjoutModifGroupe.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             resultat = 0;
             
+            this.dispose();
         }
-        
-        this.dispose();
         
     }//GEN-LAST:event_bAjoutActionPerformed
 
@@ -202,11 +178,9 @@ public class FenetreAjoutModifClasse extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAjout;
     private javax.swing.JButton bAnnuler;
-    private javax.swing.JComboBox<String> cbPromotion;
+    private javax.swing.JLabel lClasse;
     private javax.swing.JLabel lCode;
-    private javax.swing.JLabel lNom;
     private javax.swing.JLabel lPromotion;
     private javax.swing.JTextField txCode;
-    private javax.swing.JTextField txNom;
     // End of variables declaration//GEN-END:variables
 }

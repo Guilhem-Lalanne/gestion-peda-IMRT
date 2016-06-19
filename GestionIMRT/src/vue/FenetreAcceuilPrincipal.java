@@ -27,15 +27,12 @@ import dao.DaoEtudiant;
 import dao.DaoUe;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,7 +45,6 @@ import metier.User;
 import metier.Etudiant;
 import metier.Agenda;
 import metier.CelluleAgenda;
-import metier.Employeur;
 
 /**
  *
@@ -82,6 +78,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
      *
      * @param cnx
      * @param u
+     * @throws java.sql.SQLException
      */
     public FenetreAcceuilPrincipal(Connection cnx, User u) throws SQLException {
 
@@ -96,7 +93,6 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         //init agenda date
         dateAgenda = Calendar.getInstance(Locale.FRANCE);
 
-        //this.pGroupPane.add(new testOngletAjout());
         //preparation affichage de la fenetre principale
         //affichage de la fenetre principale
         //je cherche la promotion qui est en cours
@@ -118,7 +114,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             }
         }
 
+        //Gestion de Classes
         this.pGroupPane.add(new PanelClasse(cnx, this));
+        
+        //Gestion de groupes
+        this.pGroupPane.add(new PanelGroupes(cnx, this, promotion));
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double width = screenSize.getWidth();
