@@ -5,18 +5,24 @@
  */
 package vue;
 
-import appli.ModeleClasse;
+import appli.ModeleCours;
+import appli.ModeleGroupe;
+import appli.ModeleSalle;
 import appli.tools;
 import dao.DaoAgenda;
 import dao.DaoClasse;
+import dao.DaoCours;
+import dao.DaoGroupe;
+import dao.DaoSalle;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import metier.CelluleAgenda;
+import metier.Cours;
 import metier.Seance;
 
 /**
@@ -31,11 +37,22 @@ public class FenetreModifSeance extends javax.swing.JDialog {
     
     DaoClasse dc;
     DaoAgenda da;
+    DaoGroupe dg;
+    DaoSalle ds;
+    DaoCours dcr;
+    
+    ModeleGroupe mg;
+    ModeleSalle ms;
+    ModeleCours mc;
+    
+    Date seance_date;
     
     Seance currentSeance;
     
-    int action;
+    int act;
     /**
+     * 0 - ajout
+     * 1 - modif    /**
      * 0 - ajout
      * 1 - modif
      */
@@ -44,22 +61,30 @@ public class FenetreModifSeance extends javax.swing.JDialog {
      * Creates new form NewJDialog
      */
     public FenetreModifSeance(java.awt.Frame parent, CelluleAgenda seance, Connection cnx, int action) throws ParseException, SQLException {
-        super(parent, true);
-        initComponents();
+        
+       super(parent, true);
+       initComponents();
         
        this.id_seance = seance.id_seance;
        this.cnx = cnx;
        this.resultat = 0;
-       this.action = action;
+       this.act = action;
        
        dc = new DaoClasse(cnx);
        da = new DaoAgenda(cnx);
+       dg = new DaoGroupe(cnx);
+       ds = new DaoSalle(cnx);
+       dcr = new DaoCours(cnx);
        
+       mg = new ModeleGroupe(dg);
+       ms  = new ModeleSalle(ds);
+       mc = new ModeleCours(dcr);
        
-       ModeleClasse mc = new ModeleClasse(dc);
-       cbClasse.setModel(mc);
+       cbSalle.setModel(ms);
+       cbGroupe.setModel(mg);
+       cbCours.setModel(mc);
        
-       if (this.action == 0) {
+       if (this.act == 0) {
            //ajout
            this.lTitre.setText("Ajout Seance");
            pValidationCours.setVisible(false);
@@ -72,7 +97,9 @@ public class FenetreModifSeance extends javax.swing.JDialog {
            //this.cbClasse.setSelectedIndex(currentSeance.get));
        }
        
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/YYYY");
+       SimpleDateFormat df = new SimpleDateFormat("dd/MM/YYYY");
+       
+       this.seance_date = seance.date;
        
        lDate.setText(df.format(seance.date));
        
@@ -92,17 +119,14 @@ public class FenetreModifSeance extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cbEnseignant = new javax.swing.JComboBox<>();
+        cbCours = new javax.swing.JComboBox<>();
         lGroupe = new javax.swing.JLabel();
-        cbClasse = new javax.swing.JComboBox<>();
         cbHeureFin = new javax.swing.JComboBox<>();
         btAnnuler = new javax.swing.JButton();
-        lUE = new javax.swing.JLabel();
         lHeureFin = new javax.swing.JLabel();
         lHeureDebut = new javax.swing.JLabel();
         lDate = new javax.swing.JLabel();
         lSalle = new javax.swing.JLabel();
-        lClasse = new javax.swing.JLabel();
         pValidationCours = new javax.swing.JPanel();
         rbValide = new javax.swing.JRadioButton();
         rbAnnule = new javax.swing.JRadioButton();
@@ -113,16 +137,11 @@ public class FenetreModifSeance extends javax.swing.JDialog {
         cbSalle = new javax.swing.JComboBox<>();
         lTitre = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
-        cbUE = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        cbEnseignant.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mr dupont" }));
-
         lGroupe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lGroupe.setText("Groupe");
-
-        cbClasse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IMRT1" }));
 
         cbHeureFin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00" }));
 
@@ -133,9 +152,6 @@ public class FenetreModifSeance extends javax.swing.JDialog {
                 btAnnulerActionPerformed(evt);
             }
         });
-
-        lUE.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lUE.setText("U.E");
 
         lHeureFin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lHeureFin.setText("Heure de fin");
@@ -148,9 +164,6 @@ public class FenetreModifSeance extends javax.swing.JDialog {
 
         lSalle.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lSalle.setText("Salle");
-
-        lClasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lClasse.setText("Classe");
 
         pValidationCours.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Validation d'un cours", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
@@ -187,14 +200,24 @@ public class FenetreModifSeance extends javax.swing.JDialog {
         );
 
         lEnseignant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lEnseignant.setText("Enseignant");
+        lEnseignant.setText("Cours");
 
         cbHeureDebut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00" }));
 
         btValider.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btValider.setText("Valider");
+        btValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btValiderActionPerformed(evt);
+            }
+        });
 
         cbGroupe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Groupe A" }));
+        cbGroupe.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbGroupeItemStateChanged(evt);
+            }
+        });
         cbGroupe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbGroupeActionPerformed(evt);
@@ -208,8 +231,6 @@ public class FenetreModifSeance extends javax.swing.JDialog {
 
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jCheckBox1.setText(" Récurrence");
-
-        cbUE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "4.2" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,46 +247,34 @@ public class FenetreModifSeance extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lTitre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lHeureDebut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lHeureDebut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(lDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lTitre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lUE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(10, 10, 10)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cbHeureDebut, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lHeureFin, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbUE, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addComponent(cbHeureFin, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cbGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(119, 119, 119))
+                                            .addComponent(lEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(398, 398, 398)
+                                .addComponent(cbHeureDebut, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lHeureFin, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(cbHeureFin, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lSalle, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addComponent(cbSalle, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbSalle, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 278, Short.MAX_VALUE))
+                            .addComponent(cbCours, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbGroupe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
@@ -276,26 +285,21 @@ public class FenetreModifSeance extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lDate, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lHeureFin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lHeureDebut, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cbHeureDebut, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cbHeureFin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lHeureDebut, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbHeureDebut, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lHeureFin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbHeureFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lSalle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbSalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lSalle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbSalle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lUE, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lEnseignant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbUE))
+                    .addComponent(cbCours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -319,26 +323,78 @@ public class FenetreModifSeance extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbValideActionPerformed
 
-    private void cbGroupeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGroupeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbGroupeActionPerformed
-
     private void btAnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAnnulerActionPerformed
         this.dispose();
     }//GEN-LAST:event_btAnnulerActionPerformed
 
+    private void cbGroupeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbGroupeItemStateChanged
+        
+    }//GEN-LAST:event_cbGroupeItemStateChanged
+
+    private void cbGroupeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGroupeActionPerformed
+        
+        if (cbGroupe.getSelectedIndex() != -1) {
+            
+            //recharge models
+            mc.groupe = mg.get(cbGroupe.getSelectedIndex()).getIdGroupe();
+            
+            cbCours.setSelectedIndex(-1);
+            
+            try {
+                //tools.debug("start");
+                mc.chargerClasses();
+                //tools.debug("end");
+            } catch (SQLException ex) {
+                Logger.getLogger(PanelGroupes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_cbGroupeActionPerformed
+
+    private void btValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btValiderActionPerformed
+        if (this.act == 0) {
+            //creation
+            
+            int id_cours = mc.get(cbCours.getSelectedIndex()).getIdCours();
+            int id_salle = ms.get(cbSalle.getSelectedIndex()).getIdSalle();
+            
+            int heure_deb = cbHeureDebut.getSelectedIndex()+7;
+            int heure_fin = cbHeureFin.getSelectedIndex()+7;
+            
+            String affichageTable = "new cours";
+            
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            
+            Seance s = new Seance(0, df.format(this.seance_date), id_cours, id_salle, heure_deb, heure_fin, affichageTable);
+            
+            tools.debug(s.toString());
+            
+            try {
+                
+                da.insertSeance(s);
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreAjoutModifClasse.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            resultat = 0;
+            
+            this.dispose();
+            
+        }
+        else if (this.act == 1) {
+            
+        }
+    }//GEN-LAST:event_btValiderActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAnnuler;
     private javax.swing.JButton btValider;
-    private javax.swing.JComboBox<String> cbClasse;
-    private javax.swing.JComboBox<String> cbEnseignant;
+    private javax.swing.JComboBox<String> cbCours;
     private javax.swing.JComboBox<String> cbGroupe;
     private javax.swing.JComboBox<String> cbHeureDebut;
     private javax.swing.JComboBox<String> cbHeureFin;
     private javax.swing.JComboBox<String> cbSalle;
-    private javax.swing.JComboBox<String> cbUE;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel lClasse;
     private javax.swing.JLabel lDate;
     private javax.swing.JLabel lEnseignant;
     private javax.swing.JLabel lGroupe;
@@ -346,7 +402,6 @@ public class FenetreModifSeance extends javax.swing.JDialog {
     private javax.swing.JLabel lHeureFin;
     private javax.swing.JLabel lSalle;
     private javax.swing.JLabel lTitre;
-    private javax.swing.JLabel lUE;
     private javax.swing.JPanel pValidationCours;
     private javax.swing.JRadioButton rbAnnule;
     private javax.swing.JRadioButton rbValide;

@@ -5,24 +5,27 @@
  */
 package appli;
 
-import dao.DaoEnseignant;
+import dao.DaoCours;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
-import metier.Enseignant;
+import metier.Cours;
 
 /**
  *
- * @author paul
+ * @author p1313137
  */
-public class ModeleEnseignant extends DefaultComboBoxModel {
-      private List<Enseignant> leConteneur;
-    private DaoEnseignant leDao;
+public class ModeleCours extends DefaultComboBoxModel {
 
-    public ModeleEnseignant(DaoEnseignant leDao) {
+    private List<Cours> leConteneur;
+    private DaoCours leDao;
+    
+    public int groupe;
+
+    public ModeleCours(DaoCours leDao) {
         
         this.leDao = leDao;
         leConteneur = new ArrayList<>();
@@ -36,21 +39,31 @@ public class ModeleEnseignant extends DefaultComboBoxModel {
         }
     }
     
-    public Enseignant get(int index) {
+    public Cours get(int index) {
         return leConteneur.get(index);
     }
 
-    private void chargerClasses() throws SQLException {
-        leDao.getEnseignant(leConteneur);
+    public void chargerClasses() throws SQLException {
+        
+        leConteneur.removeAll(leConteneur);
+        
+        if (this.groupe == 0) {
+            leDao.getCours(leConteneur);
+            tools.debug("charging all ");
+        } else {
+            leDao.getCoursParGroupe(leConteneur, groupe);
+            tools.debug("charging with groupe : " + groupe);
+        }
     }
     
     @Override
     public Object getElementAt(int i) {
-        return (leConteneur.get(i).getNomEnseignant() + " " + leConteneur.get(i).getPrenomEnseignant());
+        return leConteneur.get(i).getCoursName();
     }
-
+    
     @Override
     public int getSize() {
         return leConteneur.size();
     }
+
 }

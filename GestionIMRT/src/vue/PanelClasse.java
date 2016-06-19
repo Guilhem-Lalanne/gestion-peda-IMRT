@@ -129,7 +129,6 @@ public class PanelClasse extends javax.swing.JPanel {
             ml.insererLigne(c);
         }
         
-        
     }//GEN-LAST:event_btAjoutActionPerformed
 
     private void btSuppressionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSuppressionActionPerformed

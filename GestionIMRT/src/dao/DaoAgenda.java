@@ -5,15 +5,12 @@
  */
 package dao;
 
-import appli.tools;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import metier.LigneAgenda;
 import metier.Seance;
 
 /**
@@ -90,6 +87,36 @@ public class DaoAgenda {
 
         rset.close();
         pstmt.close();
+    }
+    
+    public void insertSeance(Seance s) throws SQLException {
+        
+        String requete = "insert into gi_seance (DATE_SEANCE,ID_COURS," +
+            "ID_SALLE,HEURE_DEBUT,HEURE_FIN)"
+                + " values (?,?,?,?,?)";
+        
+        String generatedColumns[] = { "ID" };
+        PreparedStatement pstmt = cnx.prepareStatement(requete, generatedColumns);
+        
+        pstmt.setDate(1, Date.valueOf(s.getDate()));
+        pstmt.setInt(2, s.getIdCours());
+        pstmt.setInt(3, s.getIdSalle());
+        pstmt.setInt(4, s.getHeureDebut());
+        pstmt.setInt(5, s.getHeureFin());
+
+        pstmt.executeUpdate();
+        
+        try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
+            if (generatedKeys.next()) {
+                s.setIdSeance((int) generatedKeys.getInt(1));
+            }
+            else {
+                throw new SQLException("Creating user failed, no ID obtained.");
+            }
+        }
+        
+        pstmt.close();
+        
     }
     
     public void updateSeance() {

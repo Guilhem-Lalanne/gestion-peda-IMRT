@@ -5,24 +5,25 @@
  */
 package appli;
 
-import dao.DaoEnseignant;
+import dao.DaoGroupe;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
-import metier.Enseignant;
+import metier.Groupe;
 
 /**
  *
- * @author paul
+ * @author p1313137
  */
-public class ModeleEnseignant extends DefaultComboBoxModel {
-      private List<Enseignant> leConteneur;
-    private DaoEnseignant leDao;
+public class ModeleGroupe extends DefaultComboBoxModel {
 
-    public ModeleEnseignant(DaoEnseignant leDao) {
+    private List<Groupe> leConteneur;
+    private DaoGroupe leDao;
+
+    public ModeleGroupe(DaoGroupe leDao) {
         
         this.leDao = leDao;
         leConteneur = new ArrayList<>();
@@ -36,21 +37,26 @@ public class ModeleEnseignant extends DefaultComboBoxModel {
         }
     }
     
-    public Enseignant get(int index) {
+    public Groupe get(int index) {
         return leConteneur.get(index);
     }
 
     private void chargerClasses() throws SQLException {
-        leDao.getEnseignant(leConteneur);
+        leDao.getGroupesAll(leConteneur);
     }
     
     @Override
     public Object getElementAt(int i) {
-        return (leConteneur.get(i).getNomEnseignant() + " " + leConteneur.get(i).getPrenomEnseignant());
+        return leConteneur.get(i).getClassFullname();
+    }
+    
+    public Object getElementAtIdClasse(int i) {
+        return leConteneur.get(i).getIdClasse();
     }
 
     @Override
     public int getSize() {
         return leConteneur.size();
     }
+
 }

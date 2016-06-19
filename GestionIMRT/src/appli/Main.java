@@ -7,11 +7,13 @@
 package appli;
 
 import dao.SourceOracle;
-import java.awt.Desktop;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.UnsupportedLookAndFeelException;
 import vue.FenetreLogin;
 
 /**
@@ -25,7 +27,9 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException, FileNotFoundException, SQLException, InterruptedException {
+    public static void main(String[] args) throws IOException, FileNotFoundException, SQLException, InterruptedException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+            
+        UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         
         //je fait la connexion à la base
         cnx = SourceOracle.getConnextion();

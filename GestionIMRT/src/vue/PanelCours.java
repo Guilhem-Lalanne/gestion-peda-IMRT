@@ -5,17 +5,59 @@
  */
 package vue;
 
+import appli.ModeleListeCours;
+import appli.tools;
+import dao.DaoCours;
+import dao.DaoEnseignant;
+import dao.DaoGroupe;
+import dao.DaoUe;
+import java.awt.Frame;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import metier.Cours;
+
 /**
  *
  * @author Mateusz
  */
 public class PanelCours extends javax.swing.JPanel {
-
+    
+    Connection cnx;
+    
+    
+    DaoGroupe daoGroupe;
+    DaoEnseignant daoEns;
+    DaoUe daoUe;
+    DaoCours daoC;
+    
+    ModeleListeCours mc;
+    
+    Frame myparent;
+    
     /**
      * Creates new form PanelCours
      */
-    public PanelCours() {
+    public PanelCours(Connection c, Frame parent) {
         initComponents();
+        
+        this.setName("Gestion Cours");
+        
+        cnx = c;
+        myparent = parent;
+        
+        daoGroupe = new DaoGroupe(cnx);
+        daoEns = new DaoEnseignant(cnx);
+        daoUe = new DaoUe(cnx);
+        daoC = new DaoCours(cnx);
+        
+        mc = new ModeleListeCours(daoC);
+        
+        liListeCours.setModel(mc);
     }
 
     /**
@@ -27,25 +69,45 @@ public class PanelCours extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cbGroupe = new javax.swing.JComboBox<>();
-        lGroupe = new javax.swing.JLabel();
-        cbClasse = new javax.swing.JComboBox<>();
-        lClasse = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        liListeCours = new javax.swing.JTable();
+        btAjout = new javax.swing.JButton();
+        btSuppression = new javax.swing.JButton();
+        btSuppression1 = new javax.swing.JButton();
 
-        cbGroupe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Groupe A" }));
-        cbGroupe.addActionListener(new java.awt.event.ActionListener() {
+        liListeCours.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(liListeCours);
+
+        btAjout.setText("Ajout un cours");
+        btAjout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbGroupeActionPerformed(evt);
+                btAjoutActionPerformed(evt);
             }
         });
 
-        lGroupe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lGroupe.setText("Groupe");
+        btSuppression.setText("Supprimer un cours");
+        btSuppression.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSuppressionActionPerformed(evt);
+            }
+        });
 
-        cbClasse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IMRT1" }));
-
-        lClasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lClasse.setText("Classe");
+        btSuppression1.setText("Modifier un cours");
+        btSuppression1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSuppression1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -54,38 +116,97 @@ public class PanelCours extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(cbClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btAjout)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(302, Short.MAX_VALUE))
+                        .addComponent(btSuppression1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btSuppression)))
+                .addContainerGap(254, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btSuppression)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btAjout)
+                        .addComponent(btSuppression1)))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbGroupeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGroupeActionPerformed
+    private void btAjoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjoutActionPerformed
+
+        //Classe c = ml.get(liListeClasse.getSelectedRow());
+        Cours c = new Cours();
+
+        FenetreAjoutModifCours f 
+                = new FenetreAjoutModifCours(myparent, c, cnx, daoUe, daoEns, daoGroupe);
+        c = f.doModal();
+
+        if (c.getIdCours()!= 0) {
+            tools.debug(c.toString());
+            mc.insererLigne(c);
+        }
+
+    }//GEN-LAST:event_btAjoutActionPerformed
+
+    private void btSuppressionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSuppressionActionPerformed
+
+        if (liListeCours.getSelectedRow() != -1) {
+
+            try {
+
+                int result;
+                Cours current = this.mc.get(liListeCours.getSelectedRow());
+                int id_suppression = current.getIdCours();
+
+                CallableStatement cstmt = cnx.prepareCall ("{ ? = call SUPPRIMER_COURS(?)}");
+
+                cstmt.registerOutParameter (1, Types.INTEGER);
+                cstmt.setInt(2, id_suppression);
+                cstmt.execute();
+                result = cstmt.getInt(1);
+
+                tools.debug("Suppresion : " + result);
+
+                if (result == 1) {
+                    //todo implementer methode modifier
+                    JOptionPane.showMessageDialog(null, "Cours a été bien supprimé",
+                        "Information", JOptionPane.INFORMATION_MESSAGE);
+
+                    this.mc.supprimerLigne(liListeCours.getSelectedRow());
+
+                } else {
+                    //result != 1
+                    throw new Exception("Impossible de supprimer ens");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(FenetreModifEnseignant.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Selectionner un ligne svp","Message", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btSuppressionActionPerformed
+
+    private void btSuppression1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSuppression1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbGroupeActionPerformed
+    }//GEN-LAST:event_btSuppression1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbClasse;
-    private javax.swing.JComboBox<String> cbGroupe;
-    private javax.swing.JLabel lClasse;
-    private javax.swing.JLabel lGroupe;
+    private javax.swing.JButton btAjout;
+    private javax.swing.JButton btSuppression;
+    private javax.swing.JButton btSuppression1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable liListeCours;
     // End of variables declaration//GEN-END:variables
 }

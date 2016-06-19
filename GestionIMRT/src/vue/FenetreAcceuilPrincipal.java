@@ -72,7 +72,13 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private ModeleAgenda agendaModel;
     private ModeleClasse modelClass;
     private Calendar dateAgenda;
-
+    
+    //panels
+    public PanelCours pc;
+    public PanelClasse pcc;
+    public PanelGroupes pg;
+    public PanelSalle ps;
+    
     /**
      * Creates new form Fenetre
      *
@@ -113,15 +119,22 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 pGroupPane.setEnabledAt(i, false);
             }
         }
+        
+        //Gestion de cours
+        pc = new PanelCours(cnx, this);
+        this.pGroupPane.add(pc);
 
         //Gestion de Classes
-        this.pGroupPane.add(new PanelClasse(cnx, this));
+        pcc = new PanelClasse(cnx, this);
+        this.pGroupPane.add(pcc);
         
         //Gestion de groupes
-        this.pGroupPane.add(new PanelGroupes(cnx, this, promotion));
+        pg = new PanelGroupes(cnx, this, promotion);
+        this.pGroupPane.add(pg);
         
-        //Gestion de groupes
-        this.pGroupPane.add(new PanelSalle(cnx, parent));
+        //Gestion de salles
+        ps = new PanelSalle(cnx, parent);
+        this.pGroupPane.add(ps);
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double width = screenSize.getWidth();
@@ -1397,16 +1410,38 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         try {
             fs = new FenetreModifSeance(this, ca, cnx, 0);
+            
+            int res = fs.doModal();
+            
+            if (res == 0) {
+                rechargeAgenda();
+            }
+            
         } catch (ParseException ex) {
             Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        //if - actions
-        fs.doModal();
     }//GEN-LAST:event_btAjoutSeanceActionPerformed
 
+    public void rechargeAgenda() {
+        
+        try {
+            agendaModel.charger();
+        } catch (SQLException ex) {
+            Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //init agenda visibility
+        for (int i = 0; i <= agendaModel.getRowCount(); i++) {
+            liAgenda.setRowHeight(i, 55);
+        }
+
+        liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
+        
+    }
+    
     private void btNotesEtudiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNotesEtudiantActionPerformed
 
         try {

@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package appli;
-
 import dao.DaoEnseignant;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,19 +12,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 import metier.Enseignant;
-
 /**
  *
  * @author paul
  */
-public class ModelModifEnseignant extends AbstractTableModel{ 
-    
-
-    private List<Enseignant> leConteneurEnseignant;
+public class ModeleListeEnseignant extends AbstractTableModel{
+     private List<Enseignant> leConteneurEnseignant;
     private String[] nomColonnes = {"NOM", "Prenom ", "adresse"};
     private DaoEnseignant leDaoEnseignant;
 
-    public ModelModifEnseignant(DaoEnseignant leDaoEnseignant) {
+    public ModeleListeEnseignant(DaoEnseignant leDaoEnseignant) {
         this.leDaoEnseignant = leDaoEnseignant;
        leConteneurEnseignant = new ArrayList<>();
         try {
@@ -61,17 +57,22 @@ public class ModelModifEnseignant extends AbstractTableModel{
         Enseignant ens = leConteneurEnseignant.get(rowIndex);
      
         switch (columnIndex) {
-        
-            
-            case 0:
-                //return ens.getIdEnseignant();
+             case 0:
                 return ens.getNomEnseignant();
             case 1:
-                //return ens.getNomEnseignant();
-                return  ens.getPrenomEnseignant();
+                return ens.getPrenomEnseignant();
             case 2:
-                //return  ens.getPrenomEnseignant();
-                return ens.getAdresseEnseignant();
+                return  ens.getAdresseEnseignant();
+            
+            //le reste est inutile pôur ce modele
+        }
+            /**
+            case 0:
+                return ens.getIdEnseignant();
+            case 1:
+                return ens.getNomEnseignant();
+            case 2:
+                return  ens.getPrenomEnseignant();
             case 3:
                 return ens.getIdDiscipline();
             case 4:
@@ -86,15 +87,14 @@ public class ModelModifEnseignant extends AbstractTableModel{
                 return ens.getMailEnseignant();
             case 9:
                 return ens.getIdEmployeur();
-            case 10:
+            case 10:+++
                 return ens.getDocAdmPhotoCarteNat();
-                
             case 11:
                 return ens.getDocAdmPhotoCarteSecu();
             case 12:
                 return ens.getDocAdmRecepArreteNomin();
         }
-        
+        */
         return null;
     }
      public void supprimerLigne(int numeroLigne) {
@@ -109,13 +109,4 @@ public class ModelModifEnseignant extends AbstractTableModel{
       private void charger() throws SQLException {
         leDaoEnseignant.getEnseignant(leConteneurEnseignant);
     }
-    
-    public void setEnseignant(int index,Enseignant ens){
-        int i=0;
-        while( i<index){
-            i++;  
-        }
-    leConteneurEnseignant.add(ens);
-    }
-   
 }

@@ -5,28 +5,30 @@
  */
 package appli;
 
-import dao.DaoEmployeur;
+import dao.DaoCours;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
-import metier.Employeur;
+import metier.Cours;
 
 /**
  *
  * @author paul
  */
-public class ModeleEmployeur extends AbstractTableModel{ 
+public class ModeleListeCours extends AbstractTableModel{ 
     
-     private List <Employeur>  leConteneurEmployeur;
-    private String[] nomColonnes = {"id", "Nom ", "adresse"};
-    private DaoEmployeur leDaoEmployeur;
+     private List <Cours>  leCont;
+    private String[] nomColonnes = {"Class et Groupe", "UE", "Enseignant"};
+    private DaoCours dao;
 
-    public ModeleEmployeur(DaoEmployeur leDaoEmployeur) {
-        this.leDaoEmployeur = leDaoEmployeur;
-        leConteneurEmployeur = new ArrayList<>();
+    public ModeleListeCours(DaoCours ledao) {
+        this.dao = ledao;
+        
+        leCont = new ArrayList<>();
+        
         try {
             charger();
         } catch (SQLException ex) {
@@ -34,19 +36,16 @@ public class ModeleEmployeur extends AbstractTableModel{
         }
     }
 
-    public ModeleEmployeur() {
+    public ModeleListeCours() {
     }
-    
        
-    public Employeur get(int index) {
-        return leConteneurEmployeur.get(index);
+    public Cours get(int index) {
+        return leCont.get(index);
     }
-
-  
    
     @Override
     public int getRowCount() {
-        return leConteneurEmployeur.size();
+        return leCont.size();
     }
 
     @Override
@@ -60,17 +59,16 @@ public class ModeleEmployeur extends AbstractTableModel{
     }
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Employeur emp = leConteneurEmployeur.get(rowIndex);
+        Cours c = leCont.get(rowIndex);
      
         switch (columnIndex) {
         
-            
             case 0:
-                return emp.getIdEmployeur();
+                return c.getNomClasse();
             case 1:
-                return emp.getNomEmployeur();
+                return c.getNomUE();
             case 2:
-                return emp.getAdresseEmployeur();
+                return c.getNomEns();
            
         }
         
@@ -78,15 +76,15 @@ public class ModeleEmployeur extends AbstractTableModel{
     }
     
      public void supprimerLigne(int numeroLigne) {
-          leConteneurEmployeur.remove(numeroLigne);
+          leCont.remove(numeroLigne);
         this.fireTableDataChanged();
     }
 
-    public void insererLigne(Employeur emp) {
-       leConteneurEmployeur.add(emp);
+    public void insererLigne(Cours c) {
+       leCont.add(c);
         this.fireTableDataChanged();
     }
       private void charger() throws SQLException {
-        leDaoEmployeur.getEmployeur(leConteneurEmployeur);
+        dao.getCours(leCont);
     }
 }

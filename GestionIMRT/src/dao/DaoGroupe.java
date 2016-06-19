@@ -87,5 +87,35 @@ public class DaoGroupe {
         
     }
     
+    public void getGroupesAll(List<Groupe> groupes) throws SQLException {
+        
+        String requete = "select g.id,g.id_class,g.code,c.nom,"
+                + " p.nom_promotion || ' ' || c.nom || ' groupe: ' ||"
+                + " g.code  from gi_groupe g"
+                + " inner join gi_classe c on g.id_class = c.id "
+                + " inner join gi_promotion p on c.id_promotion = p.id ";
+                        
+        try (PreparedStatement pstmt = cnx.prepareStatement(requete)) {
+            
+            tools.debug(requete);
+            
+            try (ResultSet rset = pstmt.executeQuery()) {
+                while (rset.next()) {       // traitement du résulat
+                    
+                    groupes.add( new Groupe(
+                            rset.getInt(1),
+                            rset.getInt(2),
+                            rset.getString(3),
+                            rset.getString(4),
+                            rset.getString(5)
+                            )
+                    );
+                    
+                }
+            }
+        }
+        
+    }
+    
     
 }

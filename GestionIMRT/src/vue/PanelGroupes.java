@@ -32,8 +32,8 @@ public class PanelGroupes extends javax.swing.JPanel {
     
     Connection cnx;
     DaoClasse leDao;
-    DaoGroupe leDaoGroupe;
-    ModeleClasse mc;
+    public DaoGroupe leDaoGroupe;
+    public ModeleClasse mc;
     ModeleListeGroupe mg;
     Promotion currentPromo;
     

@@ -5,24 +5,24 @@
  */
 package appli;
 
-import dao.DaoEnseignant;
+import dao.DaoSalle;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
-import metier.Enseignant;
+import metier.Salle;
 
 /**
  *
  * @author paul
  */
-public class ModeleEnseignant extends DefaultComboBoxModel {
-      private List<Enseignant> leConteneur;
-    private DaoEnseignant leDao;
+public class ModeleSalle extends DefaultComboBoxModel {
+    private List<Salle> leConteneur;
+    private DaoSalle leDao;
 
-    public ModeleEnseignant(DaoEnseignant leDao) {
+    public ModeleSalle(DaoSalle leDao) {
         
         this.leDao = leDao;
         leConteneur = new ArrayList<>();
@@ -36,17 +36,17 @@ public class ModeleEnseignant extends DefaultComboBoxModel {
         }
     }
     
-    public Enseignant get(int index) {
+    public Salle get(int index) {
         return leConteneur.get(index);
     }
 
     private void chargerClasses() throws SQLException {
-        leDao.getEnseignant(leConteneur);
+        leDao.getSalles(leConteneur);
     }
     
     @Override
     public Object getElementAt(int i) {
-        return (leConteneur.get(i).getNomEnseignant() + " " + leConteneur.get(i).getPrenomEnseignant());
+        return leConteneur.get(i).getNomSalle();
     }
 
     @Override
