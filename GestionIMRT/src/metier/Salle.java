@@ -13,8 +13,12 @@ public class Salle {
     private int IdSalle;
     private String nomSalle;
 
-    public Salle(String nomSalle) {
+    public Salle(int idsalle, String nomSalle) {
         this.nomSalle = nomSalle;
+        this.IdSalle = idsalle;
+    }
+
+    public Salle() {
     }
 
     public int getIdSalle() {

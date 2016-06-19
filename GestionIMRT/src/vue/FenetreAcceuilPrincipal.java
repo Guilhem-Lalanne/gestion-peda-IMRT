@@ -119,6 +119,9 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         
         //Gestion de groupes
         this.pGroupPane.add(new PanelGroupes(cnx, this, promotion));
+        
+        //Gestion de groupes
+        this.pGroupPane.add(new PanelSalle(cnx, parent));
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double width = screenSize.getWidth();

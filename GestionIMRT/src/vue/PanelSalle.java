@@ -5,9 +5,13 @@
  */
 package vue;
 
-import appli.ModeleListeClasse;
+import appli.ModeleClasse;
+import appli.ModeleListeGroupe;
+import appli.ModeleListeSalle;
 import appli.tools;
 import dao.DaoClasse;
+import dao.DaoGroupe;
+import dao.DaoSalle;
 import java.awt.Frame;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -17,35 +21,45 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import metier.Classe;
+import metier.Groupe;
+import metier.Promotion;
+import metier.Salle;
+import static oracle.net.aso.b.c;
 
 /**
  *
  * @author Mateusz
  */
-public class PanelClasse extends javax.swing.JPanel {
+public class PanelSalle extends javax.swing.JPanel {
     
     Connection cnx;
-    DaoClasse leDao;
-    ModeleListeClasse ml;
+    DaoSalle leDao;
+    ModeleListeSalle ms;
     
     Frame myparent;
 
     /**
      * Creates new form PanelClasse
      * @param c
+     * @param parent
+     * @param promo
      */
-    public PanelClasse(Connection c, Frame parent) {
+    public PanelSalle(Connection c, Frame parent) {
+        
         initComponents();
         
-        this.setName("Gestion Classes");
+        this.setName("Gestion Salles");
         
         cnx = c;
-        leDao = new DaoClasse(cnx);
         myparent = parent;
         
-        ml = new ModeleListeClasse(leDao);
+        //daos
+        leDao = new DaoSalle(cnx);
         
-        liListeClasse.setModel(ml);
+        //models
+        ms = new ModeleListeSalle(leDao);
+        
+        liListeSalle.setModel(ms);
     }
 
     /**
@@ -58,11 +72,11 @@ public class PanelClasse extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        liListeClasse = new javax.swing.JTable();
+        liListeSalle = new javax.swing.JTable();
         btAjout = new javax.swing.JButton();
         btSuppression = new javax.swing.JButton();
 
-        liListeClasse.setModel(new javax.swing.table.DefaultTableModel(
+        liListeSalle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -73,16 +87,16 @@ public class PanelClasse extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(liListeClasse);
+        jScrollPane1.setViewportView(liListeSalle);
 
-        btAjout.setText("Ajout Classe");
+        btAjout.setText("Ajout Salle");
         btAjout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAjoutActionPerformed(evt);
             }
         });
 
-        btSuppression.setText("Delete Classe");
+        btSuppression.setText("Supprimmer salle");
         btSuppression.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSuppressionActionPerformed(evt);
@@ -96,55 +110,54 @@ public class PanelClasse extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btAjout)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btSuppression)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(313, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btAjout)
                     .addComponent(btSuppression))
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAjoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjoutActionPerformed
        
-        //Classe c = ml.get(liListeClasse.getSelectedRow());
-        Classe c = new Classe();
+        //Salle s = ms.get(liListeSalle.getSelectedRow());
+        Salle s = new Salle();
         
-        FenetreAjoutModifClasse f = new FenetreAjoutModifClasse(myparent, c, cnx);
-        c = f.doModal();
+        FenetreAjoutModifSalle f = new FenetreAjoutModifSalle(myparent, s, cnx);
+        s = f.doModal();
         
-        if (c.getIdClasse() != 0) {
-            tools.debug(c.toString());
-            ml.insererLigne(c);
+        if (s.getIdSalle() != 0) {
+            
+            ms.insererLigne(s);
         }
-        
         
     }//GEN-LAST:event_btAjoutActionPerformed
 
     private void btSuppressionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSuppressionActionPerformed
         
-        if (liListeClasse.getSelectedRow() != -1) {
+        if (liListeSalle.getSelectedRow() != -1) {
         
             try {
 
             //are you sure ?
             //if ()
             int result;
-            Classe current = this.ml.get(liListeClasse.getSelectedRow());
-            int id_suppression = current.getIdClasse();
+            Salle current = this.ms.get(liListeSalle.getSelectedRow());
+            int id_suppression = current.getIdSalle();
 
-            CallableStatement cstmt = cnx.prepareCall ("{ ? = call SUPPRIMER_CLASSE(?)}");
+            CallableStatement cstmt = cnx.prepareCall ("{ ? = call SUPPRIMER_SALLE(?)}");
 
             cstmt.registerOutParameter (1, Types.INTEGER);
             cstmt.setInt(2, id_suppression);
@@ -155,15 +168,15 @@ public class PanelClasse extends javax.swing.JPanel {
 
             if (result == 1) {
                         //todo implementer methode modifier
-                JOptionPane.showMessageDialog(null, "Classe "
-                    +current.getNom() + " a été bien supprimé",
+                JOptionPane.showMessageDialog(null, "Salle "
+                    +current.getNomSalle()+ " a été bien supprimé",
                     "Information", JOptionPane.INFORMATION_MESSAGE);
 
-                this.ml.supprimerLigne(liListeClasse.getSelectedRow());
+                this.ms.supprimerLigne(liListeSalle.getSelectedRow());
 
             } else {
                 //result != 1
-                throw new Exception("Impossible de supprimer ens");
+                throw new Exception("Impossible de supprimer la groupe");
             }
 
             } catch (SQLException ex) {
@@ -182,6 +195,6 @@ public class PanelClasse extends javax.swing.JPanel {
     private javax.swing.JButton btAjout;
     private javax.swing.JButton btSuppression;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable liListeClasse;
+    private javax.swing.JTable liListeSalle;
     // End of variables declaration//GEN-END:variables
 }
