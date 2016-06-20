@@ -45,6 +45,12 @@ import metier.User;
 import metier.Etudiant;
 import metier.Agenda;
 import metier.CelluleAgenda;
+import metier.Cours;
+import metier.Salle;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
 
 /**
  *
@@ -1425,13 +1431,21 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             
             if (res == 0) {
                 rechargeAgenda();
+                
+                /*
+                Twitter twitter = new TwitterFactory().getInstance();
+                Status status = twitter.updateStatus("a");
+                tools.debug("Send tweet: " + status.getText());
+                */
             }
             
         } catch (ParseException ex) {
             Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }/* catch (TwitterException ex) {
+            Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
 
     }//GEN-LAST:event_btAjoutSeanceActionPerformed
 

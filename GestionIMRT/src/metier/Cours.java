@@ -113,5 +113,12 @@ public class Cours {
     public void setIdIe(int idIe) {
         this.idIe = idIe;
     }
+
+    @Override
+    public String toString() {
+        return "Cours{" + "idCours=" + idCours + ", idEnseignant=" + idEnseignant + ", idIe=" + idIe + ", idGroupe=" + idGroupe + ", nomClasse=" + nomClasse + ", nomGroupe=" + nomGroupe + ", nomUE=" + nomUE + ", nomEns=" + nomEns + '}';
+    }
+    
+    
       
 }
