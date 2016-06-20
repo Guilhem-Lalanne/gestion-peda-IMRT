@@ -240,7 +240,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btModifier = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Exemple d'utilisation des onglets");
+        setTitle("gestion de la section IMRT du lycée La Martinière Duchère");
 
         pGroupPane.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 2, 12))); // NOI18N
         pGroupPane.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -276,7 +276,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addComponent(lNiveau)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lAnnee)
-                .addContainerGap(834, Short.MAX_VALUE))
+                .addContainerGap(850, Short.MAX_VALUE))
         );
 
         pGroupPane.addTab("Accueil", pAccueil);
@@ -475,7 +475,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addGroup(pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btImporterEtudiants)
                     .addComponent(btPassageEtudiant))
-                .addContainerGap(484, Short.MAX_VALUE))
+                .addContainerGap(500, Short.MAX_VALUE))
         );
 
         pGroupPane.addTab("Gestion des étudiants", pGestionEtudiants);
@@ -569,7 +569,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                     .addComponent(jBImporter1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(76, 76, 76)
                 .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(382, Short.MAX_VALUE))
+                .addContainerGap(398, Short.MAX_VALUE))
         );
 
         pGroupPane.addTab("Gestion des enseignants", pGestionEnseignant);
@@ -856,7 +856,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addComponent(spListeEtudConvoque, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pEtudrepasUe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addContainerGap(369, Short.MAX_VALUE))
             .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pGestionExamenLayout.createSequentialGroup()
                     .addContainerGap()
@@ -949,7 +949,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                     .addComponent(btAjouterUser)
                     .addComponent(btSupprimer)
                     .addComponent(btModifier))
-                .addContainerGap(566, Short.MAX_VALUE))
+                .addContainerGap(582, Short.MAX_VALUE))
         );
 
         pGroupPane.addTab("Gestion des users", pGestionUsers);
@@ -962,7 +962,9 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pGroupPane, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pGroupPane, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

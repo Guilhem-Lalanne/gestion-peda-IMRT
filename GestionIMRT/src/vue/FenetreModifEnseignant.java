@@ -604,7 +604,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
             try {
 
                int result;
-                //int id_suppression = this.ens.getIdEnseignant();
+            
                 //bloc servant a recuperer les valeur dans les different fenetre
                 ens.setNomEnseignant(this.txNomEns.getText());
                 ens.setPrenomEnseignant(this.txPrenomEns.getText());
@@ -628,7 +628,6 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 
                 cstmt.setString(2, ens.getNomEnseignant());
                 cstmt.setString(3, ens.getPrenomEnseignant());
-                
                 cstmt.setString(4,ens.getDateNaissanceEnseignant());
                 cstmt.setString(5,ens.getAdresseEnseignant());
                 cstmt.setString(6,ens.getNumeroTelFixeEnseignant());
@@ -678,24 +677,44 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
 
                 int result;
                 int id_modification = this.ens.getIdEnseignant();
-               
+                
+                tools.debug("ID ETUDIANT : " + id_modification);
                 ens.setNomEnseignant(this.txNomEns.getText());
                 ens.setPrenomEnseignant(this.txPrenomEns.getText());
+                ens.setDateNaissanceEnseignant(this.txDateNaissanceEns.getText());
+                ens.setAdresseEnseignant(this.txAdresseEns.getText());
+                ens.setNumeroTelFixeEnseignant(this.txNumFixe.getText());
+                ens.setNumeroTelMobilEnseignant(this.txNumMobile.getText());
+                ens.setMailEnseignant(this.txAdresseMail.getText());
+                ens.setProfession(this.txProfession.getText());
+                ens.setDocAdmPhotoCarteNat(this.ckCNI.isSelected() );
+                ens.setDocAdmPhotoCarteSecu(this.ckSS.isSelected());
+                ens.setDocAdmJustTrav(this.ckBulletinSalaire.isSelected());
+                ens.setDocAdmRecepArreteNomin(this.ckArreteNomination.isSelected());
                 
                 //TODO: VALIDATION
-
-                CallableStatement cstmt = cnx.prepareCall ("{ ? = call modifier_enseignant (?,?, ?)}");
-
+                CallableStatement cstmt = cnx.prepareCall ("{ ? = call modifier_enseignant (?,?,?,?,?,?,?,?,?,?,?,?,?)}");
                 cstmt.registerOutParameter (1, Types.INTEGER);
-                 cstmt.setInt(2, id_modification );
+                
+                cstmt.setInt(2,id_modification );
                 cstmt.setString(3, ens.getNomEnseignant());
                 cstmt.setString(4, ens.getPrenomEnseignant());
+                cstmt.setString(5,ens.getDateNaissanceEnseignant());
+                cstmt.setString(6,ens.getAdresseEnseignant());
+                cstmt.setString(7,ens.getNumeroTelFixeEnseignant());
+                cstmt.setString(8,ens.getNumeroTelMobilEnseignant());
+                cstmt.setString(9,ens.getMailEnseignant());
+                cstmt.setString(10,ens.getProfession());
+                cstmt.setInt(11,ens.getIntDocAdmPhotoCarteNat());
+                cstmt.setInt(12,ens.getIntDocAdmPhotoCarteSecu());
+                cstmt.setInt(13,ens.getIntDocAdmJustTrav());
+                cstmt.setInt(14,ens.getIntDocAdmRecepArreteNomin());
                 
                 cstmt.execute();
                 
                 result = cstmt.getInt(1);
 
-                tools.debug("Ajout : " + result);
+               
 
                 //if (result == 1) {
 

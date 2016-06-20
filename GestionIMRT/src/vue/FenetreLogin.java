@@ -55,7 +55,7 @@ public class FenetreLogin extends javax.swing.JFrame {
         btAnnulerLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gestion pédagogique de l'IMRT");
+        setTitle("Gestion pédagogique de la section l'IMRT du lycée La Martinère Duchère");
 
         lTitre.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lTitre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
