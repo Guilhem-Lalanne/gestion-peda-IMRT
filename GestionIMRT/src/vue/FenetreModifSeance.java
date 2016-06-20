@@ -23,7 +23,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import metier.CelluleAgenda;
 import metier.Cours;
+import metier.Salle;
 import metier.Seance;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+
 
 /**
  *
@@ -357,6 +363,8 @@ public class FenetreModifSeance extends javax.swing.JDialog {
             int id_cours = mc.get(cbCours.getSelectedIndex()).getIdCours();
             int id_salle = ms.get(cbSalle.getSelectedIndex()).getIdSalle();
             
+            
+            
             int heure_deb = cbHeureDebut.getSelectedIndex()+7;
             int heure_fin = cbHeureFin.getSelectedIndex()+7;
             
@@ -372,8 +380,39 @@ public class FenetreModifSeance extends javax.swing.JDialog {
                 
                 da.insertSeance(s);
                 
+                tools.debug(mc.get(cbCours.getSelectedIndex()).getNomClasse());
+                //tools.debug(mc.get(cbCours.getSelectedIndex()).getIdIe);
+                
+                Cours cc = mc.get(cbCours.getSelectedIndex());
+                
+                tools.debug(cc.toString());
+                
+                Salle ss = ms.get(cbSalle.getSelectedIndex());
+                
+                //Ue ue = new Ue(WIDTH, affichageTable, affichageTable, id_seance, heure_fin)
+                
+                String lareste = cc.getCoursName();
+                
+                int len_base = ("Salle: "+ss.getNomSalle()).length();
+                int ext = len_base + lareste.length();
+                
+                String reste_s = "";
+                
+                if (ext > 139) {
+                    reste_s = lareste.substring(0, 139 - len_base);
+                } else {
+                    reste_s = lareste;
+                }
+                
+                tools.debug("Salle: "+ss.getNomSalle() + " "+reste_s);
+                Twitter twitter = new TwitterFactory().getInstance();
+                Status status = twitter.updateStatus("Salle: "+ss.getNomSalle() + " "+reste_s);
+                tools.debug("Send tweet: " + status.getText());
+                
             } catch (SQLException ex) {
                 Logger.getLogger(FenetreAjoutModifClasse.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (TwitterException ex) {
+                Logger.getLogger(FenetreModifSeance.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             resultat = 0;
