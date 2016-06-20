@@ -167,6 +167,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         lNiveau = new javax.swing.JLabel();
         lAnnee = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         pAgenda = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         liAgenda = new javax.swing.JTable();
@@ -250,26 +252,48 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             }
         });
 
+        pAccueil.setBackground(new java.awt.Color(0, 0, 0));
+
+        lLogin.setForeground(new java.awt.Color(255, 255, 255));
         lLogin.setText("Login:");
 
+        lNiveau.setForeground(new java.awt.Color(255, 255, 255));
         lNiveau.setText("Niveau:");
 
+        lAnnee.setForeground(new java.awt.Color(255, 255, 255));
         lAnnee.setText("Année en cours: ");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vue/wallpaper_neon_15.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vue/banner.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Gestion pédagogique de la section \nImagerie Médicale et Radiothérapie du lycée La Martinière Duchère");
 
         javax.swing.GroupLayout pAccueilLayout = new javax.swing.GroupLayout(pAccueil);
         pAccueil.setLayout(pAccueilLayout);
         pAccueilLayout.setHorizontalGroup(
             pAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAccueilLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lLogin)
-                    .addComponent(lNiveau)
-                    .addComponent(lAnnee))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 913, Short.MAX_VALUE)
+                    .addGroup(pAccueilLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lLogin)
+                            .addComponent(lNiveau)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAccueilLayout.createSequentialGroup()
+                                .addComponent(lAnnee)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAccueilLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pAccueilLayout.setVerticalGroup(
@@ -279,12 +303,19 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addComponent(lLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lNiveau)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lAnnee)
+                .addGroup(pAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pAccueilLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lAnnee))
+                    .addGroup(pAccueilLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(138, 138, 138)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pAccueilLayout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 267, Short.MAX_VALUE))
+                .addGap(0, 251, Short.MAX_VALUE))
         );
 
         pGroupPane.addTab("Accueil", pAccueil);
@@ -349,7 +380,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             .addGroup(pAgendaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1475, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1588, Short.MAX_VALUE)
                     .addGroup(pAgendaLayout.createSequentialGroup()
                         .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pAgendaLayout.createSequentialGroup()
@@ -461,7 +492,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addGroup(pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btNotesEtudiant, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btImporterEtudiants, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(887, Short.MAX_VALUE))
+                .addContainerGap(1000, Short.MAX_VALUE))
         );
         pGestionEtudiantsLayout.setVerticalGroup(
             pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -556,7 +587,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addComponent(btSupprimerEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(btVoirEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(615, Short.MAX_VALUE))
+                .addContainerGap(728, Short.MAX_VALUE))
         );
         pGestionEnseignantLayout.setVerticalGroup(
             pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -826,7 +857,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addComponent(lPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbChoixClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(621, Short.MAX_VALUE))
+                .addContainerGap(734, Short.MAX_VALUE))
             .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pGestionExamenLayout.createSequentialGroup()
                     .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -851,7 +882,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addComponent(btImprimPvSurveillant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btimprilConvocSurveil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btImprimPvIntero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(301, Short.MAX_VALUE)))
+                    .addContainerGap(414, Short.MAX_VALUE)))
         );
         pGestionExamenLayout.setVerticalGroup(
             pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -945,7 +976,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addComponent(btModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btSupprimer)))
-                .addContainerGap(887, Short.MAX_VALUE))
+                .addContainerGap(1000, Short.MAX_VALUE))
         );
         pGestionUsersLayout.setVerticalGroup(
             pGestionUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -966,7 +997,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pGroupPane)
+            .addComponent(pGroupPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1615, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1535,6 +1566,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jBImporter1;
     private javax.swing.JButton jBModifEnsegnant;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
