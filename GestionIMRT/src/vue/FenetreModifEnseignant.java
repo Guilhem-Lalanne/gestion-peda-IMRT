@@ -604,7 +604,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
             try {
 
                int result;
-                //
+            
                 //bloc servant a recuperer les valeur dans les different fenetre
                 ens.setNomEnseignant(this.txNomEns.getText());
                 ens.setPrenomEnseignant(this.txPrenomEns.getText());
@@ -678,7 +678,8 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
 
                 int result;
                 int id_modification = this.ens.getIdEnseignant();
-               
+                
+                tools.debug("ID ETUDIANT : " + id_modification);
                 ens.setNomEnseignant(this.txNomEns.getText());
                 ens.setPrenomEnseignant(this.txPrenomEns.getText());
                 ens.setDateNaissanceEnseignant(this.txDateNaissanceEns.getText());
@@ -693,8 +694,8 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 ens.setDocAdmRecepArreteNomin(this.ckArreteNomination.isSelected());
                 
                 //TODO: VALIDATION
-
                 CallableStatement cstmt = cnx.prepareCall ("{ ? = call modifier_enseignant (?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+                
                 
                 cstmt.setInt(2,id_modification );
                 cstmt.setString(3, ens.getNomEnseignant());
@@ -714,7 +715,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 
                 result = cstmt.getInt(1);
 
-                tools.debug("Ajout : " + result);
+               
 
                 //if (result == 1) {
 

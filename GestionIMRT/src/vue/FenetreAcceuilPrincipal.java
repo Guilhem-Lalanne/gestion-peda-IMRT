@@ -234,7 +234,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         btModifier = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Exemple d'utilisation des onglets");
+        setTitle("gestion de la section IMRT du lycée La Martinière Duchère");
 
         pGroupPane.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 2, 12))); // NOI18N
         pGroupPane.addChangeListener(new javax.swing.event.ChangeListener() {
