@@ -169,6 +169,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         pAgenda = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         liAgenda = new javax.swing.JTable();
@@ -270,30 +272,36 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vue/banner.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Gestion pédagogique de la section \nImagerie Médicale et Radiothérapie du lycée La Martinière Duchère");
+        jLabel3.setText("Gestion pédagogique de la section   ");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Imagerie Médicale et Radiothérapie");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText(" du lycée La Martinière Duchère");
 
         javax.swing.GroupLayout pAccueilLayout = new javax.swing.GroupLayout(pAccueil);
         pAccueil.setLayout(pAccueilLayout);
         pAccueilLayout.setHorizontalGroup(
             pAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAccueilLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pAccueilLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lLogin)
-                            .addComponent(lNiveau)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAccueilLayout.createSequentialGroup()
-                                .addComponent(lAnnee)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(10, 10, 10))
+                    .addComponent(lLogin)
+                    .addComponent(lNiveau)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAccueilLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(lAnnee)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                        .addGroup(pAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(10, 10, 10)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pAccueilLayout.setVerticalGroup(
@@ -310,8 +318,12 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                     .addGroup(pAccueilLayout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(138, 138, 138)
+                .addGap(126, 126, 126)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pAccueilLayout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -350,6 +362,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         });
 
         btAjoutSeance.setText("Ajout Seance");
+        btAjoutSeance.setMaximumSize(new java.awt.Dimension(125, 23));
+        btAjoutSeance.setMinimumSize(new java.awt.Dimension(125, 23));
         btAjoutSeance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAjoutSeanceActionPerformed(evt);
@@ -380,13 +394,13 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             .addGroup(pAgendaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1588, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1615, Short.MAX_VALUE)
                     .addGroup(pAgendaLayout.createSequentialGroup()
                         .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pAgendaLayout.createSequentialGroup()
                                 .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(pAgendaLayout.createSequentialGroup()
-                                        .addComponent(btAjoutSeance)
+                                        .addComponent(btAjoutSeance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btModifSeance))
                                     .addComponent(choixDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -418,7 +432,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addComponent(lSemaine)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pAgendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btAjoutSeance)
+                    .addComponent(btAjoutSeance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btModifSeance)
                     .addComponent(btSuppSeance))
                 .addGap(28, 28, 28)
@@ -432,6 +446,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         spEtudiants.setViewportView(liEtudiants);
 
+        btAjouterEtudiant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btAjouterEtudiant.setText("Ajouter");
         btAjouterEtudiant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -439,6 +454,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btModifierEtudiant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btModifierEtudiant.setText("Modifier");
         btModifierEtudiant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -446,6 +462,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btSupprimerEtudiant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btSupprimerEtudiant.setText("Supprimer");
         btSupprimerEtudiant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -453,10 +470,13 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btRestaurerEtudiant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btRestaurerEtudiant.setText("Restaurer la fiche d'un étudiant");
 
+        btAbsenceEtudiant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btAbsenceEtudiant.setText("Gestion des abscences");
 
+        btNotesEtudiant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btNotesEtudiant.setText("Gestion des notes");
         btNotesEtudiant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -464,8 +484,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btPassageEtudiant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btPassageEtudiant.setText("Passage des étudiants en classe supérieure");
 
+        btImporterEtudiants.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btImporterEtudiants.setText("Importation à partir d'un fichier");
 
         javax.swing.GroupLayout pGestionEtudiantsLayout = new javax.swing.GroupLayout(pGestionEtudiants);
@@ -474,7 +496,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pGestionEtudiantsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(pGestionEtudiantsLayout.createSequentialGroup()
                         .addComponent(btAjouterEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -482,17 +504,17 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btSupprimerEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btRestaurerEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(spEtudiants, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pGestionEtudiantsLayout.createSequentialGroup()
-                        .addGroup(pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btPassageEtudiant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btRestaurerEtudiant))
+                    .addGroup(pGestionEtudiantsLayout.createSequentialGroup()
+                        .addGroup(pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btPassageEtudiant, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
                             .addComponent(btAbsenceEtudiant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btNotesEtudiant, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btImporterEtudiants, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(1000, Short.MAX_VALUE))
+                            .addComponent(btImporterEtudiants, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(spEtudiants))
+                .addContainerGap(1027, Short.MAX_VALUE))
         );
         pGestionEtudiantsLayout.setVerticalGroup(
             pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -500,11 +522,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(spEtudiants, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btAjouterEtudiant)
-                        .addComponent(btSupprimerEtudiant)
-                        .addComponent(btModifierEtudiant))
+                .addGroup(pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btAjouterEtudiant)
+                    .addComponent(btSupprimerEtudiant)
+                    .addComponent(btModifierEtudiant)
                     .addComponent(btRestaurerEtudiant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -514,7 +535,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addGroup(pGestionEtudiantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btImporterEtudiants)
                     .addComponent(btPassageEtudiant))
-                .addContainerGap(500, Short.MAX_VALUE))
+                .addContainerGap(484, Short.MAX_VALUE))
         );
 
         pGroupPane.addTab("Gestion des étudiants", pGestionEtudiants);
@@ -524,25 +545,26 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         lTitreGestionEnseignants.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lTitreGestionEnseignants.setText("   Gestion des enseignants");
 
-        jBModifEnsegnant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jBModifEnsegnant.setText("modifier");
+        jBModifEnsegnant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jBModifEnsegnant.setText("Modifier");
         jBModifEnsegnant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBModifEnsegnantActionPerformed(evt);
             }
         });
 
-        jBImporter1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBImporter1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jBImporter1.setText("Importation à partir d'un fichier");
 
-        jBGestionNote1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBGestionNote1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jBGestionNote1.setText("Gestion des cours faits");
 
-        btCreationEtatHeure.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btCreationEtatHeure.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btCreationEtatHeure.setText("creation d'état des heures");
 
         jScrollPane1.setViewportView(liEnseignant);
 
+        btAjouterEnseignant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btAjouterEnseignant.setText("Ajouter");
         btAjouterEnseignant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -550,6 +572,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btSupprimerEnseignant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btSupprimerEnseignant.setText("Supprimer");
         btSupprimerEnseignant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -557,6 +580,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btVoirEnseignant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btVoirEnseignant.setText("voir");
 
         javax.swing.GroupLayout pGestionEnseignantLayout = new javax.swing.GroupLayout(pGestionEnseignant);
@@ -573,21 +597,22 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pGestionEnseignantLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBGestionNote1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jBImporter1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pGestionEnseignantLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btAjouterEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addComponent(jBModifEnsegnant, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(btSupprimerEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(btVoirEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(728, Short.MAX_VALUE))
+                        .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pGestionEnseignantLayout.createSequentialGroup()
+                                .addComponent(jBGestionNote1)
+                                .addGap(29, 29, 29)
+                                .addComponent(jBImporter1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btCreationEtatHeure))
+                            .addGroup(pGestionEnseignantLayout.createSequentialGroup()
+                                .addComponent(btAjouterEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(jBModifEnsegnant, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(btSupprimerEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(btVoirEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(755, Short.MAX_VALUE))
         );
         pGestionEnseignantLayout.setVerticalGroup(
             pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -598,22 +623,21 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBModifEnsegnant, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btSupprimerEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btAjouterEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btVoirEnseignant, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62)
+                    .addComponent(jBModifEnsegnant)
+                    .addComponent(btSupprimerEnseignant)
+                    .addComponent(btAjouterEnseignant)
+                    .addComponent(btVoirEnseignant))
+                .addGap(43, 43, 43)
                 .addGroup(pGestionEnseignantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBGestionNote1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBImporter1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(76, 76, 76)
-                .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(398, Short.MAX_VALUE))
+                    .addComponent(jBGestionNote1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBImporter1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btCreationEtatHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(559, Short.MAX_VALUE))
         );
 
         pGroupPane.addTab("Gestion des enseignants", pGestionEnseignant);
 
-        pSurveillantEpreuve.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "surveillant de l'épreuve", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pSurveillantEpreuve.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "surveillants de l'épreuve", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         spSurveillantEpreuve.setViewportView(liSurveillantEpreuve);
 
@@ -770,7 +794,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         cbChoixInterogateur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btAjouterInterrogateur.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btAjouterInterrogateur.setText("Ajoute");
+        btAjouterInterrogateur.setText("Ajouter");
 
         javax.swing.GroupLayout pInterogateurEpreuveLayout = new javax.swing.GroupLayout(pInterogateurEpreuve);
         pInterogateurEpreuve.setLayout(pInterogateurEpreuveLayout);
@@ -857,7 +881,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addComponent(lPromotion, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbChoixClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(734, Short.MAX_VALUE))
+                .addContainerGap(761, Short.MAX_VALUE))
             .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pGestionExamenLayout.createSequentialGroup()
                     .addGroup(pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -882,7 +906,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addComponent(btImprimPvSurveillant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btimprilConvocSurveil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btImprimPvIntero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(414, Short.MAX_VALUE)))
+                    .addContainerGap(441, Short.MAX_VALUE)))
         );
         pGestionExamenLayout.setVerticalGroup(
             pGestionExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -976,7 +1000,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                         .addComponent(btModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btSupprimer)))
-                .addContainerGap(1000, Short.MAX_VALUE))
+                .addContainerGap(1027, Short.MAX_VALUE))
         );
         pGestionUsersLayout.setVerticalGroup(
             pGestionUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -997,7 +1021,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pGroupPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1615, Short.MAX_VALUE)
+            .addComponent(pGroupPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1568,6 +1592,8 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
