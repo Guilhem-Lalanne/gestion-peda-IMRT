@@ -9,13 +9,37 @@ package vue;
  *
  * @author paul
  */
+
+
+import appli.ModeleEtudiant;
+import appli.ModeleEtudiantClasse;
+import dao.DaoEtudiantSuprimer;
+import java.sql.Connection;
+
+
+
+ 
+
 public class FenetreRestaurerEtudiant extends javax.swing.JFrame {
+    
+     private ModeleEtudiantClasse modelEtuClasse;
+     Connection cnx;
 
     /**
      * Creates new form FenetreRestaurerEtudiant
      */
-    public FenetreRestaurerEtudiant() {
+    public FenetreRestaurerEtudiant(Connection cnx) {
         initComponents();
+        this.cnx = cnx;
+           //init de dao pour recuperation des données
+            //1 seule dao par fonctionalité
+            DaoEtudiantSuprimer daoEtuSupr = new DaoEtudiantSuprimer(cnx);
+
+            //recuperation des données dans modelList
+     // modelEtuClasse = new ModeleEtudiantClasse(daoEtuSupr);
+
+            //je met le model dans la table
+          //  liEtudiants.setModel(etuModel);
     }
 
     /**
@@ -28,20 +52,15 @@ public class FenetreRestaurerEtudiant extends javax.swing.JFrame {
     private void initComponents() {
 
         lTitre = new javax.swing.JLabel();
-        lEtudiant = new javax.swing.JLabel();
-        cbEtudiant = new javax.swing.JComboBox<>();
         btRestaurer = new javax.swing.JButton();
         btAnnulerRestaurer = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lTitre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lTitre.setText("Restauration d'un étudiant");
-
-        lEtudiant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lEtudiant.setText("Choix de l'étudiant");
-
-        cbEtudiant.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btRestaurer.setText("OK");
 
@@ -52,6 +71,19 @@ public class FenetreRestaurerEtudiant extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,48 +91,45 @@ public class FenetreRestaurerEtudiant extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, 134, Short.MAX_VALUE)
-                            .addComponent(btRestaurer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(71, 71, 71)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cbEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btAnnulerRestaurer, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(120, 120, 120)
-                        .addComponent(lTitre)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addComponent(lTitre))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btRestaurer, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54)
+                                .addComponent(btAnnulerRestaurer, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(434, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addComponent(lTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbEtudiant, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btAnnulerRestaurer, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btRestaurer, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAnnulerRestaurerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAnnulerRestaurerActionPerformed
-        // TODO add your handling code here:
+         this.dispose();
     }//GEN-LAST:event_btAnnulerRestaurerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAnnulerRestaurer;
     private javax.swing.JButton btRestaurer;
-    private javax.swing.JComboBox<String> cbEtudiant;
-    private javax.swing.JLabel lEtudiant;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lTitre;
     // End of variables declaration//GEN-END:variables
 }

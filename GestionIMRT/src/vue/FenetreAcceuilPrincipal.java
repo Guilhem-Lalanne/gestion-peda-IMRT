@@ -865,6 +865,11 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 cbChoixClasseItemStateChanged(evt);
             }
         });
+        cbChoixClasse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbChoixClasseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pGestionExamenLayout = new javax.swing.GroupLayout(pGestionExamen);
         pGestionExamen.setLayout(pGestionExamenLayout);
@@ -1547,6 +1552,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         modelEtuClasse = new ModeleEtudiantClasse(daoEtu, id_select);
         liEtudConvoquer.setModel(modelEtuClasse);
     }//GEN-LAST:event_cbChoixClasseItemStateChanged
+
+    private void cbChoixClasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbChoixClasseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbChoixClasseActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;
