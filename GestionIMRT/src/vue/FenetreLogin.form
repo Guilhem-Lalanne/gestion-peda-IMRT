@@ -25,28 +25,27 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lTitre" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lTitre" min="-2" pref="381" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lMotDePasse" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                          <Component id="btValiderLogin" alignment="0" pref="117" max="32767" attributes="0"/>
-                          <Component id="lLogin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lLogin" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
+                          <Component id="btValiderLogin" min="-2" pref="148" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btOubliMotDePasse" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="btAnnulerLogin" min="-2" pref="110" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="txLogin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="pwMotDePasse" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="pwMotDePasse" min="-2" pref="202" max="-2" attributes="0"/>
+                          <Component id="btAnnulerLogin" min="-2" pref="202" max="-2" attributes="0"/>
+                          <Component id="txLogin" min="-2" pref="202" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="104" max="32767" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,23 +54,22 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="lTitre" min="-2" pref="62" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lLogin" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="txLogin" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lMotDePasse" pref="36" max="32767" attributes="0"/>
-                  <Component id="pwMotDePasse" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btOubliMotDePasse" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="lMotDePasse" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="pwMotDePasse" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btValiderLogin" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="btAnnulerLogin" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -96,7 +94,9 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txLogin">
       <Properties>
-        <Property name="text" type="java.lang.String" value="test"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txLoginActionPerformed"/>
@@ -112,7 +112,9 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="pwMotDePasse">
       <Properties>
-        <Property name="text" type="java.lang.String" value="test"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
@@ -121,19 +123,11 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="ok"/>
+        <Property name="text" type="java.lang.String" value="Connexion"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btValiderLoginActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btOubliMotDePasse">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Mot de passe oubli&#xe9;"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btAnnulerLogin">
       <Properties>
