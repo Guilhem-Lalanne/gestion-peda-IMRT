@@ -14,6 +14,8 @@ package vue;
 import appli.ModeleEtudiant;
 import appli.ModeleEtudiantClasse;
 import dao.DaoEtudiantSuprimer;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 
 
@@ -30,6 +32,9 @@ public class FenetreRestaurerEtudiant extends javax.swing.JFrame {
      */
     public FenetreRestaurerEtudiant(Connection cnx) {
         initComponents();
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         this.cnx = cnx;
            //init de dao pour recuperation des données
             //1 seule dao par fonctionalité

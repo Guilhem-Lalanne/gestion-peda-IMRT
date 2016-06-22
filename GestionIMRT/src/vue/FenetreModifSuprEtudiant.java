@@ -8,6 +8,8 @@ package vue;
 import appli.ModeleClasse;
 import appli.tools;
 import dao.DaoClasse;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -48,6 +50,9 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
     public FenetreModifSuprEtudiant(java.awt.Frame parent,
             Etudiant etu, String libelle, Connection cnx) {
         initComponents();
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 
         this.etu = etu;
         this.action = 0;

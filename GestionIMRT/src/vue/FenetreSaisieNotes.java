@@ -15,7 +15,9 @@ import appli.tools;
 import dao.DaoClasse;
 import dao.DaoEtudiant;
 import dao.DaoUe;
+import java.awt.Dimension;
 import java.awt.Frame;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import javax.swing.ComboBoxModel;
 
@@ -45,6 +47,8 @@ public class FenetreSaisieNotes extends javax.swing.JFrame {
     public FenetreSaisieNotes(java.awt.Frame parent,Connection cnx) {
         
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         idClasse=1;
         this.cnx=cnx;
          DaoClasse daoClas =new  DaoClasse(cnx);

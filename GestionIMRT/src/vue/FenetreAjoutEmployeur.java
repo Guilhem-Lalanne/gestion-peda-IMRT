@@ -7,6 +7,8 @@ package vue;
 
 import appli.tools;
 import dao.DaoUser;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -35,6 +37,9 @@ public class FenetreAjoutEmployeur extends javax.swing.JFrame {
         initComponents();
         this.emp=emp;
         this.cnx=cnx;
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
     public int doModal() {
         this.setVisible(true);

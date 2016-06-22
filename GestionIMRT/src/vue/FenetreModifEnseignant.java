@@ -8,7 +8,9 @@ package vue;
 import appli.ModeleNomEmployeur;
 import appli.tools;
 import dao.DaoEmployeur;
+import java.awt.Dimension;
 import java.awt.Frame;
+import java.awt.Toolkit;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -72,6 +74,9 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
         this.modelNomEmp = modelNomEmp;
         
         initComponents();
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
      
          tools.debug(ens.toString());
          

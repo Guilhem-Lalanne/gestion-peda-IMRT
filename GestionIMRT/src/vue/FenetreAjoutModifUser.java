@@ -6,14 +6,9 @@
 package vue;
 
 import appli.ModeleReferentiel;
-import appli.tools;
-import java.sql.CallableStatement;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Types;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import metier.User;
 
 /**
@@ -48,6 +43,9 @@ public class FenetreAjoutModifUser extends javax.swing.JDialog {
         
         super(parent, true);
         initComponents();
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         
         this.modUser = user;
         this.action = action;

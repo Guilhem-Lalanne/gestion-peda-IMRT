@@ -6,6 +6,8 @@
 package vue;
 
 import dao.DaoSalle;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -36,6 +38,8 @@ public class FenetreAjoutModifSalle extends javax.swing.JDialog {
         initComponents();
         
         this.setTitle("Ajout de la salle");
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         
         resultat = 1;
         
