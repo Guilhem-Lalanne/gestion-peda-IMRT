@@ -101,7 +101,7 @@ public class FenetreAjoutModifUser extends javax.swing.JDialog {
         txLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         lPrenomEtu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lPrenomEtu.setText("Password");
+        lPrenomEtu.setText("Mot de passe");
 
         lAdresse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lAdresse.setText("Groupe");
@@ -109,7 +109,7 @@ public class FenetreAjoutModifUser extends javax.swing.JDialog {
         cbUserGroupes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lPrenomEtu1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lPrenomEtu1.setText("Nom et prénom");
+        lPrenomEtu1.setText("Nom et Prénom");
 
         txPrenomEtu1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 

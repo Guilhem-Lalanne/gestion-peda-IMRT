@@ -150,10 +150,10 @@ public class FenetreModifSuprEtudiant extends javax.swing.JFrame {
         lAdresse.setText("Adresse");
 
         lNumFixe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lNumFixe.setText("Numero de telephone fixe");
+        lNumFixe.setText("Numéro de téléphone fixe");
 
         lNumMobile.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lNumMobile.setText("Numero de telephone mobile");
+        lNumMobile.setText("Numéro de téléphone mobile");
 
         lAdresseMail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lAdresseMail.setText("Adresse mail");

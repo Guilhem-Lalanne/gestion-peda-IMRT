@@ -45,7 +45,7 @@ public class PanelCours extends javax.swing.JPanel {
     public PanelCours(Connection c, Frame parent) {
         initComponents();
         
-        this.setName("Gestion Cours");
+        this.setName("Gestion des cours");
         
         cnx = c;
         myparent = parent;
@@ -88,7 +88,7 @@ public class PanelCours extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(liListeCours);
 
-        btAjout.setText("Ajout un cours");
+        btAjout.setText("Ajouter un cours");
         btAjout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAjoutActionPerformed(evt);

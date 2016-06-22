@@ -38,22 +38,22 @@ public class FenetreEdtionBulleltinAbsence extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLEditionBultinAbsence.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLEditionBultinAbsence.setText("Edition de buletin d'absence");
+        jLEditionBultinAbsence.setText("Edition de bulletin d'absence");
 
         jLClasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLClasse.setText("classe");
+        jLClasse.setText("Classe");
 
         jCChoixClasse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "nom de l'étudiant", "nom de l'étidte d'abscence", "nombre d'heure d'absence", "U.E ratée"
+                "nom de l'étudiant", "nombre d'heure d'absence"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

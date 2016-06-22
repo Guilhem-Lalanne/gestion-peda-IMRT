@@ -68,12 +68,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Restauration d&apos;un &#xe9;tudiant"/>
+        <Property name="text" type="java.lang.String" value="Restauration d&apos;un fichier &#xe9;tudiant"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btRestaurer">
       <Properties>
-        <Property name="text" type="java.lang.String" value="OK"/>
+        <Property name="text" type="java.lang.String" value="Valider"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btAnnulerRestaurer">

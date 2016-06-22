@@ -48,7 +48,7 @@ public class FenetreImportationFichierEtudiant extends javax.swing.JFrame {
         });
 
         btValiderImport.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btValiderImport.setText("Ok");
+        btValiderImport.setText("Valider");
 
         btAnnulerImport.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAnnulerImport.setText("Annuler");

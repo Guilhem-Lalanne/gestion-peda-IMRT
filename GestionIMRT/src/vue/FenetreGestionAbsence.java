@@ -34,10 +34,10 @@ public class FenetreGestionAbsence extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLGestionAbsence.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLGestionAbsence.setText("gestion des absence");
+        jLGestionAbsence.setText("Gestion des absences");
 
         jBSaisiAbsence.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jBSaisiAbsence.setText("Saisie des abscences");
+        jBSaisiAbsence.setText("Saisie des absences");
 
         jBBultinAbsence.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jBBultinAbsence.setText("Edition de bulletin d'absences");

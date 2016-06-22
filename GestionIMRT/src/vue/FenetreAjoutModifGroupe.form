@@ -3,9 +3,6 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.ComponentChooserEditor">
-      <ComponentRef name="default"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -32,7 +29,7 @@
                   <Component id="lCode" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lPromotion" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lClasse" min="-2" max="-2" attributes="0"/>
                   <Component id="txCode" min="-2" pref="169" max="-2" attributes="0"/>
@@ -81,12 +78,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lPromotion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Class"/>
+        <Property name="text" type="java.lang.String" value="Classe"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="bAjout">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ajout"/>
+        <Property name="text" type="java.lang.String" value="Ajouter"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAjoutActionPerformed"/>

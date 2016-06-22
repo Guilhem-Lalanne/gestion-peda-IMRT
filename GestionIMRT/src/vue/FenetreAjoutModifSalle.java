@@ -67,7 +67,7 @@ public class FenetreAjoutModifSalle extends javax.swing.JDialog {
 
         lCode.setText("Nom de salle");
 
-        bAjout.setText("Ajout");
+        bAjout.setText("Ajouter");
         bAjout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAjoutActionPerformed(evt);
@@ -94,7 +94,7 @@ public class FenetreAjoutModifSalle extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bAnnuler)
                     .addComponent(txCode, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

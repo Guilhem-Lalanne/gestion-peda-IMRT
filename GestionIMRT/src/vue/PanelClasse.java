@@ -37,7 +37,7 @@ public class PanelClasse extends javax.swing.JPanel {
     public PanelClasse(Connection c, Frame parent) {
         initComponents();
         
-        this.setName("Gestion Classes");
+        this.setName("Gestion des classes");
         
         cnx = c;
         leDao = new DaoClasse(cnx);
@@ -75,14 +75,14 @@ public class PanelClasse extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(liListeClasse);
 
-        btAjout.setText("Ajout Classe");
+        btAjout.setText("Ajouter une classe");
         btAjout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAjoutActionPerformed(evt);
             }
         });
 
-        btSuppression.setText("Delete Classe");
+        btSuppression.setText("Supprimer une classe");
         btSuppression.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSuppressionActionPerformed(evt);

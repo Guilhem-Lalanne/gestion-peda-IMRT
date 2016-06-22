@@ -49,7 +49,7 @@ public class PanelGroupes extends javax.swing.JPanel {
         
         initComponents();
         
-        this.setName("Gestion groupes");
+        this.setName("Gestion des groupes");
         
         cnx = c;
         currentPromo = promo;
@@ -103,21 +103,21 @@ public class PanelGroupes extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(liListeGroupes);
 
-        btAjout.setText("Ajout Groupe");
+        btAjout.setText("Ajouter un  groupe");
         btAjout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAjoutActionPerformed(evt);
             }
         });
 
-        btSuppression.setText("Supprimmer groupe");
+        btSuppression.setText("Supprimer un groupe");
         btSuppression.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSuppressionActionPerformed(evt);
             }
         });
 
-        lClass.setText("Class");
+        lClass.setText("Classe");
 
         cbClasses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbClasses.addItemListener(new java.awt.event.ItemListener() {

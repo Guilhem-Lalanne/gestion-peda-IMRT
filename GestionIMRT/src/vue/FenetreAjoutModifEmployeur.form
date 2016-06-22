@@ -24,32 +24,26 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
-                      <Component id="btAnnulerEmp" min="-2" pref="129" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
+                      <Component id="lTitreAjouEmp" min="-2" pref="279" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
-                          <Component id="lTitreAjouEmp" min="-2" pref="279" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lNomEmp" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="lAdresseEmp" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lNomEmp" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                      <Component id="lAdresseEmp" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txNomEmp" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txAdresseEmp" alignment="0" pref="522" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="btEnejistrerEmp" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btEnejistrerEmp" min="-2" pref="146" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                              <Component id="btAnnulerEmp" min="-2" pref="129" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="txNomEmp" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txAdresseEmp" alignment="0" pref="522" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -71,18 +65,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="txAdresseEmp" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btAnnulerEmp" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="btEnejistrerEmp" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btEnejistrerEmp" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="btAnnulerEmp" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lAdresseEmp" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="lAdresseEmp" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

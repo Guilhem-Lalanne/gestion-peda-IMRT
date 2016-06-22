@@ -186,7 +186,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lTitre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lTitre.setText("Modification d'un Enseignant");
+        lTitre.setText("Modification de la fiche d'un enseignant");
 
         lNomEns.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lNomEns.setText("Nom");
@@ -218,10 +218,10 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
         });
 
         lNumFixe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lNumFixe.setText("Numero de telephone fixe");
+        lNumFixe.setText("Numéro de téléphone fixe");
 
         lNumMobile.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lNumMobile.setText("Numero de telephone mobile");
+        lNumMobile.setText("Numéro de téléphone mobile");
 
         lAdresseMail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lAdresseMail.setText("Adresse mail");
@@ -310,10 +310,10 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        pUE.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "UE enseignée", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pUE.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "U.E. enseignées", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         pUE.setToolTipText("");
 
-        lListeComplete.setText("Liste des UE");
+        lListeComplete.setText("Liste des U.E.");
 
         liListeComplete.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -326,7 +326,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
 
         btSupprimerUE.setText("<<");
 
-        lListeEnseignee.setText("UE Enseignées");
+        lListeEnseignee.setText("U.E. Enseignées");
 
         liListeEnseignee.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -406,7 +406,7 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
             }
         });
 
-        btAjoutEmployeur.setText("Ajout nouveau employer");
+        btAjoutEmployeur.setText("Ajout d'un nouvel employeur");
         btAjoutEmployeur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAjoutEmployeurActionPerformed(evt);
@@ -449,14 +449,14 @@ public class FenetreModifEnseignant extends javax.swing.JDialog {
                                 .addComponent(txNumMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(lNomEmp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txAdresseMail, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbNomEmployeur, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbNomEmployeur, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(106, 106, 106)

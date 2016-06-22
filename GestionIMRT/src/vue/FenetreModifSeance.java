@@ -333,29 +333,6 @@ public class FenetreModifSeance extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btAnnulerActionPerformed
 
-    private void cbGroupeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbGroupeItemStateChanged
-        
-    }//GEN-LAST:event_cbGroupeItemStateChanged
-
-    private void cbGroupeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGroupeActionPerformed
-        
-        if (cbGroupe.getSelectedIndex() != -1) {
-            
-            //recharge models
-            mc.groupe = mg.get(cbGroupe.getSelectedIndex()).getIdGroupe();
-            
-            cbCours.setSelectedIndex(-1);
-            
-            try {
-                //tools.debug("start");
-                mc.chargerClasses();
-                //tools.debug("end");
-            } catch (SQLException ex) {
-                Logger.getLogger(PanelGroupes.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_cbGroupeActionPerformed
-
     private void btValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btValiderActionPerformed
         if (this.act == 0) {
             //creation
@@ -424,6 +401,29 @@ public class FenetreModifSeance extends javax.swing.JDialog {
             
         }
     }//GEN-LAST:event_btValiderActionPerformed
+
+    private void cbGroupeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGroupeActionPerformed
+
+        if (cbGroupe.getSelectedIndex() != -1) {
+
+            //recharge models
+            mc.groupe = mg.get(cbGroupe.getSelectedIndex()).getIdGroupe();
+
+            cbCours.setSelectedIndex(-1);
+
+            try {
+                //tools.debug("start");
+                mc.chargerClasses();
+                //tools.debug("end");
+            } catch (SQLException ex) {
+                Logger.getLogger(PanelGroupes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_cbGroupeActionPerformed
+
+    private void cbGroupeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbGroupeItemStateChanged
+
+    }//GEN-LAST:event_cbGroupeItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAnnuler;

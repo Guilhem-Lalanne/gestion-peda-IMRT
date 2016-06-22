@@ -82,7 +82,7 @@
                           <Component id="lNiveau" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lAnnee" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="195" max="32767" attributes="0"/>
+                              <EmptySpace pref="642" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel3" min="-2" pref="722" max="-2" attributes="0"/>
                                   <Component id="jLabel2" min="-2" pref="848" max="-2" attributes="0"/>
@@ -222,26 +222,26 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" alignment="0" pref="1615" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" pref="2062" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="btAjoutSeance" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btAjoutSeance" min="-2" pref="185" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="btModifSeance" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btModifSeance" min="-2" pref="185" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="choixDate" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="btSemainePrec" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="btSemaineNext" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btSemainePrec" min="-2" pref="185" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="btSemaineNext" min="-2" pref="185" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="btSuppSeance" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btSuppSeance" min="-2" pref="185" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="lSemaine" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -256,27 +256,22 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btSemainePrec" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btSemaineNext" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="btSemainePrec" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="choixDate" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btSemaineNext" alignment="0" max="32767" attributes="0"/>
+                          <Component id="choixDate" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="lSemaine" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btAjoutSeance" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btModifSeance" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btSuppSeance" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btAjoutSeance" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="btModifSeance" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="btSuppSeance" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="784" max="-2" attributes="0"/>
@@ -313,7 +308,10 @@
             </Container>
             <Component class="javax.swing.JButton" name="btSemainePrec">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Semaine Precedant"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Semaine pr&#xe9;c&#xe9;dente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSemainePrecActionPerformed"/>
@@ -321,7 +319,10 @@
             </Component>
             <Component class="javax.swing.JButton" name="btSemaineNext">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Semaine Prochaine"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Semaine suivante"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSemaineNextActionPerformed"/>
@@ -329,7 +330,10 @@
             </Component>
             <Component class="javax.swing.JButton" name="btAjoutSeance">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ajout Seance"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ajouter une s&#xe9;ance"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[125, 23]"/>
                 </Property>
@@ -343,7 +347,10 @@
             </Component>
             <Component class="javax.swing.JButton" name="btModifSeance">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Modifier Seance"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Modifier une  s&#xe9;ance"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btModifSeanceActionPerformed"/>
@@ -351,7 +358,10 @@
             </Component>
             <Component class="javax.swing.JButton" name="btSuppSeance">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Supprmier Seance"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Supprimer une s&#xe9;ance"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lSemaine">
@@ -360,6 +370,11 @@
               </Properties>
             </Component>
             <Component class="org.jdesktop.swingx.JXDatePicker" name="choixDate">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="choixDateActionPerformed"/>
               </Events>
@@ -406,7 +421,7 @@
                           </Group>
                           <Component id="spEtudiants" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="1027" max="32767" attributes="0"/>
+                      <EmptySpace pref="1474" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -495,7 +510,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Gestion des abscences"/>
+                <Property name="text" type="java.lang.String" value="Gestion des absences"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btNotesEtudiant">
@@ -574,7 +589,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="755" max="32767" attributes="0"/>
+                      <EmptySpace pref="1202" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -636,7 +651,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Gestion des cours faits"/>
+                <Property name="text" type="java.lang.String" value="Validation des cours r&#xe9;alis&#xe9;s"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btCreationEtatHeure">
@@ -644,7 +659,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="creation d&apos;&#xe9;tat des heures"/>
+                <Property name="text" type="java.lang.String" value="Cr&#xe9;ation d&apos;&#xe9;tat des heures"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -721,7 +736,7 @@
                               <Component id="cbChoixClasse" min="-2" pref="160" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="761" max="32767" attributes="0"/>
+                      <EmptySpace pref="1208" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -752,7 +767,7 @@
                               <Component id="btimprilConvocSurveil" alignment="0" max="32767" attributes="0"/>
                               <Component id="btImprimPvIntero" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="441" max="32767" attributes="0"/>
+                          <EmptySpace pref="888" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -815,7 +830,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="surveillants de l&apos;&#xe9;preuve">
+                    <TitledBorder title="Surveillants de l&apos;&#xe9;preuve">
                       <Font PropertyName="font" name="Tahoma" size="14" style="1"/>
                     </TitledBorder>
                   </Border>
@@ -933,7 +948,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="imprimer liste d&apos;emargement"/>
+                <Property name="text" type="java.lang.String" value="Imprimer liste d&apos;&#xe9;margement"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="cbChoixUe">
@@ -951,7 +966,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="imprimer Pv de surveillance"/>
+                <Property name="text" type="java.lang.String" value="Imprimer P.V. de surveillance"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btImprimPvIntero">
@@ -959,7 +974,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="imprimer Pv d&apos;interogation"/>
+                <Property name="text" type="java.lang.String" value="Imprimer P.V. d&apos;interogation"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btImprimConvocEtud">
@@ -996,15 +1011,11 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="279" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="cbChoixEtud" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <EmptySpace pref="129" max="32767" attributes="0"/>
-                                  <Component id="lNomEtud" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                                  <Component id="cbChoixEtudRepasUe" min="-2" pref="138" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                                  <EmptySpace min="131" pref="611" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1019,12 +1030,8 @@
                                   <Component id="lPromo" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="cbChoixEtud" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Component id="lNomEtud" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                      <Component id="cbChoixEtudRepasUe" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                                  </Group>
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="cbChoixEtud" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -1042,33 +1049,10 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="promotion"/>
+                    <Property name="text" type="java.lang.String" value="Promotion"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cbChoixEtud">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lNomEtud">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="14" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="nom de l&apos;&#xe9;tudiant"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="cbChoixEtudRepasUe">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -1249,7 +1233,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="gestion des examens"/>
+                <Property name="text" type="java.lang.String" value="Gestion des examens"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lPromotion">
@@ -1257,7 +1241,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="promotion"/>
+                <Property name="text" type="java.lang.String" value="Promotion"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="spListeEtudConvoque">
@@ -1357,7 +1341,7 @@
                               <Component id="btSupprimer" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="1027" max="32767" attributes="0"/>
+                      <EmptySpace pref="1474" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

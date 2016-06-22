@@ -93,7 +93,7 @@ public class FenetreAjoutModifClasse extends javax.swing.JDialog {
 
         lNom.setText("Nom");
 
-        bAjout.setText("Ajout");
+        bAjout.setText("Ajouter");
         bAjout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAjoutActionPerformed(evt);

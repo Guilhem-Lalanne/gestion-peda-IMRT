@@ -48,7 +48,7 @@ public class PanelSalle extends javax.swing.JPanel {
         
         initComponents();
         
-        this.setName("Gestion Salles");
+        this.setName("Gestion des salles");
         
         cnx = c;
         myparent = parent;

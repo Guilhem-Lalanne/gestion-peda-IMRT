@@ -60,9 +60,9 @@ public class FenetreRestaurerEtudiant extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lTitre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lTitre.setText("Restauration d'un étudiant");
+        lTitre.setText("Restauration d'un fichier étudiant");
 
-        btRestaurer.setText("OK");
+        btRestaurer.setText("Valider");
 
         btAnnulerRestaurer.setText("Annuler");
         btAnnulerRestaurer.addActionListener(new java.awt.event.ActionListener() {

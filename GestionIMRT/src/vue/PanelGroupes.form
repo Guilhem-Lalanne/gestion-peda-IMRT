@@ -79,7 +79,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="btAjout">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ajout Groupe"/>
+        <Property name="text" type="java.lang.String" value="Ajouter un  groupe"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAjoutActionPerformed"/>
@@ -87,7 +87,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btSuppression">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Supprimmer groupe"/>
+        <Property name="text" type="java.lang.String" value="Supprimer un groupe"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSuppressionActionPerformed"/>
@@ -95,7 +95,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lClass">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Class"/>
+        <Property name="text" type="java.lang.String" value="Classe"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cbClasses">
