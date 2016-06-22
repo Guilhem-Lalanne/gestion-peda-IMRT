@@ -6,6 +6,7 @@ package appli;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,6 +36,11 @@ public class tools {
         String newDateStr = postFormater.format(dateObj);
         
         return newDateStr;
+    }
+    
+    public static void showDialog(String title, String content) {
+        JOptionPane.showMessageDialog(null, content,
+                    title, JOptionPane.INFORMATION_MESSAGE);
     }
     
 }

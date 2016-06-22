@@ -26,7 +26,7 @@ public class DaoUser {
 
     public void getUsers(List<User> users) throws SQLException {
         
-        String requete = "select * from v_liste_users";
+        String requete = "select * from v_liste_users order by login";
         PreparedStatement pstmt = cnx.prepareStatement(requete);
         ResultSet rset = pstmt.executeQuery(requete);
         

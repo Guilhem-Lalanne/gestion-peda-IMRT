@@ -237,6 +237,7 @@ public class FenetreModifSeance extends javax.swing.JDialog {
 
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jCheckBox1.setText(" Récurrence");
+        jCheckBox1.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

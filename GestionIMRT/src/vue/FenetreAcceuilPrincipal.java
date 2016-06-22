@@ -208,7 +208,6 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         LiUser = new javax.swing.JTable();
         btAjouterUser = new javax.swing.JButton();
         btSupprimer = new javax.swing.JButton();
-        btModifier = new javax.swing.JButton();
         pGestionExamen = new javax.swing.JPanel();
         pSurveillantEpreuve = new javax.swing.JPanel();
         spSurveillantEpreuve = new javax.swing.JScrollPane();
@@ -374,6 +373,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         btModifSeance.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btModifSeance.setText("Modifier une  séance");
+        btModifSeance.setEnabled(false);
         btModifSeance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btModifSeanceActionPerformed(evt);
@@ -382,6 +382,12 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         btSuppSeance.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btSuppSeance.setText("Supprimer une séance");
+        btSuppSeance.setEnabled(false);
+        btSuppSeance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSuppSeanceActionPerformed(evt);
+            }
+        });
 
         lSemaine.setText("jLabel1");
 
@@ -672,27 +678,17 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btModifier.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btModifier.setText("Modifier");
-        btModifier.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btModifierActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pGestionUsersLayout = new javax.swing.GroupLayout(pGestionUsers);
         pGestionUsers.setLayout(pGestionUsersLayout);
         pGestionUsersLayout.setHorizontalGroup(
             pGestionUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pGestionUsersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pGestionUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pGestionUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(spUser, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pGestionUsersLayout.createSequentialGroup()
                         .addComponent(btAjouterUser, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(btModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btSupprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(1594, Short.MAX_VALUE))
         );
@@ -704,8 +700,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pGestionUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btAjouterUser, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btSupprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btSupprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(539, Short.MAX_VALUE))
         );
 
@@ -1083,7 +1078,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         int index = sourceTabbedPane.getSelectedIndex();
 
         //onglet users
-        if (index == 5) {
+        if (index == 4) {
             tools.debug("->GestionUsers");
 
             //init de dao pour recuperation des données
@@ -1172,6 +1167,14 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
             liAgenda.getColumnModel().getColumn(0).setMaxWidth(62);
 
+        } else if (index == 8) {
+            
+            try {
+                pg.mc.chargerClasses();
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }//GEN-LAST:event_pGroupPaneStateChanged
 
@@ -1182,16 +1185,18 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
         //recuperation des données dans modelList
         ModeleReferentiel refModel = new ModeleReferentiel(daoRef, "userGroupes");
-
+        
         User u = new User();
-
+        
         FenetreAjoutModifUser fmu = new FenetreAjoutModifUser(this, //fenetre pere
                 u, //ma selection d'user
                 refModel, //mon modele de groupes
-                0,
+                0,  //action
                 cnx);
+        
+        u = fmu.doModal();
 
-        if (fmu.doModal()) {
+        if (u.login != "") {
             userModel.insererLigne(u);
         }
 
@@ -1356,24 +1361,6 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btSupprimerActionPerformed
 
-    private void btModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModifierActionPerformed
-
-        //init de dao pour recuperation des données
-        DaoReferentiel daoRef = new DaoReferentiel(cnx);
-
-        //recuperation des données dans modelList
-        ModeleReferentiel refModel = new ModeleReferentiel(daoRef, "userGroupes");
-
-        FenetreAjoutModifUser fmu = new FenetreAjoutModifUser(this, //fenetre pere
-                this.userModel.get(LiUser.getSelectedRow()), //ma selection d'user
-                refModel, //mon modele de groupes
-                1,
-                cnx);
-
-        fmu.doModal();
-
-    }//GEN-LAST:event_btModifierActionPerformed
-
     private void btSemainePrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSemainePrecActionPerformed
 
         Agenda.setPreviousWeek(dateAgenda);
@@ -1478,32 +1465,36 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
 
     private void btAjoutSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjoutSeanceActionPerformed
 
-        CelluleAgenda ca = agendaModel.getObjetAt(liAgenda.getSelectedRow(), liAgenda.getSelectedColumn());
+        if (liAgenda.getSelectedRow() != -1) {
+        
+            CelluleAgenda ca = agendaModel.getObjetAt(liAgenda.getSelectedRow(), liAgenda.getSelectedColumn());
+            FenetreModifSeance fs = null;
 
-        FenetreModifSeance fs = null;
+            try {
+                fs = new FenetreModifSeance(this, ca, cnx, 0);
 
-        try {
-            fs = new FenetreModifSeance(this, ca, cnx, 0);
+                int res = fs.doModal();
+
+                if (res == 0) {
+                    rechargeAgenda();
+
+                    /*
+                    Twitter twitter = new TwitterFactory().getInstance();
+                    Status status = twitter.updateStatus("a");
+                    tools.debug("Send tweet: " + status.getText());
+                    */
+                }
+
+            } catch (ParseException ex) {
+                Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }/* catch (TwitterException ex) {
+                Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }*/
+        } else {
             
-            int res = fs.doModal();
-            
-            if (res == 0) {
-                rechargeAgenda();
-                
-                /*
-                Twitter twitter = new TwitterFactory().getInstance();
-                Status status = twitter.updateStatus("a");
-                tools.debug("Send tweet: " + status.getText());
-                */
-            }
-            
-        } catch (ParseException ex) {
-            Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }/* catch (TwitterException ex) {
-            Logger.getLogger(FenetreAcceuilPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
 
     }//GEN-LAST:event_btAjoutSeanceActionPerformed
 
@@ -1555,6 +1546,10 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbChoixClasseActionPerformed
 
+    private void btSuppSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSuppSeanceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btSuppSeanceActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable LiUser;
     private javax.swing.JButton btAbsenceEtudiant;
@@ -1573,7 +1568,6 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btImprimPvIntero;
     private javax.swing.JButton btImprimPvSurveillant;
     private javax.swing.JButton btModifSeance;
-    private javax.swing.JButton btModifier;
     private javax.swing.JButton btModifierEtudiant;
     private javax.swing.JButton btNotesEtudiant;
     private javax.swing.JButton btPassageEtudiant;

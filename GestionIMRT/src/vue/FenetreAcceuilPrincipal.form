@@ -354,6 +354,7 @@
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Modifier une  s&#xe9;ance"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btModifSeanceActionPerformed"/>
@@ -365,7 +366,11 @@
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Supprimer une s&#xe9;ance"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSuppSeanceActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lSemaine">
               <Properties>
@@ -741,13 +746,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="spUser" min="-2" pref="598" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="btAjouterUser" min="-2" pref="180" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="btModifier" min="-2" pref="180" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="btSupprimer" min="-2" pref="180" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -764,7 +767,6 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btAjouterUser" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                           <Component id="btSupprimer" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="btModifier" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="539" max="32767" attributes="0"/>
                   </Group>
@@ -808,17 +810,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSupprimerActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btModifier">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Modifier"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btModifierActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

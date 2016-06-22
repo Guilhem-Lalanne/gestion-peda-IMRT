@@ -6,9 +6,16 @@
 package vue;
 
 import appli.ModeleReferentiel;
+import appli.tools;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import metier.User;
 
 /**
@@ -43,6 +50,7 @@ public class FenetreAjoutModifUser extends javax.swing.JDialog {
         
         super(parent, true);
         initComponents();
+        etatValidation = false;
         
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
@@ -87,7 +95,7 @@ public class FenetreAjoutModifUser extends javax.swing.JDialog {
         lPrenomEtu1 = new javax.swing.JLabel();
         txPrenomEtu1 = new javax.swing.JTextField();
         lLibelle = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txPassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -114,6 +122,7 @@ public class FenetreAjoutModifUser extends javax.swing.JDialog {
         lLibelle.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lLibelle.setText("libelle");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Sauvegarder");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +130,13 @@ public class FenetreAjoutModifUser extends javax.swing.JDialog {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Annuler");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,21 +145,21 @@ public class FenetreAjoutModifUser extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lNomEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lPrenomEtu1, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                     .addComponent(lAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lPrenomEtu, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                    .addComponent(lPrenomEtu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lPrenomEtu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(cbUserGroupes, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txLogin)
                         .addComponent(txPrenomEtu1)
                         .addComponent(lLibelle)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                        .addComponent(txPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,19 +176,19 @@ public class FenetreAjoutModifUser extends javax.swing.JDialog {
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lPrenomEtu, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lPrenomEtu1, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
                     .addComponent(txPrenomEtu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbUserGroupes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(lAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbUserGroupes, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -182,61 +197,48 @@ public class FenetreAjoutModifUser extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        switch (action) {
-            case 0: addUser(modUser);break;
-            case 1: deleteUser();break;
-            case 2: modifyUser();break;
-        }
+        tools.debug("action: " + action);
+        
+        modUser.setLogin(txLogin.getText());
+        modUser.setMotDePasse(String.valueOf(txPassword.getPassword()));
+        modUser.setGroupe(cbUserGroupes.getSelectedIndex());
+        
+        int result;
+        
+        try {
+        
+           CallableStatement cstmt = cnx.prepareCall("begin GI_USER_SECURITY.add_user(?,?,?); end;");
+
+           //cstmt.registerOutParameter (1, Types.INTEGER);
+
+           cstmt.setString(1, modUser.getLogin());
+           cstmt.setString(2, modUser.getMotDePasse());
+           cstmt.setInt(3, modUser.getGroupe());
+
+           cstmt.execute();
+
+           tools.showDialog("Information", "Utilisateur " + modUser.getLogin()+ ""
+                   + " a bien été ajouté");
+
+           etatValidation = true;
+
+           this.dispose();
+
+       } catch (SQLException ex) { 
+            Logger.getLogger(FenetreAjoutModifUser.class.getName()).log(Level.SEVERE, null, ex);
+        } 
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     private void addUser(User u) {
         
-        u.setLogin(txLogin.getText());
-        u.setGroupe(cbUserGroupes.getSelectedIndex());
         
-        int result;
-        
-        //TODO: VALIDATION
-        /*
-
-        CallableStatement cstmt = cnx.prepareCall ("{ ? = call ajouter_enseignant(?, ?,?,?,?,?,?,?}");
-
-                cstmt.registerOutParameter (1, Types.INTEGER);
-                
-                cstmt.setString(2, ens.getNomEnseignant());
-                cstmt.setString(3, ens.getPrenomEnseignant());
-                cstmt.setString(4,ens.getDateNaissanceEnseignant());
-                cstmt.setString(5,ens.getAdresseEnseignant());
-                cstmt.setString(6,ens.getNumeroTelFixeEnseignant());
-                cstmt.setString(7,ens.getNumeroTelMobilEnseignant());
-                cstmt.setString(8,ens.getMailEnseignant());
-                cstmt.setString(9,ens.getProfession());
-                
-                cstmt.execute();
-                
-                result = cstmt.getInt(1);
-
-                tools.debug("Ajout : " + result);
-
-                //if (result == 1) {
-
-                    JOptionPane.showMessageDialog(null, "Ens "
-                        +this.ens.getNomEnseignant()+" "+this.ens.getPrenomEnseignant()
-                        + " a été bien ajouté",
-                        "Information", JOptionPane.INFORMATION_MESSAGE);
-
-                    this.resultat = 1;
-
-                    this.dispose();
-                    
-            } catch (SQLException ex) {
-                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Exception ex) {
-                Logger.getLogger(FenetreModificationEnseignantAcienne.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        */
+       
     }
     
     private void deleteUser() {
@@ -247,22 +249,22 @@ public class FenetreAjoutModifUser extends javax.swing.JDialog {
         
     }
     
-    public boolean doModal() {
+    public User doModal() {
         this.setVisible(true);
-        return etatValidation;
+        return modUser;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbUserGroupes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lAdresse;
     private javax.swing.JLabel lLibelle;
     private javax.swing.JLabel lNomEtu;
     private javax.swing.JLabel lPrenomEtu;
     private javax.swing.JLabel lPrenomEtu1;
     private javax.swing.JTextField txLogin;
+    private javax.swing.JPasswordField txPassword;
     private javax.swing.JTextField txPrenomEtu1;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,7 +29,7 @@ public class DaoClasse {
         String requete = "select g.id,g.id_promotion,g.code,g.nom,"
                 + "p.nom_promotion,p.annee "
                 + "from gi_classe g "
-                + " inner join gi_promotion p on g.id_promotion = p.id ";
+                + " inner join gi_promotion p on g.id_promotion = p.id order by g.nom";
         PreparedStatement pstmt = cnx.prepareStatement(requete);
         ResultSet rset = pstmt.executeQuery(requete);
         

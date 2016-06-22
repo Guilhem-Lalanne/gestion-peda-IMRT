@@ -41,8 +41,10 @@ public class ModeleClasse extends DefaultComboBoxModel {
         return leConteneur.get(index);
     }
 
-    private void chargerClasses() throws SQLException {
+    public void chargerClasses() throws SQLException {
+        leConteneur.removeAll(leConteneur);
         leDao.getClasses(leConteneur);
+        this.fireIntervalAdded(this, 0, 5);
     }
     
     @Override

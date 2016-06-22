@@ -68,6 +68,7 @@ public class FenetreLogin extends javax.swing.JFrame {
         lLogin.setText(" Login");
 
         txLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txLogin.setText("test");
         txLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txLoginActionPerformed(evt);
@@ -78,6 +79,7 @@ public class FenetreLogin extends javax.swing.JFrame {
         lMotDePasse.setText(" Mot de passe");
 
         pwMotDePasse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        pwMotDePasse.setText("test");
         pwMotDePasse.setToolTipText("");
 
         btValiderLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

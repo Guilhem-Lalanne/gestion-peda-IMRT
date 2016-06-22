@@ -54,6 +54,7 @@ public class ModeleCours extends DefaultComboBoxModel {
             leDao.getCoursParGroupe(leConteneur, groupe);
             tools.debug("charging with groupe : " + groupe);
         }
+        this.fireIntervalAdded(this, 0, 5);
     }
     
     @Override

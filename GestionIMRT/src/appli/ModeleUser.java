@@ -92,6 +92,7 @@ public class ModeleUser extends AbstractTableModel {
 
     private void charger() throws SQLException {
         leDao.getUsers(leConteneur);
+        this.fireTableDataChanged();
     }
 
 }
