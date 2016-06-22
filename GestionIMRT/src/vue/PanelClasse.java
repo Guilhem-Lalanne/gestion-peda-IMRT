@@ -62,6 +62,7 @@ public class PanelClasse extends javax.swing.JPanel {
         btAjout = new javax.swing.JButton();
         btSuppression = new javax.swing.JButton();
 
+        liListeClasse.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         liListeClasse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -75,6 +76,7 @@ public class PanelClasse extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(liListeClasse);
 
+        btAjout.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAjout.setText("Ajouter une classe");
         btAjout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +84,7 @@ public class PanelClasse extends javax.swing.JPanel {
             }
         });
 
+        btSuppression.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btSuppression.setText("Supprimer une classe");
         btSuppression.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +102,7 @@ public class PanelClasse extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btAjout)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(77, 77, 77)
                         .addComponent(btSuppression)))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
@@ -110,9 +113,9 @@ public class PanelClasse extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btAjout)
-                    .addComponent(btSuppression))
-                .addContainerGap(180, Short.MAX_VALUE))
+                    .addComponent(btAjout, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btSuppression, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

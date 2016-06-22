@@ -75,6 +75,7 @@ public class PanelCours extends javax.swing.JPanel {
         btSuppression = new javax.swing.JButton();
         btSuppression1 = new javax.swing.JButton();
 
+        liListeCours.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         liListeCours.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -88,6 +89,7 @@ public class PanelCours extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(liListeCours);
 
+        btAjout.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAjout.setText("Ajouter un cours");
         btAjout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +97,7 @@ public class PanelCours extends javax.swing.JPanel {
             }
         });
 
+        btSuppression.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btSuppression.setText("Supprimer un cours");
         btSuppression.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +105,7 @@ public class PanelCours extends javax.swing.JPanel {
             }
         });
 
+        btSuppression1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btSuppression1.setText("Modifier un cours");
         btSuppression1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,13 +119,13 @@ public class PanelCours extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btAjout)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btAjout, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85)
                         .addComponent(btSuppression1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btSuppression)))
                 .addContainerGap(254, Short.MAX_VALUE))
         );
@@ -130,13 +134,13 @@ public class PanelCours extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btSuppression)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btAjout)
-                        .addComponent(btSuppression1)))
-                .addContainerGap(167, Short.MAX_VALUE))
+                        .addComponent(btAjout, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btSuppression1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btSuppression, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
