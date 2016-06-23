@@ -21,7 +21,7 @@ import javax.swing.table.AbstractTableModel;
 public class ModeleUser extends AbstractTableModel {
 
     private List<User> leConteneur;
-    private String[] nomColonnes = {"login", "fullname","groupe"};
+    private String[] nomColonnes = {"Login", "Nom et Prénom","Groupe"};
     private DaoUser leDao;
 
     public ModeleUser(DaoUser leDao) {

@@ -53,7 +53,9 @@ public class DaoUser {
      */
     public User getUser(String login) throws SQLException {
         
-        String req = "select user_groupe,user_nom from gi_users where login = ?";
+        String req = "select user_groupe,user_nom,libelle "
+                + "from gi_users inner join ref_user_groupe on gi_users.user_groupe = ref_user_groupe.id "
+                + "where login = ?";
         PreparedStatement pstmt = cnx.prepareStatement(req);
         
         User currentUser = new User();
@@ -66,10 +68,12 @@ public class DaoUser {
             
             int userGroupe = rset.getInt(1);
             String userNom = rset.getString(2);
+            String niveauString = rset.getString(3);
             
             currentUser.setLogin(login);
             currentUser.setGroupe(userGroupe);
             currentUser.setFullname(userNom);
+            currentUser.setGroupeLibelle(niveauString);
                     
         }
         

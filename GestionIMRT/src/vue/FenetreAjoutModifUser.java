@@ -201,7 +201,18 @@ public class FenetreAjoutModifUser extends javax.swing.JDialog {
         
         modUser.setLogin(txLogin.getText());
         modUser.setMotDePasse(String.valueOf(txPassword.getPassword()));
-        modUser.setGroupe(cbUserGroupes.getSelectedIndex());
+        modUser.setGroupe(cbUserGroupes.getSelectedIndex()+1);
+        modUser.setUserNom(txPrenomEtu1.getText());
+        
+        int groupe_user = cbUserGroupes.getSelectedIndex();
+        
+        switch (groupe_user) {
+            case 0: modUser.setGroupeLibelle("Admin");break;
+            case 1: modUser.setGroupeLibelle("Secrétaire");break;
+            case 2: modUser.setGroupeLibelle("Etudiant");break;
+            case 3: modUser.setGroupeLibelle("Dev");break;
+        }
+                
         
         int result;
         

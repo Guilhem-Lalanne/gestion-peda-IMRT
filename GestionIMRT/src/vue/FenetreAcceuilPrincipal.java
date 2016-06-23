@@ -113,7 +113,7 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         this.lAnnee.setText("Promotion en cours: " + promotion.getNomPromotion());
 
         //activation des fenetres
-        this.lLogin.setText("User login: " + u.getLogin());
+        this.lLogin.setText("Utilisateur: " + u.getUserNom());
         this.lNiveau.setText("Niveau: " + u.getGroupeLibelle());
 
         int[] activityTable = u.getOngletsGroupes();
@@ -127,20 +127,34 @@ public class FenetreAcceuilPrincipal extends javax.swing.JFrame {
         }
         
         //Gestion de cours
-        pc = new PanelCours(cnx, this);
-        this.pGroupPane.add(pc);
+            pc = new PanelCours(cnx, this);
+            this.pGroupPane.add(pc);
 
-        //Gestion de Classes
-        pcc = new PanelClasse(cnx, this);
-        this.pGroupPane.add(pcc);
+            //Gestion de Classes
+            pcc = new PanelClasse(cnx, this);
+            this.pGroupPane.add(pcc);
+
+            //Gestion de groupes
+            pg = new PanelGroupes(cnx, this, promotion);
+            this.pGroupPane.add(pg);
+
+            //Gestion de salles
+            ps = new PanelSalle(cnx, parent);
+            this.pGroupPane.add(ps);
         
-        //Gestion de groupes
-        pg = new PanelGroupes(cnx, this, promotion);
-        this.pGroupPane.add(pg);
+        if (u.getGroupe() == 3) {
+        /*
+            ps.setEnabled(false);
+            pcc.setEnabled(false);
+            pc.setEnabled(false);
+            pg.setEnabled(false);*/
+            pGroupPane.setEnabledAt(6, false);
+            pGroupPane.setEnabledAt(7, false);
+            pGroupPane.setEnabledAt(8, false);
+            pGroupPane.setEnabledAt(9, false);
+            btAjoutSeance.setEnabled(false);
         
-        //Gestion de salles
-        ps = new PanelSalle(cnx, parent);
-        this.pGroupPane.add(ps);
+        }
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double width = screenSize.getWidth();

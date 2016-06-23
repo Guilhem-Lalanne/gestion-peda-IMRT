@@ -123,7 +123,7 @@ public class User {
                 break;
             case 3:
                 //User
-                for (int i=0;i<=2;i++) ret[i] = 1;
+                for (int i=0;i<=1;i++) ret[i] = 1;
                 break;
             case 4:
                 //dev
